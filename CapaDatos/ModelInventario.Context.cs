@@ -9,6 +9,7 @@
 
 namespace CapaDatos
 {
+    using CapaEntidades;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
