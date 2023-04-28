@@ -10,8 +10,7 @@ namespace CapaNegocios
 {
     public class CNColaborador
     {
-        //hola
-        CDColaborador CDcolaborador = new CDColaborador();
+        CDcolaborador CDcolaborador = new CDcolaborador();
         public bool GuardarColaborador(TbColaborador colaborador)
         {
             return CDcolaborador.GuardarColaborador(colaborador);
@@ -27,7 +26,7 @@ namespace CapaNegocios
         }
         public List<TbColaborador> listaColaboadores()
         {
-            return CDcolaborador.listaColaboadores( );
+            return CDcolaborador.listaColaboadores();
         }
     }
 }
