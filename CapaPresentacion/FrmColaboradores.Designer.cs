@@ -36,11 +36,6 @@
             this.TxtNombre = new Guna.UI2.WinForms.Guna2TextBox();
             this.TxtApe1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.TxtApe2 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.BtnGuardarColaborador = new Guna.UI2.WinForms.Guna2Button();
-            this.BtnModificar = new Guna.UI2.WinForms.Guna2Button();
-            this.BtnEliminar = new Guna.UI2.WinForms.Guna2Button();
-            this.BtnVerLista = new Guna.UI2.WinForms.Guna2Button();
             this.label4 = new System.Windows.Forms.Label();
             this.CbTipo = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -48,6 +43,11 @@
             this.TxtUsuario = new Guna.UI2.WinForms.Guna2TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.TxtContraseña = new Guna.UI2.WinForms.Guna2TextBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.BtnGuardarColaborador = new Guna.UI2.WinForms.Guna2Button();
+            this.BtnModificar = new Guna.UI2.WinForms.Guna2Button();
+            this.BtnEliminar = new Guna.UI2.WinForms.Guna2Button();
+            this.BtnVerLista = new Guna.UI2.WinForms.Guna2Button();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -70,10 +70,11 @@
             this.flowLayoutPanel2.Controls.Add(this.label7);
             this.flowLayoutPanel2.Controls.Add(this.TxtContraseña);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(5, 5);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(8, 8);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(10, 10, 0, 10);
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(770, 562);
+            this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(15, 15, 0, 15);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(1168, 864);
             this.flowLayoutPanel2.TabIndex = 3;
             // 
             // label1
@@ -81,10 +82,10 @@
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 10);
-            this.label1.Margin = new System.Windows.Forms.Padding(3, 0, 3000, 0);
+            this.label1.Location = new System.Drawing.Point(19, 15);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4500, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(285, 30);
+            this.label1.Size = new System.Drawing.Size(428, 43);
             this.label1.TabIndex = 0;
             this.label1.Text = "Datos del Colaborador";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -94,10 +95,10 @@
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Top;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(13, 70);
-            this.label2.Margin = new System.Windows.Forms.Padding(3, 30, 0, 0);
+            this.label2.Location = new System.Drawing.Point(19, 104);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 46, 0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(124, 21);
+            this.label2.Size = new System.Drawing.Size(190, 32);
             this.label2.TabIndex = 1;
             this.label2.Text = "Identificación";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -115,24 +116,25 @@
             this.TxtCedula.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtCedula.ForeColor = System.Drawing.Color.Black;
             this.TxtCedula.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TxtCedula.Location = new System.Drawing.Point(20, 98);
-            this.TxtCedula.Margin = new System.Windows.Forms.Padding(10, 7, 3000, 0);
+            this.TxtCedula.Location = new System.Drawing.Point(30, 147);
+            this.TxtCedula.Margin = new System.Windows.Forms.Padding(15, 11, 4500, 0);
             this.TxtCedula.Name = "TxtCedula";
             this.TxtCedula.PasswordChar = '\0';
             this.TxtCedula.PlaceholderText = "";
             this.TxtCedula.SelectedText = "";
-            this.TxtCedula.Size = new System.Drawing.Size(247, 35);
+            this.TxtCedula.Size = new System.Drawing.Size(370, 54);
             this.TxtCedula.TabIndex = 2;
+            this.TxtCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCedula_KeyPress);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Top;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(13, 148);
-            this.label3.Margin = new System.Windows.Forms.Padding(3, 15, 3000, 0);
+            this.label3.Location = new System.Drawing.Point(19, 224);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 23, 4500, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(166, 21);
+            this.label3.Size = new System.Drawing.Size(252, 32);
             this.label3.TabIndex = 3;
             this.label3.Text = "Nombre Completo";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -150,13 +152,13 @@
             this.TxtNombre.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtNombre.ForeColor = System.Drawing.Color.Black;
             this.TxtNombre.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TxtNombre.Location = new System.Drawing.Point(20, 176);
-            this.TxtNombre.Margin = new System.Windows.Forms.Padding(10, 7, 1, 0);
+            this.TxtNombre.Location = new System.Drawing.Point(30, 267);
+            this.TxtNombre.Margin = new System.Windows.Forms.Padding(15, 11, 2, 0);
             this.TxtNombre.Name = "TxtNombre";
             this.TxtNombre.PasswordChar = '\0';
             this.TxtNombre.PlaceholderText = "";
             this.TxtNombre.SelectedText = "";
-            this.TxtNombre.Size = new System.Drawing.Size(245, 35);
+            this.TxtNombre.Size = new System.Drawing.Size(368, 54);
             this.TxtNombre.TabIndex = 4;
             // 
             // TxtApe1
@@ -172,13 +174,13 @@
             this.TxtApe1.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtApe1.ForeColor = System.Drawing.Color.Black;
             this.TxtApe1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TxtApe1.Location = new System.Drawing.Point(268, 176);
-            this.TxtApe1.Margin = new System.Windows.Forms.Padding(2, 7, 2, 0);
+            this.TxtApe1.Location = new System.Drawing.Point(403, 267);
+            this.TxtApe1.Margin = new System.Windows.Forms.Padding(3, 11, 3, 0);
             this.TxtApe1.Name = "TxtApe1";
             this.TxtApe1.PasswordChar = '\0';
             this.TxtApe1.PlaceholderText = "";
             this.TxtApe1.SelectedText = "";
-            this.TxtApe1.Size = new System.Drawing.Size(245, 35);
+            this.TxtApe1.Size = new System.Drawing.Size(368, 54);
             this.TxtApe1.TabIndex = 6;
             // 
             // TxtApe2
@@ -194,14 +196,131 @@
             this.TxtApe2.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtApe2.ForeColor = System.Drawing.Color.Black;
             this.TxtApe2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TxtApe2.Location = new System.Drawing.Point(517, 176);
-            this.TxtApe2.Margin = new System.Windows.Forms.Padding(2, 7, 0, 0);
+            this.TxtApe2.Location = new System.Drawing.Point(777, 267);
+            this.TxtApe2.Margin = new System.Windows.Forms.Padding(3, 11, 0, 0);
             this.TxtApe2.Name = "TxtApe2";
             this.TxtApe2.PasswordChar = '\0';
             this.TxtApe2.PlaceholderText = "";
             this.TxtApe2.SelectedText = "";
-            this.TxtApe2.Size = new System.Drawing.Size(245, 35);
+            this.TxtApe2.Size = new System.Drawing.Size(368, 54);
             this.TxtApe2.TabIndex = 8;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(19, 359);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 38, 4500, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(207, 32);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Tipo de Usuario";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // CbTipo
+            // 
+            this.CbTipo.BackColor = System.Drawing.Color.Transparent;
+            this.CbTipo.BorderRadius = 10;
+            this.CbTipo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.CbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbTipo.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.CbTipo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.CbTipo.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.CbTipo.ForeColor = System.Drawing.Color.Black;
+            this.CbTipo.ItemHeight = 30;
+            this.CbTipo.Items.AddRange(new object[] {
+            "prueba",
+            "prueba",
+            "prueba"});
+            this.CbTipo.Location = new System.Drawing.Point(30, 402);
+            this.CbTipo.Margin = new System.Windows.Forms.Padding(15, 11, 4500, 0);
+            this.CbTipo.Name = "CbTipo";
+            this.CbTipo.Size = new System.Drawing.Size(376, 36);
+            this.CbTipo.TabIndex = 10;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(19, 484);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 46, 4500, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(316, 43);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Datos de Usuario";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(19, 573);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 46, 0, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(106, 32);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Usuario";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // TxtUsuario
+            // 
+            this.TxtUsuario.BorderRadius = 10;
+            this.TxtUsuario.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TxtUsuario.DefaultText = "";
+            this.TxtUsuario.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.TxtUsuario.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.TxtUsuario.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.TxtUsuario.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.TxtUsuario.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TxtUsuario.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtUsuario.ForeColor = System.Drawing.Color.Black;
+            this.TxtUsuario.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TxtUsuario.Location = new System.Drawing.Point(30, 616);
+            this.TxtUsuario.Margin = new System.Windows.Forms.Padding(15, 11, 4500, 0);
+            this.TxtUsuario.Name = "TxtUsuario";
+            this.TxtUsuario.PasswordChar = '\0';
+            this.TxtUsuario.PlaceholderText = "";
+            this.TxtUsuario.SelectedText = "";
+            this.TxtUsuario.Size = new System.Drawing.Size(370, 54);
+            this.TxtUsuario.TabIndex = 13;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(19, 693);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 23, 4500, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(163, 32);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Contraseña";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // TxtContraseña
+            // 
+            this.TxtContraseña.BorderRadius = 10;
+            this.TxtContraseña.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TxtContraseña.DefaultText = "";
+            this.TxtContraseña.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.TxtContraseña.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.TxtContraseña.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.TxtContraseña.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.TxtContraseña.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TxtContraseña.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtContraseña.ForeColor = System.Drawing.Color.Black;
+            this.TxtContraseña.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TxtContraseña.Location = new System.Drawing.Point(30, 736);
+            this.TxtContraseña.Margin = new System.Windows.Forms.Padding(15, 11, 15, 0);
+            this.TxtContraseña.Name = "TxtContraseña";
+            this.TxtContraseña.PasswordChar = '\0';
+            this.TxtContraseña.PlaceholderText = "";
+            this.TxtContraseña.SelectedText = "";
+            this.TxtContraseña.Size = new System.Drawing.Size(368, 54);
+            this.TxtContraseña.TabIndex = 15;
             // 
             // flowLayoutPanel1
             // 
@@ -211,10 +330,11 @@
             this.flowLayoutPanel1.Controls.Add(this.BtnEliminar);
             this.flowLayoutPanel1.Controls.Add(this.BtnVerLista);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(775, 5);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(1176, 8);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 0, 4, 5);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(273, 562);
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 0, 6, 8);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(396, 864);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
             // BtnGuardarColaborador
@@ -235,11 +355,11 @@
             this.BtnGuardarColaborador.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(99)))), ((int)(((byte)(174)))));
             this.BtnGuardarColaborador.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
             this.BtnGuardarColaborador.HoverState.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGuardarColaborador.Location = new System.Drawing.Point(3, 30);
-            this.BtnGuardarColaborador.Margin = new System.Windows.Forms.Padding(3, 30, 3, 30);
+            this.BtnGuardarColaborador.Location = new System.Drawing.Point(4, 46);
+            this.BtnGuardarColaborador.Margin = new System.Windows.Forms.Padding(4, 46, 4, 46);
             this.BtnGuardarColaborador.Name = "BtnGuardarColaborador";
             this.BtnGuardarColaborador.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
-            this.BtnGuardarColaborador.Size = new System.Drawing.Size(219, 32);
+            this.BtnGuardarColaborador.Size = new System.Drawing.Size(316, 43);
             this.BtnGuardarColaborador.TabIndex = 9;
             this.BtnGuardarColaborador.Text = "Guardar Colaborador";
             this.BtnGuardarColaborador.UseTransparentBackground = true;
@@ -263,11 +383,11 @@
             this.BtnModificar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(99)))), ((int)(((byte)(174)))));
             this.BtnModificar.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
             this.BtnModificar.HoverState.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnModificar.Location = new System.Drawing.Point(3, 122);
-            this.BtnModificar.Margin = new System.Windows.Forms.Padding(3, 30, 3, 30);
+            this.BtnModificar.Location = new System.Drawing.Point(4, 181);
+            this.BtnModificar.Margin = new System.Windows.Forms.Padding(4, 46, 4, 46);
             this.BtnModificar.Name = "BtnModificar";
             this.BtnModificar.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
-            this.BtnModificar.Size = new System.Drawing.Size(227, 32);
+            this.BtnModificar.Size = new System.Drawing.Size(328, 43);
             this.BtnModificar.TabIndex = 10;
             this.BtnModificar.Text = "Modificar Colaborador";
             this.BtnModificar.UseTransparentBackground = true;
@@ -292,11 +412,11 @@
             this.BtnEliminar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(99)))), ((int)(((byte)(174)))));
             this.BtnEliminar.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
             this.BtnEliminar.HoverState.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnEliminar.Location = new System.Drawing.Point(3, 214);
-            this.BtnEliminar.Margin = new System.Windows.Forms.Padding(3, 30, 3, 30);
+            this.BtnEliminar.Location = new System.Drawing.Point(4, 316);
+            this.BtnEliminar.Margin = new System.Windows.Forms.Padding(4, 46, 4, 46);
             this.BtnEliminar.Name = "BtnEliminar";
             this.BtnEliminar.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
-            this.BtnEliminar.Size = new System.Drawing.Size(211, 32);
+            this.BtnEliminar.Size = new System.Drawing.Size(303, 43);
             this.BtnEliminar.TabIndex = 11;
             this.BtnEliminar.Text = "Eliminar Colaborador";
             this.BtnEliminar.UseTransparentBackground = true;
@@ -321,141 +441,29 @@
             this.BtnVerLista.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(99)))), ((int)(((byte)(174)))));
             this.BtnVerLista.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
             this.BtnVerLista.HoverState.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnVerLista.Location = new System.Drawing.Point(3, 306);
-            this.BtnVerLista.Margin = new System.Windows.Forms.Padding(3, 30, 3, 30);
+            this.BtnVerLista.Location = new System.Drawing.Point(4, 451);
+            this.BtnVerLista.Margin = new System.Windows.Forms.Padding(4, 46, 4, 46);
             this.BtnVerLista.Name = "BtnVerLista";
             this.BtnVerLista.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
-            this.BtnVerLista.Size = new System.Drawing.Size(263, 32);
+            this.BtnVerLista.Size = new System.Drawing.Size(382, 43);
             this.BtnVerLista.TabIndex = 12;
             this.BtnVerLista.Text = "Ver Lista de Colaboradores";
             this.BtnVerLista.UseTransparentBackground = true;
             this.BtnVerLista.Click += new System.EventHandler(this.BtnVerLista_Click);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(13, 236);
-            this.label4.Margin = new System.Windows.Forms.Padding(3, 25, 3000, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(137, 21);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Tipo de Usuario";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // CbTipo
-            // 
-            this.CbTipo.BackColor = System.Drawing.Color.Transparent;
-            this.CbTipo.BorderRadius = 10;
-            this.CbTipo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.CbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CbTipo.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.CbTipo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.CbTipo.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.CbTipo.ForeColor = System.Drawing.Color.Black;
-            this.CbTipo.ItemHeight = 30;
-            this.CbTipo.Location = new System.Drawing.Point(20, 264);
-            this.CbTipo.Margin = new System.Windows.Forms.Padding(10, 7, 3000, 0);
-            this.CbTipo.Name = "CbTipo";
-            this.CbTipo.Size = new System.Drawing.Size(252, 36);
-            this.CbTipo.TabIndex = 10;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(13, 330);
-            this.label5.Margin = new System.Windows.Forms.Padding(3, 30, 3000, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(213, 30);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Datos de Usuario";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(13, 390);
-            this.label6.Margin = new System.Windows.Forms.Padding(3, 30, 0, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(70, 21);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Usuario";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // TxtUsuario
-            // 
-            this.TxtUsuario.BorderRadius = 10;
-            this.TxtUsuario.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TxtUsuario.DefaultText = "";
-            this.TxtUsuario.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.TxtUsuario.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.TxtUsuario.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.TxtUsuario.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.TxtUsuario.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TxtUsuario.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtUsuario.ForeColor = System.Drawing.Color.Black;
-            this.TxtUsuario.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TxtUsuario.Location = new System.Drawing.Point(20, 418);
-            this.TxtUsuario.Margin = new System.Windows.Forms.Padding(10, 7, 3000, 0);
-            this.TxtUsuario.Name = "TxtUsuario";
-            this.TxtUsuario.PasswordChar = '\0';
-            this.TxtUsuario.PlaceholderText = "";
-            this.TxtUsuario.SelectedText = "";
-            this.TxtUsuario.Size = new System.Drawing.Size(247, 35);
-            this.TxtUsuario.TabIndex = 13;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(13, 468);
-            this.label7.Margin = new System.Windows.Forms.Padding(3, 15, 3000, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(109, 21);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "Contraseña";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // TxtContraseña
-            // 
-            this.TxtContraseña.BorderRadius = 10;
-            this.TxtContraseña.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TxtContraseña.DefaultText = "";
-            this.TxtContraseña.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.TxtContraseña.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.TxtContraseña.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.TxtContraseña.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.TxtContraseña.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TxtContraseña.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtContraseña.ForeColor = System.Drawing.Color.Black;
-            this.TxtContraseña.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TxtContraseña.Location = new System.Drawing.Point(20, 496);
-            this.TxtContraseña.Margin = new System.Windows.Forms.Padding(10, 7, 10, 0);
-            this.TxtContraseña.Name = "TxtContraseña";
-            this.TxtContraseña.PasswordChar = '\0';
-            this.TxtContraseña.PlaceholderText = "";
-            this.TxtContraseña.SelectedText = "";
-            this.TxtContraseña.Size = new System.Drawing.Size(245, 35);
-            this.TxtContraseña.TabIndex = 15;
-            // 
             // FrmColaboradores
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(54)))), ((int)(((byte)(94)))));
-            this.ClientSize = new System.Drawing.Size(1053, 572);
+            this.ClientSize = new System.Drawing.Size(1580, 880);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.flowLayoutPanel1);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FrmColaboradores";
-            this.Padding = new System.Windows.Forms.Padding(5);
+            this.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
             this.Text = "FrmColaboradores";
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();

@@ -190,6 +190,7 @@
             this.BtnSolicitud.TabIndex = 9;
             this.BtnSolicitud.Text = "Solicitud de insumos";
             this.BtnSolicitud.UseTransparentBackground = true;
+            this.BtnSolicitud.Click += new System.EventHandler(this.BtnSolicitud_Click);
             // 
             // BtnPresupuesto
             // 
@@ -216,6 +217,7 @@
             this.BtnPresupuesto.TabIndex = 10;
             this.BtnPresupuesto.Text = "Presupuestos";
             this.BtnPresupuesto.UseTransparentBackground = true;
+            this.BtnPresupuesto.Click += new System.EventHandler(this.BtnPresupuesto_Click);
             // 
             // Btn1
             // 
@@ -242,6 +244,7 @@
             this.Btn1.TabIndex = 11;
             this.Btn1.Text = "S/U";
             this.Btn1.UseTransparentBackground = true;
+            this.Btn1.Visible = false;
             // 
             // PanelContenedor
             // 

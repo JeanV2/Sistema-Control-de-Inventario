@@ -84,5 +84,16 @@ namespace CapaPresentacion
 
             }
         }
+
+        private void BtnPresupuesto_Click(object sender, EventArgs e)
+        {
+            FrmPresupuesto frmPresupuesto = new FrmPresupuesto();
+            frmPresupuesto.ShowDialog();
+        }
+
+        private void BtnSolicitud_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioHijo(new FrmSolicitudInsumos());
+        }
     }
 }

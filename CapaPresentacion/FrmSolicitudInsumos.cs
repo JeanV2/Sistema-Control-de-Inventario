@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion
 {
-    public partial class FrmGenerarCompra : Form
+    public partial class FrmSolicitudInsumos : Form
     {
-        public FrmGenerarCompra()
+        public FrmSolicitudInsumos()
         {
             InitializeComponent();
+        }
+
+        private void BtnVerListado_Click(object sender, EventArgs e)
+        {
+            FrmListaProductos frmListaProductos = new FrmListaProductos();
+            frmListaProductos.ShowDialog();
         }
     }
 }

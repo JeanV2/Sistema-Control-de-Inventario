@@ -15,7 +15,8 @@ namespace CapaDatos
     using System.Data.Entity.Infrastructure;
     using System.Data.Entity.Core.Objects;
     using System.Linq;
-    
+    using CapaEntidades;
+
     public partial class ControlInventarioEntities : DbContext
     {
         public ControlInventarioEntities()
