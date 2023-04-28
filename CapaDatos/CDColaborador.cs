@@ -14,6 +14,7 @@ namespace CapaDatos
         public bool GuardarColaborador(TbColaborador colaborador)
         {
             try
+                //hola
             {
                 using (ControlInventarioEntities DB= new ControlInventarioEntities())
                 {
