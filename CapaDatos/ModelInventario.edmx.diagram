@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="27db9bbcbc0b4882bcd50e5c528cd5d1" Name="Diagram1">
+        <EntityTypeShape EntityType="ControlInventarioModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ControlInventarioModel.TbColaborador" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ControlInventarioModel.TbCompraSolicitudP" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ControlInventarioModel.TbPresupuesto" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ControlInventarioModel.TbProducto" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ControlInventarioModel.TbProductoInsumoS" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ControlInventarioModel.TbSolicitudCompra" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ControlInventarioModel.TbSolicitudInsumo" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <AssociationConnector Association="ControlInventarioModel.FK_TbSolicitudCompra_TbColaborador" ManuallyRouted="false" />
+        <AssociationConnector Association="ControlInventarioModel.FK_TbSolicitudInsumo_TbColaborador" ManuallyRouted="false" />
+        <AssociationConnector Association="ControlInventarioModel.FK_TbCompraSolicitudP_TbProducto" ManuallyRouted="false" />
+        <AssociationConnector Association="ControlInventarioModel.FK_TbCompraSolicitudP_TbSolicitudCompra" ManuallyRouted="false" />
+        <AssociationConnector Association="ControlInventarioModel.FK_TbProductoInsumoS_TbProducto" ManuallyRouted="false" />
+        <AssociationConnector Association="ControlInventarioModel.FK_TbProductoInsumoS_TbSolicitudInsumo" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

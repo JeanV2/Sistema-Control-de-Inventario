@@ -273,7 +273,6 @@
             this.DgvListaProductos.DefaultCellStyle = dataGridViewCellStyle3;
             this.DgvListaProductos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgvListaProductos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(194)))));
-
             this.DgvListaProductos.Location = new System.Drawing.Point(0, 154);
             this.DgvListaProductos.Margin = new System.Windows.Forms.Padding(10);
 
