@@ -90,5 +90,10 @@ namespace CapaPresentacion
             FrmPresupuesto frmPresupuesto = new FrmPresupuesto();
             frmPresupuesto.ShowDialog();
         }
+
+        private void BtnSolicitud_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioHijo(new FrmSolicitudInsumos());
+        }
     }
 }

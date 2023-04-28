@@ -33,14 +33,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.TxtCodigoPresepuesto = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.DtpFechaSolicitud = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.TxtMontuoProsupuesto = new Guna.UI2.WinForms.Guna2TextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.BtnGuardarPresupuesto = new Guna.UI2.WinForms.Guna2Button();
             this.BtnModificar = new Guna.UI2.WinForms.Guna2Button();
             this.BtnEliminar = new Guna.UI2.WinForms.Guna2Button();
             this.BtnVerLista = new Guna.UI2.WinForms.Guna2Button();
-            this.DtpFechaSolicitud = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.label4 = new System.Windows.Forms.Label();
-            this.TxtMontuoProsupuesto = new Guna.UI2.WinForms.Guna2TextBox();
             this.BtnVolver = new Guna.UI2.WinForms.Guna2Button();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -60,7 +60,7 @@
             this.flowLayoutPanel2.Location = new System.Drawing.Point(5, 5);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(10, 10, 0, 10);
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(341, 378);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(341, 401);
             this.flowLayoutPanel2.TabIndex = 5;
             // 
             // label1
@@ -124,6 +124,58 @@
             this.label3.Text = "Fecha Aprobación";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // DtpFechaSolicitud
+            // 
+            this.DtpFechaSolicitud.BorderRadius = 10;
+            this.DtpFechaSolicitud.Checked = true;
+            this.DtpFechaSolicitud.FillColor = System.Drawing.SystemColors.Control;
+            this.DtpFechaSolicitud.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DtpFechaSolicitud.ForeColor = System.Drawing.Color.Black;
+            this.DtpFechaSolicitud.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtpFechaSolicitud.Location = new System.Drawing.Point(20, 174);
+            this.DtpFechaSolicitud.Margin = new System.Windows.Forms.Padding(10, 5, 3000, 0);
+            this.DtpFechaSolicitud.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.DtpFechaSolicitud.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.DtpFechaSolicitud.Name = "DtpFechaSolicitud";
+            this.DtpFechaSolicitud.Size = new System.Drawing.Size(170, 36);
+            this.DtpFechaSolicitud.TabIndex = 16;
+            this.DtpFechaSolicitud.Value = new System.DateTime(2023, 4, 28, 0, 31, 37, 383);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(13, 230);
+            this.label4.Margin = new System.Windows.Forms.Padding(3, 20, 0, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(182, 21);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "Montuo Prosupuesto";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // TxtMontuoProsupuesto
+            // 
+            this.TxtMontuoProsupuesto.BorderRadius = 10;
+            this.TxtMontuoProsupuesto.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TxtMontuoProsupuesto.DefaultText = "";
+            this.TxtMontuoProsupuesto.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.TxtMontuoProsupuesto.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.TxtMontuoProsupuesto.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.TxtMontuoProsupuesto.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.TxtMontuoProsupuesto.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TxtMontuoProsupuesto.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtMontuoProsupuesto.ForeColor = System.Drawing.Color.Black;
+            this.TxtMontuoProsupuesto.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TxtMontuoProsupuesto.Location = new System.Drawing.Point(20, 258);
+            this.TxtMontuoProsupuesto.Margin = new System.Windows.Forms.Padding(10, 7, 3000, 0);
+            this.TxtMontuoProsupuesto.Name = "TxtMontuoProsupuesto";
+            this.TxtMontuoProsupuesto.PasswordChar = '\0';
+            this.TxtMontuoProsupuesto.PlaceholderText = "";
+            this.TxtMontuoProsupuesto.SelectedText = "";
+            this.TxtMontuoProsupuesto.Size = new System.Drawing.Size(247, 35);
+            this.TxtMontuoProsupuesto.TabIndex = 18;
+            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoSize = true;
@@ -136,7 +188,7 @@
             this.flowLayoutPanel1.Location = new System.Drawing.Point(346, 5);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 0, 4, 5);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(254, 378);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(254, 401);
             this.flowLayoutPanel1.TabIndex = 4;
             // 
             // BtnGuardarPresupuesto
@@ -248,58 +300,7 @@
             this.BtnVerLista.TabIndex = 12;
             this.BtnVerLista.Text = "Ver Lista de Presupuestos";
             this.BtnVerLista.UseTransparentBackground = true;
-            // 
-            // DtpFechaSolicitud
-            // 
-            this.DtpFechaSolicitud.BorderRadius = 10;
-            this.DtpFechaSolicitud.Checked = true;
-            this.DtpFechaSolicitud.FillColor = System.Drawing.SystemColors.Control;
-            this.DtpFechaSolicitud.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DtpFechaSolicitud.ForeColor = System.Drawing.Color.Black;
-            this.DtpFechaSolicitud.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtpFechaSolicitud.Location = new System.Drawing.Point(20, 174);
-            this.DtpFechaSolicitud.Margin = new System.Windows.Forms.Padding(10, 5, 3000, 0);
-            this.DtpFechaSolicitud.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.DtpFechaSolicitud.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.DtpFechaSolicitud.Name = "DtpFechaSolicitud";
-            this.DtpFechaSolicitud.Size = new System.Drawing.Size(170, 36);
-            this.DtpFechaSolicitud.TabIndex = 16;
-            this.DtpFechaSolicitud.Value = new System.DateTime(2023, 4, 28, 0, 31, 37, 383);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(13, 230);
-            this.label4.Margin = new System.Windows.Forms.Padding(3, 20, 0, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(182, 21);
-            this.label4.TabIndex = 17;
-            this.label4.Text = "Montuo Prosupuesto";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // TxtMontuoProsupuesto
-            // 
-            this.TxtMontuoProsupuesto.BorderRadius = 10;
-            this.TxtMontuoProsupuesto.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TxtMontuoProsupuesto.DefaultText = "";
-            this.TxtMontuoProsupuesto.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.TxtMontuoProsupuesto.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.TxtMontuoProsupuesto.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.TxtMontuoProsupuesto.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.TxtMontuoProsupuesto.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TxtMontuoProsupuesto.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtMontuoProsupuesto.ForeColor = System.Drawing.Color.Black;
-            this.TxtMontuoProsupuesto.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TxtMontuoProsupuesto.Location = new System.Drawing.Point(20, 258);
-            this.TxtMontuoProsupuesto.Margin = new System.Windows.Forms.Padding(10, 7, 3000, 0);
-            this.TxtMontuoProsupuesto.Name = "TxtMontuoProsupuesto";
-            this.TxtMontuoProsupuesto.PasswordChar = '\0';
-            this.TxtMontuoProsupuesto.PlaceholderText = "";
-            this.TxtMontuoProsupuesto.SelectedText = "";
-            this.TxtMontuoProsupuesto.Size = new System.Drawing.Size(247, 35);
-            this.TxtMontuoProsupuesto.TabIndex = 18;
+            this.BtnVerLista.Click += new System.EventHandler(this.BtnVerLista_Click);
             // 
             // BtnVolver
             // 
@@ -334,7 +335,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(54)))), ((int)(((byte)(94)))));
-            this.ClientSize = new System.Drawing.Size(605, 388);
+            this.ClientSize = new System.Drawing.Size(605, 411);
             this.ControlBox = false;
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.flowLayoutPanel1);
