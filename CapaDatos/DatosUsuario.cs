@@ -21,6 +21,7 @@ namespace Capa_Datos
 
                 using (var context = new ControlInventarioEntities())
                 {
+                    //prueba
                     //Lenguaje LinQ. Para realizar query a la base de datos.
                     return (from c in context.TbColaborador select c).ToList();
                 }

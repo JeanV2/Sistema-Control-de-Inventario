@@ -11,6 +11,7 @@ namespace CapaNegocios
 {
     public class NegocioUsuario
     {
+        //prueba
          DatosUsuario DatosUsuario = new DatosUsuario();
         public List<TbColaborador> obtenerusuario()
         {
