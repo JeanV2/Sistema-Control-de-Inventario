@@ -35,7 +35,7 @@ namespace CapaPresentacion
                 int Fila = e.RowIndex;
 
                  frmPresupuesto.TxtCodigoPresepuesto.Text = DgvListaProductos.Rows[Fila].Cells[0].Value.ToString();
-                 frmPresupuesto.DtpFechaSolicitud.Value = Convert.ToDateTime( DgvListaProductos.Rows[Fila].Cells[0].Value.ToString();
+                 frmPresupuesto.DtpFechaSolicitud.Value = Convert.ToDateTime( DgvListaProductos.Rows[Fila].Cells[0].Value.ToString());
                  frmPresupuesto.TxtCodigoPresepuesto.Text = DgvListaProductos.Rows[Fila].Cells[0].Value.ToString();
 
             }
