@@ -61,6 +61,7 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewImageColumn();
             this.guna2Panel1.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
@@ -523,7 +524,8 @@
             this.Column1,
             this.Column2,
             this.Column3,
-            this.Column4});
+            this.Column4,
+            this.Column5});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(194)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -566,23 +568,35 @@
             // 
             // Column1
             // 
+            this.Column1.FillWeight = 75.50761F;
             this.Column1.HeaderText = "Column1";
             this.Column1.Name = "Column1";
             // 
             // Column2
             // 
+            this.Column2.FillWeight = 75.50761F;
             this.Column2.HeaderText = "Column2";
             this.Column2.Name = "Column2";
             // 
             // Column3
             // 
+            this.Column3.FillWeight = 75.50761F;
             this.Column3.HeaderText = "Column3";
             this.Column3.Name = "Column3";
             // 
             // Column4
             // 
+            this.Column4.FillWeight = 75.50761F;
             this.Column4.HeaderText = "Column4";
             this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            this.Column5.FillWeight = 33F;
+            this.Column5.HeaderText = "X";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // FrmSolicitudCompra
             // 
@@ -636,11 +650,12 @@
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
         private System.Windows.Forms.Panel panel2;
         private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
+        public Guna.UI2.WinForms.Guna2TextBox TxtCodigoProd;
+        public Guna.UI2.WinForms.Guna2TextBox TxtPrecioProd;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        public Guna.UI2.WinForms.Guna2TextBox TxtCodigoProd;
-        public Guna.UI2.WinForms.Guna2TextBox TxtPrecioProd;
+        private System.Windows.Forms.DataGridViewImageColumn Column5;
     }
 }
