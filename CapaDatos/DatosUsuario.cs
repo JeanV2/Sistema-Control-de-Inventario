@@ -11,6 +11,7 @@ namespace Capa_Datos
 {
     public class DatosUsuario
     {
+        //sss
         //se requiere mostrar lista y guardar usuario
         public List<TbColaborador> obtenerusuario()
         {
