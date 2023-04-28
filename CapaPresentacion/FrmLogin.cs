@@ -20,7 +20,7 @@ namespace CapaPresentacion
         List<TbColaborador> Listausuarios;
         bool pass;
         bool user;
-
+        //hola
         //-------------------------------------------------------------------------------------------------------------
         private void obtenerdatosusuario()
         {

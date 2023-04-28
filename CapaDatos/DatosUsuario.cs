@@ -18,7 +18,7 @@ namespace Capa_Datos
           los devuelva si existen dentro de ella.*/
             try
             {
-
+                //hola
                 using (var context = new ControlInventarioEntities())
                 {
                     //prueba
