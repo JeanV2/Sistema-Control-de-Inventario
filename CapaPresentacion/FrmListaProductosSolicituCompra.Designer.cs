@@ -80,7 +80,7 @@
             this.DgvListaProductos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgvListaProductos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(194)))));
             this.DgvListaProductos.Location = new System.Drawing.Point(0, 100);
-            this.DgvListaProductos.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.DgvListaProductos.Margin = new System.Windows.Forms.Padding(10);
             this.DgvListaProductos.Name = "DgvListaProductos";
             this.DgvListaProductos.ReadOnly = true;
             this.DgvListaProductos.RowHeadersVisible = false;
@@ -295,6 +295,7 @@
             this.ForeColor = System.Drawing.Color.White;
             this.MinimumSize = new System.Drawing.Size(861, 565);
             this.Name = "FrmListaProductosSolicituCompra";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lista Productos";
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaProductos)).EndInit();
             this.panel1.ResumeLayout(false);

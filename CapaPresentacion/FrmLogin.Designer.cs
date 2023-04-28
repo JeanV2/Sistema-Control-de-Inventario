@@ -56,7 +56,7 @@
             this.BtnLogin.Name = "BtnLogin";
             this.BtnLogin.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
             this.BtnLogin.Size = new System.Drawing.Size(217, 53);
-            this.BtnLogin.TabIndex = 4;
+            this.BtnLogin.TabIndex = 3;
             this.BtnLogin.Text = "Log in";
             this.BtnLogin.UseTransparentBackground = true;
             this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
@@ -86,7 +86,7 @@
             this.TxtUsuario.SelectedText = "";
             this.TxtUsuario.Size = new System.Drawing.Size(294, 44);
             this.TxtUsuario.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
-            this.TxtUsuario.TabIndex = 3;
+            this.TxtUsuario.TabIndex = 1;
             this.TxtUsuario.TextOffset = new System.Drawing.Point(22, 7);
             // 
             // TxtContraseña

@@ -27,7 +27,54 @@ namespace CapaPresentacion
 
         private void BtnModificar_Click(object sender, EventArgs e)
         {
-            //CODIGO PARA ACTUALIZAR AL FINAL OCULTAR LOS BOTONES DE NUEVO
+            //VALICIONES
+            if (TxtCodigoProducto.TextLength > 0)
+            {
+                Validaciones.LimpiarError(TxtCodigoProducto);
+
+                if (TxtNombreProducto.TextLength > 0)
+                {
+                    Validaciones.LimpiarError(TxtNombreProducto);
+
+                    if (TxtCantidad.TextLength > 0)
+                    {
+                        Validaciones.LimpiarError(TxtCantidad);
+
+                        if (TxtDescripcion.TextLength > 0)
+                        {
+                            Validaciones.LimpiarError(TxtDescripcion);
+
+                            //CODIGO PARA MODIFICAR Y ENVIAR A LA BASE DE DATOS********************
+
+
+
+                            //LIMPIAR FORM
+                            Validaciones.LimpiarFormulario(flowLayoutPanel2);
+                        }
+                        else
+                        {
+                            Validaciones.MostarError(TxtDescripcion, "Debes ingresar la drescripcion del producto");
+                        }
+
+                    }
+                    else
+                    {
+                        Validaciones.MostarError(TxtCantidad, "Debes ingresar cantidad de producto");
+                    }
+
+                }
+                else
+                {
+                    Validaciones.MostarError(TxtNombreProducto, "Debes ingresar el nombre del producto");
+                }
+
+            }
+            else
+            {
+                Validaciones.MostarError(TxtCodigoProducto, "Debes ingresar el codigo del producto");
+            }
+
+            //OCULTAR LOS BOTONES DE NUEVO
             BtnModificar.Visible = false;
             BtnEliminar.Visible = false;
             BtnGuardar.Enabled = true;
@@ -36,7 +83,55 @@ namespace CapaPresentacion
 
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
-            //CODIGO PARA eLIMINAR AL FINAL OCULTAR LOS BOTONES DE NUEVO
+            //VALICIONES
+            if (TxtCodigoProducto.TextLength > 0)
+            {
+                Validaciones.LimpiarError(TxtCodigoProducto);
+
+                if (TxtNombreProducto.TextLength > 0)
+                {
+                    Validaciones.LimpiarError(TxtNombreProducto);
+
+                    if (TxtCantidad.TextLength > 0)
+                    {
+                        Validaciones.LimpiarError(TxtCantidad);
+
+                        if (TxtDescripcion.TextLength > 0)
+                        {
+                            Validaciones.LimpiarError(TxtDescripcion);
+
+                            //CODIGO PARA ELIMINAR Y ENVIAR A LA BASE DE DATOS********************
+
+
+
+                            //LIMPIAR FORM
+                            Validaciones.LimpiarFormulario(flowLayoutPanel2);
+                        }
+                        else
+                        {
+                            Validaciones.MostarError(TxtDescripcion, "Debes ingresar la drescripcion del producto");
+                        }
+
+                    }
+                    else
+                    {
+                        Validaciones.MostarError(TxtCantidad, "Debes ingresar cantidad de producto");
+                    }
+
+                }
+                else
+                {
+                    Validaciones.MostarError(TxtNombreProducto, "Debes ingresar el nombre del producto");
+                }
+
+            }
+            else
+            {
+                Validaciones.MostarError(TxtCodigoProducto, "Debes ingresar el codigo del producto");
+            }
+
+
+            //OCULTAR LOS BOTONES DE NUEVO
             BtnModificar.Visible = false;
             BtnEliminar.Visible = false;
             BtnGuardar.Enabled = true;
@@ -44,15 +139,64 @@ namespace CapaPresentacion
 
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
-            //CODIGO PARA GUARDAR
+            //VALICIONES
+            if(TxtCodigoProducto.TextLength > 0)
+            {
+                Validaciones.LimpiarError(TxtCodigoProducto);
 
-            Validaciones.LimpiarFormulario(flowLayoutPanel2);
+                if (TxtNombreProducto.TextLength > 0)
+                {
+                    Validaciones.LimpiarError(TxtNombreProducto);
+
+                    if (TxtCantidad.TextLength > 0)
+                    {
+                        Validaciones.LimpiarError(TxtCantidad);
+
+                        if (TxtDescripcion.TextLength > 0)
+                        {
+                            Validaciones.LimpiarError(TxtDescripcion);
+
+                            //CODIGO PARA GUARDAR Y ENVIAR A LA BASE DE DATOS********************
+
+
+
+                            //LIMPIAR FORM
+                            Validaciones.LimpiarFormulario(flowLayoutPanel2);
+                        }
+                        else
+                        {
+                            Validaciones.MostarError(TxtDescripcion, "Debes ingresar la drescripcion del producto");
+                        }
+
+                    }
+                    else
+                    {
+                        Validaciones.MostarError(TxtCantidad, "Debes ingresar cantidad de producto");
+                    }
+
+                }
+                else
+                {
+                    Validaciones.MostarError(TxtNombreProducto, "Debes ingresar el nombre del producto");
+                }
+
+            }
+            else
+            {
+                Validaciones.MostarError(TxtCodigoProducto, "Debes ingresar el codigo del producto");
+            }
+
         }
 
         private void TxtCodigoProducto_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validaciones.Numeros_y_Borrar(e, TxtCodigoProducto);
             
+        }
+
+        private void TxtCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validaciones.Numeros_y_Borrar(e, TxtCantidad);
         }
     }
 }
