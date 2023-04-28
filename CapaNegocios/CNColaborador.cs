@@ -10,6 +10,7 @@ namespace CapaNegocios
 {
     public class CNColaborador
     {
+        //hola
         CDColaborador CDcolaborador = new CDColaborador();
         public bool GuardarColaborador(TbColaborador colaborador)
         {
