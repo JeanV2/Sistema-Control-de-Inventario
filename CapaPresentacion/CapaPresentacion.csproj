@@ -233,6 +233,12 @@
     <Compile Include="FrmListaColaboradores.Designer.cs">
       <DependentUpon>FrmListaColaboradores.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmListaPresupuestos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListaPresupuestos.Designer.cs">
+      <DependentUpon>FrmListaPresupuestos.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmListaProductos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -286,6 +292,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListaColaboradores.resx">
       <DependentUpon>FrmListaColaboradores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListaPresupuestos.resx">
+      <DependentUpon>FrmListaPresupuestos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListaProductos.resx">
       <DependentUpon>FrmListaProductos.cs</DependentUpon>

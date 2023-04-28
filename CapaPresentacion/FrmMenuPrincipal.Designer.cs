@@ -216,6 +216,7 @@
             this.BtnPresupuesto.TabIndex = 10;
             this.BtnPresupuesto.Text = "Presupuestos";
             this.BtnPresupuesto.UseTransparentBackground = true;
+            this.BtnPresupuesto.Click += new System.EventHandler(this.BtnPresupuesto_Click);
             // 
             // Btn1
             // 
