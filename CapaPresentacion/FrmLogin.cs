@@ -84,6 +84,7 @@ namespace CapaPresentacion
             if ((pass == true))
             {
                 TxtContraseña.BorderColor = Color.Green;
+                
             }
             //---------------------------------------------------------------------------------------------------------------------
             else
