@@ -1,5 +1,8 @@
-﻿using System;
+﻿using CapaEntidades;
+using CapaNegocios;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -16,6 +19,7 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
+        CNColaborador CNColaborador = new CNColaborador();
 
         private void BtnGuardarColaborador_Click(object sender, EventArgs e)
         {
@@ -50,9 +54,27 @@ namespace CapaPresentacion
                                     {
                                         Validaciones.LimpiarError(TxtContraseña);
 
+                                        TbColaborador colabo = new TbColaborador();
 
-                                        //CODIGO PARA GUARDAR Y ENVIAR A DB*****************************
+                                         //CODIGO PARA GUARDAR Y ENVIAR A DB*****************************
+                                        colabo.NombreColaborador = TxtNombre.Text;
+                                        colabo.PrimerApellidoColaborador= TxtApe1.Text;
+                                        colabo.IdColaborador = TxtCedula.Text;
+                                        colabo.SegundoApellidoColaborador = TxtApe2.Text;
+                                        colabo.PasswordColaborador = TxtContraseña.Text;
+                                        //colabo.TipoColaborador= CbTipo.Text;
+                                        colabo.EstadoColaborador = true;
+                                        colabo.UserNameColaborador = TxtUsuario.Text;
 
+                                        if (CNColaborador.GuardarColaborador(colabo))
+                                        {
+                                            MessageBox.Show("Colaborador Guadar","Guardado correctamente",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Error al Guardar Colaborador", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                                        }
 
                                         //**************************************************************
                                         //LIMPIAR FORMULARIO
@@ -139,6 +161,39 @@ namespace CapaPresentacion
                                     {
                                         Validaciones.LimpiarError(TxtContraseña);
 
+                                        //List<T> ListaColaborador;
+                                        //foreach (var item in collection)
+                                        //{
+
+                                        //}
+                                        TbColaborador colabo = new TbColaborador();
+
+                                        List<TbColaborador> ListaColaborador = CNColaborador.listaColaboadores();
+                                        foreach (TbColaborador colaborador in ListaColaborador)
+                                        {
+                                            if (TxtUsuario.Text.ToUpper() == colaborador.UserNameColaborador.ToUpper())
+                                            {
+                                                colabo.UserNameColaborador = TxtUsuario.Text;
+                                                break;
+                                            }
+
+                                        }
+                                        //CODIGO PARA GUARDAR Y ENVIAR A DB*****************************
+                                        colabo.NombreColaborador = TxtNombre.Text;
+                                        colabo.PrimerApellidoColaborador = TxtApe1.Text;
+                                        colabo.SegundoApellidoColaborador = TxtApe2.Text;
+                                        colabo.PasswordColaborador = TxtContraseña.Text;
+                                        //colabo.TipoColaborador= CbTipo.Text;
+                                        //colabo.EstadoColaborador = true;
+                                        if (CNColaborador.ModificarColaborador(colabo))
+                                        {
+                                            MessageBox.Show("Colaborador Modificado", "Modificación correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Error al Modificar Colaborador", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                                        }
 
                                         //CODIGO PARA MODIFICAR Y ENVIAR A DB*****************************
 
@@ -227,6 +282,31 @@ namespace CapaPresentacion
 
                                         //CODIGO ELIMINAR Y ENVIAR A DB*****************************
 
+
+                                        TbColaborador colabo = new TbColaborador();
+
+                                        List<TbColaborador> ListaColaborador = CNColaborador.listaColaboadores();
+                                        foreach (TbColaborador colaborador in ListaColaborador)
+                                        {
+                                            if (TxtCedula.Text == colaborador.IdColaborador)
+                                            {
+                                                //CODIGO PARA GUARDAR Y ENVIAR A DB*****************************
+                                                colabo.IdColaborador = TxtCedula.Text;
+                                                colabo.EstadoColaborador = false;
+                                                if (CNColaborador.EliminarColaborador(colabo))
+                                                {
+                                                    MessageBox.Show("Colaborador Eliminado", "Eliminación correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                }
+                                                else
+                                                {
+                                                    MessageBox.Show("Error al Eliminar Colaborador", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                                                }
+                                                break;
+                                            }
+
+                                        }
+                                        
 
 
 
