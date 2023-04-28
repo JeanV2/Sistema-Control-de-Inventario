@@ -275,6 +275,12 @@
     <Compile Include="FrmSolicitudCompra.Designer.cs">
       <DependentUpon>FrmSolicitudCompra.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmSolicitudInsumos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSolicitudInsumos.Designer.cs">
+      <DependentUpon>FrmSolicitudInsumos.cs</DependentUpon>
+    </Compile>
     <Compile Include="MDIParent1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -313,6 +319,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSolicitudCompra.resx">
       <DependentUpon>FrmSolicitudCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSolicitudInsumos.resx">
+      <DependentUpon>FrmSolicitudInsumos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MDIParent1.resx">
       <DependentUpon>MDIParent1.cs</DependentUpon>

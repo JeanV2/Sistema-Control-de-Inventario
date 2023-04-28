@@ -314,6 +314,7 @@
             this.TxtCantidad.SelectedText = "";
             this.TxtCantidad.Size = new System.Drawing.Size(370, 54);
             this.TxtCantidad.TabIndex = 6;
+            this.TxtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCantidad_KeyPress);
             // 
             // label5
             // 
