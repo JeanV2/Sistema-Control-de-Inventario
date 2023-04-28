@@ -20,13 +20,38 @@ namespace CapaPresentacion
         private void BtnLogin_Click(object sender, EventArgs e)
         {
             // validar inicio de seccion
-
-            if (true)
+            if(TxtUsuario.TextLength > 0 )
             {
-                this.Hide();
-                FrmMenuPrincipal frmMenu = new FrmMenuPrincipal();
-                frmMenu.ShowDialog(); 
+                Validaciones.LimpiarError(TxtUsuario);
+
+                if (TxtContraseña.TextLength > 0)
+                {
+                    Validaciones.LimpiarError(TxtContraseña);
+
+                    //CODIGO PARA VERIFICAR USUARIO IN DB****************************+
+
+                    if (true)
+                    {
+                        this.Hide();
+                        FrmMenuPrincipal frmMenu = new FrmMenuPrincipal();
+                        frmMenu.ShowDialog();
+                    }
+
+
+
+                }
+                else
+                {
+                    Validaciones.MostarError(TxtContraseña, "Contraseña de usuario es obligatoria");
+                }
+
+
             }
+            else
+            {
+                Validaciones.MostarError(TxtUsuario, "Nombre de usuario es obligatorio");
+            }
+
                
         }
     }

@@ -48,6 +48,8 @@ namespace CapaPresentacion
                 AñadirProductos.BtnGuardar.Enabled = false;
                 AñadirProductos.BtnModificar.Visible = true;
                 AñadirProductos.BtnEliminar.Visible = true;
+                AñadirProductos.TxtCantidad.Enabled = false;
+
                 this.Close();
             }
         }
@@ -55,6 +57,11 @@ namespace CapaPresentacion
         private void FrmListaProductos_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void TxtCodigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validaciones.Numeros_y_Borrar(e, TxtCodigo);
         }
     }
 }
