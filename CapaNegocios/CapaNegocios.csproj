@@ -41,18 +41,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CNColaborador.cs" />
+    <Compile Include="NegocioUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CapaDatos\CapaDatos.csproj">
-      <Project>{5EB4C259-4E89-44CA-ACA8-25281222FDCE}</Project>
+      <Project>{5eb4c259-4e89-44ca-aca8-25281222fdce}</Project>
       <Name>CapaDatos</Name>
     </ProjectReference>
     <ProjectReference Include="..\CapaEntidades\CapaEntidades.csproj">
-      <Project>{71B8644A-E2D2-4BAB-BDE1-3FD6B3C1A9F9}</Project>
+      <Project>{71b8644a-e2d2-4bab-bde1-3fd6b3c1a9f9}</Project>
       <Name>CapaEntidades</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
