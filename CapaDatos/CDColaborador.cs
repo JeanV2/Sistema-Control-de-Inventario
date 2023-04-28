@@ -16,6 +16,7 @@ namespace CapaDatos
             try
                 //hola
             {
+                //ttt
                 using (ControlInventarioEntities DB= new ControlInventarioEntities())
                 {
                     DB.TbColaborador.Add(colaborador);
