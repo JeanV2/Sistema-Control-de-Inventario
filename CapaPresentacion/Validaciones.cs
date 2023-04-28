@@ -29,7 +29,7 @@ namespace CapaPresentacion
                 }
                 else if (txt is Guna2ComboBox)
                 {
-                    ((Guna2ComboBox)txt).StartIndex = 0;
+                    ((Guna2ComboBox)txt).StartIndex = -1;
                 }
             }
 

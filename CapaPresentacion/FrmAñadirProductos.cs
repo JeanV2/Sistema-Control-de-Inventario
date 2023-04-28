@@ -31,6 +31,7 @@ namespace CapaPresentacion
             BtnModificar.Visible = false;
             BtnEliminar.Visible = false;
             BtnGuardar.Enabled = true;
+            TxtCantidad.Enabled = true;
         }
 
         private void BtnEliminar_Click(object sender, EventArgs e)
@@ -46,6 +47,12 @@ namespace CapaPresentacion
             //CODIGO PARA GUARDAR
 
             Validaciones.LimpiarFormulario(flowLayoutPanel2);
+        }
+
+        private void TxtCodigoProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validaciones.Numeros_y_Borrar(e, TxtCodigoProducto);
+            
         }
     }
 }
