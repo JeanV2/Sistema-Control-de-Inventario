@@ -227,12 +227,6 @@
     <Compile Include="FrmColaboradores.Designer.cs">
       <DependentUpon>FrmColaboradores.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmGenerarCompra.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmGenerarCompra.Designer.cs">
-      <DependentUpon>FrmGenerarCompra.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmListaColaboradores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -263,6 +257,12 @@
     <Compile Include="FrmMenuPrincipal.Designer.cs">
       <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmPresupuesto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPresupuesto.Designer.cs">
+      <DependentUpon>FrmPresupuesto.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSolicitudCompra.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -284,9 +284,6 @@
     <EmbeddedResource Include="FrmColaboradores.resx">
       <DependentUpon>FrmColaboradores.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmGenerarCompra.resx">
-      <DependentUpon>FrmGenerarCompra.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmListaColaboradores.resx">
       <DependentUpon>FrmListaColaboradores.cs</DependentUpon>
     </EmbeddedResource>
@@ -301,6 +298,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMenuPrincipal.resx">
       <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPresupuesto.resx">
+      <DependentUpon>FrmPresupuesto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSolicitudCompra.resx">
       <DependentUpon>FrmSolicitudCompra.cs</DependentUpon>
