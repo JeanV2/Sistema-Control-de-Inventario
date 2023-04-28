@@ -1,27 +1,29 @@
 ﻿using CapaEntidades;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure.MappingViews;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CapaDatos
 {
-    public class CDcolaborador
+    public class CDColaborador
     {
+
         public bool GuardarColaborador(TbColaborador colaborador)
         {
             try
-            //hola
+                //hola
             {
                 //ttt
-                using (ControlInventarioEntities DB = new ControlInventarioEntities())
+                using (ControlInventarioEntities DB= new ControlInventarioEntities())
                 {
                     DB.TbColaborador.Add(colaborador);
                     DB.SaveChanges();
 
                 }
-                return true;
+                    return true;
             }
             catch (Exception)
             {
@@ -79,7 +81,7 @@ namespace CapaDatos
             {
                 using (ControlInventarioEntities DB = new ControlInventarioEntities())
                 {
-                    return (from c in DB.TbColaborador
+                    return (from c in DB.TbColaborador 
                             select c).ToList();
 
 
@@ -91,7 +93,6 @@ namespace CapaDatos
                 return null;
             }
         }
-
 
 
     }
