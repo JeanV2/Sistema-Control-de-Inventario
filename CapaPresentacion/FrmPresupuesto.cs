@@ -21,5 +21,11 @@ namespace CapaPresentacion
         {
             this.Close();
         }
+
+        private void BtnVerLista_Click(object sender, EventArgs e)
+        {
+            FrmListaPresupuestos frmListaPresupuestos = new FrmListaPresupuestos();
+            frmListaPresupuestos.ShowDialog();
+        }
     }
 }
