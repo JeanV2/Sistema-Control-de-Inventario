@@ -14,7 +14,7 @@ namespace CapaEntidades
     
     public partial class TbPresupuesto
     {
-        public int IdPresupuesto { get; set; }
+        public string IdPresupuesto { get; set; }
         public Nullable<System.DateTime> MesPresupuesto { get; set; }
         public Nullable<double> MontoPresupuesto { get; set; }
         public Nullable<bool> EstadoPresupuesto { get; set; }
