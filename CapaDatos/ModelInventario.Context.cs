@@ -9,10 +9,11 @@
 
 namespace CapaDatos
 {
+    using CapaEntidades;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    using CapaEntidades;
+    
     public partial class inventarioEntities1 : DbContext
     {
         public inventarioEntities1()
@@ -25,6 +26,7 @@ namespace CapaDatos
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<TbColaborador> TbColaborador { get; set; }
         public virtual DbSet<TbCompraSolicitudP> TbCompraSolicitudP { get; set; }
         public virtual DbSet<TbPresupuesto> TbPresupuesto { get; set; }

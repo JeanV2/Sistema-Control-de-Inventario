@@ -21,7 +21,7 @@ namespace CapaEntidades
             this.TbProductoInsumoS = new HashSet<TbProductoInsumoS>();
         }
     
-        public int CodProducto { get; set; }
+        public string CodProducto { get; set; }
         public string NombreProducto { get; set; }
         public Nullable<int> CantidadProducto { get; set; }
         public string CostoProducto { get; set; }

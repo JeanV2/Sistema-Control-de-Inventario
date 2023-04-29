@@ -20,7 +20,7 @@ namespace CapaEntidades
             this.TbProductoInsumoS = new HashSet<TbProductoInsumoS>();
         }
     
-        public int IdSolicitudInsumo { get; set; }
+        public string IdSolicitudInsumo { get; set; }
         public string IdColaborador { get; set; }
         public Nullable<bool> Estado { get; set; }
         public Nullable<System.DateTime> FechaInsumo { get; set; }
