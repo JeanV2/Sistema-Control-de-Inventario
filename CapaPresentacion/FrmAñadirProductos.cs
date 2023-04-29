@@ -54,9 +54,9 @@ namespace CapaPresentacion
 
                             //CODIGO PARA MODIFICAR Y ENVIAR A LA BASE DE DATOS********************
 
-                            producto.CodProducto = int.Parse(TxtCodigoProducto.Text.Trim());
+                            producto.CodProducto = TxtCodigoProducto.Text;
                             producto.NombreProducto = TxtNombreProducto.Text;
-                            //  producto.CostoProducto = int.Parse(txt);
+                           // producto.CostoProducto = TxtCostoProducto.Text;
                             producto.Descripcion = TxtDescripcion.Text;
                             producto.CantidadProducto = int.Parse(TxtCantidad.Text.Trim());
 
@@ -121,8 +121,8 @@ namespace CapaPresentacion
                             Validaciones.LimpiarError(TxtDescripcion);
 
                             //CODIGO PARA ELIMINAR Y ENVIAR A LA BASE DE DATOS********************
-                            producto.CodProducto = int.Parse(TxtCodigoProducto.Text.Trim());
-                          
+                            producto.CodProducto =TxtCodigoProducto.Text;
+                           // producto.Estado = false;
 
                             if (NegProduct.EliminarProduct(producto))
                             {
@@ -187,9 +187,9 @@ namespace CapaPresentacion
                             Validaciones.LimpiarError(TxtDescripcion);
 
                             //CODIGO PARA GUARDAR Y ENVIAR A LA BASE DE DATOS********************
-                            producto.CodProducto = int.Parse(TxtCodigoProducto.Text.Trim());
+                            producto.CodProducto = TxtCodigoProducto.Text;
                             producto.NombreProducto = TxtNombreProducto.Text;
-                            //  producto.CostoProducto = int.Parse(txt);
+                           // producto.CostoProducto = TxtCostoProducto.Text;
                             producto.Descripcion = TxtDescripcion.Text;
                             producto.CantidadProducto = int.Parse(TxtCantidad.Text.Trim());
                             

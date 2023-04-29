@@ -1,5 +1,6 @@
 ﻿using CapaEntidades;
 using CapaNegocios;
+using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -55,11 +56,12 @@ namespace CapaPresentacion
             if (e.RowIndex != -1)
             {
                 int fila = e.RowIndex;
+
                 //PASA LOS DATOS AL FORMULARIO AÑADIR PRODUCTOS
                 AñadirProductos.TxtCodigoProducto.Text = DgvListaProductos.Rows[fila].Cells[0].Value.ToString();
                 AñadirProductos.TxtNombreProducto.Text = DgvListaProductos.Rows[fila].Cells[1].Value.ToString();
                 AñadirProductos.TxtCantidad.Text = DgvListaProductos.Rows[fila].Cells[2].Value.ToString();
-               // AñadirProductos.TxtCantidad.Text = DgvListaProductos.Rows[fila].Cells[3].Value.ToString(); COSTO
+                //AñadirProductos.TxtCosto.Text = DgvListaProductos.Rows[fila].Cells[3].Value.ToString();
                 AñadirProductos.TxtDescripcion.Text = DgvListaProductos.Rows[fila].Cells[4].Value.ToString();
 
 
@@ -70,8 +72,8 @@ namespace CapaPresentacion
 
 
                 // PASA LOS DATOS AL FORMULARIO SOLICITUD DE INSUMOS
-                frmSolicitud.TxtCodigoProcd.Text = DgvListaProductos.Rows[fila].Cells[0].Value.ToString();
-                frmSolicitud.TxtNombreProduc.Text = DgvListaProductos.Rows[fila].Cells[2].Value.ToString();
+                //frmSolicitud.TxtCodigoProcd.Text = DgvListaProductos.Rows[fila].Cells[0].Value.ToString();
+                //frmSolicitud.TxtNombreProduc.Text = DgvListaProductos.Rows[fila].Cells[2].Value.ToString();
 
                 this.Close();
             }
@@ -98,30 +100,35 @@ namespace CapaPresentacion
         //busqueda por filtro
         private void BtnFiltrar_Click(object sender, EventArgs e)
         {
-            lisProductos = NegProd.ListProduct();
-                //buscar
-                IEnumerable<TbProducto> listaAux = new List<TbProducto>();
+            //buscar
+            IEnumerable<TbProducto> listaAux = new List<TbProducto>();
 
-                if (TxtCodigo.Text != string.Empty)
-                {
-                    listaAux = lisProductos.Where(x => x.CodProducto.ToString().Contains(TxtCodigo.Text)).ToList();
-                }
-                if (TxtNombreProducto.Text != string.Empty)
-                {
-                    listaAux = lisProductos.Where(x => x.NombreProducto.Trim().ToUpper().Contains(TxtNombreProducto.Text.Trim().ToUpper())).ToList();
-                }
-                if (listaAux.Count() == 0 && TxtCodigo.Text != string.Empty && TxtNombreProducto.Text == string.Empty)
-                {
-                    listaAux = lisProductos;
-                }
-            CargarDatos((List<TbProducto>)listaAux);
+            if (TxtCodigo.Text != string.Empty)
+            {
+             
+                listaAux = lisProductos.Where(x => x.CodProducto.ToString().Contains(TxtCodigo.Text)).ToList();
+                TxtCodigo.ResetText();
+            }
+            else
+            if (TxtNombreProducto.Text != string.Empty)
+            {
+              
+                listaAux = lisProductos.Where(x => x.NombreProducto.Trim().ToUpper().Contains(TxtNombreProducto.Text.Trim().ToUpper())).ToList();
+                TxtNombreProducto.ResetText();
+            }
+            else
+            if (TxtCodigo.Text == string.Empty && TxtNombreProducto.Text == string.Empty)
+            {
             
+                listaAux = lisProductos;
+            }
+
+            CargarDatos((List<TbProducto>)listaAux);         
         }
         //Cargamos datos al data grid
         private void CargarDatos(List<TbProducto> listaProductos)
         {
             DgvListaProductos.Rows.Clear();
-     
 
             foreach (TbProducto tbProducto in listaProductos)
             {

@@ -65,7 +65,7 @@ namespace CapaDatos
             {
                 using (var C = new inventarioEntities1())
                 {
-                    C.Entry<TbProducto>(producto).State = System.Data.Entity.EntityState.Deleted;
+                    C.Entry<TbProducto>(producto).State = System.Data.Entity.EntityState.Modified;
                     C.SaveChanges();
                 }
                 return true;
