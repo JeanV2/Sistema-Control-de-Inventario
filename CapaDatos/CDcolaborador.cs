@@ -17,7 +17,7 @@ namespace CapaDatos
                 //hola
             {
                 //ttt
-                using (ControlInventarioEntities DB= new ControlInventarioEntities())
+                using (inventarioEntities DB = new inventarioEntities())
                 {
                     DB.TbColaborador.Add(colaborador);
                     DB.SaveChanges();
@@ -34,7 +34,7 @@ namespace CapaDatos
         {
             try
             {
-                using (ControlInventarioEntities DB = new ControlInventarioEntities())
+                using (inventarioEntities DB = new inventarioEntities())
                 {
                     TbColaborador ColaboradorModifica = DB.TbColaborador.Single(C => C.IdColaborador == colaborador.IdColaborador);
                     ColaboradorModifica.PasswordColaborador = colaborador.PasswordColaborador;
@@ -59,7 +59,7 @@ namespace CapaDatos
         {
             try
             {
-                using (ControlInventarioEntities DB = new ControlInventarioEntities())
+                using (inventarioEntities DB = new inventarioEntities())
                 {
                     TbColaborador ColaboradorModifica = DB.TbColaborador.Single(C => C.IdColaborador == colaborador.IdColaborador);
                     ColaboradorModifica.EstadoColaborador = colaborador.EstadoColaborador;
@@ -79,7 +79,7 @@ namespace CapaDatos
         {
             try
             {
-                using (ControlInventarioEntities DB = new ControlInventarioEntities())
+                using (inventarioEntities DB = new inventarioEntities())
                 {
                     return (from c in DB.TbColaborador 
                             select c).ToList();
