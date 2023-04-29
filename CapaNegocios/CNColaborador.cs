@@ -26,7 +26,7 @@ namespace CapaNegocios
         }
         public List<TbColaborador> listaColaboadores()
         {
-            return CDcolaborador.listaColaboadores( );
+            return CDcolaborador.listaColaboadores();
         }
     }
 }

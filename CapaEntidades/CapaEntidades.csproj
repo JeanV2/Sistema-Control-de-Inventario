@@ -48,48 +48,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ModelInventario.cs">
+    <Compile Include="ModelIventario.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelInventario.tt</DependentUpon>
+      <DependentUpon>ModelIventario.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>ModelInventario.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sp_helpdiagrams_Result.cs">
-      <DependentUpon>ModelInventario.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sysdiagrams.cs">
-      <DependentUpon>ModelInventario.tt</DependentUpon>
-    </Compile>
     <Compile Include="TbColaborador.cs">
-      <DependentUpon>ModelInventario.tt</DependentUpon>
+      <DependentUpon>ModelIventario.tt</DependentUpon>
     </Compile>
     <Compile Include="TbCompraSolicitudP.cs">
-      <DependentUpon>ModelInventario.tt</DependentUpon>
+      <DependentUpon>ModelIventario.tt</DependentUpon>
     </Compile>
     <Compile Include="TbPresupuesto.cs">
-      <DependentUpon>ModelInventario.tt</DependentUpon>
+      <DependentUpon>ModelIventario.tt</DependentUpon>
     </Compile>
     <Compile Include="TbProducto.cs">
-      <DependentUpon>ModelInventario.tt</DependentUpon>
+      <DependentUpon>ModelIventario.tt</DependentUpon>
     </Compile>
     <Compile Include="TbProductoInsumoS.cs">
-      <DependentUpon>ModelInventario.tt</DependentUpon>
+      <DependentUpon>ModelIventario.tt</DependentUpon>
     </Compile>
     <Compile Include="TbSolicitudCompra.cs">
-      <DependentUpon>ModelInventario.tt</DependentUpon>
+      <DependentUpon>ModelIventario.tt</DependentUpon>
     </Compile>
     <Compile Include="TbSolicitudInsumo.cs">
-      <DependentUpon>ModelInventario.tt</DependentUpon>
+      <DependentUpon>ModelIventario.tt</DependentUpon>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="ModelInventario.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ModelInventario.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -97,6 +82,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ModelIventario.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModelIventario.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
