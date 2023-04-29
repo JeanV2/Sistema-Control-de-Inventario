@@ -9,15 +9,14 @@
 
 namespace CapaDatos
 {
-    using CapaEntidades;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
-    public partial class inventarioEntities : DbContext
+    using CapaEntidades;
+    public partial class inventarioEntities1 : DbContext
     {
-        public inventarioEntities()
-            : base("name=inventarioEntities")
+        public inventarioEntities1()
+            : base("name=inventarioEntities1")
         {
         }
     
