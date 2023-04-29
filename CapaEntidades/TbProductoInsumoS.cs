@@ -15,8 +15,8 @@ namespace CapaEntidades
     public partial class TbProductoInsumoS
     {
         public int IdSolicitudProducto { get; set; }
-        public Nullable<int> IdSolictudInsumo { get; set; }
-        public Nullable<int> IdProducto { get; set; }
+        public string IdSolictudInsumo { get; set; }
+        public string IdProducto { get; set; }
         public Nullable<int> CantidadP { get; set; }
     
         public virtual TbProducto TbProducto { get; set; }
