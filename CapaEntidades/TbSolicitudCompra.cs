@@ -20,7 +20,7 @@ namespace CapaEntidades
             this.TbCompraSolicitudP = new HashSet<TbCompraSolicitudP>();
         }
     
-        public int IdSolicitudCompra { get; set; }
+        public string IdSolicitudCompra { get; set; }
         public Nullable<System.DateTime> FechaSolicitudCompra { get; set; }
         public string IdColaboradorCompra { get; set; }
         public Nullable<bool> EstadoSolicitudCompra { get; set; }
