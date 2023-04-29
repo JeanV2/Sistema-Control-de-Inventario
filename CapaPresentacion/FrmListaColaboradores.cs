@@ -47,6 +47,11 @@ namespace CapaPresentacion
 
         private void BtnVolver_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void FrmListaColaboradores_FormClosed(object sender, FormClosedEventArgs e)
+        {
             this.Close();
         }
     }

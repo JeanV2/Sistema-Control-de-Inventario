@@ -191,6 +191,24 @@ namespace CapaPresentacion
                 LimpiarError(txt);
             }
         }
+
+        /// <summary>
+        /// Metodo para permitir el ingreso de letras y numeros
+        /// </summary>
+        /// <param name="e"></param>
+        /// <param name="txt"></param>
+        public static void Letras_y_Numeros(KeyPressEventArgs e, Guna2TextBox txt)
+        {
+            if (!char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != '-' && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                MostarError(txt, "No se admiten caracteres especiales");
+            }
+            else
+            {
+                LimpiarError(txt);
+            }
+        }
         //----------------------------------------------------------------------------------------------
         #endregion
         //-----------------------------------------------------------------------------------------
@@ -272,6 +290,23 @@ namespace CapaPresentacion
         }
         #endregion
         //-----------------------------------------------------------------------------------------
+
+        /// <summary>
+        /// Metodo para ingresar el simbolo de colones a los txt de tipo divisa
+        /// </summary>
+        /// <param name="Txt">Resibe el control al que se desea mostrar el simbolo de colones</param>
+        public static void AgregarSimboloColones(Guna2TextBox Txt)
+        {
+            if (!string.IsNullOrEmpty(Txt.Text))
+            {
+                if (!Txt.Text.StartsWith("₡"))
+                {
+                    Txt.Text = "₡" + Txt.Text;
+                    Txt.SelectionStart = Txt.Text.Length;
+
+                }
+            }
+        }
 
     }
 }

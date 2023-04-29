@@ -39,5 +39,10 @@ namespace CapaPresentacion
                 this.Close();
             }
         }
+
+        private void FrmListaProductosSolicituCompra_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

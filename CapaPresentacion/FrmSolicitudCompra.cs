@@ -60,12 +60,12 @@ namespace CapaPresentacion
 
 
                                     //CODE FOR ADDING ********************
-
+                                    // ACA SE AGREGAN LOS DATOS DE LOS TXT AL DATA GRID VIEW
+                                    
 
                                     //LIMPIAR FORM
                                     Validaciones.LimpiarFormulario(flowLayoutPanel4);
-                                    //CLEAR DATE TIME PICKER
-                                    DtpFechaSolicitud.Value = DateTime.Today;
+                                    
 
                                 }
                                 else
@@ -117,12 +117,49 @@ namespace CapaPresentacion
 
         private void TxtCodigoProd_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Validaciones.Numeros_y_Borrar(e, TxtCodigoProd);
+            Validaciones.Letras_y_Numeros(e, TxtCodigoProd);
         }
 
         private void TxtPresupuesto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Validaciones.Numeros_y_Borrar(e, TxtPresupuesto);
+            Validaciones.Letras_y_Numeros(e, TxtPresupuesto);
         }
+
+        private void TxtSolicitud_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validaciones.Letras_y_Numeros(e, TxtSolicitud);
+        }
+
+        private void TxtPrecioProd_TextChanged(object sender, EventArgs e)
+        {
+            Validaciones.AgregarSimboloColones(TxtPrecioProd);
+        }
+
+        private void TxtCostoTotal_TextChanged(object sender, EventArgs e)
+        {
+            Validaciones.AgregarSimboloColones(TxtCostoTotal);
+        }
+
+
+        private void TxtTotalCompra_TextChanged(object sender, EventArgs e)
+        {
+            Validaciones.AgregarSimboloColones(TxtTotalCompra);
+        }
+
+        private void BtnConfirmar_Click(object sender, EventArgs e)
+        {
+            // CODIGO PARA GUARDAR
+
+
+
+            //LIMPIAR FORM
+            Validaciones.LimpiarFormulario(flowLayoutPanel4);
+            //CLEAR DATE TIME PICKER
+            DtpFechaSolicitud.Value = DateTime.Today;
+            //CLEAR DATA GRID VIEW
+            // -- ACA VA EL CODIGO PARA LIMPIAR EL DATA GRIG VIEW
+        }
+
+
     }
 }

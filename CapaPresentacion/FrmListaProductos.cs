@@ -32,11 +32,6 @@ namespace CapaPresentacion
             InitializeComponent();
         }
 
-        private void FrmListaProductos_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            
-        }
-
         private void BtnVolver_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -77,6 +72,11 @@ namespace CapaPresentacion
         private void TxtCodigo_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validaciones.Numeros_y_Borrar(e, TxtCodigo);
+        }
+
+        private void FrmListaProductos_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
