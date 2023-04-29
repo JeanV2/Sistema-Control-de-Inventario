@@ -20,7 +20,7 @@ namespace Capa_Datos
             try
             {
                 //hola
-                using (var context = new inventarioEntities())
+                using (var context = new inventarioEntities1())
                 {
                     //prueba
                     //Lenguaje LinQ. Para realizar query a la base de datos.
