@@ -31,7 +31,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.BtnVerListado = new Guna.UI2.WinForms.Guna2Button();
+            this.BtnAgregar = new Guna.UI2.WinForms.Guna2Button();
+            this.BtnConfirmar = new Guna.UI2.WinForms.Guna2Button();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.TxtCedula = new Guna.UI2.WinForms.Guna2TextBox();
@@ -39,32 +41,109 @@
             this.TxtCodigoProcd = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.TxtNombreProduc = new Guna.UI2.WinForms.Guna2TextBox();
-            this.BtnVerListado = new Guna.UI2.WinForms.Guna2Button();
-            this.BtnAgregar = new Guna.UI2.WinForms.Guna2Button();
             this.label4 = new System.Windows.Forms.Label();
             this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.DgvListaProductos = new Guna.UI2.WinForms.Guna2DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BtnConfirmar = new Guna.UI2.WinForms.Guna2Button();
-            this.flowLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaProductos)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // flowLayoutPanel1
+            // BtnVerListado
             // 
-            this.flowLayoutPanel1.Controls.Add(this.BtnVerListado);
-            this.flowLayoutPanel1.Controls.Add(this.BtnAgregar);
-            this.flowLayoutPanel1.Controls.Add(this.BtnConfirmar);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(800, 5);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(119, 502);
-            this.flowLayoutPanel1.TabIndex = 0;
+            this.BtnVerListado.Animated = true;
+            this.BtnVerListado.BackColor = System.Drawing.Color.Transparent;
+            this.BtnVerListado.BorderColor = System.Drawing.Color.Transparent;
+            this.BtnVerListado.BorderRadius = 10;
+            this.BtnVerListado.BorderThickness = 1;
+            this.BtnVerListado.DefaultAutoSize = true;
+            this.BtnVerListado.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.BtnVerListado.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.BtnVerListado.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.BtnVerListado.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnVerListado.FillColor = System.Drawing.SystemColors.Control;
+            this.BtnVerListado.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnVerListado.ForeColor = System.Drawing.Color.Black;
+            this.BtnVerListado.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(99)))), ((int)(((byte)(174)))));
+            this.BtnVerListado.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
+            this.BtnVerListado.HoverState.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnVerListado.Location = new System.Drawing.Point(3, 30);
+            this.BtnVerListado.Margin = new System.Windows.Forms.Padding(3, 30, 300, 30);
+            this.BtnVerListado.Name = "BtnVerListado";
+            this.BtnVerListado.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
+            this.BtnVerListado.Size = new System.Drawing.Size(191, 32);
+            this.BtnVerListado.TabIndex = 13;
+            this.BtnVerListado.Text = "Ver Lista Productos";
+            this.BtnVerListado.UseTransparentBackground = true;
+            this.BtnVerListado.Click += new System.EventHandler(this.BtnVerListado_Click);
+            // 
+            // BtnAgregar
+            // 
+            this.BtnAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.BtnAgregar.Animated = true;
+            this.BtnAgregar.BackColor = System.Drawing.Color.Transparent;
+            this.BtnAgregar.BorderColor = System.Drawing.Color.Transparent;
+            this.BtnAgregar.BorderRadius = 10;
+            this.BtnAgregar.BorderThickness = 1;
+            this.BtnAgregar.DefaultAutoSize = true;
+            this.BtnAgregar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.BtnAgregar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.BtnAgregar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.BtnAgregar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnAgregar.FillColor = System.Drawing.SystemColors.Control;
+            this.BtnAgregar.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAgregar.ForeColor = System.Drawing.Color.Black;
+            this.BtnAgregar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(99)))), ((int)(((byte)(174)))));
+            this.BtnAgregar.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
+            this.BtnAgregar.HoverState.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAgregar.Location = new System.Drawing.Point(3, 232);
+            this.BtnAgregar.Margin = new System.Windows.Forms.Padding(3, 140, 3, 0);
+            this.BtnAgregar.Name = "BtnAgregar";
+            this.BtnAgregar.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
+            this.BtnAgregar.Size = new System.Drawing.Size(161, 32);
+            this.BtnAgregar.TabIndex = 14;
+            this.BtnAgregar.Text = "Solicitar insumo";
+            this.BtnAgregar.UseTransparentBackground = true;
+            // 
+            // BtnConfirmar
+            // 
+            this.BtnConfirmar.Animated = true;
+            this.BtnConfirmar.BackColor = System.Drawing.Color.Transparent;
+            this.BtnConfirmar.BorderColor = System.Drawing.Color.Transparent;
+            this.BtnConfirmar.BorderRadius = 10;
+            this.BtnConfirmar.BorderThickness = 1;
+            this.BtnConfirmar.DefaultAutoSize = true;
+            this.BtnConfirmar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.BtnConfirmar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.BtnConfirmar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.BtnConfirmar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnConfirmar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnConfirmar.FillColor = System.Drawing.SystemColors.Control;
+            this.BtnConfirmar.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnConfirmar.ForeColor = System.Drawing.Color.Black;
+            this.BtnConfirmar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(99)))), ((int)(((byte)(174)))));
+            this.BtnConfirmar.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
+            this.BtnConfirmar.HoverState.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnConfirmar.Location = new System.Drawing.Point(723, 0);
+            this.BtnConfirmar.Margin = new System.Windows.Forms.Padding(3, 296, 3, 30);
+            this.BtnConfirmar.Name = "BtnConfirmar";
+            this.BtnConfirmar.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
+            this.BtnConfirmar.Size = new System.Drawing.Size(191, 37);
+            this.BtnConfirmar.TabIndex = 15;
+            this.BtnConfirmar.Text = "Confirmar Solicitud";
+            this.BtnConfirmar.UseTransparentBackground = true;
+            this.BtnConfirmar.Click += new System.EventHandler(this.BtnConfirmar_Click);
             // 
             // flowLayoutPanel2
             // 
@@ -76,10 +155,10 @@
             this.flowLayoutPanel2.Controls.Add(this.TxtNombreProduc);
             this.flowLayoutPanel2.Controls.Add(this.label4);
             this.flowLayoutPanel2.Controls.Add(this.guna2TextBox2);
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(5, 5);
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(795, 273);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(706, 270);
             this.flowLayoutPanel2.TabIndex = 1;
             // 
             // label2
@@ -187,59 +266,6 @@
             this.TxtNombreProduc.Size = new System.Drawing.Size(343, 35);
             this.TxtNombreProduc.TabIndex = 8;
             // 
-            // BtnVerListado
-            // 
-            this.BtnVerListado.Animated = true;
-            this.BtnVerListado.BackColor = System.Drawing.Color.Transparent;
-            this.BtnVerListado.BorderColor = System.Drawing.Color.Transparent;
-            this.BtnVerListado.BorderRadius = 10;
-            this.BtnVerListado.BorderThickness = 1;
-            this.BtnVerListado.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.BtnVerListado.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.BtnVerListado.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.BtnVerListado.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnVerListado.FillColor = System.Drawing.SystemColors.Control;
-            this.BtnVerListado.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnVerListado.ForeColor = System.Drawing.Color.Black;
-            this.BtnVerListado.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(99)))), ((int)(((byte)(174)))));
-            this.BtnVerListado.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
-            this.BtnVerListado.HoverState.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnVerListado.Location = new System.Drawing.Point(3, 30);
-            this.BtnVerListado.Margin = new System.Windows.Forms.Padding(3, 30, 3, 30);
-            this.BtnVerListado.Name = "BtnVerListado";
-            this.BtnVerListado.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
-            this.BtnVerListado.Size = new System.Drawing.Size(112, 50);
-            this.BtnVerListado.TabIndex = 13;
-            this.BtnVerListado.Text = "Ver Lista Productos";
-            this.BtnVerListado.UseTransparentBackground = true;
-            this.BtnVerListado.Click += new System.EventHandler(this.BtnVerListado_Click);
-            // 
-            // BtnAgregar
-            // 
-            this.BtnAgregar.Animated = true;
-            this.BtnAgregar.BackColor = System.Drawing.Color.Transparent;
-            this.BtnAgregar.BorderColor = System.Drawing.Color.Transparent;
-            this.BtnAgregar.BorderRadius = 10;
-            this.BtnAgregar.BorderThickness = 1;
-            this.BtnAgregar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.BtnAgregar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.BtnAgregar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.BtnAgregar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnAgregar.FillColor = System.Drawing.SystemColors.Control;
-            this.BtnAgregar.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnAgregar.ForeColor = System.Drawing.Color.Black;
-            this.BtnAgregar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(99)))), ((int)(((byte)(174)))));
-            this.BtnAgregar.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
-            this.BtnAgregar.HoverState.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnAgregar.Location = new System.Drawing.Point(3, 125);
-            this.BtnAgregar.Margin = new System.Windows.Forms.Padding(3, 15, 3, 30);
-            this.BtnAgregar.Name = "BtnAgregar";
-            this.BtnAgregar.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
-            this.BtnAgregar.Size = new System.Drawing.Size(112, 52);
-            this.BtnAgregar.TabIndex = 14;
-            this.BtnAgregar.Text = "Solicitar insumo";
-            this.BtnAgregar.UseTransparentBackground = true;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -275,17 +301,16 @@
             this.guna2TextBox2.Size = new System.Drawing.Size(167, 35);
             this.guna2TextBox2.TabIndex = 10;
             // 
-            // label5
+            // panel1
             // 
-            this.label5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(5, 278);
-            this.label5.Margin = new System.Windows.Forms.Padding(3, 5, 0, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(795, 27);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Lista de productos solicitados";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.panel1.Controls.Add(this.DgvListaProductos);
+            this.panel1.Controls.Add(this.tableLayoutPanel1);
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(5, 5);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(914, 502);
+            this.panel1.TabIndex = 2;
             // 
             // DgvListaProductos
             // 
@@ -319,14 +344,15 @@
             this.DgvListaProductos.DefaultCellStyle = dataGridViewCellStyle3;
             this.DgvListaProductos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgvListaProductos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(194)))));
-            this.DgvListaProductos.Location = new System.Drawing.Point(5, 305);
-            this.DgvListaProductos.Margin = new System.Windows.Forms.Padding(10);
+            this.DgvListaProductos.Location = new System.Drawing.Point(0, 276);
+            this.DgvListaProductos.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.DgvListaProductos.Name = "DgvListaProductos";
             this.DgvListaProductos.ReadOnly = true;
             this.DgvListaProductos.RowHeadersVisible = false;
+            this.DgvListaProductos.RowHeadersWidth = 62;
             this.DgvListaProductos.RowTemplate.Height = 25;
-            this.DgvListaProductos.Size = new System.Drawing.Size(795, 202);
-            this.DgvListaProductos.TabIndex = 7;
+            this.DgvListaProductos.Size = new System.Drawing.Size(914, 189);
+            this.DgvListaProductos.TabIndex = 5;
             this.DgvListaProductos.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Lime;
             this.DgvListaProductos.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(244)))), ((int)(((byte)(196)))));
             this.DgvListaProductos.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -353,53 +379,65 @@
             // Column1
             // 
             this.Column1.HeaderText = "Column1";
+            this.Column1.MinimumWidth = 8;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "Column2";
+            this.Column2.MinimumWidth = 8;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Column3";
+            this.Column3.MinimumWidth = 8;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "Column4";
+            this.Column4.MinimumWidth = 8;
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             // 
-            // BtnConfirmar
+            // tableLayoutPanel1
             // 
-            this.BtnConfirmar.Animated = true;
-            this.BtnConfirmar.BackColor = System.Drawing.Color.Transparent;
-            this.BtnConfirmar.BorderColor = System.Drawing.Color.Transparent;
-            this.BtnConfirmar.BorderRadius = 10;
-            this.BtnConfirmar.BorderThickness = 1;
-            this.BtnConfirmar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.BtnConfirmar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.BtnConfirmar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.BtnConfirmar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnConfirmar.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.BtnConfirmar.FillColor = System.Drawing.SystemColors.Control;
-            this.BtnConfirmar.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnConfirmar.ForeColor = System.Drawing.Color.Black;
-            this.BtnConfirmar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(99)))), ((int)(((byte)(174)))));
-            this.BtnConfirmar.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
-            this.BtnConfirmar.HoverState.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnConfirmar.Location = new System.Drawing.Point(3, 437);
-            this.BtnConfirmar.Margin = new System.Windows.Forms.Padding(3, 230, 3, 30);
-            this.BtnConfirmar.Name = "BtnConfirmar";
-            this.BtnConfirmar.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
-            this.BtnConfirmar.Size = new System.Drawing.Size(112, 52);
-            this.BtnConfirmar.TabIndex = 15;
-            this.BtnConfirmar.Text = "Confirmar Solicitud";
-            this.BtnConfirmar.UseTransparentBackground = true;
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22F));
+            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel2, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 1, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 276F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(914, 276);
+            this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.BtnVerListado);
+            this.flowLayoutPanel1.Controls.Add(this.BtnAgregar);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(715, 3);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(196, 270);
+            this.flowLayoutPanel1.TabIndex = 2;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.BtnConfirmar);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(0, 465);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(914, 37);
+            this.panel2.TabIndex = 0;
             // 
             // FrmSolicitudInsumos
             // 
@@ -407,26 +445,26 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(54)))), ((int)(((byte)(94)))));
             this.ClientSize = new System.Drawing.Size(924, 512);
-            this.Controls.Add(this.DgvListaProductos);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.flowLayoutPanel2);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmSolicitudInsumos";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.Text = "FrmSolicitudInsumos";
-            this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaProductos)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Label label2;
         public Guna.UI2.WinForms.Guna2TextBox TxtCedula;
@@ -438,12 +476,15 @@
         private Guna.UI2.WinForms.Guna2Button BtnAgregar;
         private System.Windows.Forms.Label label4;
         public Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
-        private System.Windows.Forms.Label label5;
+        private Guna.UI2.WinForms.Guna2Button BtnConfirmar;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel panel2;
         private Guna.UI2.WinForms.Guna2DataGridView DgvListaProductos;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private Guna.UI2.WinForms.Guna2Button BtnConfirmar;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

@@ -41,7 +41,6 @@
             this.BtnModificar = new Guna.UI2.WinForms.Guna2Button();
             this.BtnEliminar = new Guna.UI2.WinForms.Guna2Button();
             this.BtnVerLista = new Guna.UI2.WinForms.Guna2Button();
-            this.BtnVolver = new Guna.UI2.WinForms.Guna2Button();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -60,7 +59,7 @@
             this.flowLayoutPanel2.Location = new System.Drawing.Point(5, 5);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(10, 10, 0, 10);
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(341, 401);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(341, 378);
             this.flowLayoutPanel2.TabIndex = 5;
             // 
             // label1
@@ -110,6 +109,7 @@
             this.TxtCodigoPresepuesto.SelectedText = "";
             this.TxtCodigoPresepuesto.Size = new System.Drawing.Size(247, 35);
             this.TxtCodigoPresepuesto.TabIndex = 2;
+            this.TxtCodigoPresepuesto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCodigoPresepuesto_KeyPress);
             // 
             // label3
             // 
@@ -175,6 +175,9 @@
             this.TxtMontuoProsupuesto.SelectedText = "";
             this.TxtMontuoProsupuesto.Size = new System.Drawing.Size(247, 35);
             this.TxtMontuoProsupuesto.TabIndex = 18;
+            this.TxtMontuoProsupuesto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TxtMontuoProsupuesto.TextChanged += new System.EventHandler(this.TxtMontuoProsupuesto_TextChanged);
+            this.TxtMontuoProsupuesto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtMontuoProsupuesto_KeyPress);
             // 
             // flowLayoutPanel1
             // 
@@ -183,12 +186,11 @@
             this.flowLayoutPanel1.Controls.Add(this.BtnModificar);
             this.flowLayoutPanel1.Controls.Add(this.BtnEliminar);
             this.flowLayoutPanel1.Controls.Add(this.BtnVerLista);
-            this.flowLayoutPanel1.Controls.Add(this.BtnVolver);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(346, 5);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 0, 4, 5);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(254, 401);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(254, 378);
             this.flowLayoutPanel1.TabIndex = 4;
             // 
             // BtnGuardarPresupuesto
@@ -209,14 +211,15 @@
             this.BtnGuardarPresupuesto.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(99)))), ((int)(((byte)(174)))));
             this.BtnGuardarPresupuesto.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
             this.BtnGuardarPresupuesto.HoverState.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGuardarPresupuesto.Location = new System.Drawing.Point(3, 10);
-            this.BtnGuardarPresupuesto.Margin = new System.Windows.Forms.Padding(3, 10, 3, 30);
+            this.BtnGuardarPresupuesto.Location = new System.Drawing.Point(3, 100);
+            this.BtnGuardarPresupuesto.Margin = new System.Windows.Forms.Padding(3, 100, 3, 30);
             this.BtnGuardarPresupuesto.Name = "BtnGuardarPresupuesto";
             this.BtnGuardarPresupuesto.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
             this.BtnGuardarPresupuesto.Size = new System.Drawing.Size(211, 32);
             this.BtnGuardarPresupuesto.TabIndex = 9;
             this.BtnGuardarPresupuesto.Text = "Guardar Presupuesto";
             this.BtnGuardarPresupuesto.UseTransparentBackground = true;
+            this.BtnGuardarPresupuesto.Click += new System.EventHandler(this.BtnGuardarPresupuesto_Click);
             // 
             // BtnModificar
             // 
@@ -236,7 +239,7 @@
             this.BtnModificar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(99)))), ((int)(((byte)(174)))));
             this.BtnModificar.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
             this.BtnModificar.HoverState.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnModificar.Location = new System.Drawing.Point(3, 82);
+            this.BtnModificar.Location = new System.Drawing.Point(3, 172);
             this.BtnModificar.Margin = new System.Windows.Forms.Padding(3, 10, 3, 30);
             this.BtnModificar.Name = "BtnModificar";
             this.BtnModificar.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
@@ -245,6 +248,7 @@
             this.BtnModificar.Text = "Modificar Presupuesto";
             this.BtnModificar.UseTransparentBackground = true;
             this.BtnModificar.Visible = false;
+            this.BtnModificar.Click += new System.EventHandler(this.BtnModificar_Click);
             // 
             // BtnEliminar
             // 
@@ -264,7 +268,7 @@
             this.BtnEliminar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(99)))), ((int)(((byte)(174)))));
             this.BtnEliminar.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
             this.BtnEliminar.HoverState.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnEliminar.Location = new System.Drawing.Point(3, 154);
+            this.BtnEliminar.Location = new System.Drawing.Point(3, 244);
             this.BtnEliminar.Margin = new System.Windows.Forms.Padding(3, 10, 3, 30);
             this.BtnEliminar.Name = "BtnEliminar";
             this.BtnEliminar.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
@@ -273,6 +277,7 @@
             this.BtnEliminar.Text = "Eliminar Presupuesto";
             this.BtnEliminar.UseTransparentBackground = true;
             this.BtnEliminar.Visible = false;
+            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // BtnVerLista
             // 
@@ -292,7 +297,7 @@
             this.BtnVerLista.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(99)))), ((int)(((byte)(174)))));
             this.BtnVerLista.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
             this.BtnVerLista.HoverState.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnVerLista.Location = new System.Drawing.Point(3, 226);
+            this.BtnVerLista.Location = new System.Drawing.Point(3, 316);
             this.BtnVerLista.Margin = new System.Windows.Forms.Padding(3, 10, 3, 30);
             this.BtnVerLista.Name = "BtnVerLista";
             this.BtnVerLista.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
@@ -302,49 +307,23 @@
             this.BtnVerLista.UseTransparentBackground = true;
             this.BtnVerLista.Click += new System.EventHandler(this.BtnVerLista_Click);
             // 
-            // BtnVolver
-            // 
-            this.BtnVolver.Animated = true;
-            this.BtnVolver.BackColor = System.Drawing.Color.Transparent;
-            this.BtnVolver.BorderColor = System.Drawing.Color.Transparent;
-            this.BtnVolver.BorderRadius = 10;
-            this.BtnVolver.BorderThickness = 1;
-            this.BtnVolver.DefaultAutoSize = true;
-            this.BtnVolver.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.BtnVolver.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.BtnVolver.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.BtnVolver.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnVolver.FillColor = System.Drawing.SystemColors.Control;
-            this.BtnVolver.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnVolver.ForeColor = System.Drawing.Color.Black;
-            this.BtnVolver.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(99)))), ((int)(((byte)(174)))));
-            this.BtnVolver.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
-            this.BtnVolver.HoverState.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnVolver.Location = new System.Drawing.Point(3, 298);
-            this.BtnVolver.Margin = new System.Windows.Forms.Padding(3, 10, 3, 30);
-            this.BtnVolver.Name = "BtnVolver";
-            this.BtnVolver.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
-            this.BtnVolver.Size = new System.Drawing.Size(85, 32);
-            this.BtnVolver.TabIndex = 13;
-            this.BtnVolver.Text = "Volver";
-            this.BtnVolver.UseTransparentBackground = true;
-            this.BtnVolver.Click += new System.EventHandler(this.BtnVolver_Click);
-            // 
             // FrmPresupuesto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(54)))), ((int)(((byte)(94)))));
-            this.ClientSize = new System.Drawing.Size(605, 411);
-            this.ControlBox = false;
+            this.ClientSize = new System.Drawing.Size(605, 388);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.flowLayoutPanel1);
             this.ForeColor = System.Drawing.Color.White;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(621, 427);
             this.Name = "FrmPresupuesto";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Solicitud de Presupuesto";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmPresupuesto_FormClosed);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -368,7 +347,6 @@
         private Guna.UI2.WinForms.Guna2Button BtnVerLista;
         private System.Windows.Forms.Label label4;
         public Guna.UI2.WinForms.Guna2TextBox TxtMontuoProsupuesto;
-        public Guna.UI2.WinForms.Guna2Button BtnVolver;
         public Guna.UI2.WinForms.Guna2DateTimePicker DtpFechaSolicitud;
     }
 }

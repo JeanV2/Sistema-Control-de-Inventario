@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.BtnVolver = new Guna.UI2.WinForms.Guna2Button();
             this.BtnFiltrar = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
             this.TxtNombreProducto = new Guna.UI2.WinForms.Guna2TextBox();
@@ -49,7 +48,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.BtnVolver);
             this.panel1.Controls.Add(this.BtnFiltrar);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.TxtNombreProducto);
@@ -60,45 +58,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(844, 100);
             this.panel1.TabIndex = 0;
-            // 
-            // BtnVolver
-            // 
-            this.BtnVolver.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnVolver.Animated = true;
-            this.BtnVolver.BackColor = System.Drawing.Color.Transparent;
-            this.BtnVolver.BorderColor = System.Drawing.Color.Transparent;
-            this.BtnVolver.BorderRadius = 10;
-            this.BtnVolver.BorderThickness = 1;
-            this.BtnVolver.DefaultAutoSize = true;
-            this.BtnVolver.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.BtnVolver.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.BtnVolver.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.BtnVolver.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnVolver.FillColor = System.Drawing.SystemColors.Control;
-            this.BtnVolver.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnVolver.ForeColor = System.Drawing.Color.Black;
-            this.BtnVolver.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(99)))), ((int)(((byte)(174)))));
-            this.BtnVolver.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
-            this.BtnVolver.HoverState.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnVolver.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-
-            this.BtnVolver.Location = new System.Drawing.Point(752, 6);
-            this.BtnVolver.Margin = new System.Windows.Forms.Padding(3, 10, 3, 30);
-            this.BtnVolver.Name = "BtnVolver";
-            this.BtnVolver.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
-            this.BtnVolver.Size = new System.Drawing.Size(114, 43);
-
-            this.BtnVolver.Location = new System.Drawing.Point(749, 5);
-            this.BtnVolver.Margin = new System.Windows.Forms.Padding(2, 6, 2, 20);
-            this.BtnVolver.Name = "BtnVolver";
-            this.BtnVolver.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
-            this.BtnVolver.Size = new System.Drawing.Size(85, 32);
-
-            this.BtnVolver.TabIndex = 14;
-            this.BtnVolver.Text = "Volver ";
-            this.BtnVolver.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.BtnVolver.UseTransparentBackground = true;
-            this.BtnVolver.Click += new System.EventHandler(this.BtnVolver_Click);
             // 
             // BtnFiltrar
             // 
@@ -120,19 +79,11 @@
             this.BtnFiltrar.HoverState.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnFiltrar.Image = global::CapaPresentacion.Properties.Resources.filter_52px;
             this.BtnFiltrar.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-
-            this.BtnFiltrar.Location = new System.Drawing.Point(494, 18);
-            this.BtnFiltrar.Margin = new System.Windows.Forms.Padding(3, 10, 3, 30);
-            this.BtnFiltrar.Name = "BtnFiltrar";
-            this.BtnFiltrar.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
-            this.BtnFiltrar.Size = new System.Drawing.Size(120, 43);
-
             this.BtnFiltrar.Location = new System.Drawing.Point(490, 10);
             this.BtnFiltrar.Margin = new System.Windows.Forms.Padding(2, 6, 2, 20);
             this.BtnFiltrar.Name = "BtnFiltrar";
             this.BtnFiltrar.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
             this.BtnFiltrar.Size = new System.Drawing.Size(95, 32);
-
             this.BtnFiltrar.TabIndex = 13;
             this.BtnFiltrar.Text = "Filtrar ";
             this.BtnFiltrar.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -142,17 +93,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-
-            this.label1.Location = new System.Drawing.Point(21, 67);
-            this.label1.Margin = new System.Windows.Forms.Padding(3, 23, 0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 32);
-
             this.label1.Location = new System.Drawing.Point(11, 50);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 15, 0, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(159, 21);
-
             this.label1.TabIndex = 6;
             this.label1.Text = "Nombre Producto";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -171,39 +115,23 @@
             this.TxtNombreProducto.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtNombreProducto.ForeColor = System.Drawing.Color.Black;
             this.TxtNombreProducto.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-
-            this.TxtNombreProducto.Location = new System.Drawing.Point(126, 59);
-            this.TxtNombreProducto.Margin = new System.Windows.Forms.Padding(2, 15, 0, 0);
-
             this.TxtNombreProducto.Location = new System.Drawing.Point(188, 42);
             this.TxtNombreProducto.Margin = new System.Windows.Forms.Padding(1, 10, 0, 0);
-
             this.TxtNombreProducto.Name = "TxtNombreProducto";
             this.TxtNombreProducto.PasswordChar = '\0';
             this.TxtNombreProducto.PlaceholderText = "";
             this.TxtNombreProducto.SelectedText = "";
-
-            this.TxtNombreProducto.Size = new System.Drawing.Size(312, 35);
-
             this.TxtNombreProducto.Size = new System.Drawing.Size(281, 29);
-
             this.TxtNombreProducto.TabIndex = 7;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-
-            this.label2.Location = new System.Drawing.Point(21, 23);
-            this.label2.Margin = new System.Windows.Forms.Padding(3, 23, 0, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(110, 32);
-
             this.label2.Location = new System.Drawing.Point(14, 15);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 15, 0, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 21);
-
             this.label2.TabIndex = 4;
             this.label2.Text = "Codigo";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -222,22 +150,13 @@
             this.TxtCodigo.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtCodigo.ForeColor = System.Drawing.Color.Black;
             this.TxtCodigo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-
-            this.TxtCodigo.Location = new System.Drawing.Point(126, 15);
-            this.TxtCodigo.Margin = new System.Windows.Forms.Padding(2, 15, 0, 0);
-
             this.TxtCodigo.Location = new System.Drawing.Point(188, 10);
             this.TxtCodigo.Margin = new System.Windows.Forms.Padding(1, 10, 0, 0);
-
             this.TxtCodigo.Name = "TxtCodigo";
             this.TxtCodigo.PasswordChar = '\0';
             this.TxtCodigo.PlaceholderText = "";
             this.TxtCodigo.SelectedText = "";
-
-            this.TxtCodigo.Size = new System.Drawing.Size(202, 35);
-
             this.TxtCodigo.Size = new System.Drawing.Size(196, 29);
-
             this.TxtCodigo.TabIndex = 5;
             this.TxtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCodigo_KeyPress);
             // 
@@ -245,17 +164,17 @@
             // 
             this.DgvListaProductos.AllowUserToAddRows = false;
             this.DgvListaProductos.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(244)))), ((int)(((byte)(196)))));
-            this.DgvListaProductos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(244)))), ((int)(((byte)(196)))));
+            this.DgvListaProductos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.DgvListaProductos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(54)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(219)))), ((int)(((byte)(57)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgvListaProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(219)))), ((int)(((byte)(57)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvListaProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.DgvListaProductos.ColumnHeadersHeight = 35;
             this.DgvListaProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.DgvListaProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -263,32 +182,24 @@
             this.Column2,
             this.Column3,
             this.Column4});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(194)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(231)))), ((int)(((byte)(123)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DgvListaProductos.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(194)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(231)))), ((int)(((byte)(123)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DgvListaProductos.DefaultCellStyle = dataGridViewCellStyle9;
             this.DgvListaProductos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgvListaProductos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(194)))));
-            this.DgvListaProductos.Location = new System.Drawing.Point(0, 154);
-            this.DgvListaProductos.Margin = new System.Windows.Forms.Padding(10);
-
             this.DgvListaProductos.Location = new System.Drawing.Point(0, 100);
             this.DgvListaProductos.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
-
             this.DgvListaProductos.Name = "DgvListaProductos";
             this.DgvListaProductos.ReadOnly = true;
             this.DgvListaProductos.RowHeadersVisible = false;
             this.DgvListaProductos.RowHeadersWidth = 62;
             this.DgvListaProductos.RowTemplate.Height = 25;
-
-            this.DgvListaProductos.Size = new System.Drawing.Size(1260, 632);
-
             this.DgvListaProductos.Size = new System.Drawing.Size(844, 387);
-
             this.DgvListaProductos.TabIndex = 4;
             this.DgvListaProductos.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Lime;
             this.DgvListaProductos.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(244)))), ((int)(((byte)(196)))));
@@ -348,7 +259,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(54)))), ((int)(((byte)(94)))));
             this.ClientSize = new System.Drawing.Size(844, 487);
-            this.ControlBox = false;
             this.Controls.Add(this.DgvListaProductos);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.Color.White;
@@ -359,7 +269,7 @@
             this.Name = "FrmListaProductos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lista de Productos";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmListaProductos_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmListaProductos_FormClosed);
             this.Load += new System.EventHandler(this.FrmListaProductos_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -377,7 +287,6 @@
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2TextBox TxtCodigo;
         private Guna.UI2.WinForms.Guna2Button BtnFiltrar;
-        private Guna.UI2.WinForms.Guna2Button BtnVolver;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;

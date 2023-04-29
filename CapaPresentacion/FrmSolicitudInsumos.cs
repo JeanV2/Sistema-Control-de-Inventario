@@ -22,5 +22,10 @@ namespace CapaPresentacion
             FrmListaProductos frmListaProductos = new FrmListaProductos();
             frmListaProductos.ShowDialog();
         }
+
+        private void BtnConfirmar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
