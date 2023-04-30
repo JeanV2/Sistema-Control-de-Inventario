@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CapaEntidades;
+using CapaNegocios;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -44,5 +46,17 @@ namespace CapaPresentacion
         {
             this.Close();
         }
+
+        private void FrmListaProductosSolicituCompra_Load(object sender, EventArgs e)
+        {
+         
+        }
+
+        //filtrar
+        private void BtnFiltrar_Click(object sender, EventArgs e)
+        {
+            
+        }
+      
     }
 }
