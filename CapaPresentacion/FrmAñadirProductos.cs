@@ -15,7 +15,7 @@ namespace CapaPresentacion
 {
     public partial class FrmAñadirProductos : Form
     {
-        
+
         public FrmAñadirProductos()
         {
             InitializeComponent();
@@ -23,7 +23,7 @@ namespace CapaPresentacion
 
         //entidad
         TbProducto producto = new TbProducto();
-        
+
         NegociosProductos NegProduct = new NegociosProductos();
 
 
@@ -47,41 +47,50 @@ namespace CapaPresentacion
                     if (TxtCantidad.TextLength > 0)
                     {
                         Validaciones.LimpiarError(TxtCantidad);
-
-                        if (TxtDescripcion.TextLength > 0)
+                        if (TxtCosto.TextLength > 0)
                         {
-                            Validaciones.LimpiarError(TxtDescripcion);
-
-                            //CODIGO PARA MODIFICAR Y ENVIAR A LA BASE DE DATOS********************
-
-                            producto.CodProducto = TxtCodigoProducto.Text;
-                            producto.NombreProducto = TxtNombreProducto.Text;
-                           // producto.CostoProducto = TxtCostoProducto.Text;
-                            producto.Descripcion = TxtDescripcion.Text;
-                            producto.CantidadProducto = int.Parse(TxtCantidad.Text.Trim());
-
-                            if (NegProduct.ModificarProduct(producto))
+                            Validaciones.LimpiarError(TxtCosto);
+                            if (TxtDescripcion.TextLength > 0)
                             {
-                                MessageBox.Show("Producto modificar con exito","Exito",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                                Validaciones.LimpiarError(TxtDescripcion);
+
+                                //CODIGO PARA MODIFICAR Y ENVIAR A LA BASE DE DATOS********************
+
+                                producto.CodProducto = TxtCodigoProducto.Text;
+                                producto.NombreProducto = TxtNombreProducto.Text;
+                                producto.CostoProducto = TxtCosto.Text;
+                                producto.Descripcion = TxtDescripcion.Text;
+                                producto.CantidadProducto = int.Parse(TxtCantidad.Text.Trim());
+
+                                if (NegProduct.ModificarProduct(producto))
+                                {
+                                    MessageBox.Show("Producto modificar con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                                    //LIMPIAR FORM
+                                    Validaciones.LimpiarFormulario(flowLayoutPanel2);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Error al modificar el producto", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                }
+
+
                             }
                             else
                             {
-                                MessageBox.Show("Error al modificar el producto", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                Validaciones.MostarError(TxtDescripcion, "Debes ingresar la drescripcion del producto");
                             }
-                            //LIMPIAR FORM
-                            Validaciones.LimpiarFormulario(flowLayoutPanel2);
+
                         }
                         else
                         {
-                            Validaciones.MostarError(TxtDescripcion, "Debes ingresar la drescripcion del producto");
+                            Validaciones.MostarError(TxtCantidad, "Debes ingresar cantidad de producto");
                         }
-
                     }
                     else
                     {
-                        Validaciones.MostarError(TxtCantidad, "Debes ingresar cantidad de producto");
+                        Validaciones.MostarError(TxtCosto, "Debes Digitar el costo del producto");
                     }
-
                 }
                 else
                 {
@@ -121,12 +130,14 @@ namespace CapaPresentacion
                             Validaciones.LimpiarError(TxtDescripcion);
 
                             //CODIGO PARA ELIMINAR Y ENVIAR A LA BASE DE DATOS********************
-                            producto.CodProducto =TxtCodigoProducto.Text;
-                           // producto.Estado = false;
+                            producto.CodProducto = TxtCodigoProducto.Text;
+                            //producto.Estado = false;
 
                             if (NegProduct.EliminarProduct(producto))
                             {
                                 MessageBox.Show("Producto eliminar con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                //LIMPIAR FORM
+                                Validaciones.LimpiarFormulario(flowLayoutPanel2);
                             }
                             else
                             {
@@ -134,8 +145,7 @@ namespace CapaPresentacion
                             }
 
 
-                            //LIMPIAR FORM
-                            Validaciones.LimpiarFormulario(flowLayoutPanel2);
+                         
                         }
                         else
                         {
@@ -170,7 +180,7 @@ namespace CapaPresentacion
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
             //VALICIONES
-            if(TxtCodigoProducto.TextLength > 0)
+            if (TxtCodigoProducto.TextLength > 0)
             {
                 Validaciones.LimpiarError(TxtCodigoProducto);
 
@@ -192,7 +202,7 @@ namespace CapaPresentacion
                                 //CODIGO PARA GUARDAR Y ENVIAR A LA BASE DE DATOS********************
                                 producto.CodProducto = TxtCodigoProducto.Text;
                                 producto.NombreProducto = TxtNombreProducto.Text;
-                                // producto.CostoProducto = TxtCostoProducto.Text;
+                                producto.CostoProducto = TxtCosto.Text;
                                 producto.Descripcion = TxtDescripcion.Text;
                                 producto.CantidadProducto = int.Parse(TxtCantidad.Text.Trim());
 
@@ -200,15 +210,15 @@ namespace CapaPresentacion
                                 if (NegProduct.GuardarProduct(producto))
                                 {
                                     MessageBox.Show("Producto Guardado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                                    //LIMPIAR FORM
+                                    Validaciones.LimpiarFormulario(flowLayoutPanel2);
                                 }
                                 else
                                 {
                                     MessageBox.Show("Error al guardar el producto", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                 }
-
-
-                                //LIMPIAR FORM
-                                Validaciones.LimpiarFormulario(flowLayoutPanel2);
+                         
                             }
                             else
                             {
@@ -243,7 +253,7 @@ namespace CapaPresentacion
         private void TxtCodigoProducto_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validaciones.Numeros_y_Borrar(e, TxtCodigoProducto);
-            
+
         }
 
         private void TxtCantidad_KeyPress(object sender, KeyPressEventArgs e)

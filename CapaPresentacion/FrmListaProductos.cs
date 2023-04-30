@@ -61,7 +61,7 @@ namespace CapaPresentacion
                 AñadirProductos.TxtCodigoProducto.Text = DgvListaProductos.Rows[fila].Cells[0].Value.ToString();
                 AñadirProductos.TxtNombreProducto.Text = DgvListaProductos.Rows[fila].Cells[1].Value.ToString();
                 AñadirProductos.TxtCantidad.Text = DgvListaProductos.Rows[fila].Cells[2].Value.ToString();
-                //AñadirProductos.TxtCosto.Text = DgvListaProductos.Rows[fila].Cells[3].Value.ToString();
+                AñadirProductos.TxtCosto.Text = DgvListaProductos.Rows[fila].Cells[3].Value.ToString();
                 AñadirProductos.TxtDescripcion.Text = DgvListaProductos.Rows[fila].Cells[4].Value.ToString();
 
 
