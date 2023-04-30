@@ -20,7 +20,9 @@ namespace CapaPresentacion
         List<TbColaborador> Listausuarios;
         bool pass;
         bool user;
-        //hola
+        //globales
+        public static string Idetificacion;
+        public static string NombreCompleto;
         //-------------------------------------------------------------------------------------------------------------
         private void obtenerdatosusuario()
         {
@@ -59,6 +61,9 @@ namespace CapaPresentacion
                 {
 
                     pass = true;
+                    //le decimos a la variables globales que sea igual a los datos de usuario
+                    Idetificacion = TBLusuario.IdColaborador;
+                    NombreCompleto = TBLusuario.NombreColaborador;
                     break;
 
 
