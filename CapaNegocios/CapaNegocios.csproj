@@ -43,10 +43,15 @@
   <ItemGroup>
     <Compile Include="CNColaborador.cs" />
 
+
     <Compile Include="NegociosProductos.cs" />
 
     <Compile Include="NegocioInsumos.cs" />
 
+
+    <Compile Include="NegocioSolCompra.cs" />
+    <Compile Include="NegociosProductos.cs" />
+    <Compile Include="NegociosSoliUnionCompra.cs" />
     <Compile Include="NegocioUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
