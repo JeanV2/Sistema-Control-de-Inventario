@@ -58,7 +58,7 @@ namespace CapaPresentacion
 
                                 producto.CodProducto = TxtCodigoProducto.Text;
                                 producto.NombreProducto = TxtNombreProducto.Text;
-                                // producto.CostoProducto = TxtCostoProducto.Text;
+                                producto.CostoProducto = TxtCosto.Text;
                                 producto.Descripcion = TxtDescripcion.Text;
                                 producto.CantidadProducto = int.Parse(TxtCantidad.Text.Trim());
 
