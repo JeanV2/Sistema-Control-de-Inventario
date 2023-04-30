@@ -40,20 +40,27 @@ namespace CapaPresentacion
             TbProductoInsumoS tbProductoInsumo = new TbProductoInsumoS();
             //lenamos datos
             tbProductoInsumo.IdSolicitudProducto = ObtenerCodigoProductoInsumo();
-            tbProductoInsumo.IdSolictudInsumo = ObtenerCodigoSolicitudInsumo();
+            tbProductoInsumo.IdSolictudInsumo = ObtenerCodigoSolicitudInsumo().ToString();
             tbProductoInsumo.CantidadP = int.Parse(txtCantProducto.Text);
-            tbProductoInsumo.IdProducto = int.Parse(TxtCodigoProcd.Text);
+            tbProductoInsumo.IdProducto = TxtCodigoProcd.Text;
             //-------------------------------------------------------------------------------
             //Creamos la entidad
             TbSolicitudInsumo tbinsumo = new TbSolicitudInsumo();
             //llenamos los datos
-            tbinsumo.IdSolicitudInsumo = ObtenerCodigoSolicitudInsumo();
+            tbinsumo.IdSolicitudInsumo = ObtenerCodigoSolicitudInsumo().ToString();
             tbinsumo.FechaInsumo = DateTime.Now;
             tbinsumo.Estado = true;
             tbinsumo.IdColaborador = FrmLogin.Idetificacion;
 
             //asociamos las tablas
             tbProductoInsumo.TbSolicitudInsumo = tbinsumo;
+            if (insumosIns.GuardarInsumos(tbProductoInsumo))
+            {
+                MessageBox.Show("Registro exitoso","Guadar",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }else
+            {
+                MessageBox.Show("Error de Registro ", "Guadar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
        
@@ -112,7 +119,7 @@ namespace CapaPresentacion
 
             if (listaproducotoinsumo.Count() > 0)
             {
-                if ((tbProductoInsumo.TbSolicitudInsumo.IdSolicitudInsumo + 1) > 9)
+                if ((int.Parse(tbProductoInsumo.TbSolicitudInsumo.IdSolicitudInsumo) + 1) > 9)
                 {
                     Codigo = "0000" + (tbProductoInsumo.TbSolicitudInsumo.IdSolicitudInsumo + 1).ToString();
                     if ((tbProductoInsumo.IdSolicitudProducto + 1) > 99)
