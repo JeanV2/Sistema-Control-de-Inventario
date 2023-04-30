@@ -217,7 +217,7 @@ namespace CapaPresentacion
                         }
                         else
                         {
-                            Validaciones.MostarError(TxtCantidad, "Debes Digitar el costo del producto");
+                            Validaciones.MostarError(TxtCosto, "Debes Digitar el costo del producto");
                         }
 
                     }
