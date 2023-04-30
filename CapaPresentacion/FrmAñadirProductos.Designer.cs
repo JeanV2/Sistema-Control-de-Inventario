@@ -43,6 +43,8 @@
             this.TxtCantidad = new Guna.UI2.WinForms.Guna2TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.TxtDescripcion = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.TxtCosto = new Guna.UI2.WinForms.Guna2TextBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -185,12 +187,14 @@
             this.flowLayoutPanel2.Controls.Add(this.TxtNombreProducto);
             this.flowLayoutPanel2.Controls.Add(this.label4);
             this.flowLayoutPanel2.Controls.Add(this.TxtCantidad);
+            this.flowLayoutPanel2.Controls.Add(this.label6);
+            this.flowLayoutPanel2.Controls.Add(this.TxtCosto);
             this.flowLayoutPanel2.Controls.Add(this.label5);
             this.flowLayoutPanel2.Controls.Add(this.TxtDescripcion);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(5, 5);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(10);
             this.flowLayoutPanel2.Size = new System.Drawing.Size(807, 562);
             this.flowLayoutPanel2.TabIndex = 1;
             // 
@@ -248,8 +252,8 @@
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Top;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(13, 186);
-            this.label3.Margin = new System.Windows.Forms.Padding(3, 40, 0, 0);
+            this.label3.Location = new System.Drawing.Point(13, 156);
+            this.label3.Margin = new System.Windows.Forms.Padding(3, 10, 0, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(190, 21);
             this.label3.TabIndex = 3;
@@ -269,7 +273,7 @@
             this.TxtNombreProducto.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtNombreProducto.ForeColor = System.Drawing.Color.Black;
             this.TxtNombreProducto.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TxtNombreProducto.Location = new System.Drawing.Point(20, 217);
+            this.TxtNombreProducto.Location = new System.Drawing.Point(20, 187);
             this.TxtNombreProducto.Margin = new System.Windows.Forms.Padding(10, 10, 3000, 0);
             this.TxtNombreProducto.Name = "TxtNombreProducto";
             this.TxtNombreProducto.PasswordChar = '\0';
@@ -283,8 +287,8 @@
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Top;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(13, 292);
-            this.label4.Margin = new System.Windows.Forms.Padding(3, 40, 0, 0);
+            this.label4.Location = new System.Drawing.Point(13, 232);
+            this.label4.Margin = new System.Windows.Forms.Padding(3, 10, 0, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(92, 21);
             this.label4.TabIndex = 5;
@@ -304,7 +308,7 @@
             this.TxtCantidad.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtCantidad.ForeColor = System.Drawing.Color.Black;
             this.TxtCantidad.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TxtCantidad.Location = new System.Drawing.Point(20, 323);
+            this.TxtCantidad.Location = new System.Drawing.Point(20, 263);
             this.TxtCantidad.Margin = new System.Windows.Forms.Padding(10, 10, 3000, 0);
             this.TxtCantidad.Name = "TxtCantidad";
             this.TxtCantidad.PasswordChar = '\0';
@@ -317,10 +321,9 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Top;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(13, 398);
-            this.label5.Margin = new System.Windows.Forms.Padding(3, 40, 0, 0);
+            this.label5.Location = new System.Drawing.Point(13, 384);
+            this.label5.Margin = new System.Windows.Forms.Padding(3, 10, 3000, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(107, 21);
             this.label5.TabIndex = 7;
@@ -340,8 +343,8 @@
             this.TxtDescripcion.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtDescripcion.ForeColor = System.Drawing.Color.Black;
             this.TxtDescripcion.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TxtDescripcion.Location = new System.Drawing.Point(20, 429);
-            this.TxtDescripcion.Margin = new System.Windows.Forms.Padding(10, 10, 3000, 0);
+            this.TxtDescripcion.Location = new System.Drawing.Point(20, 415);
+            this.TxtDescripcion.Margin = new System.Windows.Forms.Padding(10, 10, 0, 0);
             this.TxtDescripcion.Multiline = true;
             this.TxtDescripcion.Name = "TxtDescripcion";
             this.TxtDescripcion.PasswordChar = '\0';
@@ -349,6 +352,41 @@
             this.TxtDescripcion.SelectedText = "";
             this.TxtDescripcion.Size = new System.Drawing.Size(518, 114);
             this.TxtDescripcion.TabIndex = 8;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(13, 308);
+            this.label6.Margin = new System.Windows.Forms.Padding(3, 10, 0, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(60, 21);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Costo";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // TxtCosto
+            // 
+            this.TxtCosto.BorderRadius = 10;
+            this.TxtCosto.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TxtCosto.DefaultText = "";
+            this.TxtCosto.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.TxtCosto.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.TxtCosto.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.TxtCosto.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.TxtCosto.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TxtCosto.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtCosto.ForeColor = System.Drawing.Color.Black;
+            this.TxtCosto.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TxtCosto.Location = new System.Drawing.Point(20, 339);
+            this.TxtCosto.Margin = new System.Windows.Forms.Padding(10, 10, 3000, 0);
+            this.TxtCosto.Name = "TxtCosto";
+            this.TxtCosto.PasswordChar = '\0';
+            this.TxtCosto.PlaceholderText = "";
+            this.TxtCosto.SelectedText = "";
+            this.TxtCosto.Size = new System.Drawing.Size(247, 35);
+            this.TxtCosto.TabIndex = 8;
             // 
             // FrmAñadirProductos
             // 
@@ -361,7 +399,7 @@
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmAñadirProductos";
-            this.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Padding = new System.Windows.Forms.Padding(5);
             this.Text = "FrmAñadirProductos";
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
@@ -389,5 +427,7 @@
         public Guna.UI2.WinForms.Guna2TextBox TxtNombreProducto;
         public Guna.UI2.WinForms.Guna2TextBox TxtCantidad;
         public Guna.UI2.WinForms.Guna2TextBox TxtDescripcion;
+        private System.Windows.Forms.Label label6;
+        public Guna.UI2.WinForms.Guna2TextBox TxtCosto;
     }
 }

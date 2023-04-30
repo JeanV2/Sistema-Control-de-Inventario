@@ -182,34 +182,42 @@ namespace CapaPresentacion
                     {
                         Validaciones.LimpiarError(TxtCantidad);
 
-                        if (TxtDescripcion.TextLength > 0)
+                        if (TxtCosto.TextLength > 0)
                         {
-                            Validaciones.LimpiarError(TxtDescripcion);
-
-                            //CODIGO PARA GUARDAR Y ENVIAR A LA BASE DE DATOS********************
-                            producto.CodProducto = TxtCodigoProducto.Text;
-                            producto.NombreProducto = TxtNombreProducto.Text;
-                           // producto.CostoProducto = TxtCostoProducto.Text;
-                            producto.Descripcion = TxtDescripcion.Text;
-                            producto.CantidadProducto = int.Parse(TxtCantidad.Text.Trim());
-                            
-
-                            if (NegProduct.GuardarProduct(producto))
+                            Validaciones.LimpiarError(TxtCosto);
+                            if (TxtDescripcion.TextLength > 0)
                             {
-                                MessageBox.Show("Producto Guardado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                Validaciones.LimpiarError(TxtDescripcion);
+
+                                //CODIGO PARA GUARDAR Y ENVIAR A LA BASE DE DATOS********************
+                                producto.CodProducto = TxtCodigoProducto.Text;
+                                producto.NombreProducto = TxtNombreProducto.Text;
+                                // producto.CostoProducto = TxtCostoProducto.Text;
+                                producto.Descripcion = TxtDescripcion.Text;
+                                producto.CantidadProducto = int.Parse(TxtCantidad.Text.Trim());
+
+
+                                if (NegProduct.GuardarProduct(producto))
+                                {
+                                    MessageBox.Show("Producto Guardado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Error al guardar el producto", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                }
+
+
+                                //LIMPIAR FORM
+                                Validaciones.LimpiarFormulario(flowLayoutPanel2);
                             }
                             else
                             {
-                                MessageBox.Show("Error al guardar el producto", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                Validaciones.MostarError(TxtDescripcion, "Debes ingresar la drescripcion del producto");
                             }
-
-
-                            //LIMPIAR FORM
-                            Validaciones.LimpiarFormulario(flowLayoutPanel2);
                         }
                         else
                         {
-                            Validaciones.MostarError(TxtDescripcion, "Debes ingresar la drescripcion del producto");
+                            Validaciones.MostarError(TxtCantidad, "Debes Digitar el costo del producto");
                         }
 
                     }
