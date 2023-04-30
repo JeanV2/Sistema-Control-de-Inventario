@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CapaEntidades;
+using CapaNegocios;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,6 +20,12 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
+
+        //entidad
+        TbProducto producto = new TbProducto();
+        
+        NegociosProductos NegProduct = new NegociosProductos();
+
 
         private void BtnVerLista_Click(object sender, EventArgs e)
         {
@@ -46,8 +54,20 @@ namespace CapaPresentacion
 
                             //CODIGO PARA MODIFICAR Y ENVIAR A LA BASE DE DATOS********************
 
+                            producto.CodProducto = TxtCodigoProducto.Text;
+                            producto.NombreProducto = TxtNombreProducto.Text;
+                           // producto.CostoProducto = TxtCostoProducto.Text;
+                            producto.Descripcion = TxtDescripcion.Text;
+                            producto.CantidadProducto = int.Parse(TxtCantidad.Text.Trim());
 
-
+                            if (NegProduct.ModificarProduct(producto))
+                            {
+                                MessageBox.Show("Producto modificar con exito","Exito",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Error al modificar el producto", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            }
                             //LIMPIAR FORM
                             Validaciones.LimpiarFormulario(flowLayoutPanel2);
                         }
@@ -101,7 +121,17 @@ namespace CapaPresentacion
                             Validaciones.LimpiarError(TxtDescripcion);
 
                             //CODIGO PARA ELIMINAR Y ENVIAR A LA BASE DE DATOS********************
+                            producto.CodProducto =TxtCodigoProducto.Text;
+                           // producto.Estado = false;
 
+                            if (NegProduct.EliminarProduct(producto))
+                            {
+                                MessageBox.Show("Producto eliminar con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Error al eliminar el producto", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            }
 
 
                             //LIMPIAR FORM
@@ -157,7 +187,21 @@ namespace CapaPresentacion
                             Validaciones.LimpiarError(TxtDescripcion);
 
                             //CODIGO PARA GUARDAR Y ENVIAR A LA BASE DE DATOS********************
+                            producto.CodProducto = TxtCodigoProducto.Text;
+                            producto.NombreProducto = TxtNombreProducto.Text;
+                           // producto.CostoProducto = TxtCostoProducto.Text;
+                            producto.Descripcion = TxtDescripcion.Text;
+                            producto.CantidadProducto = int.Parse(TxtCantidad.Text.Trim());
+                            
 
+                            if (NegProduct.GuardarProduct(producto))
+                            {
+                                MessageBox.Show("Producto Guardado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Error al guardar el producto", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            }
 
 
                             //LIMPIAR FORM
