@@ -21,7 +21,7 @@ namespace CapaPresentacion
         }
         //instacia de datos
         NegocioInsumos insumosIns = new NegocioInsumos();
-
+        NegociosInsumosSoli InsumosSoli =new NegociosInsumosSoli();
         private void BtnVerListado_Click(object sender, EventArgs e)
         {
             FrmListaProductos frmListaProductos = new FrmListaProductos();
@@ -38,8 +38,28 @@ namespace CapaPresentacion
             //obtenemos las filas actuales
             int row = DgvListaProductos.Rows.Count;
 
+<<<<<<< HEAD
             //obtenemos el codigo actual
             string CodSoliInsumo = ObtenerCodigoSolicitudInsumo();
+=======
+            //Creamos la entidad
+            TbSolicitudInsumo tbinsumo = new TbSolicitudInsumo();
+            //llenamos los datos
+            tbinsumo.IdSolicitudInsumo = ObtenerCodigoSolicitudInsumo().ToString();
+            tbinsumo.FechaInsumo = DateTime.Now;
+            tbinsumo.Estado = true;
+            tbinsumo.IdColaborador = FrmLogin.Idetificacion;
+            //guardamos la solicitud de insumo
+            if (InsumosSoli.GuardarInsumos(tbinsumo))
+            {
+                validaConfirmacion = true;
+            }
+            else
+            {
+                validaConfirmacion = false;
+
+            }
+>>>>>>> 69742af706d58870e19b84a2318a0142413164b0
             //le decimos que recorra los dataview
             TbProductoInsumoS tbProductoInsumo = new TbProductoInsumoS();
             for (int i = 0; i < row; i++)
@@ -49,6 +69,7 @@ namespace CapaPresentacion
                     //ingresamos los datos
                     //------------------------------------------------------------------------------
                     //tb de producto insumo creamos entidad
+<<<<<<< HEAD
                   
                     //lenamos datos
 
@@ -56,6 +77,24 @@ namespace CapaPresentacion
                     tbProductoInsumo.CantidadP = int.Parse(DgvListaProductos.Rows[i].Cells[3].Value.ToString());
                     tbProductoInsumo.IdProducto = DgvListaProductos.Rows[i].Cells[2].Value.ToString();
                    
+=======
+                    TbProductoInsumoS tbProductoInsumo = new TbProductoInsumoS();
+                    //lenamos datos
+                    tbProductoInsumo.IdSolictudInsumo=tbinsumo.IdSolicitudInsumo.ToString();
+                    tbProductoInsumo.CantidadP = int.Parse(DgvListaProductos.Rows[i].Cells[3].Value.ToString());
+                    tbProductoInsumo.IdProducto = DgvListaProductos.Rows[i].Cells[2].Value.ToString();
+                    //-------------------------------------------------------------------------------
+                    //vamos guardando cada producto solicitado en la tabla union
+                    if (insumosIns.GuardarInsumos(tbProductoInsumo))
+                    {
+                        validaConfirmacion =true;
+                    }
+                    else
+                    {
+                         validaConfirmacion=false;
+                        
+                    }
+>>>>>>> 69742af706d58870e19b84a2318a0142413164b0
 
                 }
 
