@@ -75,16 +75,10 @@ namespace CapaPresentacion
                     TbProductoInsumo.IdSolictudInsumo =CodSoliInsumo;
                     TbProductoInsumo.CantidadP = int.Parse(DgvListaProductos.Rows[i].Cells[3].Value.ToString());
                     TbProductoInsumo.IdProducto = DgvListaProductos.Rows[i].Cells[2].Value.ToString();
-                   
-
-                    TbProductoInsumoS tbProductoInsumo = new TbProductoInsumoS();
-                    //lenamos datos
-                    tbProductoInsumo.IdSolictudInsumo=tbinsumo.IdSolicitudInsumo.ToString();
-                    tbProductoInsumo.CantidadP = int.Parse(DgvListaProductos.Rows[i].Cells[3].Value.ToString());
-                    tbProductoInsumo.IdProducto = DgvListaProductos.Rows[i].Cells[2].Value.ToString();
+      
                     //-------------------------------------------------------------------------------
                     //vamos guardando cada producto solicitado en la tabla union
-                    if (insumosIns.GuardarInsumos(tbProductoInsumo))
+                    if (InsumosSoli.GuardarInsumos(TbProductoInsumo))
                     {
                         validaConfirmacion =true;
                     }
