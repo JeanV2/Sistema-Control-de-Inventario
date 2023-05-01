@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CapaEntidades;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,11 +14,15 @@ namespace CapaPresentacion
 {
     public partial class FrmSolicitudCompra : Form
     {
+        public int Presupuesto = 1000000;
+        public string idSolicitud = "0001";
         public FrmSolicitudCompra()
         {
             InitializeComponent();
             //SET DATETIMEPICKER
             DtpFechaSolicitud.MinDate= DateTime.Today;
+            TxtPresupuesto.Text = Presupuesto.ToString(); ;
+            TxtSolicitud.Text = idSolicitud;
         }
 
         private void BtnModificar_Click(object sender, EventArgs e)
@@ -59,14 +65,37 @@ namespace CapaPresentacion
 
 
 
-                                    //CODE FOR ADDING ********************
-                                    // ACA SE AGREGAN LOS DATOS DE LOS TXT AL DATA GRID VIEW
-                                    
+                                    //agregamos el producto al datagridview
+                                    //limpiamos el txt de precio producto para que no contenga caracteres invalidos
+                                    int TxtPrecioProdLim = int.Parse(TxtPrecioProd.Text.Replace("₡", ""));
+                                    int row= DgvListaCompra.Rows.Add();
+                                        DgvListaCompra.Rows[row].Cells[0].Value = TxtSolicitud.Text;
+                                        DgvListaCompra.Rows[row].Cells[1].Value = TxtCodigoProd.Text;
+                                        DgvListaCompra.Rows[row].Cells[2].Value = TxtCantidad.Text;
+                                    DgvListaCompra.Rows[row].Cells[3].Value = TxtPrecioProdLim;
+
 
                                     //LIMPIAR FORM
                                     Validaciones.LimpiarFormulario(flowLayoutPanel4);
-                                    
-
+                                    //actualizamos el monto total
+                                    int CostoFinal = 0;
+                                    int CostoAñadir = 0;
+                                    for (int i = 0; i < DgvListaCompra.RowCount; i++)
+                                    {
+                                        if (DgvListaCompra.Rows[i].Cells[0].Value!=null)
+                                        {
+                                            CostoAñadir = int.Parse(DgvListaCompra.Rows[i].Cells[3].Value.ToString()) * int.Parse(DgvListaCompra.Rows[i].Cells[2].Value.ToString());
+                                            CostoFinal = CostoFinal + CostoAñadir;
+                                        }
+                                   
+                                    }
+                                    TxtTotalCompra.Text=CostoFinal.ToString();
+                                    //realizamos el rebajo al presupuesto
+                                    Presupuesto = 1000000;
+                                    Presupuesto = Presupuesto - CostoFinal;
+                                    //actualizamos el presupuesto
+                                    TxtPresupuesto.Text= Presupuesto.ToString();
+                                    TxtSolicitud.Text = idSolicitud;
                                 }
                                 else
                                 {
@@ -159,7 +188,29 @@ namespace CapaPresentacion
             //CLEAR DATA GRID VIEW
             // -- ACA VA EL CODIGO PARA LIMPIAR EL DATA GRIG VIEW
         }
-
-
+     
+        private void TxtCantidad_TextChanged(object sender, EventArgs e)
+        {
+            //validamos que el txt no este vacio
+            if (TxtCantidad.Text!=string.Empty)
+            {
+                //si txtcantidad es igual a 0 costo total sera igual a 0
+                if (TxtCantidad.Text=="0")
+                {
+                    TxtCostoTotal.Text = "0";
+                }
+                //caso contrario se multipla el precio del producto por la cantidad
+                else
+                {
+                    //limpiamos el txt de precio producto para que no contenga caracteres invalidos
+                    int TxtPrecioProdLim = int.Parse(TxtPrecioProd.Text.Replace("₡",""));
+                    //realizamos la multiplicacion 
+                    int costo = int.Parse(TxtCantidad.Text) * TxtPrecioProdLim;
+                    //mostramos el costo
+                    TxtCostoTotal.Text = costo.ToString() ;
+                }
+             
+            }
+        }
     }
 }
