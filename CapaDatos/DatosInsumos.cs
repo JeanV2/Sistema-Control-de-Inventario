@@ -11,8 +11,8 @@ namespace CapaDatos
     {
         public bool GuardarInsumos(TbProductoInsumoS insumo)
         {
-            try
-            {
+            //try
+            //{
                 //ttt
                 using (inventarioEntities1 DB = new inventarioEntities1())
                 {
@@ -20,12 +20,12 @@ namespace CapaDatos
                     DB.SaveChanges();
 
                 }
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+            return true;
+            //}
+            //catch (Exception)
+            //{
+            //    return false;
+            //}
         }
         public List<TbProductoInsumoS> obtenerListaInsumos(int estado)
         {

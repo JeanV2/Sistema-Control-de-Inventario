@@ -38,7 +38,13 @@ namespace CapaPresentacion
             //obtenemos las filas actuales
             int row = DgvListaProductos.Rows.Count;
 
-
+            //Creamos la entidad
+            TbSolicitudInsumo tbinsumo = new TbSolicitudInsumo();
+            //llenamos los datos
+            tbinsumo.IdSolicitudInsumo = ObtenerCodigoSolicitudInsumo().ToString();
+            tbinsumo.FechaInsumo = DateTime.Now;
+            tbinsumo.Estado = true;
+            tbinsumo.IdColaborador = FrmLogin.Idetificacion;
             //le decimos que recorra los dataview
             for (int i = 0; i < row; i++)
             {
@@ -49,21 +55,11 @@ namespace CapaPresentacion
                     //tb de producto insumo creamos entidad
                     TbProductoInsumoS tbProductoInsumo = new TbProductoInsumoS();
                     //lenamos datos
-                  
-                    tbProductoInsumo.IdSolictudInsumo =ObtenerCodigoSolicitudInsumo().ToString();
+                    tbProductoInsumo.IdSolictudInsumo=tbinsumo.IdSolicitudInsumo.ToString();
                     tbProductoInsumo.CantidadP = int.Parse(DgvListaProductos.Rows[i].Cells[3].Value.ToString());
                     tbProductoInsumo.IdProducto = DgvListaProductos.Rows[i].Cells[2].Value.ToString();
                     //-------------------------------------------------------------------------------
-                    //Creamos la entidad
-                    TbSolicitudInsumo tbinsumo = new TbSolicitudInsumo();
-                    //llenamos los datos
-                    tbinsumo.IdSolicitudInsumo = ObtenerCodigoSolicitudInsumo().ToString();
-                    tbinsumo.FechaInsumo = DateTime.Now;
-                    tbinsumo.Estado = true;
-                    tbinsumo.IdColaborador = FrmLogin.Idetificacion;
-
-                    //asociamos las tablas
-                    tbProductoInsumo.TbSolicitudInsumo = tbinsumo;
+                    tbProductoInsumo.TbSolicitudInsumo1 = tbinsumo;
                     if (insumosIns.GuardarInsumos(tbProductoInsumo))
                     {
                         validaConfirmacion =true;
