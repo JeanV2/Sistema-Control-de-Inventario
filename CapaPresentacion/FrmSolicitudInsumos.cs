@@ -61,7 +61,7 @@ namespace CapaPresentacion
             }
 
             //le decimos que recorra los dataview
-            TbProductoInsumoS tbProductoInsumo = new TbProductoInsumoS();
+            TbProductoInsumoS TbProductoInsumo = new TbProductoInsumoS();
             for (int i = 0; i < row; i++)
             {
                 if (row != null)
@@ -69,12 +69,12 @@ namespace CapaPresentacion
                     //ingresamos los datos
                     //------------------------------------------------------------------------------
                     //tb de producto insumo creamos entidad
-   
+
                     //lenamos datos
 
                     TbProductoInsumo.IdSolictudInsumo =CodSoliInsumo;
-                    tbProductoInsumo.CantidadP = int.Parse(DgvListaProductos.Rows[i].Cells[3].Value.ToString());
-                    tbProductoInsumo.IdProducto = DgvListaProductos.Rows[i].Cells[2].Value.ToString();
+                    TbProductoInsumo.CantidadP = int.Parse(DgvListaProductos.Rows[i].Cells[3].Value.ToString());
+                    TbProductoInsumo.IdProducto = DgvListaProductos.Rows[i].Cells[2].Value.ToString();
                    
 
                     TbProductoInsumoS tbProductoInsumo = new TbProductoInsumoS();
@@ -100,9 +100,8 @@ namespace CapaPresentacion
             }
             //-------------------------------------------------------------------------------
             //Creamos la entidad
-
-            TbSolicitudInsumo tbinsumo = new TbSolicitudInsumo();
-            //llenamos los datos
+            TbSolicitudInsumo Tbinsumo = new TbSolicitudInsumo();
+ 
 
             tbinsumo.IdSolicitudInsumo = CodSoliInsumo;
             tbinsumo.FechaInsumo = DateTime.Now;
@@ -110,8 +109,8 @@ namespace CapaPresentacion
             tbinsumo.IdColaborador = FrmLogin.Idetificacion;
 
             //asociamos las tablas
-            tbProductoInsumo.TbSolicitudInsumo = tbinsumo;
-            if (insumosIns.GuardarInsumos(tbProductoInsumo))
+           TbProductoInsumo.TbSolicitudInsumo = tbinsumo;
+            if (insumosIns.GuardarInsumos(TbProductoInsumo))
             {
                 validaConfirmacion = true;
             }
