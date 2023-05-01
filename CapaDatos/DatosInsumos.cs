@@ -11,8 +11,8 @@ namespace CapaDatos
     {
         public bool GuardarInsumos(TbProductoInsumoS insumo)
         {
-            //try
-            //{
+            try
+            {
                 //ttt
                 using (inventarioEntities1 DB = new inventarioEntities1())
                 {
@@ -21,12 +21,12 @@ namespace CapaDatos
 
                 }
             return true;
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
         }
+            catch (Exception)
+            {
+                return false;
+            }
+           }
         public List<TbProductoInsumoS> obtenerListaInsumos(int estado)
         {
             /*interactua con la BD, le indica consultar los datos enviados por el usuario y

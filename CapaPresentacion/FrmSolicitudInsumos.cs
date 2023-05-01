@@ -21,7 +21,7 @@ namespace CapaPresentacion
         }
         //instacia de datos
         NegocioInsumos insumosIns = new NegocioInsumos();
-
+        NegociosInsumosSoli InsumosSoli =new NegociosInsumosSoli();
         private void BtnVerListado_Click(object sender, EventArgs e)
         {
             FrmListaProductos frmListaProductos = new FrmListaProductos();
@@ -45,6 +45,16 @@ namespace CapaPresentacion
             tbinsumo.FechaInsumo = DateTime.Now;
             tbinsumo.Estado = true;
             tbinsumo.IdColaborador = FrmLogin.Idetificacion;
+            //guardamos la solicitud de insumo
+            if (InsumosSoli.GuardarInsumos(tbinsumo))
+            {
+                validaConfirmacion = true;
+            }
+            else
+            {
+                validaConfirmacion = false;
+
+            }
             //le decimos que recorra los dataview
             for (int i = 0; i < row; i++)
             {
@@ -59,7 +69,7 @@ namespace CapaPresentacion
                     tbProductoInsumo.CantidadP = int.Parse(DgvListaProductos.Rows[i].Cells[3].Value.ToString());
                     tbProductoInsumo.IdProducto = DgvListaProductos.Rows[i].Cells[2].Value.ToString();
                     //-------------------------------------------------------------------------------
-                    tbProductoInsumo.TbSolicitudInsumo1 = tbinsumo;
+                    //vamos guardando cada producto solicitado en la tabla union
                     if (insumosIns.GuardarInsumos(tbProductoInsumo))
                     {
                         validaConfirmacion =true;
