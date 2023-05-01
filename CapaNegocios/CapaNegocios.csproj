@@ -42,11 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CNColaborador.cs" />
-
+    <Compile Include="NegocioPresupuestos.cs" />
     <Compile Include="NegociosProductos.cs" />
-
     <Compile Include="NegocioInsumos.cs" />
-
     <Compile Include="NegocioUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

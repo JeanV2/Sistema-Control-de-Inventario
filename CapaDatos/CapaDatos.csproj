@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="CDcolaborador.cs" />
     <Compile Include="DatosInsumos.cs" />
+    <Compile Include="DatosPresupuestos.cs" />
     <Compile Include="DatosProductos.cs" />
     <Compile Include="DatosUsuario.cs" />
     <Compile Include="Modelinventario.Context.cs">
