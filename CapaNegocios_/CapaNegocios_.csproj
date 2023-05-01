@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{33CB981D-5E3C-45C2-B834-BC3E38292291}</ProjectGuid>
+    <ProjectGuid>{9C9303AC-129F-4E1C-9265-F9B3A6A92F85}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CapaNegocios</RootNamespace>
-    <AssemblyName>CapaNegocios</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <RootNamespace>CapaNegocios_</RootNamespace>
+    <AssemblyName>CapaNegocios_</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
@@ -41,34 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CNColaborador.cs" />
-
-
-    <Compile Include="NegocioPresupuestos.cs" />
-    <Compile Include="NegociosProductos.cs" />
-    <Compile Include="NegocioInsumos.cs" />
-
-    <Compile Include="NegociosInsumosSoli.cs"/>
-    <Compile Include="NegociosProductos.cs" />
-    <Compile Include="NegocioInsumos.cs" />
-    <Compile Include="NegocioSolCompra.cs" />
-    <Compile Include="NegociosProductos.cs" />
-    <Compile Include="NegociosSoliUnionCompra.cs" />
-    <Compile Include="NegocioUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CapaDatos\CapaDatos.csproj">
-      <Project>{5EB4C259-4E89-44CA-ACA8-25281222FDCE}</Project>
-      <Name>CapaDatos</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CapaEntidades\CapaEntidades.csproj">
-      <Project>{71B8644A-E2D2-4BAB-BDE1-3FD6B3C1A9F9}</Project>
-      <Name>CapaEntidades</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

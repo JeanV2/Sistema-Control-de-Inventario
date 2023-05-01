@@ -370,9 +370,17 @@
     <None Include="Resources\filter_52px.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CapaDatos\CapaDatos.csproj">
+      <Project>{5eb4c259-4e89-44ca-aca8-25281222fdce}</Project>
+      <Name>CapaDatos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CapaEntidades\CapaEntidades.csproj">
       <Project>{71b8644a-e2d2-4bab-bde1-3fd6b3c1a9f9}</Project>
       <Name>CapaEntidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CapaNegocios\CapaNegocios.csproj">
+      <Project>{33cb981d-5e3c-45c2-b834-bc3e38292291}</Project>
+      <Name>CapaNegocios</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
