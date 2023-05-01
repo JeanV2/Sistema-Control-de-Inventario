@@ -10,15 +10,14 @@
         <EntityTypeShape EntityType="inventarioModel.TbCompraSolicitudP" Width="1.5" PointX="5.25" PointY="5" />
         <EntityTypeShape EntityType="inventarioModel.TbPresupuesto" Width="1.5" PointX="7.75" PointY="3.75" />
         <EntityTypeShape EntityType="inventarioModel.TbProducto" Width="1.5" PointX="3" PointY="7.125" />
-        <EntityTypeShape EntityType="inventarioModel.TbProductoInsumoS" Width="2.375" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventarioModel.TbProductoInsumoS" Width="1.5" PointX="5.25" PointY="1.125" />
         <EntityTypeShape EntityType="inventarioModel.TbSolicitudCompra" Width="1.5" PointX="3" PointY="4.125" />
         <EntityTypeShape EntityType="inventarioModel.TbSolicitudInsumo" Width="1.5" PointX="3" PointY="1.125" />
         <AssociationConnector Association="inventarioModel.FK_TbSolicitudCompra_TbColaborador" />
         <AssociationConnector Association="inventarioModel.FK_TbSolicitudInsumo_TbColaborador" />
         <AssociationConnector Association="inventarioModel.FK_TbCompraSolicitudP_TbProducto" />
         <AssociationConnector Association="inventarioModel.FK_TbCompraSolicitudP_TbSolicitudCompra" />
-        <AssociationConnector Association="inventarioModel.FK_TbProductoInsumoS_TbProducto" />
-        <AssociationConnector Association="inventarioModel.FK_TbProductoInsumoS_TbSolicitudInsumo" />
+        <AssociationConnector Association="inventarioModel.FK_TbProductoInsumoS_TbProducto1" />
         <AssociationConnector Association="inventarioModel.FK_TbProductoInsumoS_TbSolicitudInsumo1" />
       </Diagram>
     </edmx:Diagrams>
