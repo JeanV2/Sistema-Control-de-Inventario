@@ -19,6 +19,7 @@
         <AssociationConnector Association="inventarioModel.FK_TbCompraSolicitudP_TbSolicitudCompra" />
         <AssociationConnector Association="inventarioModel.FK_TbProductoInsumoS_TbProducto" />
         <AssociationConnector Association="inventarioModel.FK_TbProductoInsumoS_TbSolicitudInsumo" />
+        <AssociationConnector Association="inventarioModel.FK_TbProductoInsumoS_TbSolicitudInsumo1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
