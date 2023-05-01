@@ -38,8 +38,10 @@ namespace CapaPresentacion
             //obtenemos las filas actuales
             int row = DgvListaProductos.Rows.Count;
 
-
+            //obtenemos el codigo actual
+            string CodSoliInsumo = ObtenerCodigoSolicitudInsumo();
             //le decimos que recorra los dataview
+            TbProductoInsumoS tbProductoInsumo = new TbProductoInsumoS();
             for (int i = 0; i < row; i++)
             {
                 if (row != null)
@@ -47,39 +49,41 @@ namespace CapaPresentacion
                     //ingresamos los datos
                     //------------------------------------------------------------------------------
                     //tb de producto insumo creamos entidad
-                    TbProductoInsumoS tbProductoInsumo = new TbProductoInsumoS();
-                    //lenamos datos
                   
-                    tbProductoInsumo.IdSolictudInsumo =ObtenerCodigoSolicitudInsumo().ToString();
+                    //lenamos datos
+
+                    tbProductoInsumo.IdSolictudInsumo =CodSoliInsumo;
                     tbProductoInsumo.CantidadP = int.Parse(DgvListaProductos.Rows[i].Cells[3].Value.ToString());
                     tbProductoInsumo.IdProducto = DgvListaProductos.Rows[i].Cells[2].Value.ToString();
-                    //-------------------------------------------------------------------------------
-                    //Creamos la entidad
-                    TbSolicitudInsumo tbinsumo = new TbSolicitudInsumo();
-                    //llenamos los datos
-                    tbinsumo.IdSolicitudInsumo = ObtenerCodigoSolicitudInsumo().ToString();
-                    tbinsumo.FechaInsumo = DateTime.Now;
-                    tbinsumo.Estado = true;
-                    tbinsumo.IdColaborador = FrmLogin.Idetificacion;
-
-                    //asociamos las tablas
-                    tbProductoInsumo.TbSolicitudInsumo = tbinsumo;
-                    if (insumosIns.GuardarInsumos(tbProductoInsumo))
-                    {
-                        validaConfirmacion =true;
-                    }
-                    else
-                    {
-                         validaConfirmacion=false;
-                        
-                    }
+                   
 
                 }
 
             }
+            //-------------------------------------------------------------------------------
+            //Creamos la entidad
 
+            TbSolicitudInsumo tbinsumo = new TbSolicitudInsumo();
+            //llenamos los datos
 
-            if (validaConfirmacion==true)
+            tbinsumo.IdSolicitudInsumo = CodSoliInsumo;
+            tbinsumo.FechaInsumo = DateTime.Now;
+            tbinsumo.Estado = true;
+            tbinsumo.IdColaborador = FrmLogin.Idetificacion;
+
+            //asociamos las tablas
+            tbProductoInsumo.TbSolicitudInsumo = tbinsumo;
+            if (insumosIns.GuardarInsumos(tbProductoInsumo))
+            {
+                validaConfirmacion = true;
+            }
+            else
+            {
+                validaConfirmacion = false;
+
+            }
+
+            if (validaConfirmacion == true)
             {
                 MessageBox.Show("Registro exitoso", "Guadar", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -137,7 +141,7 @@ namespace CapaPresentacion
 
             return int.Parse(Codigo);
         }
-        private int ObtenerCodigoSolicitudInsumo()
+        private string ObtenerCodigoSolicitudInsumo()
         {
             String Codigo = "";
             List<TbProductoInsumoS> listaproducotoinsumo;
@@ -171,7 +175,7 @@ namespace CapaPresentacion
             }
 
 
-            return int.Parse(Codigo);
+            return Codigo;
         }
 
         private void BtnAgregar_Click(object sender, EventArgs e)
