@@ -38,10 +38,10 @@ namespace CapaPresentacion
             //obtenemos las filas actuales
             int row = DgvListaProductos.Rows.Count;
 
-<<<<<<< HEAD
+
             //obtenemos el codigo actual
             string CodSoliInsumo = ObtenerCodigoSolicitudInsumo();
-=======
+
             //Creamos la entidad
             TbSolicitudInsumo tbinsumo = new TbSolicitudInsumo();
             //llenamos los datos
@@ -59,7 +59,7 @@ namespace CapaPresentacion
                 validaConfirmacion = false;
 
             }
->>>>>>> 69742af706d58870e19b84a2318a0142413164b0
+
             //le decimos que recorra los dataview
             TbProductoInsumoS tbProductoInsumo = new TbProductoInsumoS();
             for (int i = 0; i < row; i++)
@@ -69,15 +69,14 @@ namespace CapaPresentacion
                     //ingresamos los datos
                     //------------------------------------------------------------------------------
                     //tb de producto insumo creamos entidad
-<<<<<<< HEAD
-                  
+   
                     //lenamos datos
 
-                    tbProductoInsumo.IdSolictudInsumo =CodSoliInsumo;
+                    TbProductoInsumo.IdSolictudInsumo =CodSoliInsumo;
                     tbProductoInsumo.CantidadP = int.Parse(DgvListaProductos.Rows[i].Cells[3].Value.ToString());
                     tbProductoInsumo.IdProducto = DgvListaProductos.Rows[i].Cells[2].Value.ToString();
                    
-=======
+
                     TbProductoInsumoS tbProductoInsumo = new TbProductoInsumoS();
                     //lenamos datos
                     tbProductoInsumo.IdSolictudInsumo=tbinsumo.IdSolicitudInsumo.ToString();
@@ -94,7 +93,7 @@ namespace CapaPresentacion
                          validaConfirmacion=false;
                         
                     }
->>>>>>> 69742af706d58870e19b84a2318a0142413164b0
+
 
                 }
 
