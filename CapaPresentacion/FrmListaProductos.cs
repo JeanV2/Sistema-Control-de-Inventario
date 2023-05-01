@@ -58,22 +58,25 @@ namespace CapaPresentacion
                 int fila = e.RowIndex;
 
                 //PASA LOS DATOS AL FORMULARIO AÑADIR PRODUCTOS
-                AñadirProductos.TxtCodigoProducto.Text = DgvListaProductos.Rows[fila].Cells[0].Value.ToString();
-                AñadirProductos.TxtNombreProducto.Text = DgvListaProductos.Rows[fila].Cells[1].Value.ToString();
-                AñadirProductos.TxtCantidad.Text = DgvListaProductos.Rows[fila].Cells[2].Value.ToString();
-                AñadirProductos.TxtCosto.Text = DgvListaProductos.Rows[fila].Cells[3].Value.ToString();
-                AñadirProductos.TxtDescripcion.Text = DgvListaProductos.Rows[fila].Cells[4].Value.ToString();
+                //AñadirProductos.TxtCodigoProducto.Text = DgvListaProductos.Rows[fila].Cells[0].Value.ToString();
+                //AñadirProductos.TxtNombreProducto.Text = DgvListaProductos.Rows[fila].Cells[1].Value.ToString();
+                //AñadirProductos.TxtCantidad.Text = DgvListaProductos.Rows[fila].Cells[2].Value.ToString();
+                //AñadirProductos.TxtCosto.Text = DgvListaProductos.Rows[fila].Cells[3].Value.ToString();
+                //AñadirProductos.TxtDescripcion.Text = DgvListaProductos.Rows[fila].Cells[4].Value.ToString();
 
 
-                AñadirProductos.BtnGuardar.Enabled = false;
-                AñadirProductos.BtnModificar.Visible = true;
-                AñadirProductos.BtnEliminar.Visible = true;
-                AñadirProductos.TxtCantidad.Enabled = false;
+                //AñadirProductos.BtnGuardar.Enabled = false;
+                //AñadirProductos.BtnModificar.Visible = true;
+                //AñadirProductos.BtnEliminar.Visible = true;
+                //AñadirProductos.TxtCantidad.Enabled = false;
 
 
-                // PASA LOS DATOS AL FORMULARIO SOLICITUD DE INSUMOS
-                //frmSolicitud.TxtCodigoProcd.Text = DgvListaProductos.Rows[fila].Cells[0].Value.ToString();
-                //frmSolicitud.TxtNombreProduc.Text = DgvListaProductos.Rows[fila].Cells[2].Value.ToString();
+                //PASA LOS DATOS AL FORMULARIO SOLICITUD DE INSUMOS
+                frmSolicitud.TxtCodigoProcd.Text = DgvListaProductos.Rows[fila].Cells[0].Value.ToString();
+                frmSolicitud.TxtNombreProduc.Text = DgvListaProductos.Rows[fila].Cells[1].Value.ToString();
+                frmSolicitud.txtCantProducto.Text = DgvListaProductos.Rows[fila].Cells[2].Value.ToString();
+
+
 
                 this.Close();
             }
