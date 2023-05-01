@@ -25,45 +25,73 @@ namespace CapaPresentacion
         private void BtnVerListado_Click(object sender, EventArgs e)
         {
             FrmListaProductos frmListaProductos = new FrmListaProductos();
-       
+
             frmListaProductos.ShowDialog();
-            
+
         }
+
 
         private void BtnConfirmar_Click(object sender, EventArgs e)
         {
-          
-        
 
-            //------------------------------------------------------------------------------
-            //tb de producto insumo creamos entidad
-            TbProductoInsumoS tbProductoInsumo = new TbProductoInsumoS();
-            //lenamos datos
-            tbProductoInsumo.IdSolicitudProducto = ObtenerCodigoProductoInsumo();
-            tbProductoInsumo.IdSolictudInsumo = ObtenerCodigoSolicitudInsumo().ToString();
-            tbProductoInsumo.CantidadP = int.Parse(txtCantProducto.Text);
-            tbProductoInsumo.IdProducto = TxtCodigoProcd.Text;
-            //-------------------------------------------------------------------------------
-            //Creamos la entidad
-            TbSolicitudInsumo tbinsumo = new TbSolicitudInsumo();
-            //llenamos los datos
-            tbinsumo.IdSolicitudInsumo = ObtenerCodigoSolicitudInsumo().ToString();
-            tbinsumo.FechaInsumo = DateTime.Now;
-            tbinsumo.Estado = true;
-            tbinsumo.IdColaborador = FrmLogin.Idetificacion;
+            bool validaConfirmacion = true;
+            //obtenemos las filas actuales
+            int row = DgvListaProductos.Rows.Count;
 
-            //asociamos las tablas
-            tbProductoInsumo.TbSolicitudInsumo = tbinsumo;
-            if (insumosIns.GuardarInsumos(tbProductoInsumo))
+
+            //le decimos que recorra los dataview
+            for (int i = 0; i < row; i++)
             {
-                MessageBox.Show("Registro exitoso","Guadar",MessageBoxButtons.OK,MessageBoxIcon.Information);
-            }else
+                if (row != null)
+                {
+                    //ingresamos los datos
+                    //------------------------------------------------------------------------------
+                    //tb de producto insumo creamos entidad
+                    TbProductoInsumoS tbProductoInsumo = new TbProductoInsumoS();
+                    //lenamos datos
+                  
+                    tbProductoInsumo.IdSolictudInsumo =ObtenerCodigoSolicitudInsumo().ToString();
+                    tbProductoInsumo.CantidadP = int.Parse(DgvListaProductos.Rows[i].Cells[3].Value.ToString());
+                    tbProductoInsumo.IdProducto = DgvListaProductos.Rows[i].Cells[2].Value.ToString();
+                    //-------------------------------------------------------------------------------
+                    //Creamos la entidad
+                    TbSolicitudInsumo tbinsumo = new TbSolicitudInsumo();
+                    //llenamos los datos
+                    tbinsumo.IdSolicitudInsumo = ObtenerCodigoSolicitudInsumo().ToString();
+                    tbinsumo.FechaInsumo = DateTime.Now;
+                    tbinsumo.Estado = true;
+                    tbinsumo.IdColaborador = FrmLogin.Idetificacion;
+
+                    //asociamos las tablas
+                    tbProductoInsumo.TbSolicitudInsumo = tbinsumo;
+                    if (insumosIns.GuardarInsumos(tbProductoInsumo))
+                    {
+                        validaConfirmacion =true;
+                    }
+                    else
+                    {
+                         validaConfirmacion=false;
+                        
+                    }
+
+                }
+
+            }
+
+
+            if (validaConfirmacion==true)
+            {
+                MessageBox.Show("Registro exitoso", "Guadar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
             {
                 MessageBox.Show("Error de Registro ", "Guadar", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+
+
         }
-       
+
 
         private void FrmSolicitudInsumos_Load(object sender, EventArgs e)
         {
@@ -144,6 +172,16 @@ namespace CapaPresentacion
 
 
             return int.Parse(Codigo);
+        }
+
+        private void BtnAgregar_Click(object sender, EventArgs e)
+        {
+
+            int row = DgvListaProductos.Rows.Add();
+            DgvListaProductos.Rows[row].Cells[0].Value = row;
+            DgvListaProductos.Rows[row].Cells[1].Value = FrmLogin.Idetificacion;
+            DgvListaProductos.Rows[row].Cells[2].Value = TxtCodigoProcd.Text;
+            DgvListaProductos.Rows[row].Cells[3].Value = txtCantProducto.Text;
         }
     }
 }
