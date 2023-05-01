@@ -53,6 +53,8 @@
     <Compile Include="CDcolaborador.cs" />
     <Compile Include="DatosInsumos.cs" />
     <Compile Include="DatosPresupuestos.cs" />
+    <Compile Include="DatosInsumosSoli.cs" />
+
     <Compile Include="DatosProductos.cs" />
     <Compile Include="DatosSolictudCompra.cs" />
     <Compile Include="DatosUnionSoliCompra.cs" />
