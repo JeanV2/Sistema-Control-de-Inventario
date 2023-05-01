@@ -42,6 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CNColaborador.cs" />
+
+    <Compile Include="NegocioPresupuestos.cs" />
+    <Compile Include="NegociosProductos.cs" />
+    <Compile Include="NegocioInsumos.cs" />
+
     <Compile Include="NegociosProductos.cs" />
     <Compile Include="NegocioInsumos.cs" />
     <Compile Include="NegocioSolCompra.cs" />
