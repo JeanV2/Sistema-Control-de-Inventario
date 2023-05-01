@@ -38,10 +38,6 @@ namespace CapaPresentacion
             //obtenemos las filas actuales
             int row = DgvListaProductos.Rows.Count;
 
-
-            //obtenemos el codigo actual
-            string CodSoliInsumo = ObtenerCodigoSolicitudInsumo();
-
             //Creamos la entidad
             TbSolicitudInsumo tbinsumo = new TbSolicitudInsumo();
             //llenamos los datos
@@ -50,7 +46,7 @@ namespace CapaPresentacion
             tbinsumo.Estado = true;
             tbinsumo.IdColaborador = FrmLogin.Idetificacion;
             //guardamos la solicitud de insumo
-            if (InsumosSoli.GuardarInsumos(tbinsumo))
+            if (insumosIns.GuardarInsumos(tbinsumo))
             {
                 validaConfirmacion = true;
             }
@@ -72,7 +68,7 @@ namespace CapaPresentacion
 
                     //lenamos datos
 
-                    TbProductoInsumo.IdSolictudInsumo =CodSoliInsumo;
+                    TbProductoInsumo.IdSolictudInsumo = tbinsumo.IdSolicitudInsumo;
                     TbProductoInsumo.CantidadP = int.Parse(DgvListaProductos.Rows[i].Cells[3].Value.ToString());
                     TbProductoInsumo.IdProducto = DgvListaProductos.Rows[i].Cells[2].Value.ToString();
       
@@ -93,26 +89,7 @@ namespace CapaPresentacion
 
             }
             //-------------------------------------------------------------------------------
-            //Creamos la entidad
-            TbSolicitudInsumo Tbinsumo = new TbSolicitudInsumo();
- 
-
-            tbinsumo.IdSolicitudInsumo = CodSoliInsumo;
-            tbinsumo.FechaInsumo = DateTime.Now;
-            tbinsumo.Estado = true;
-            tbinsumo.IdColaborador = FrmLogin.Idetificacion;
-
-            //asociamos las tablas
-           TbProductoInsumo.TbSolicitudInsumo = tbinsumo;
-            if (insumosIns.GuardarInsumos(TbProductoInsumo))
-            {
-                validaConfirmacion = true;
-            }
-            else
-            {
-                validaConfirmacion = false;
-
-            }
+    
 
             if (validaConfirmacion == true)
             {
@@ -136,67 +113,31 @@ namespace CapaPresentacion
 
 
         }
-        private int ObtenerCodigoProductoInsumo()
-        {
-            String Codigo = "";
-            List<TbProductoInsumoS> listaproducotoinsumo;
-            listaproducotoinsumo = insumosIns.obtenerListaInsumos(0);
-            TbProductoInsumoS tbProductoInsumo = new TbProductoInsumoS();
-            tbProductoInsumo = listaproducotoinsumo.LastOrDefault();
-
-            if (listaproducotoinsumo.Count() > 0)
-            {
-                if ((tbProductoInsumo.IdSolicitudProducto + 1) > 9)
-                {
-                    Codigo = "0000" + (tbProductoInsumo.IdSolicitudProducto + 1).ToString();
-                    if ((tbProductoInsumo.IdSolicitudProducto + 1) > 99)
-                    {
-                        Codigo = "000" + (tbProductoInsumo.IdSolicitudProducto + 1).ToString();
-                    }
-                    else
-                    {
-                        Codigo = "0000" + (tbProductoInsumo.IdSolicitudProducto + 1).ToString();
-                    }
-                }
-                else
-                {
-                    Codigo = "00000" + (tbProductoInsumo.IdSolicitudProducto + 1).ToString();
-                }
-
-            }
-            else
-            {
-                Codigo = "00000";
-            }
-
-
-            return int.Parse(Codigo);
-        }
+       
         private string ObtenerCodigoSolicitudInsumo()
         {
             String Codigo = "";
-            List<TbProductoInsumoS> listaproducotoinsumo;
+            List<TbSolicitudInsumo> listaproducotoinsumo;
             listaproducotoinsumo = insumosIns.obtenerListaInsumos(0);
-            TbProductoInsumoS tbProductoInsumo = new TbProductoInsumoS();
+            TbSolicitudInsumo tbProductoInsumo = new TbSolicitudInsumo();
             tbProductoInsumo = listaproducotoinsumo.LastOrDefault();
 
             if (listaproducotoinsumo.Count() > 0)
             {
-                if ((int.Parse(tbProductoInsumo.TbSolicitudInsumo.IdSolicitudInsumo) + 1) > 9)
+                if ((int.Parse(tbProductoInsumo.IdSolicitudInsumo) + 1) > 9)
                 {
-                    Codigo = "0000" + (tbProductoInsumo.TbSolicitudInsumo.IdSolicitudInsumo + 1).ToString();
-                    if ((tbProductoInsumo.IdSolicitudProducto + 1) > 99)
+                    if (int.Parse(tbProductoInsumo.IdSolicitudInsumo + 1) > 99)
                     {
-                        Codigo = "000" + (tbProductoInsumo.TbSolicitudInsumo.IdSolicitudInsumo + 1).ToString();
+                        Codigo = "000" + (int.Parse(tbProductoInsumo.IdSolicitudInsumo) + 1).ToString();
                     }
                     else
                     {
-                        Codigo = "0000" + (tbProductoInsumo.TbSolicitudInsumo.IdSolicitudInsumo + 1).ToString();
+                        Codigo = "0000" + (int.Parse(tbProductoInsumo.IdSolicitudInsumo) + 1).ToString();
                     }
                 }
                 else
                 {
-                    Codigo = "00000" + (tbProductoInsumo.TbSolicitudInsumo.IdSolicitudInsumo + 1).ToString();
+                    Codigo = "00000" + (int.Parse(tbProductoInsumo.IdSolicitudInsumo) + 1).ToString();
                 }
 
             }
