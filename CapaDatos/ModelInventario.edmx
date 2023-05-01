@@ -108,7 +108,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TbProductoInsumoS_TbProducto">
+        <Association Name="FK_TbProductoInsumoS_TbProducto1">
           <End Role="TbProducto" Type="Self.TbProducto" Multiplicity="0..1" />
           <End Role="TbProductoInsumoS" Type="Self.TbProductoInsumoS" Multiplicity="*" />
           <ReferentialConstraint>
@@ -120,7 +120,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TbProductoInsumoS_TbSolicitudInsumo">
+        <Association Name="FK_TbProductoInsumoS_TbSolicitudInsumo1">
           <End Role="TbSolicitudInsumo" Type="Self.TbSolicitudInsumo" Multiplicity="0..1" />
           <End Role="TbProductoInsumoS" Type="Self.TbProductoInsumoS" Multiplicity="*" />
           <ReferentialConstraint>
@@ -128,7 +128,7 @@
               <PropertyRef Name="IdSolicitudInsumo" />
             </Principal>
             <Dependent Role="TbProductoInsumoS">
-              <PropertyRef Name="IdProducto" />
+              <PropertyRef Name="IdSolictudInsumo" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -173,11 +173,11 @@
             <End Role="TbSolicitudCompra" EntitySet="TbSolicitudCompra" />
             <End Role="TbCompraSolicitudP" EntitySet="TbCompraSolicitudP" />
           </AssociationSet>
-          <AssociationSet Name="FK_TbProductoInsumoS_TbProducto" Association="Self.FK_TbProductoInsumoS_TbProducto">
+          <AssociationSet Name="FK_TbProductoInsumoS_TbProducto1" Association="Self.FK_TbProductoInsumoS_TbProducto1">
             <End Role="TbProducto" EntitySet="TbProducto" />
             <End Role="TbProductoInsumoS" EntitySet="TbProductoInsumoS" />
           </AssociationSet>
-          <AssociationSet Name="FK_TbProductoInsumoS_TbSolicitudInsumo" Association="Self.FK_TbProductoInsumoS_TbSolicitudInsumo">
+          <AssociationSet Name="FK_TbProductoInsumoS_TbSolicitudInsumo1" Association="Self.FK_TbProductoInsumoS_TbSolicitudInsumo1">
             <End Role="TbSolicitudInsumo" EntitySet="TbSolicitudInsumo" />
             <End Role="TbProductoInsumoS" EntitySet="TbProductoInsumoS" />
           </AssociationSet>
@@ -224,6 +224,10 @@
             <End Role="TbProductoInsumoS" EntitySet="TbProductoInsumoS" />
           </AssociationSet>
           <AssociationSet Name="FK_TbProductoInsumoS_TbSolicitudInsumo" Association="inventarioModel.FK_TbProductoInsumoS_TbSolicitudInsumo">
+            <End Role="TbSolicitudInsumo" EntitySet="TbSolicitudInsumo" />
+            <End Role="TbProductoInsumoS" EntitySet="TbProductoInsumoS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TbProductoInsumoS_TbSolicitudInsumo1" Association="inventarioModel.FK_TbProductoInsumoS_TbSolicitudInsumo1">
             <End Role="TbSolicitudInsumo" EntitySet="TbSolicitudInsumo" />
             <End Role="TbProductoInsumoS" EntitySet="TbProductoInsumoS" />
           </AssociationSet>
@@ -296,6 +300,7 @@
           <Property Name="CantidadP" Type="Int32" />
           <NavigationProperty Name="TbProducto" Relationship="inventarioModel.FK_TbProductoInsumoS_TbProducto" FromRole="TbProductoInsumoS" ToRole="TbProducto" />
           <NavigationProperty Name="TbSolicitudInsumo" Relationship="inventarioModel.FK_TbProductoInsumoS_TbSolicitudInsumo" FromRole="TbProductoInsumoS" ToRole="TbSolicitudInsumo" />
+          <NavigationProperty Name="TbSolicitudInsumo1" Relationship="inventarioModel.FK_TbProductoInsumoS_TbSolicitudInsumo1" FromRole="TbProductoInsumoS" ToRole="TbSolicitudInsumo" />
         </EntityType>
         <EntityType Name="TbSolicitudCompra">
           <Key>
@@ -318,6 +323,7 @@
           <Property Name="FechaInsumo" Type="DateTime" Precision="3" />
           <NavigationProperty Name="TbColaborador" Relationship="inventarioModel.FK_TbSolicitudInsumo_TbColaborador" FromRole="TbSolicitudInsumo" ToRole="TbColaborador" />
           <NavigationProperty Name="TbProductoInsumoS" Relationship="inventarioModel.FK_TbProductoInsumoS_TbSolicitudInsumo" FromRole="TbSolicitudInsumo" ToRole="TbProductoInsumoS" />
+          <NavigationProperty Name="TbProductoInsumoS1" Relationship="inventarioModel.FK_TbProductoInsumoS_TbSolicitudInsumo1" FromRole="TbSolicitudInsumo" ToRole="TbProductoInsumoS" />
         </EntityType>
         <Association Name="FK_TbSolicitudCompra_TbColaborador">
           <End Type="inventarioModel.TbColaborador" Role="TbColaborador" Multiplicity="0..1" />
@@ -388,6 +394,18 @@
             </Principal>
             <Dependent Role="TbProductoInsumoS">
               <PropertyRef Name="IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TbProductoInsumoS_TbSolicitudInsumo1">
+          <End Type="inventarioModel.TbSolicitudInsumo" Role="TbSolicitudInsumo" Multiplicity="0..1" />
+          <End Type="inventarioModel.TbProductoInsumoS" Role="TbProductoInsumoS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TbSolicitudInsumo">
+              <PropertyRef Name="IdSolicitudInsumo" />
+            </Principal>
+            <Dependent Role="TbProductoInsumoS">
+              <PropertyRef Name="IdSolictudInsumo" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
