@@ -21,6 +21,5 @@ namespace CapaEntidades
     
         public virtual TbProducto TbProducto { get; set; }
         public virtual TbSolicitudInsumo TbSolicitudInsumo { get; set; }
-        public virtual TbSolicitudInsumo TbSolicitudInsumo1 { get; set; }
     }
 }
