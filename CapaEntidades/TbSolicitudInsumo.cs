@@ -18,6 +18,7 @@ namespace CapaEntidades
         public TbSolicitudInsumo()
         {
             this.TbProductoInsumoS = new HashSet<TbProductoInsumoS>();
+            this.TbProductoInsumoS1 = new HashSet<TbProductoInsumoS>();
         }
     
         public string IdSolicitudInsumo { get; set; }
@@ -28,5 +29,7 @@ namespace CapaEntidades
         public virtual TbColaborador TbColaborador { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TbProductoInsumoS> TbProductoInsumoS { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TbProductoInsumoS> TbProductoInsumoS1 { get; set; }
     }
 }

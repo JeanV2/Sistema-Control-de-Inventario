@@ -12,7 +12,6 @@ namespace CapaDatos
         public bool GuardarInsumos(TbProductoInsumoS insumo)
         {
             try
-            //hola
             {
                 //ttt
                 using (inventarioEntities1 DB = new inventarioEntities1())
@@ -34,13 +33,13 @@ namespace CapaDatos
           los devuelva si existen dentro de ella.*/
             try
             {
-                
+
                 using (var context = new inventarioEntities1())
                 {
                     //bool est = estado == (int)Enums.estado.activo;
                     //Lenguaje LinQ. Para realizar query a la base de datos.
                     return (from c in context.TbProductoInsumoS.Include("TbSolicitudInsumo")
-                            //where c.Estado == est
+                                //where c.Estado == est
                             select c).ToList();
                 }
 

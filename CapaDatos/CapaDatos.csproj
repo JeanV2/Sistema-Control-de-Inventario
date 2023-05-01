@@ -53,6 +53,8 @@
     <Compile Include="CDcolaborador.cs" />
     <Compile Include="DatosInsumos.cs" />
     <Compile Include="DatosProductos.cs" />
+    <Compile Include="DatosSolictudCompra.cs" />
+    <Compile Include="DatosUnionSoliCompra.cs" />
     <Compile Include="DatosUsuario.cs" />
     <Compile Include="Modelinventario.Context.cs">
       <AutoGen>True</AutoGen>
