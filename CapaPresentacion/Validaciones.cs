@@ -301,7 +301,7 @@ namespace CapaPresentacion
             {
                 if (!Txt.Text.StartsWith("₡"))
                 {
-                    Txt.Text = "₡" + Txt.Text;
+                   // Txt.Text = "₡" + Txt.Text;
                     Txt.SelectionStart = Txt.Text.Length;
 
                 }

@@ -20,13 +20,13 @@ namespace CapaDatos
                     DB.SaveChanges();
 
                 }
-                return true;
-            }
+            return true;
+        }
             catch (Exception)
             {
                 return false;
             }
-        }
+           }
         public List<TbProductoInsumoS> obtenerListaInsumos(int estado)
         {
             /*interactua con la BD, le indica consultar los datos enviados por el usuario y
