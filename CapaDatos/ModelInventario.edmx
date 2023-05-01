@@ -61,7 +61,7 @@
           <Key>
             <PropertyRef Name="IdSolicitudProducto" />
           </Key>
-          <Property Name="IdSolicitudProducto" Type="int" Nullable="false" />
+          <Property Name="IdSolicitudProducto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdSolictudInsumo" Type="varchar" MaxLength="100" />
           <Property Name="IdProducto" Type="varchar" MaxLength="100" />
           <Property Name="CantidadP" Type="int" />
@@ -219,12 +219,8 @@
             <End Role="TbSolicitudCompra" EntitySet="TbSolicitudCompra" />
             <End Role="TbCompraSolicitudP" EntitySet="TbCompraSolicitudP" />
           </AssociationSet>
-          <AssociationSet Name="FK_TbProductoInsumoS_TbProducto" Association="inventarioModel.FK_TbProductoInsumoS_TbProducto">
+          <AssociationSet Name="FK_TbProductoInsumoS_TbProducto1" Association="inventarioModel.FK_TbProductoInsumoS_TbProducto1">
             <End Role="TbProducto" EntitySet="TbProducto" />
-            <End Role="TbProductoInsumoS" EntitySet="TbProductoInsumoS" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TbProductoInsumoS_TbSolicitudInsumo" Association="inventarioModel.FK_TbProductoInsumoS_TbSolicitudInsumo">
-            <End Role="TbSolicitudInsumo" EntitySet="TbSolicitudInsumo" />
             <End Role="TbProductoInsumoS" EntitySet="TbProductoInsumoS" />
           </AssociationSet>
           <AssociationSet Name="FK_TbProductoInsumoS_TbSolicitudInsumo1" Association="inventarioModel.FK_TbProductoInsumoS_TbSolicitudInsumo1">
@@ -288,19 +284,18 @@
           <Property Name="CostoProducto" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="TbCompraSolicitudP" Relationship="inventarioModel.FK_TbCompraSolicitudP_TbProducto" FromRole="TbProducto" ToRole="TbCompraSolicitudP" />
-          <NavigationProperty Name="TbProductoInsumoS" Relationship="inventarioModel.FK_TbProductoInsumoS_TbProducto" FromRole="TbProducto" ToRole="TbProductoInsumoS" />
+          <NavigationProperty Name="TbProductoInsumoS" Relationship="inventarioModel.FK_TbProductoInsumoS_TbProducto1" FromRole="TbProducto" ToRole="TbProductoInsumoS" />
         </EntityType>
         <EntityType Name="TbProductoInsumoS">
           <Key>
             <PropertyRef Name="IdSolicitudProducto" />
           </Key>
-          <Property Name="IdSolicitudProducto" Type="Int32" Nullable="false" />
+          <Property Name="IdSolicitudProducto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdSolictudInsumo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="IdProducto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="CantidadP" Type="Int32" />
-          <NavigationProperty Name="TbProducto" Relationship="inventarioModel.FK_TbProductoInsumoS_TbProducto" FromRole="TbProductoInsumoS" ToRole="TbProducto" />
-          <NavigationProperty Name="TbSolicitudInsumo" Relationship="inventarioModel.FK_TbProductoInsumoS_TbSolicitudInsumo" FromRole="TbProductoInsumoS" ToRole="TbSolicitudInsumo" />
-          <NavigationProperty Name="TbSolicitudInsumo1" Relationship="inventarioModel.FK_TbProductoInsumoS_TbSolicitudInsumo1" FromRole="TbProductoInsumoS" ToRole="TbSolicitudInsumo" />
+          <NavigationProperty Name="TbProducto" Relationship="inventarioModel.FK_TbProductoInsumoS_TbProducto1" FromRole="TbProductoInsumoS" ToRole="TbProducto" />
+          <NavigationProperty Name="TbSolicitudInsumo" Relationship="inventarioModel.FK_TbProductoInsumoS_TbSolicitudInsumo1" FromRole="TbProductoInsumoS" ToRole="TbSolicitudInsumo" />
         </EntityType>
         <EntityType Name="TbSolicitudCompra">
           <Key>
@@ -322,8 +317,7 @@
           <Property Name="Estado" Type="Boolean" />
           <Property Name="FechaInsumo" Type="DateTime" Precision="3" />
           <NavigationProperty Name="TbColaborador" Relationship="inventarioModel.FK_TbSolicitudInsumo_TbColaborador" FromRole="TbSolicitudInsumo" ToRole="TbColaborador" />
-          <NavigationProperty Name="TbProductoInsumoS" Relationship="inventarioModel.FK_TbProductoInsumoS_TbSolicitudInsumo" FromRole="TbSolicitudInsumo" ToRole="TbProductoInsumoS" />
-          <NavigationProperty Name="TbProductoInsumoS1" Relationship="inventarioModel.FK_TbProductoInsumoS_TbSolicitudInsumo1" FromRole="TbSolicitudInsumo" ToRole="TbProductoInsumoS" />
+          <NavigationProperty Name="TbProductoInsumoS" Relationship="inventarioModel.FK_TbProductoInsumoS_TbSolicitudInsumo1" FromRole="TbSolicitudInsumo" ToRole="TbProductoInsumoS" />
         </EntityType>
         <Association Name="FK_TbSolicitudCompra_TbColaborador">
           <End Type="inventarioModel.TbColaborador" Role="TbColaborador" Multiplicity="0..1" />
@@ -373,24 +367,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TbProductoInsumoS_TbProducto">
+        <Association Name="FK_TbProductoInsumoS_TbProducto1">
           <End Type="inventarioModel.TbProducto" Role="TbProducto" Multiplicity="0..1" />
           <End Type="inventarioModel.TbProductoInsumoS" Role="TbProductoInsumoS" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TbProducto">
               <PropertyRef Name="CodProducto" />
-            </Principal>
-            <Dependent Role="TbProductoInsumoS">
-              <PropertyRef Name="IdProducto" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TbProductoInsumoS_TbSolicitudInsumo">
-          <End Type="inventarioModel.TbSolicitudInsumo" Role="TbSolicitudInsumo" Multiplicity="0..1" />
-          <End Type="inventarioModel.TbProductoInsumoS" Role="TbProductoInsumoS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TbSolicitudInsumo">
-              <PropertyRef Name="IdSolicitudInsumo" />
             </Principal>
             <Dependent Role="TbProductoInsumoS">
               <PropertyRef Name="IdProducto" />
@@ -409,7 +391,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
