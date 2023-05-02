@@ -132,7 +132,7 @@ namespace CapaPresentacion
 
                             //CODIGO PARA ELIMINAR Y ENVIAR A LA BASE DE DATOS********************
                             producto.CodProducto = TxtCodigoProducto.Text;
-                            //producto.Estado = false;
+                            producto.Estado = false;
 
                             if (NegProduct.EliminarProduct(producto))
                             {
@@ -206,7 +206,7 @@ namespace CapaPresentacion
                                 producto.CostoProducto = TxtCosto.Text;
                                 producto.Descripcion = TxtDescripcion.Text;
                                 producto.CantidadProducto = int.Parse(TxtCantidad.Text.Trim());
-
+                                producto.Estado = true;
 
                                 if (NegProduct.GuardarProduct(producto))
                                 {
