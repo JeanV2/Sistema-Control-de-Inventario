@@ -376,6 +376,7 @@
             this.DgvListaProductos.ThemeStyle.RowsStyle.Height = 25;
             this.DgvListaProductos.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(231)))), ((int)(((byte)(123)))));
             this.DgvListaProductos.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.DgvListaProductos.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvListaProductos_CellMouseClick);
             // 
             // tableLayoutPanel1
             // 
@@ -414,10 +415,11 @@
             // 
             // Column1
             // 
-            this.Column1.HeaderText = "Colums";
+            this.Column1.HeaderText = "Remover";
             this.Column1.MinimumWidth = 8;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
+            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // Column2
             // 
