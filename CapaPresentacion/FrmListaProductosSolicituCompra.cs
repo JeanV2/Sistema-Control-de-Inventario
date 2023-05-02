@@ -64,7 +64,7 @@ namespace CapaPresentacion
 
                 frmSolicitud.TxtCodigoProd.Text = DgvListaProductos.Rows[fila].Cells[0].Value.ToString();
                 frmSolicitud.TxtPrecioProd.Text = DgvListaProductos.Rows[fila].Cells[3].Value.ToString();
-                frmSolicitud.TxtCantidad.Text = DgvListaProductos.Rows[fila].Cells[2].Value.ToString();
+                //frmSolicitud.TxtCantidad.Text = DgvListaProductos.Rows[fila].Cells[2].Value.ToString();
                 this.Close();
             }
         }
