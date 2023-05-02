@@ -91,6 +91,7 @@ namespace CapaPresentacion
                         else
                         {
                             validaConfirmacion = false;
+                            //hola
 
                         }
                     }
