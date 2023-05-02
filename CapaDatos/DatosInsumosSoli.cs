@@ -10,14 +10,14 @@ namespace CapaDatos
     public class DatosInsumosSoli
     {
 
-        public bool GuardarInsumos(TbSolicitudInsumo insumo)
+        public bool GuardarInsumos(TbProductoInsumoS insumo)
         {
             try
             {
                 //ttt
                 using (inventarioEntities1 DB = new inventarioEntities1())
                 {
-                    DB.TbSolicitudInsumo.Add(insumo);
+                    DB.TbProductoInsumoS.Add(insumo);
                     DB.SaveChanges();
 
                 }
