@@ -26,6 +26,7 @@ namespace CapaEntidades
         public Nullable<int> CantidadProducto { get; set; }
         public string CostoProducto { get; set; }
         public string Descripcion { get; set; }
+        public Nullable<bool> Estado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TbCompraSolicitudP> TbCompraSolicitudP { get; set; }
