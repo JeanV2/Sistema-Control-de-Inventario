@@ -4,12 +4,14 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
+using static TheArtOfDevHtmlRenderer.Adapters.RGraphicsPath;
 
 namespace CapaPresentacion
 {
@@ -21,7 +23,7 @@ namespace CapaPresentacion
         }
         //instacia de datos
         NegocioInsumos insumosIns = new NegocioInsumos();
-        NegociosInsumosSoli InsumosSoli =new NegociosInsumosSoli();
+        NegociosInsumosSoli InsumosSoli = new NegociosInsumosSoli();
         private void BtnVerListado_Click(object sender, EventArgs e)
         {
             FrmListaProductos frmListaProductos = new FrmListaProductos();
@@ -33,8 +35,10 @@ namespace CapaPresentacion
 
         private void BtnConfirmar_Click(object sender, EventArgs e)
         {
-
+            //valida el proceso de guardar
             bool validaConfirmacion = true;
+            //valida el proceso de que la cantidad producto no sea mayor que la cantidad producto
+            bool ValCantProc = true;
             //obtenemos las filas actuales
             int row = DgvListaProductos.Rows.Count;
 
@@ -46,7 +50,7 @@ namespace CapaPresentacion
             tbinsumo.Estado = true;
             tbinsumo.IdColaborador = FrmLogin.Idetificacion;
             //guardamos la solicitud de insumo
-            if (InsumosSoli.GuardarInsumos(tbinsumo))
+            if (insumosIns.GuardarInsumos(tbinsumo))
             {
                 validaConfirmacion = true;
             }
@@ -55,7 +59,9 @@ namespace CapaPresentacion
                 validaConfirmacion = false;
 
             }
+
             //le decimos que recorra los dataview
+            TbProductoInsumoS TbProductoInsumo = new TbProductoInsumoS();
             for (int i = 0; i < row; i++)
             {
                 if (row != null)
@@ -63,31 +69,48 @@ namespace CapaPresentacion
                     //ingresamos los datos
                     //------------------------------------------------------------------------------
                     //tb de producto insumo creamos entidad
-                    TbProductoInsumoS tbProductoInsumo = new TbProductoInsumoS();
+
                     //lenamos datos
-                    tbProductoInsumo.IdSolictudInsumo=tbinsumo.IdSolicitudInsumo.ToString();
-                    tbProductoInsumo.CantidadP = int.Parse(DgvListaProductos.Rows[i].Cells[3].Value.ToString());
-                    tbProductoInsumo.IdProducto = DgvListaProductos.Rows[i].Cells[2].Value.ToString();
+
+                    TbProductoInsumo.IdSolictudInsumo = tbinsumo.IdSolicitudInsumo;
+                    TbProductoInsumo.CantidadP = int.Parse(DgvListaProductos.Rows[i].Cells[3].Value.ToString());
+                    TbProductoInsumo.IdProducto = DgvListaProductos.Rows[i].Cells[2].Value.ToString();
+
+
                     //-------------------------------------------------------------------------------
                     //vamos guardando cada producto solicitado en la tabla union
-                    if (insumosIns.GuardarInsumos(tbProductoInsumo))
+                    //validaciones
+                    //que el la cantidad del producto no sea menor que  la cantidad que desea ingresar o que la cantidad que desea ingresa no sea igua a 0  
+                    //restamos la cantidad de proc a tbl productos
+                    if (RestarantProductos(DgvListaProductos.Rows[i].Cells[2].Value.ToString(), int.Parse(DgvListaProductos.Rows[i].Cells[3].Value.ToString()))==true)
                     {
-                        validaConfirmacion =true;
+                        if (InsumosSoli.GuardarInsumos(TbProductoInsumo))
+                        {
+                            validaConfirmacion = true;
+                        }
+                        else
+                        {
+                            validaConfirmacion = false;
+                            //hola
+
+                        }
                     }
                     else
                     {
-                         validaConfirmacion=false;
-                        
+                        validaConfirmacion = false;
                     }
+
 
                 }
 
             }
+            //-------------------------------------------------------------------------------
 
 
-            if (validaConfirmacion==true)
+            if (validaConfirmacion == true)
             {
                 MessageBox.Show("Registro exitoso", "Guadar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DgvListaProductos.Rows.Clear();
             }
             else
             {
@@ -107,31 +130,31 @@ namespace CapaPresentacion
 
 
         }
-        private int ObtenerCodigoProductoInsumo()
+
+        private string ObtenerCodigoSolicitudInsumo()
         {
             String Codigo = "";
-            List<TbProductoInsumoS> listaproducotoinsumo;
+            List<TbSolicitudInsumo> listaproducotoinsumo;
             listaproducotoinsumo = insumosIns.obtenerListaInsumos(0);
-            TbProductoInsumoS tbProductoInsumo = new TbProductoInsumoS();
+            TbSolicitudInsumo tbProductoInsumo = new TbSolicitudInsumo();
             tbProductoInsumo = listaproducotoinsumo.LastOrDefault();
 
             if (listaproducotoinsumo.Count() > 0)
             {
-                if ((tbProductoInsumo.IdSolicitudProducto + 1) > 9)
+                if ((int.Parse(tbProductoInsumo.IdSolicitudInsumo) + 1) > 9)
                 {
-                    Codigo = "0000" + (tbProductoInsumo.IdSolicitudProducto + 1).ToString();
-                    if ((tbProductoInsumo.IdSolicitudProducto + 1) > 99)
+                    if (int.Parse(tbProductoInsumo.IdSolicitudInsumo + 1) > 99)
                     {
-                        Codigo = "000" + (tbProductoInsumo.IdSolicitudProducto + 1).ToString();
+                        Codigo = "000" + (int.Parse(tbProductoInsumo.IdSolicitudInsumo) + 1).ToString();
                     }
                     else
                     {
-                        Codigo = "0000" + (tbProductoInsumo.IdSolicitudProducto + 1).ToString();
+                        Codigo = "0000" + (int.Parse(tbProductoInsumo.IdSolicitudInsumo) + 1).ToString();
                     }
                 }
                 else
                 {
-                    Codigo = "00000" + (tbProductoInsumo.IdSolicitudProducto + 1).ToString();
+                    Codigo = "00000" + (int.Parse(tbProductoInsumo.IdSolicitudInsumo) + 1).ToString();
                 }
 
             }
@@ -141,43 +164,7 @@ namespace CapaPresentacion
             }
 
 
-            return int.Parse(Codigo);
-        }
-        private int ObtenerCodigoSolicitudInsumo()
-        {
-            String Codigo = "";
-            List<TbProductoInsumoS> listaproducotoinsumo;
-            listaproducotoinsumo = insumosIns.obtenerListaInsumos(0);
-            TbProductoInsumoS tbProductoInsumo = new TbProductoInsumoS();
-            tbProductoInsumo = listaproducotoinsumo.LastOrDefault();
-
-            if (listaproducotoinsumo.Count() > 0)
-            {
-                if ((int.Parse(tbProductoInsumo.TbSolicitudInsumo.IdSolicitudInsumo) + 1) > 9)
-                {
-                    Codigo = "0000" + (tbProductoInsumo.TbSolicitudInsumo.IdSolicitudInsumo + 1).ToString();
-                    if ((tbProductoInsumo.IdSolicitudProducto + 1) > 99)
-                    {
-                        Codigo = "000" + (tbProductoInsumo.TbSolicitudInsumo.IdSolicitudInsumo + 1).ToString();
-                    }
-                    else
-                    {
-                        Codigo = "0000" + (tbProductoInsumo.TbSolicitudInsumo.IdSolicitudInsumo + 1).ToString();
-                    }
-                }
-                else
-                {
-                    Codigo = "00000" + (tbProductoInsumo.TbSolicitudInsumo.IdSolicitudInsumo + 1).ToString();
-                }
-
-            }
-            else
-            {
-                Codigo = "00000";
-            }
-
-
-            return int.Parse(Codigo);
+            return Codigo;
         }
 
         private void BtnAgregar_Click(object sender, EventArgs e)
@@ -189,5 +176,86 @@ namespace CapaPresentacion
             DgvListaProductos.Rows[row].Cells[2].Value = TxtCodigoProcd.Text;
             DgvListaProductos.Rows[row].Cells[3].Value = txtCantProducto.Text;
         }
+        private bool RestarantProductos(String Codigo, int cantidad)
+        {
+            NegociosProductos Insproductos = new NegociosProductos();
+            List<TbProducto> listaProductos;
+            listaProductos = Insproductos.ListProduct();
+            //consultamos si el usuario existe
+            bool cod = true;
+            foreach (TbProducto pr in listaProductos)
+            {
+
+                if (Codigo == pr.CodProducto)
+                {
+                    int total = (int)pr.CantidadProducto-cantidad;
+                    pr.CantidadProducto = total;
+                    if (Insproductos.ModificarProduct(pr))
+                    {
+                        cod= true;
+                        break;
+                      
+                    }else
+                    {
+                        cod= false;
+                    }
+                
+
+
+                }
+                else
+                {
+                    cod = false;
+                }
+
+            }
+            return cod;
+
+
+        }
+        private bool ValCantProductos(String Codigo, int cantidad)
+        {
+            NegociosProductos Insproductos = new NegociosProductos();
+            List<TbProducto> listaProductos;
+            listaProductos = Insproductos.ListProduct();
+            //consultamos si el usuario existe
+            bool cod = true;
+            foreach (TbProducto pr in listaProductos)
+            {
+
+                if (Codigo == pr.CodProducto)
+                {
+                    if (cantidad > 0)
+                    {
+                        if (cantidad < pr.CantidadProducto)
+                        {
+                            cod = true;
+                            break;
+                        }
+                        else
+                        {
+                            cod = false;
+                        }
+                    }
+                    else
+                    {
+                        cod = false;
+                    }
+
+
+
+
+                }
+                else
+                {
+                    cod = false;
+                }
+
+            }
+            return cod;
+
+
+        }
+
     }
 }
