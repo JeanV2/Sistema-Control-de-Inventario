@@ -56,6 +56,7 @@
           <Property Name="CantidadProducto" Type="int" />
           <Property Name="CostoProducto" Type="nchar" MaxLength="10" />
           <Property Name="Descripcion" Type="varchar(max)" />
+          <Property Name="Estado" Type="bit" />
         </EntityType>
         <EntityType Name="TbProductoInsumoS">
           <Key>
@@ -283,6 +284,7 @@
           <Property Name="CantidadProducto" Type="Int32" />
           <Property Name="CostoProducto" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="Boolean" />
           <NavigationProperty Name="TbCompraSolicitudP" Relationship="inventarioModel.FK_TbCompraSolicitudP_TbProducto" FromRole="TbProducto" ToRole="TbCompraSolicitudP" />
           <NavigationProperty Name="TbProductoInsumoS" Relationship="inventarioModel.FK_TbProductoInsumoS_TbProducto1" FromRole="TbProducto" ToRole="TbProductoInsumoS" />
         </EntityType>
@@ -446,6 +448,7 @@
           <EntitySetMapping Name="TbProducto">
             <EntityTypeMapping TypeName="inventarioModel.TbProducto">
               <MappingFragment StoreEntitySet="TbProducto">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
                 <ScalarProperty Name="CostoProducto" ColumnName="CostoProducto" />
                 <ScalarProperty Name="CantidadProducto" ColumnName="CantidadProducto" />

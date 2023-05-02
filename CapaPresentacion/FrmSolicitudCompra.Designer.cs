@@ -75,6 +75,9 @@
             this.guna2Panel1.Controls.Add(this.flowLayoutPanel4);
             this.guna2Panel1.Controls.Add(this.flowLayoutPanel3);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
+
+            this.guna2Panel1.Location = new System.Drawing.Point(7, 6);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2Panel1.Location = new System.Drawing.Point(5, 5);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(1030, 284);
@@ -99,6 +102,8 @@
             this.flowLayoutPanel4.Controls.Add(this.DtpFechaSolicitud);
             this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel4.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(4);
+
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
             this.flowLayoutPanel4.Size = new System.Drawing.Size(861, 284);
             this.flowLayoutPanel4.TabIndex = 4;
@@ -370,6 +375,9 @@
             this.flowLayoutPanel3.Controls.Add(this.BtnModificar);
             this.flowLayoutPanel3.Controls.Add(this.guna2Button1);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Right;
+
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(1165, 0);
+            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel3.Location = new System.Drawing.Point(861, 0);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Padding = new System.Windows.Forms.Padding(10, 5, 5, 5);
@@ -436,7 +444,10 @@
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.TxtTotalCompra);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(7, 582);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Location = new System.Drawing.Point(5, 473);
+
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1030, 94);
             this.panel1.TabIndex = 3;
@@ -511,6 +522,8 @@
             // 
             this.panel2.Controls.Add(this.DgvListaCompra);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(7, 356);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Location = new System.Drawing.Point(5, 289);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
@@ -519,12 +532,17 @@
             // 
             // DgvListaCompra
             // 
+
+            this.DgvListaCompra.AllowUserToAddRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(244)))), ((int)(((byte)(196)))));
             this.DgvListaCompra.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DgvListaCompra.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(54)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(219)))), ((int)(((byte)(57)))));
+
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -540,7 +558,11 @@
             this.Column5});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(194)))));
+
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(231)))), ((int)(((byte)(123)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
@@ -578,6 +600,7 @@
             this.DgvListaCompra.ThemeStyle.RowsStyle.Height = 25;
             this.DgvListaCompra.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(231)))), ((int)(((byte)(123)))));
             this.DgvListaCompra.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.DgvListaCompra.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListaCompra_CellContentClick);
             // 
             // Column3
             // 
@@ -625,9 +648,12 @@
             this.Controls.Add(this.guna2Panel1);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmSolicitudCompra";
             this.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Text = "FrmSolicitudCompra";
+            this.Load += new System.EventHandler(this.FrmSolicitudCompra_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.flowLayoutPanel4.ResumeLayout(false);
             this.flowLayoutPanel4.PerformLayout();

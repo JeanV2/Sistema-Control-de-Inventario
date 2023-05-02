@@ -15,6 +15,10 @@ namespace CapaNegocios
         {
             return datos.GuardarSolicitud(Solicitud);
         }
+        public bool GuardarbCompraSolicitudProductos(TbCompraSolicitudP Solicitud)
+        {
+            return datos.GuardarbCompraSolicitudProductos(Solicitud);
+        }
         public bool EliminarSolicitud(TbSolicitudCompra Solicitud)
         {
             return datos.EliminarSolicitud(Solicitud);
