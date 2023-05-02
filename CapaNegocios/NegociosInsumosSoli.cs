@@ -11,7 +11,7 @@ namespace CapaNegocios
     public class NegociosInsumosSoli
     {
         DatosInsumosSoli DatosInsumosSoli= new DatosInsumosSoli();
-        public bool GuardarInsumos(TbSolicitudInsumo insumo)
+        public bool GuardarInsumos(TbProductoInsumoS insumo)
         {
             return DatosInsumosSoli.GuardarInsumos(insumo);
         }
