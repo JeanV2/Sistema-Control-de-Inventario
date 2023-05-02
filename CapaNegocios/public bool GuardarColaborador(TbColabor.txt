@@ -1,0 +1,106 @@
+  public bool GuardarColaborador(TbColaborador colaborador)
+        {
+            try
+                //hola
+            {
+                //ttt
+                using (ControlInventarioEntities DB= new ControlInventarioEntities())
+                {
+                    DB.TbColaborador.Add(colaborador);
+                    DB.SaveChanges();
+
+                }
+                    return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        public bool ModificarColaborador(TbColaborador colaborador)
+        {
+            try
+            {
+                using (ControlInventarioEntities DB = new ControlInventarioEntities())
+                {
+                    TbColaborador ColaboradorModifica = DB.TbColaborador.Single(C => C.IdColaborador == colaborador.IdColaborador);
+                    ColaboradorModifica.PasswordColaborador = colaborador.PasswordColaborador;
+                    ColaboradorModifica.NombreColaborador = colaborador.NombreColaborador;
+                    ColaboradorModifica.PrimerApellidoColaborador = colaborador.PrimerApellidoColaborador;
+                    ColaboradorModifica.SegundoApellidoColaborador = colaborador.SegundoApellidoColaborador;
+                    ColaboradorModifica.UserNameColaborador = colaborador.UserNameColaborador;
+                    ColaboradorModifica.TipoColaborador = colaborador.TipoColaborador;
+                    DB.SaveChanges();
+
+
+                }
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        public bool EliminarColaborador(TbColaborador colaborador)
+        {
+            try
+            {
+                using (ControlInventarioEntities DB = new ControlInventarioEntities())
+                {
+                    TbColaborador ColaboradorModifica = DB.TbColaborador.Single(C => C.IdColaborador == colaborador.IdColaborador);
+                    ColaboradorModifica.EstadoColaborador = colaborador.EstadoColaborador;
+                    DB.SaveChanges();
+
+
+                }
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        public List<TbColaborador> listaColaboadores()
+        {
+            try
+            {
+                using (ControlInventarioEntities DB = new ControlInventarioEntities())
+                {
+                    return (from c in DB.TbColaborador 
+                            select c).ToList();
+
+
+                }
+
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+
+    
+
+
+    /////nego
+       CDColaborador CDcolaborador = new CDColaborador();
+        public bool GuardarColaborador(TbColaborador colaborador)
+        {
+            return CDcolaborador.GuardarColaborador(colaborador);
+        }
+        public bool ModificarColaborador(TbColaborador colaborador)
+        {
+            return CDcolaborador.ModificarColaborador(colaborador);
+        }
+        public bool EliminarColaborador(TbColaborador colaborador)
+        {
+            return CDcolaborador.EliminarColaborador(colaborador);
+
+        }
+        public List<TbColaborador> listaColaboadores()
+        {
+            return CDcolaborador.listaColaboadores( );
+        }
