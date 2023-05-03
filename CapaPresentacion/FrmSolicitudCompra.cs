@@ -1,9 +1,11 @@
 ﻿using CapaEntidades;
+using CapaNegocios;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,17 +17,64 @@ namespace CapaPresentacion
     public partial class FrmSolicitudCompra : Form
     {
         public int Presupuesto = 1000000;
-        public string idSolicitud = "0001";
+        
         public FrmSolicitudCompra()
         {
             InitializeComponent();
             //SET DATETIMEPICKER
             DtpFechaSolicitud.MinDate = DateTime.Today;
             TxtPresupuesto.Text = Presupuesto.ToString(); ;
+
             TxtSolicitud.Text = idSolicitud;
 
-        }
 
+            
+        }
+        //Instancia a NegocioSolicitudCompra y NegocioProducto
+        NegocioSolCompra NegocioSCompra = new NegocioSolCompra();
+        NegociosProductos NProducto = new NegociosProductos();
+        
+        private string ObtenerCodigo_SolicitudCompra()
+        {
+            String Codigo = "";
+
+
+
+            List<TbSolicitudCompra> lista = NegocioSCompra.ListaSolicitudes(); ;
+            TbSolicitudCompra Tbultimasolicitud = new TbSolicitudCompra();
+
+            Tbultimasolicitud = lista.LastOrDefault();
+
+            if (lista.Count() > 0)
+            {
+                if ((int.Parse(Tbultimasolicitud.IdSolicitudCompra) + 1) > 9)
+                {
+                    Codigo = "0000" + (int.Parse(Tbultimasolicitud.IdSolicitudCompra) + 1).ToString();
+                    if ((int.Parse(Tbultimasolicitud.IdSolicitudCompra) + 1) > 99)
+                    {
+                        Codigo = "0000" + (int.Parse(Tbultimasolicitud.IdSolicitudCompra) + 1).ToString();
+                    }
+                    else
+                    {
+                        Codigo = "0000" + (int.Parse(Tbultimasolicitud.IdSolicitudCompra) + 1).ToString();
+                    }
+                }
+                else
+                {
+                    Codigo = "0000" + (int.Parse(Tbultimasolicitud.IdSolicitudCompra) + 1).ToString();
+                }
+
+            }
+            else
+            {
+                Codigo = "00001";
+            }
+
+
+
+
+            return Codigo;
+        }
         private void BtnModificar_Click(object sender, EventArgs e)
         {
             FrmListaProductosSolicituCompra frmListaProductos = new FrmListaProductosSolicituCompra();
@@ -95,8 +144,12 @@ namespace CapaPresentacion
                                     Presupuesto = 1000000;
                                     Presupuesto = Presupuesto - CostoFinal;
                                     //actualizamos el presupuesto
+
                                     TxtPresupuesto.Text = Presupuesto.ToString();
                                     TxtSolicitud.Text = idSolicitud;
+
+                                    TxtPresupuesto.Text= Presupuesto.ToString();
+                                    TxtSolicitud.Text = ObtenerCodigo_SolicitudCompra();
                                 }
                                 else
                                 {
@@ -178,9 +231,49 @@ namespace CapaPresentacion
 
         private void BtnConfirmar_Click(object sender, EventArgs e)
         {
-            // CODIGO PARA GUARDAR
 
+            if (DgvListaCompra.RowCount!=0)
+            {
+                // CODIGO PARA GUARDAR
 
+                //Entidad de la solicitud de compra
+                TbSolicitudCompra Scompra = new TbSolicitudCompra();
+                Scompra.IdSolicitudCompra = TxtSolicitud.Text;
+                Scompra.FechaSolicitudCompra = DtpFechaSolicitud.Value;
+                Scompra.IdColaboradorCompra = FrmLogin.Idetificacion.ToString();
+                Scompra.EstadoSolicitudCompra = true;
+
+                NegocioSCompra.GuardarSolicitud(Scompra);
+                //Entidad de los productos para guardarlos relacionandolo con la id de la solicitud
+                TbCompraSolicitudP compraP = new TbCompraSolicitudP();
+                TbProducto Producto = new TbProducto();
+                for (int r = 0; r < DgvListaCompra.RowCount; r++)
+                {
+                    //Actualizamos la cantidad en stock del producto primero que todo
+                    List<TbProducto> ListaProducto = new List<TbProducto>();
+                    ListaProducto = NProducto.ListProduct();
+                    foreach (var item in ListaProducto)
+                    {
+                        if (item.CodProducto == DgvListaCompra.Rows[r].Cells[1].Value.ToString())
+                        {
+                            Producto.CodProducto = item.CodProducto;
+                            Producto.NombreProducto = item.NombreProducto;
+                            Producto.CostoProducto = item.CostoProducto;
+                            Producto.Descripcion = item.Descripcion;
+                            Producto.CantidadProducto = item.CantidadProducto + int.Parse(DgvListaCompra.Rows[r].Cells[2].Value.ToString());
+                            NProducto.ModificarProduct(Producto);
+                        }
+
+                    }
+                    //Agregamos el producto a la solitud de compra
+                    compraP.CodProducto = DgvListaCompra.Rows[r].Cells[1].Value.ToString();
+                    compraP.Cantidad = int.Parse(DgvListaCompra.Rows[r].Cells[2].Value.ToString());
+                    compraP.EstadoSolicitudCompra = true;
+                    compraP.IdsolicitudCompra = TxtSolicitud.Text;
+
+                    NegocioSCompra.GuardarbCompraSolicitudProductos(compraP);
+
+                }
 
             //LIMPIAR FORM
             Validaciones.LimpiarFormulario(flowLayoutPanel4);
@@ -190,6 +283,23 @@ namespace CapaPresentacion
             DtpFechaSolicitud.Value = DateTime.Today;
             //CLEAR DATA GRID VIEW
             // -- ACA VA EL CODIGO PARA LIMPIAR EL DATA GRIG VIEW
+
+                MessageBox.Show("La solictud de compra se a realizado con exitó", "INFORMACIÓN", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                //LIMPIAR FORM
+                Validaciones.LimpiarFormulario(flowLayoutPanel4);
+                //CLEAR DATE TIME PICKER
+                DtpFechaSolicitud.Value = DateTime.Today;
+                TxtTotalCompra.Clear();
+                //CLEAR DATA GRID VIEW and generate code
+                DgvListaCompra.Rows.Clear();
+                TxtSolicitud.Text = ObtenerCodigo_SolicitudCompra();
+            }
+            else
+            {
+                MessageBox.Show("La solictud de compra no se puede realizar porque no tiene datos que solicitar", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         private void TxtCantidad_TextChanged(object sender, EventArgs e)
@@ -239,6 +349,17 @@ namespace CapaPresentacion
                 // Eliminar la fila del DataGridView
                 DgvListaCompra.Rows.Remove(fila);
             }
+        }
+
+        private void DgvListaCompra_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void FrmSolicitudCompra_Load(object sender, EventArgs e)
+        {
+            
+            TxtSolicitud.Text = ObtenerCodigo_SolicitudCompra();
         }
     }
 }

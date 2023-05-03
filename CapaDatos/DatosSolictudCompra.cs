@@ -23,6 +23,19 @@ namespace CapaDatos
             }
             catch (Exception ex) { return false; }
         }
+        public bool GuardarbCompraSolicitudProductos(TbCompraSolicitudP Solicitud)
+        {
+            try
+            {
+                using (var contex = new inventarioEntities1())
+                {
+                    contex.TbCompraSolicitudP.Add(Solicitud);
+                    contex.SaveChanges();
+                }
+                return true;
+            }
+            catch (Exception ex) { return false; }
+        }
         public bool EliminarSolicitud(TbSolicitudCompra Solicitud)
         {
             try
