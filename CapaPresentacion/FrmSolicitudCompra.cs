@@ -25,7 +25,7 @@ namespace CapaPresentacion
             DtpFechaSolicitud.MinDate = DateTime.Today;
             TxtPresupuesto.Text = Presupuesto.ToString(); ;
 
-            TxtSolicitud.Text = idSolicitud;
+            //TxtSolicitud.Text = idSolicitud;
 
 
             
@@ -146,7 +146,7 @@ namespace CapaPresentacion
                                     //actualizamos el presupuesto
 
                                     TxtPresupuesto.Text = Presupuesto.ToString();
-                                    TxtSolicitud.Text = idSolicitud;
+                                    //TxtSolicitud.Text = idSolicitud;
 
                                     TxtPresupuesto.Text= Presupuesto.ToString();
                                     TxtSolicitud.Text = ObtenerCodigo_SolicitudCompra();
@@ -351,10 +351,10 @@ namespace CapaPresentacion
             }
         }
 
-        private void DgvListaCompra_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+        //private void DgvListaCompra_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        //{
 
-        }
+        //}
 
         private void FrmSolicitudCompra_Load(object sender, EventArgs e)
         {
