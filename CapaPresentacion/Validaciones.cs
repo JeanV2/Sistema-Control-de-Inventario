@@ -308,5 +308,31 @@ namespace CapaPresentacion
             }
         }
 
+        public static bool ContraseñaSegura2(string password)
+        {
+            bool Mayuscula = false, Miniscula = false, Numeros = false;
+            for (int i = 0; i < password.Length; i++)
+            {
+                if (char.IsUpper(password, i))
+                {
+                    Mayuscula = true;
+                }
+                else if (char.IsLower(password, i))
+                {
+                    Miniscula = true;
+                }
+                else if (char.IsDigit(password, i))
+                {
+                    Numeros = true;
+                }
+            }
+            if (Mayuscula && Miniscula && Numeros && password.Length >= 6)
+            {
+
+                return true;
+            }
+
+            return false;
+        }
     }
 }
