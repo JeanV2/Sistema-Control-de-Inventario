@@ -78,7 +78,9 @@
 
             this.label1.Size = new System.Drawing.Size(166, 30);
             this.label1.TabIndex = 0;
+
             this.label1.Text = "Presupuestos";
+
 
             this.label1.Size = new System.Drawing.Size(336, 37);
             this.label1.TabIndex = 0;
@@ -348,6 +350,7 @@
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.flowLayoutPanel1);
             this.ForeColor = System.Drawing.Color.White;
+
 
             this.Margin = new System.Windows.Forms.Padding(4);
 

@@ -56,7 +56,15 @@
           <Property Name="CantidadProducto" Type="int" />
           <Property Name="CostoProducto" Type="nchar" MaxLength="10" />
           <Property Name="Descripcion" Type="varchar(max)" />
-          <Property Name="Estado" Type="bit" />
+          <Property Name="CFamilia" Type="varchar" MaxLength="50" />
+          <Property Name="CSubFamilia" Type="varchar" MaxLength="50" />
+          <Property Name="NumProducto" Type="varchar" MaxLength="50" />
+          <Property Name="CFUnidadMedida" Type="varchar" MaxLength="50" />
+          <Property Name="DesResumida" Type="varchar(max)" />
+          <Property Name="MUltCosto" Type="float" />
+          <Property Name="InventarioRequerido" Type="int" />
+          <Property Name="InventarioExistente" Type="int" />
+          <Property Name="CostoTotal" Type="float" />
         </EntityType>
         <EntityType Name="TbProductoInsumoS">
           <Key>
@@ -284,7 +292,15 @@
           <Property Name="CantidadProducto" Type="Int32" />
           <Property Name="CostoProducto" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Estado" Type="Boolean" />
+          <Property Name="CFamilia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CSubFamilia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NumProducto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CFUnidadMedida" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DesResumida" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MUltCosto" Type="Double" />
+          <Property Name="InventarioRequerido" Type="Int32" />
+          <Property Name="InventarioExistente" Type="Int32" />
+          <Property Name="CostoTotal" Type="Double" />
           <NavigationProperty Name="TbCompraSolicitudP" Relationship="inventarioModel.FK_TbCompraSolicitudP_TbProducto" FromRole="TbProducto" ToRole="TbCompraSolicitudP" />
           <NavigationProperty Name="TbProductoInsumoS" Relationship="inventarioModel.FK_TbProductoInsumoS_TbProducto1" FromRole="TbProducto" ToRole="TbProductoInsumoS" />
         </EntityType>
@@ -448,7 +464,15 @@
           <EntitySetMapping Name="TbProducto">
             <EntityTypeMapping TypeName="inventarioModel.TbProducto">
               <MappingFragment StoreEntitySet="TbProducto">
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="CostoTotal" ColumnName="CostoTotal" />
+                <ScalarProperty Name="InventarioExistente" ColumnName="InventarioExistente" />
+                <ScalarProperty Name="InventarioRequerido" ColumnName="InventarioRequerido" />
+                <ScalarProperty Name="MUltCosto" ColumnName="MUltCosto" />
+                <ScalarProperty Name="DesResumida" ColumnName="DesResumida" />
+                <ScalarProperty Name="CFUnidadMedida" ColumnName="CFUnidadMedida" />
+                <ScalarProperty Name="NumProducto" ColumnName="NumProducto" />
+                <ScalarProperty Name="CSubFamilia" ColumnName="CSubFamilia" />
+                <ScalarProperty Name="CFamilia" ColumnName="CFamilia" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
                 <ScalarProperty Name="CostoProducto" ColumnName="CostoProducto" />
                 <ScalarProperty Name="CantidadProducto" ColumnName="CantidadProducto" />
