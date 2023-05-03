@@ -11,6 +11,8 @@ using System.Windows.Forms;
 using Microsoft.Office.Interop.Excel;
 using Application = Microsoft.Office.Interop.Excel.Application;
 using DataTable = System.Data.DataTable;
+using CapaDatos;
+using CapaEntidades;
 
 namespace CapaPresentacion
 {
@@ -56,6 +58,26 @@ namespace CapaPresentacion
 
                 // Asigna los datos al DataGridView
                 dgvDatos.DataSource = dt;
+            }
+        }
+
+        private void BtnGuardar_Click(object sender, EventArgs e)
+        {
+            //Obtenemos un listado de los productos directamente con el entities
+            inventarioEntities1 Db = new inventarioEntities1();
+            List<TbProducto> ListProductos;
+            //Elaborado una entidad donde almacenar los datos a guardar o actualizar
+            TbProducto producto = new TbProducto();
+            ListProductos = Db.TbProducto.ToList();
+            for (int i = 0; i <= dgvDatos.RowCount; i++)
+            {
+                string cod = dgvDatos.Rows[i].Cells[0].ToString();
+                if (ListProductos.Where(x => x.CodProducto == cod).Count().Equals(1))
+                {
+                    producto.CodProducto = cod;
+                    producto.NombreProducto = dgvDatos.Rows[i].Cells[1].ToString();
+
+                }
             }
         }
 
