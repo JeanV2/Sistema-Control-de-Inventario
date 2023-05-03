@@ -362,7 +362,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Solicitud de Presupuesto";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmPresupuesto_FormClosed);
-            this.Load += new System.EventHandler(this.FrmPresupuesto_Load);
+            //this.Load += new System.EventHandler(this.FrmPresupuesto_Load);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
