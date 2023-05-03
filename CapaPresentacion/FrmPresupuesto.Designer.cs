@@ -57,7 +57,7 @@
             this.flowLayoutPanel2.Controls.Add(this.TxtMontuoProsupuesto);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(7, 6);
-            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(13, 12, 0, 12);
             this.flowLayoutPanel2.Size = new System.Drawing.Size(532, 466);
@@ -71,9 +71,9 @@
             this.label1.Location = new System.Drawing.Point(17, 12);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4000, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(296, 37);
+            this.label1.Size = new System.Drawing.Size(336, 37);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Registrar Productos";
+            this.label1.Text = "Registrar Presupuestos";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
@@ -84,9 +84,9 @@
             this.label2.Location = new System.Drawing.Point(17, 86);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 37, 0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(163, 25);
+            this.label2.Size = new System.Drawing.Size(172, 25);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Prosupuesto #";
+            this.label2.Text = "Presupuestos #";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // TxtCodigoPresepuesto
@@ -150,9 +150,9 @@
             this.label4.Location = new System.Drawing.Point(17, 281);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 25, 0, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(232, 25);
+            this.label4.Size = new System.Drawing.Size(241, 25);
             this.label4.TabIndex = 17;
-            this.label4.Text = "Montuo Prosupuesto";
+            this.label4.Text = "Montuo Presupuestos";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // TxtMontuoProsupuesto
@@ -189,7 +189,7 @@
             this.flowLayoutPanel1.Controls.Add(this.BtnVerLista);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(539, 6);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 0, 5, 6);
             this.flowLayoutPanel1.Size = new System.Drawing.Size(311, 466);
@@ -318,7 +318,7 @@
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.flowLayoutPanel1);
             this.ForeColor = System.Drawing.Color.White;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(822, 515);
