@@ -18,12 +18,7 @@ namespace CapaPresentacion
         NegocioPresupuestos negocioPresupuestos = new NegocioPresupuestos();
         public delegate void pasarDatos(TbPresupuesto presupuesto);
         public event pasarDatos pasarDatosEvent;
-        //------------------------------------------------------------------------------------------
-        /// <summary>
-        /// Instancia al formulario principal para acceder a los controles que se encuentran en el
-        /// </summary>
-        FrmPresupuesto frmPresupuesto = (FrmPresupuesto)Application.OpenForms["FrmPresupuesto"];
-        //----------------------------------------------------------------------------------------------
+
         public FrmListaPresupuestos()
         {
             InitializeComponent();
@@ -65,8 +60,8 @@ namespace CapaPresentacion
             {
                 int nr = DgvListaProductos.Rows.Add();
 
-                DgvListaProductos.Rows[nr].Cells[0].Value = presupuesto.numeroCuenta;
-                DgvListaProductos.Rows[nr].Cells[1].Value = presupuesto.nombrePresupuesto;
+                //DgvListaProductos.Rows[nr].Cells[0].Value = presupuesto.numeroCuenta;
+                //DgvListaProductos.Rows[nr].Cells[1].Value = presupuesto.nombrePresupuesto;
                 DgvListaProductos.Rows[nr].Cells[2].Value = presupuesto.MontoPresupuesto;
                
             }
