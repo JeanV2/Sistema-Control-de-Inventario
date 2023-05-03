@@ -30,14 +30,20 @@ namespace CapaPresentacion
         //------------------------------------------------------------------------------------------
 
 
-        public FrmListaProductos()
+        TbProducto producto = new TbProducto();
+
+        private Form FormularioOrigen;
+        public FrmListaProductos(Form formularioOrigin)
         {
             InitializeComponent();
+            this.FormularioOrigen = formularioOrigin;
         }
         //Lista
         List<TbProducto> lisProductos;
         //Entidad
-        TbProducto producto = new TbProducto();
+        TbProducto product = new TbProducto();
+        List<TbProducto> productos;
+        NegocioInsumos insumosIns = new NegocioInsumos();
         //
         NegociosProductos NegProd = new NegociosProductos();
 
@@ -57,25 +63,42 @@ namespace CapaPresentacion
             {
                 int fila = e.RowIndex;
 
-                //PASA LOS DATOS AL FORMULARIO AÑADIR PRODUCTOS
-                //AñadirProductos.TxtCodigoProducto.Text = DgvListaProductos.Rows[fila].Cells[0].Value.ToString();
-                //AñadirProductos.TxtNombreProducto.Text = DgvListaProductos.Rows[fila].Cells[1].Value.ToString();
-                //AñadirProductos.TxtCantidad.Text = DgvListaProductos.Rows[fila].Cells[2].Value.ToString();
-                //AñadirProductos.TxtCosto.Text = DgvListaProductos.Rows[fila].Cells[3].Value.ToString();
-                //AñadirProductos.TxtDescripcion.Text = DgvListaProductos.Rows[fila].Cells[4].Value.ToString();
-
-
-                //AñadirProductos.BtnGuardar.Enabled = false;
-                //AñadirProductos.BtnModificar.Visible = true;
-                //AñadirProductos.BtnEliminar.Visible = true;
-                //AñadirProductos.TxtCantidad.Enabled = false;
-
-
-                //PASA LOS DATOS AL FORMULARIO SOLICITUD DE INSUMOS
-                frmSolicitud.TxtCodigoProcd.Text = DgvListaProductos.Rows[fila].Cells[0].Value.ToString();
-                frmSolicitud.TxtNombreProduc.Text = DgvListaProductos.Rows[fila].Cells[1].Value.ToString();
-                frmSolicitud.txtCantProducto.Text = DgvListaProductos.Rows[fila].Cells[2].Value.ToString();
-
+                if (FormularioOrigen is FrmAñadirProductos)
+                {
+                    AñadirProductos.TxtCodigoProducto.Text = DgvListaProductos.Rows[fila].Cells[0].Value.ToString();
+                    AñadirProductos.TxtNombreProducto.Text = DgvListaProductos.Rows[fila].Cells[1].Value.ToString();
+                    AñadirProductos.TxtCantidad.Text = DgvListaProductos.Rows[fila].Cells[2].Value.ToString();
+                    AñadirProductos.TxtCosto.Text = DgvListaProductos.Rows[fila].Cells[3].Value.ToString();
+                    AñadirProductos.TxtDescripcion.Text = DgvListaProductos.Rows[fila].Cells[4].Value.ToString();
+                    AñadirProductos.BtnGuardar.Enabled = false;
+                    AñadirProductos.BtnModificar.Visible = true;
+                    AñadirProductos.BtnEliminar.Visible = true;
+                    AñadirProductos.TxtCantidad.Enabled = false;
+                    AñadirProductos.TxtCodigoProducto.ReadOnly = true;
+                    AñadirProductos.TxtNombreProducto.Focus();
+                }
+                else if (FormularioOrigen is FrmSolicitudInsumos)
+                {
+                    frmSolicitud.TxtCodigoProcd.Text = DgvListaProductos.Rows[fila].Cells[0].Value.ToString();
+                    frmSolicitud.TxtNombreProduc.Text = DgvListaProductos.Rows[fila].Cells[1].Value.ToString();
+                    
+                    
+                    
+                    productos = insumosIns.ObtenerListaProductos(DgvListaProductos.Rows[fila].Cells[0].Value.ToString());
+                    if (product != null)
+                    {
+                        foreach (TbProducto pr in productos)
+                        {
+                            
+                            int? cantidadProducto = pr.CantidadProducto;
+                            frmSolicitud.TxtDisponibles.Text = cantidadProducto?.ToString();
+                        }
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
 
 
                 this.Close();
@@ -108,25 +131,25 @@ namespace CapaPresentacion
 
             if (TxtCodigo.Text != string.Empty)
             {
-             
+
                 listaAux = lisProductos.Where(x => x.CodProducto.ToString().Contains(TxtCodigo.Text)).ToList();
                 TxtCodigo.ResetText();
             }
             else
             if (TxtNombreProducto.Text != string.Empty)
             {
-              
+
                 listaAux = lisProductos.Where(x => x.NombreProducto.Trim().ToUpper().Contains(TxtNombreProducto.Text.Trim().ToUpper())).ToList();
                 TxtNombreProducto.ResetText();
             }
             else
             if (TxtCodigo.Text == string.Empty && TxtNombreProducto.Text == string.Empty)
             {
-            
+
                 listaAux = lisProductos;
             }
 
-            CargarDatos((List<TbProducto>)listaAux);         
+            CargarDatos((List<TbProducto>)listaAux);
         }
         //Cargamos datos al data grid
         private void CargarDatos(List<TbProducto> listaProductos)

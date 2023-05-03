@@ -14,13 +14,14 @@ namespace CapaDatos
         {
             try
             {
-                using(var context = new inventarioEntities1())
+                using (var context = new inventarioEntities1())
                 {
                     context.TbPresupuesto.Add(presupuesto);
                     context.SaveChanges();
                 }
                 return true;
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 return false;
             }
@@ -30,13 +31,14 @@ namespace CapaDatos
         {
             try
             {
-                using(var context = new inventarioEntities1())
+                using (var context = new inventarioEntities1())
                 {
                     context.Entry<TbPresupuesto>(presupuesto).State = System.Data.Entity.EntityState.Modified;
                     context.SaveChanges();
                 }
                 return true;
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 return false;
             }
@@ -46,13 +48,14 @@ namespace CapaDatos
         {
             try
             {
-                using(var context = new inventarioEntities1())
+                using (var context = new inventarioEntities1())
                 {
                     context.Entry<TbPresupuesto>(presupuesto).State = System.Data.Entity.EntityState.Modified;
                     context.SaveChanges();
                 }
                 return true;
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 return false;
             }
@@ -62,12 +65,28 @@ namespace CapaDatos
         {
             try
             {
-                using( var context = new inventarioEntities1())
+                using (var context = new inventarioEntities1())
                 {
                     return (from c in context.TbPresupuesto
                             select c).ToList();
                 }
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        public List<TbColaborador> ListaColaborador()
+        {
+            try
+            {
+                using (var context = new inventarioEntities1())
+                {
+                    return (from c in context.TbColaborador
+                            select c).ToList();
+                }
+            }
+            catch (Exception ex)
             {
                 return null;
             }

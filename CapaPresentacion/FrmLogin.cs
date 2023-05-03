@@ -2,6 +2,7 @@
 using CapaNegocios;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -83,12 +84,13 @@ namespace CapaPresentacion
             if ((pass == true))
             {
                 TxtContraseña.BorderColor = Color.Green;
-                
+
             }
             //---------------------------------------------------------------------------------------------------------------------
             else
             {
                 TxtContraseña.BorderColor = Color.Red;
+                lblError.Text = "Contraseña Equivocada";
             }
             //---------------------------------------------------------------------------------------------------------------------
             //valido si el usuario es correcto
@@ -99,26 +101,20 @@ namespace CapaPresentacion
             else
             {
                 TxtUsuario.BorderColor = Color.Red;
+                lblError.Text = "Usuario no Existe";
             }
             //---------------------------------------------------------------------------------------------------------------------
             //pregunto si ambos son correctos
             if ((user == true) && (pass == true))
             {
-                MessageBox.Show("Has ingresado con exito " , " correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                lblError.Visible = false;
                 this.Hide();
                 FrmMenuPrincipal frmMenu = new FrmMenuPrincipal();
                 frmMenu.ShowDialog();
-
-
-
-
-
-
-
             }
             else
             {
-                MessageBox.Show("Por favor verifica que los datos esten correctos", "correcto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                lblError.Visible = true;
             }
             //---------------------------------------
 
@@ -143,7 +139,7 @@ namespace CapaPresentacion
                     obtenerdatoscontraseña();
                     //valiadacion de datos
                     validacion_datos();
-                   
+
 
 
 
