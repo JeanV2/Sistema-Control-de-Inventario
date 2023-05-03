@@ -87,9 +87,7 @@ namespace CapaPresentacion
 
         private void BtnPresupuesto_Click(object sender, EventArgs e)
         {
-            FrmImportarExcelPresupuesto frmImportarExcel = new FrmImportarExcelPresupuesto();
-            
-            frmImportarExcel.ShowDialog();
+            AbrirFormularioHijo(new FrmImportarExcelPresupuesto());
         }
 
         private void BtnSolicitud_Click(object sender, EventArgs e)
