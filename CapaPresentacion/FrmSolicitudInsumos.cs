@@ -1,5 +1,6 @@
 ﻿using CapaEntidades;
 using CapaNegocios;
+using RestSharp.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,7 +30,6 @@ namespace CapaPresentacion
         private void BtnVerListado_Click(object sender, EventArgs e)
         {
             FrmListaProductos frmListaProductos = new FrmListaProductos(this);
-
             frmListaProductos.ShowDialog();
 
         }
@@ -48,7 +48,7 @@ namespace CapaPresentacion
             TbSolicitudInsumo tbinsumo = new TbSolicitudInsumo();
             //llenamos los datos
             tbinsumo.IdSolicitudInsumo = ObtenerCodigoSolicitudInsumo().ToString();
-            tbinsumo.FechaInsumo = DateTime.Now;
+            tbinsumo.FechaInsumo =Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd"));
             tbinsumo.Estado = true;
             tbinsumo.IdColaborador = FrmLogin.Idetificacion;
             //guardamos la solicitud de insumo
@@ -113,6 +113,7 @@ namespace CapaPresentacion
             {
                 MessageBox.Show("Registro exitoso", "Guadar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DgvListaProductos.Rows.Clear();
+                Validaciones.LimpiarFormularioSolicitudEntrega(tableLayoutPanel2);
             }
             else
             {
@@ -174,7 +175,7 @@ namespace CapaPresentacion
             int row = DgvListaProductos.Rows.Count;
             for(int i=0; i < row; i++)
             {
-                if (DgvListaProductos.Rows[i].Cells[1].Value.ToString().Trim() == TxtCodigoProcd.Text.Trim())
+                if (DgvListaProductos.Rows[i].Cells[0].Value.ToString().Trim() == TxtCodigoProcd.Text.Trim())
                 {
                     estado = false;
                     break;
@@ -192,8 +193,8 @@ namespace CapaPresentacion
                     if (ValCantProductos(TxtCodigoProcd.Text, int.Parse(txtCantProducto.Text)) == true)
                     {
                         int row = DgvListaProductos.Rows.Add();
-                        DgvListaProductos.Rows[row].Cells[0].Value = FrmLogin.Idetificacion;
-                        DgvListaProductos.Rows[row].Cells[1].Value = TxtCodigoProcd.Text;
+                        DgvListaProductos.Rows[row].Cells[0].Value = TxtCodigoProcd.Text;
+                        DgvListaProductos.Rows[row].Cells[1].Value = TxtNombreProduc.Text;
                         DgvListaProductos.Rows[row].Cells[2].Value = txtCantProducto.Text;
                         Limpiarcampos();
                     }
@@ -402,7 +403,7 @@ namespace CapaPresentacion
 
         private void TxtCodigoProcd_Click(object sender, EventArgs e)
         {
-            Validaciones.LimpiarFormulario(flowLayoutPanel2);
+            Validaciones.LimpiarFormulario(tableLayoutPanel2);
         }
     }
 }

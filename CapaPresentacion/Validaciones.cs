@@ -34,6 +34,27 @@ namespace CapaPresentacion
             }
 
         }
+
+        /// <summary>
+        /// Metodo para limpiar el formulario
+        /// </summary>
+        /// <param name="control">resibe el panel que contiene los controles a limpiar</param>
+        public static void LimpiarFormularioSolicitudEntrega(System.Windows.Forms.Panel control)
+        {
+            foreach (var txt in control.Controls)
+            {
+                if (txt is Guna2TextBox && control.Name != "TxtCedula")
+                {
+
+                    ((Guna2TextBox)txt).Clear();
+                }
+                else if (txt is Guna2ComboBox)
+                {
+                    ((Guna2ComboBox)txt).StartIndex = -1;
+                }
+            }
+
+        }
         #endregion
         //-----------------------------------------------------------------------------------------
         //dd
