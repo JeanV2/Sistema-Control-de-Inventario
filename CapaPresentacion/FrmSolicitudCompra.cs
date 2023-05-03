@@ -20,9 +20,10 @@ namespace CapaPresentacion
         {
             InitializeComponent();
             //SET DATETIMEPICKER
-            DtpFechaSolicitud.MinDate= DateTime.Today;
+            DtpFechaSolicitud.MinDate = DateTime.Today;
             TxtPresupuesto.Text = Presupuesto.ToString(); ;
             TxtSolicitud.Text = idSolicitud;
+
         }
 
         private void BtnModificar_Click(object sender, EventArgs e)
@@ -68,10 +69,10 @@ namespace CapaPresentacion
                                     //agregamos el producto al datagridview
                                     //limpiamos el txt de precio producto para que no contenga caracteres invalidos
                                     int TxtPrecioProdLim = int.Parse(TxtPrecioProd.Text.Replace("₡", ""));
-                                    int row= DgvListaCompra.Rows.Add();
-                                        DgvListaCompra.Rows[row].Cells[0].Value = TxtSolicitud.Text;
-                                        DgvListaCompra.Rows[row].Cells[1].Value = TxtCodigoProd.Text;
-                                        DgvListaCompra.Rows[row].Cells[2].Value = TxtCantidad.Text;
+                                    int row = DgvListaCompra.Rows.Add();
+                                    DgvListaCompra.Rows[row].Cells[0].Value = TxtSolicitud.Text;
+                                    DgvListaCompra.Rows[row].Cells[1].Value = TxtCodigoProd.Text;
+                                    DgvListaCompra.Rows[row].Cells[2].Value = TxtCantidad.Text;
                                     DgvListaCompra.Rows[row].Cells[3].Value = TxtPrecioProdLim;
 
 
@@ -82,19 +83,19 @@ namespace CapaPresentacion
                                     int CostoAñadir = 0;
                                     for (int i = 0; i < DgvListaCompra.RowCount; i++)
                                     {
-                                        if (DgvListaCompra.Rows[i].Cells[0].Value!=null)
+                                        if (DgvListaCompra.Rows[i].Cells[0].Value != null)
                                         {
                                             CostoAñadir = int.Parse(DgvListaCompra.Rows[i].Cells[3].Value.ToString()) * int.Parse(DgvListaCompra.Rows[i].Cells[2].Value.ToString());
                                             CostoFinal = CostoFinal + CostoAñadir;
                                         }
-                                   
+
                                     }
-                                    TxtTotalCompra.Text=CostoFinal.ToString();
+                                    TxtTotalCompra.Text = CostoFinal.ToString();
                                     //realizamos el rebajo al presupuesto
                                     Presupuesto = 1000000;
                                     Presupuesto = Presupuesto - CostoFinal;
                                     //actualizamos el presupuesto
-                                    TxtPresupuesto.Text= Presupuesto.ToString();
+                                    TxtPresupuesto.Text = Presupuesto.ToString();
                                     TxtSolicitud.Text = idSolicitud;
                                 }
                                 else
@@ -183,19 +184,21 @@ namespace CapaPresentacion
 
             //LIMPIAR FORM
             Validaciones.LimpiarFormulario(flowLayoutPanel4);
+            DgvListaCompra.Rows.Clear();
+            DgvListaCompra.Columns.Clear();
             //CLEAR DATE TIME PICKER
             DtpFechaSolicitud.Value = DateTime.Today;
             //CLEAR DATA GRID VIEW
             // -- ACA VA EL CODIGO PARA LIMPIAR EL DATA GRIG VIEW
         }
-     
+
         private void TxtCantidad_TextChanged(object sender, EventArgs e)
         {
             //validamos que el txt no este vacio
-            if (TxtCantidad.Text!=string.Empty)
+            if (TxtCantidad.Text != string.Empty)
             {
                 //si txtcantidad es igual a 0 costo total sera igual a 0
-                if (TxtCantidad.Text=="0")
+                if (TxtCantidad.Text == "0")
                 {
                     TxtCostoTotal.Text = "0";
                 }
@@ -203,13 +206,38 @@ namespace CapaPresentacion
                 else
                 {
                     //limpiamos el txt de precio producto para que no contenga caracteres invalidos
-                    int TxtPrecioProdLim = int.Parse(TxtPrecioProd.Text.Replace("₡",""));
+                    int TxtPrecioProdLim = int.Parse(TxtPrecioProd.Text.Replace("₡", ""));
                     //realizamos la multiplicacion 
                     int costo = int.Parse(TxtCantidad.Text) * TxtPrecioProdLim;
                     //mostramos el costo
-                    TxtCostoTotal.Text = costo.ToString() ;
+                    TxtCostoTotal.Text = costo.ToString();
                 }
-             
+
+            }
+        }
+
+        private void TxtPresupuesto_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(TxtPresupuesto.Text))
+            {
+                if (!TxtPresupuesto.Text.StartsWith("₡"))
+                {
+                    TxtPresupuesto.Text = "₡" + TxtPresupuesto.Text;
+                    TxtPresupuesto.SelectionStart = TxtPresupuesto.Text.Length;
+
+                }
+            }
+        }
+
+        private void DgvListaCompra_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == DgvListaCompra.Columns["x"].Index && e.RowIndex >= 0)
+            {
+                // Obtener la fila que se está eliminando
+                DataGridViewRow fila = DgvListaCompra.Rows[e.RowIndex];
+
+                // Eliminar la fila del DataGridView
+                DgvListaCompra.Rows.Remove(fila);
             }
         }
     }

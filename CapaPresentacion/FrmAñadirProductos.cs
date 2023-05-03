@@ -30,7 +30,7 @@ namespace CapaPresentacion
 
         private void BtnVerLista_Click(object sender, EventArgs e)
         {
-            FrmListaProductos frmListaProductos = new FrmListaProductos();
+            FrmListaProductos frmListaProductos = new FrmListaProductos(this);
             frmListaProductos.ShowDialog();
         }
 
@@ -65,10 +65,15 @@ namespace CapaPresentacion
 
                                 if (NegProduct.ModificarProduct(producto))
                                 {
-                                    MessageBox.Show("Producto modificar con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                    MessageBox.Show("Producto modificado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                                     //LIMPIAR FORM
                                     Validaciones.LimpiarFormulario(flowLayoutPanel2);
+                                    //OCULTAR LOS BOTONES DE NUEVO
+                                    BtnModificar.Visible = false;
+                                    BtnEliminar.Visible = false;
+                                    BtnGuardar.Enabled = true;
+                                    TxtCantidad.Enabled = true;
                                 }
                                 else
                                 {
@@ -104,11 +109,7 @@ namespace CapaPresentacion
                 Validaciones.MostarError(TxtCodigoProducto, "Debes ingresar el codigo del producto");
             }
 
-            //OCULTAR LOS BOTONES DE NUEVO
-            BtnModificar.Visible = false;
-            BtnEliminar.Visible = false;
-            BtnGuardar.Enabled = true;
-            TxtCantidad.Enabled = true;
+
         }
 
         private void BtnEliminar_Click(object sender, EventArgs e)
@@ -136,9 +137,15 @@ namespace CapaPresentacion
 
                             if (NegProduct.EliminarProduct(producto))
                             {
-                                MessageBox.Show("Producto eliminar con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                MessageBox.Show("Producto eliminado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                 //LIMPIAR FORM
                                 Validaciones.LimpiarFormulario(flowLayoutPanel2);
+                                //OCULTAR LOS BOTONES DE NUEVO
+                                BtnModificar.Visible = false;
+                                BtnEliminar.Visible = false;
+                                BtnGuardar.Enabled = true;
+                                TxtCodigoProducto.ReadOnly = false;
+                                TxtCodigoProducto.Focus();
                             }
                             else
                             {
@@ -146,7 +153,7 @@ namespace CapaPresentacion
                             }
 
 
-                         
+
                         }
                         else
                         {
@@ -172,10 +179,7 @@ namespace CapaPresentacion
             }
 
 
-            //OCULTAR LOS BOTONES DE NUEVO
-            BtnModificar.Visible = false;
-            BtnEliminar.Visible = false;
-            BtnGuardar.Enabled = true;
+
         }
 
         private void BtnGuardar_Click(object sender, EventArgs e)
@@ -203,7 +207,7 @@ namespace CapaPresentacion
                                 //CODIGO PARA GUARDAR Y ENVIAR A LA BASE DE DATOS********************
                                 producto.CodProducto = TxtCodigoProducto.Text;
                                 producto.NombreProducto = TxtNombreProducto.Text;
-                                producto.CostoProducto = TxtCosto.Text;
+                                producto.CostoProducto = TxtCosto.Text.Replace("₡", "");
                                 producto.Descripcion = TxtDescripcion.Text;
                                 producto.CantidadProducto = int.Parse(TxtCantidad.Text.Trim());
 
@@ -214,12 +218,14 @@ namespace CapaPresentacion
 
                                     //LIMPIAR FORM
                                     Validaciones.LimpiarFormulario(flowLayoutPanel2);
+                                    TxtCodigoProducto.ReadOnly = false;
+                                    TxtCodigoProducto.Focus();
                                 }
                                 else
                                 {
                                     MessageBox.Show("Error al guardar el producto", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                 }
-                         
+
                             }
                             else
                             {
@@ -260,6 +266,43 @@ namespace CapaPresentacion
         private void TxtCantidad_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validaciones.Numeros_y_Borrar(e, TxtCantidad);
+        }
+
+        private void TxtCosto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validaciones.Numeros_Decimales_y_Borrar(e, TxtCosto);
+        }
+
+        private void TxtCosto_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(TxtCosto.Text))
+            {
+                if (!TxtCosto.Text.StartsWith("₡"))
+                {
+                    TxtCosto.Text = "₡" + TxtCosto.Text;
+                    TxtCosto.SelectionStart = TxtCosto.Text.Length;
+
+                }
+            }
+        }
+
+        private void TxtDescripcion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validaciones.Letras_y_Numeros(e, TxtDescripcion);
+        }
+
+        private void TxtNombreProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validaciones.Letras_y_Numeros(e, TxtNombreProducto);
+        }
+
+        private void TxtCodigoProducto_Leave(object sender, EventArgs e)
+        {
+            producto.CodProducto = TxtCodigoProducto.Text;
+            if (NegProduct.ExisteProducto(producto))
+            {
+                MessageBox.Show("Este Codigo ya se encuentra registrado");
+            }
         }
     }
 }

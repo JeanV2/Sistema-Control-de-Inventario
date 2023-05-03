@@ -8,9 +8,10 @@ using System.Threading.Tasks;
 
 namespace CapaNegocios
 {
-   public class NegocioInsumos
+    public class NegocioInsumos
     {
         DatosInsumos datos = new DatosInsumos();
+        DatosInsumosSoli datosInsumos = new DatosInsumosSoli();
         public bool GuardarInsumos(TbSolicitudInsumo insumo)
         {
             return datos.GuardarInsumos(insumo);
@@ -19,6 +20,16 @@ namespace CapaNegocios
         {
             return datos.obtenerListaInsumos(0);
 
+        }
+
+        public List<TbProducto> ObtenerListaProductos(string codigo)
+        {
+            return datosInsumos.ObtenerListaProductos(codigo);
+        }
+
+        public bool ExisteProducto(TbProducto producto)
+        {
+            return datosInsumos.ExisteProducto(producto);
         }
     }
 }

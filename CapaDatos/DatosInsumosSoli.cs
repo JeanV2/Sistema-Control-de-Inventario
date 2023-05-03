@@ -28,6 +28,33 @@ namespace CapaDatos
                 return false;
             }
         }
+        public List<TbProducto> ObtenerListaProductos(string codigo)
+        {
+            try
+            {
+                using (inventarioEntities1 Conn = new inventarioEntities1())
+                {
+                    return (from c in Conn.TbProducto
+                            where c.CodProducto == codigo
+                            select c).ToList();
+                }
+            }
+            catch (Exception)
+            {
 
+                return null;
+            }
+        }
+        public bool ExisteProducto(TbProducto producto)
+        {
+
+            var Existe = false;
+            using (var Conn = new inventarioEntities1())
+            {
+                Existe = Conn.TbProducto.Any(c => c.CodProducto == producto.CodProducto);
+                return Existe;
+            }
+
+        }
     }
 }

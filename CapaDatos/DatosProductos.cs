@@ -89,11 +89,25 @@ namespace CapaDatos
                             select P).ToList();
                 }
 
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 return null;
             }
-         
+
+        }
+
+
+        public bool ExisteProducto(TbProducto producto)
+        {
+
+            var Existe = false;
+            using (var Conn = new inventarioEntities1())
+            {
+                Existe = Conn.TbProducto.Any(c => c.CodProducto == producto.CodProducto);
+                return Existe;
+            }
+
         }
     }
 }

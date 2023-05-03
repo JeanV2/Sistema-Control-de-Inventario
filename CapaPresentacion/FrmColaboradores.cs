@@ -56,9 +56,9 @@ namespace CapaPresentacion
 
                                         TbColaborador colabo = new TbColaborador();
 
-                                         //CODIGO PARA GUARDAR Y ENVIAR A DB*****************************
+                                        //CODIGO PARA GUARDAR Y ENVIAR A DB*****************************
                                         colabo.NombreColaborador = TxtNombre.Text;
-                                        colabo.PrimerApellidoColaborador= TxtApe1.Text;
+                                        colabo.PrimerApellidoColaborador = TxtApe1.Text;
                                         colabo.IdColaborador = TxtCedula.Text;
                                         colabo.SegundoApellidoColaborador = TxtApe2.Text;
                                         colabo.PasswordColaborador = TxtContraseña.Text;
@@ -68,7 +68,8 @@ namespace CapaPresentacion
 
                                         if (CNColaborador.GuardarColaborador(colabo))
                                         {
-                                            MessageBox.Show("Colaborador Guadar","Guardado correctamente",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                            MessageBox.Show("Colaborador Guadar", "Guardado correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                            Validaciones.LimpiarFormulario(flowLayoutPanel1);
                                         }
                                         else
                                         {
@@ -130,7 +131,7 @@ namespace CapaPresentacion
 
         private void BtnModificar_Click(object sender, EventArgs e)
         {
-            if(TxtCedula.TextLength > 0)
+            if (TxtCedula.TextLength > 0)
             {
                 Validaciones.LimpiarError(TxtCedula);
 
@@ -188,6 +189,14 @@ namespace CapaPresentacion
                                         if (CNColaborador.ModificarColaborador(colabo))
                                         {
                                             MessageBox.Show("Colaborador Modificado", "Modificación correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+                                            //CODIGO PARA ACTUALIZAR AL FINAL OCULTAR LOS BOTONES DE NUEVO
+                                            BtnModificar.Visible = false;
+                                            BtnEliminar.Visible = false;
+                                            BtnGuardarColaborador.Enabled = true;
+                                            Validaciones.LimpiarFormulario(flowLayoutPanel1);
+
                                         }
                                         else
                                         {
@@ -239,10 +248,7 @@ namespace CapaPresentacion
                 Validaciones.MostarError(TxtCedula, "Debes ingresar una identificación valida");
             }
 
-            //CODIGO PARA ACTUALIZAR AL FINAL OCULTAR LOS BOTONES DE NUEVO
-            BtnModificar.Visible = false;
-            BtnEliminar.Visible = false;
-            BtnGuardarColaborador.Enabled = true;
+
         }
 
         private void BtnEliminar_Click(object sender, EventArgs e)
@@ -296,6 +302,13 @@ namespace CapaPresentacion
                                                 if (CNColaborador.EliminarColaborador(colabo))
                                                 {
                                                     MessageBox.Show("Colaborador Eliminado", "Eliminación correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                                    //ENABLE DE BOTONES
+
+                                                    BtnModificar.Visible = false;
+                                                    BtnEliminar.Visible = false;
+                                                    BtnGuardarColaborador.Enabled = true;
+                                                    Validaciones.LimpiarFormulario(flowLayoutPanel1);
                                                 }
                                                 else
                                                 {
@@ -306,7 +319,7 @@ namespace CapaPresentacion
                                             }
 
                                         }
-                                        
+
 
 
 
@@ -351,16 +364,66 @@ namespace CapaPresentacion
                 Validaciones.MostarError(TxtCedula, "Debes ingresar una identificación valida");
             }
 
-            //ENABLE DE BOTONES
 
-            BtnModificar.Visible = false;
-            BtnEliminar.Visible = false;
-            BtnGuardarColaborador.Enabled = true;
         }
 
         private void TxtCedula_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validaciones.Numeros_y_Borrar(e, TxtCedula);
+        }
+
+        private void TxtCedula_Leave(object sender, EventArgs e)
+        {
+            // Si la longitud de la cedula es igual a 9 o 12 digitos permite continuar
+            if (Validaciones.CedulaValidaBuscar(TxtCedula))
+            {
+                Validaciones.LimpiarError(TxtCedula);
+
+                //   ACA BA EL CODIGO PARA VALIDAR SI EXISTE YA EL USUARIO REGISTRADO
+                TbColaborador colaborador = new TbColaborador();
+                colaborador.IdColaborador = TxtCedula.Text;
+                if (CNColaborador.ExisteColaborador(colaborador))
+                {
+                    MessageBox.Show("Este numero de cedula ya se encuentra registrado");
+                    TxtCedula.ResetText();
+                    TxtCedula.Focus();
+                }
+
+            }
+            else
+            {
+                Validaciones.MostarError(TxtCedula, "Formato o longitud de cedula no es valido");
+            }
+
+        }
+
+        private void TxtUsuario_Leave(object sender, EventArgs e)
+        {
+            if (TxtUsuario.TextLength < 4)
+            {
+                Validaciones.MostarError(TxtUsuario, "Longitud de nombre de usuario muy corta");
+                TxtContraseña.BorderColor = Color.Red;
+            }
+            else
+            {
+                Validaciones.LimpiarError(TxtUsuario);
+                TxtContraseña.BorderColor = Color.White;
+            }
+        }
+
+        private void TxtContraseña_Leave(object sender, EventArgs e)
+        {
+            if (Validaciones.ContraseñaSegura2(TxtContraseña.Text))
+            {
+
+                Validaciones.LimpiarError(TxtContraseña);
+                TxtContraseña.BorderColor = Color.White;
+            }
+            else
+            {
+                Validaciones.MostarError(TxtContraseña, "Seguridad de contraseña vulnerable debe ser de minimo 6 digitos entre mayuculas, minusculas y numeros");
+                TxtContraseña.BorderColor = Color.Red;
+            }
         }
     }
 }

@@ -24,9 +24,11 @@ namespace CapaPresentacion
         //instacia de datos
         NegocioInsumos insumosIns = new NegocioInsumos();
         NegociosInsumosSoli InsumosSoli = new NegociosInsumosSoli();
+        List<TbProducto> productos;
+        TbProducto producto = new TbProducto();
         private void BtnVerListado_Click(object sender, EventArgs e)
         {
-            FrmListaProductos frmListaProductos = new FrmListaProductos();
+            FrmListaProductos frmListaProductos = new FrmListaProductos(this);
 
             frmListaProductos.ShowDialog();
 
@@ -318,6 +320,58 @@ namespace CapaPresentacion
             {
                 return true;
             }
+        }
+
+        private void DgvListaProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Verificar si se hizo clic en el botón de eliminación
+            if (e.ColumnIndex == DgvListaProductos.Columns["X"].Index && e.RowIndex >= 0)
+            {
+                // Obtener la fila que se está eliminando
+                DataGridViewRow fila = DgvListaProductos.Rows[e.RowIndex];
+
+                // Eliminar la fila del DataGridView
+                DgvListaProductos.Rows.Remove(fila);
+            }
+        }
+
+        private void TxtCodigoProcd_Leave(object sender, EventArgs e)
+        {
+            producto.CodProducto = txtCantProducto.Text;
+
+            productos = insumosIns.ObtenerListaProductos(TxtCodigoProcd.Text);
+            
+            if (producto.CodProducto == TxtCodigoProcd.Text)
+            {
+
+                if (productos != null)
+                {
+                    foreach (TbProducto pr in productos)
+                    {
+                        TxtNombreProduc.Text = pr.NombreProducto;
+                        int? cantidadProducto = pr.CantidadProducto;
+                        TxtDisponibles.Text = cantidadProducto?.ToString();
+                    }
+                }
+                else
+                {
+                    return;
+                }
+            }
+            else
+            {
+               DialogResult opc = MessageBox.Show("Codigo digitado no existe","Error de Codigo",MessageBoxButtons.OK,MessageBoxIcon.Stop);
+                if (opc == DialogResult.OK)
+                {
+                    TxtCodigoProcd.Focus();
+                    TxtCodigoProcd.ResetText();
+                }
+            }
+        }
+
+        private void TxtCodigoProcd_Click(object sender, EventArgs e)
+        {
+            Validaciones.LimpiarFormulario(flowLayoutPanel2);
         }
     }
 }

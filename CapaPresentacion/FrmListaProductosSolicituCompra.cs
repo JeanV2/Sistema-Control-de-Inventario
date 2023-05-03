@@ -23,7 +23,7 @@ namespace CapaPresentacion
         /// <summary>
         /// Istancia de la capa negocios de productos
         /// </summary>
-        NegociosProductos Productos= new NegociosProductos();
+        NegociosProductos Productos = new NegociosProductos();
         public FrmListaProductosSolicituCompra()
         {
             InitializeComponent();
@@ -47,7 +47,7 @@ namespace CapaPresentacion
                 DgvListaProductos.Rows[row].Cells[1].Value = Producto.NombreProducto;
                 DgvListaProductos.Rows[row].Cells[2].Value = Producto.CantidadProducto;
                 DgvListaProductos.Rows[row].Cells[3].Value = Producto.CostoProducto;
-               
+
             }
         }
         private void BtnVolver_Click(object sender, EventArgs e)
@@ -64,7 +64,7 @@ namespace CapaPresentacion
 
                 frmSolicitud.TxtCodigoProd.Text = DgvListaProductos.Rows[fila].Cells[0].Value.ToString();
                 frmSolicitud.TxtPrecioProd.Text = DgvListaProductos.Rows[fila].Cells[3].Value.ToString();
-                frmSolicitud.TxtCantidad.Text = DgvListaProductos.Rows[fila].Cells[2].Value.ToString();
+
                 this.Close();
             }
         }
@@ -76,14 +76,14 @@ namespace CapaPresentacion
 
         private void FrmListaProductosSolicituCompra_Load(object sender, EventArgs e)
         {
-         
+
         }
 
         //filtrar
         private void BtnFiltrar_Click(object sender, EventArgs e)
         {
-            
+
         }
-      
+
     }
 }
