@@ -49,6 +49,15 @@
     <Reference Include="Guna.UI2, Version=2.0.4.4, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.4\lib\net48\Guna.UI2.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1577.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1577.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Win32.Registry, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Win32.Registry.5.0.0\lib\net461\Microsoft.Win32.Registry.dll</HintPath>
     </Reference>
@@ -240,6 +249,18 @@
     <Compile Include="FrmColaboradores.Designer.cs">
       <DependentUpon>FrmColaboradores.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmHistCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmHistCompras.Designer.cs">
+      <DependentUpon>FrmHistCompras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmHistInsumos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmHistInsumos.Designer.cs">
+      <DependentUpon>FrmHistInsumos.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmListaColaboradores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -282,6 +303,12 @@
     <Compile Include="FrmPresupuesto.Designer.cs">
       <DependentUpon>FrmPresupuesto.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmResibo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmResibo.Designer.cs">
+      <DependentUpon>FrmResibo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSolicitudCompra.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -303,6 +330,12 @@
     <EmbeddedResource Include="FrmColaboradores.resx">
       <DependentUpon>FrmColaboradores.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmHistCompras.resx">
+      <DependentUpon>FrmHistCompras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmHistInsumos.resx">
+      <DependentUpon>FrmHistInsumos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmListaColaboradores.resx">
       <DependentUpon>FrmListaColaboradores.cs</DependentUpon>
     </EmbeddedResource>
@@ -323,6 +356,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPresupuesto.resx">
       <DependentUpon>FrmPresupuesto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmResibo.resx">
+      <DependentUpon>FrmResibo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSolicitudCompra.resx">
       <DependentUpon>FrmSolicitudCompra.cs</DependentUpon>
