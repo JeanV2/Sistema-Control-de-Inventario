@@ -33,8 +33,8 @@
             this.guna2DateTimePicker1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2DateTimePicker2 = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.BtnFiltrar = new Guna.UI2.WinForms.Guna2Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.BtnFiltrar = new Guna.UI2.WinForms.Guna2Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,6 +71,7 @@
             this.guna2DateTimePicker1.Checked = true;
             this.guna2DateTimePicker1.FillColor = System.Drawing.Color.White;
             this.guna2DateTimePicker1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2DateTimePicker1.ForeColor = System.Drawing.Color.Black;
             this.guna2DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.guna2DateTimePicker1.Location = new System.Drawing.Point(154, 3);
             this.guna2DateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 3, 30, 3);
@@ -99,6 +100,7 @@
             this.guna2DateTimePicker2.Checked = true;
             this.guna2DateTimePicker2.FillColor = System.Drawing.Color.White;
             this.guna2DateTimePicker2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2DateTimePicker2.ForeColor = System.Drawing.Color.Black;
             this.guna2DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.guna2DateTimePicker2.Location = new System.Drawing.Point(430, 3);
             this.guna2DateTimePicker2.Margin = new System.Windows.Forms.Padding(3, 3, 30, 3);
@@ -108,6 +110,14 @@
             this.guna2DateTimePicker2.Size = new System.Drawing.Size(146, 36);
             this.guna2DateTimePicker2.TabIndex = 16;
             this.guna2DateTimePicker2.Value = new System.DateTime(2023, 5, 2, 19, 0, 27, 0);
+            // 
+            // panel1
+            // 
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 45);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1037, 488);
+            this.panel1.TabIndex = 1;
             // 
             // BtnFiltrar
             // 
@@ -138,14 +148,6 @@
             this.BtnFiltrar.Text = "Filtrar ";
             this.BtnFiltrar.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.BtnFiltrar.UseTransparentBackground = true;
-            // 
-            // panel1
-            // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 45);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1037, 488);
-            this.panel1.TabIndex = 1;
             // 
             // FrmHistCompras
             // 

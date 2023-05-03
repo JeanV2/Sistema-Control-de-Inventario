@@ -28,10 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // FrmResibo
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(591, 607);
+            this.Name = "FrmResibo";
             this.Text = "FrmResibo";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmResibo_FormClosed);
+            this.ResumeLayout(false);
+
         }
 
         #endregion

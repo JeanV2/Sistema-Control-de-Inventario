@@ -358,6 +358,9 @@
     <EmbeddedResource Include="FrmPresupuesto.resx">
       <DependentUpon>FrmPresupuesto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmResibo.resx">
+      <DependentUpon>FrmResibo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmSolicitudCompra.resx">
       <DependentUpon>FrmSolicitudCompra.cs</DependentUpon>
     </EmbeddedResource>

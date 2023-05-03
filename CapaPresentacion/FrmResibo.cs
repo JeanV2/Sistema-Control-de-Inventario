@@ -16,5 +16,10 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
+
+        private void FrmResibo_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

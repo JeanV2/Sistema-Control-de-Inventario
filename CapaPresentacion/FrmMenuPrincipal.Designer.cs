@@ -36,8 +36,8 @@
             this.BtnSolicitud = new Guna.UI2.WinForms.Guna2Button();
             this.BtnPresupuesto = new Guna.UI2.WinForms.Guna2Button();
             this.BtnHCompras = new Guna.UI2.WinForms.Guna2Button();
-            this.PanelContenedor = new System.Windows.Forms.Panel();
             this.BtnHInsumos = new Guna.UI2.WinForms.Guna2Button();
+            this.PanelContenedor = new System.Windows.Forms.Panel();
             this.PanelMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -247,17 +247,7 @@
             this.BtnHCompras.Text = "Historial Compras";
             this.BtnHCompras.UseTransparentBackground = true;
             this.BtnHCompras.Visible = false;
-            // 
-            // PanelContenedor
-            // 
-            this.PanelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(54)))), ((int)(((byte)(94)))));
-            this.PanelContenedor.BackgroundImage = global::CapaPresentacion.Properties.Resources.ina;
-            this.PanelContenedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.PanelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanelContenedor.Location = new System.Drawing.Point(0, 74);
-            this.PanelContenedor.Name = "PanelContenedor";
-            this.PanelContenedor.Size = new System.Drawing.Size(1053, 605);
-            this.PanelContenedor.TabIndex = 1;
+            this.BtnHCompras.Click += new System.EventHandler(this.BtnHCompras_Click);
             // 
             // BtnHInsumos
             // 
@@ -285,6 +275,18 @@
             this.BtnHInsumos.Text = "Historial Solicitud Insumos";
             this.BtnHInsumos.UseTransparentBackground = true;
             this.BtnHInsumos.Visible = false;
+            this.BtnHInsumos.Click += new System.EventHandler(this.BtnHInsumos_Click);
+            // 
+            // PanelContenedor
+            // 
+            this.PanelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(54)))), ((int)(((byte)(94)))));
+            this.PanelContenedor.BackgroundImage = global::CapaPresentacion.Properties.Resources.ina;
+            this.PanelContenedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.PanelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelContenedor.Location = new System.Drawing.Point(0, 74);
+            this.PanelContenedor.Name = "PanelContenedor";
+            this.PanelContenedor.Size = new System.Drawing.Size(1053, 605);
+            this.PanelContenedor.TabIndex = 1;
             // 
             // FrmMenuPrincipal
             // 

@@ -159,6 +159,7 @@
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "FrmHistInsumos";
             this.Text = "FrmHistInsumos";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmHistInsumos_FormClosed);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
