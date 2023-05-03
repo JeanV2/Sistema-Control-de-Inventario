@@ -123,6 +123,7 @@
             this.TxtCedula.SelectedText = "";
             this.TxtCedula.Size = new System.Drawing.Size(247, 35);
             this.TxtCedula.TabIndex = 2;
+            this.TxtCedula.TextChanged += new System.EventHandler(this.TxtCedula_TextChanged);
             this.TxtCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCedula_KeyPress);
             this.TxtCedula.Leave += new System.EventHandler(this.TxtCedula_Leave);
             // 
