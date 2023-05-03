@@ -57,7 +57,6 @@ namespace CapaPresentacion
 
             foreach (TbColaborador TBLusuario in Listausuarios)
             {
-
                 if (TxtContraseña.Text == TBLusuario.PasswordColaborador.Trim() && (TxtUsuario.Text == TBLusuario.UserNameColaborador.Trim()))
                 {
 
