@@ -82,6 +82,7 @@ namespace CapaPresentacion
         {
             FrmListaProductosSolicituCompra frmListaProductos = new FrmListaProductosSolicituCompra();
             frmListaProductos.ShowDialog();
+            TxtCantidad.Text = "";
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
@@ -156,6 +157,7 @@ namespace CapaPresentacion
                                     TxtPrecioProd.Clear();
                                     TxtCantidad.Clear();
                                     TxtCostoTotal.Clear();
+                                    TxtCantidad.Text = "";
 
                                 }
                                 else
@@ -299,7 +301,7 @@ namespace CapaPresentacion
                         //realizamos el rebajo al presupuesto
                         double Presupuesto;
                         Presupuesto = (double)item.MontoPresupuesto;
-                        Presupuesto = Presupuesto - double.Parse(TxtCostoTotal.Text);
+                        Presupuesto = Presupuesto - int.Parse(TxtTotalCompra.Text);
                         //y actualizamos el presupuesto
                         PresupuestoTb.IdPresupuesto = item.IdPresupuesto;
                         PresupuestoTb.MontoPresupuesto = Presupuesto;
@@ -310,11 +312,9 @@ namespace CapaPresentacion
 
                     }
                 }
-                //LIMPIAR FORM
-                Validaciones.LimpiarFormulario(flowLayoutPanel4);
-
+                
                 DgvListaCompra.Rows.Clear();
-                DgvListaCompra.Columns.Clear();
+              
                 //CLEAR DATE TIME PICKER
                 DtpFechaSolicitud.Value = DateTime.Today;
                 //CLEAR DATA GRID VIEW
@@ -324,7 +324,9 @@ namespace CapaPresentacion
 
                 //LIMPIAR FORM
                 Validaciones.LimpiarFormulario(flowLayoutPanel4);
-                TxtPresupuesto.Clear();
+                CbListaPresupuestos.SelectedIndex = -1;
+               
+                
                 //CLEAR DATE TIME PICKER
                 DtpFechaSolicitud.Value = DateTime.Today;
                 TxtTotalCompra.Clear();
@@ -356,18 +358,27 @@ namespace CapaPresentacion
                     int TxtPrecioProdLim = int.Parse(TxtPrecioProd.Text.Replace("₡", ""));
                     //realizamos la multiplicacion 
                     int costo = int.Parse(TxtCantidad.Text) * TxtPrecioProdLim;
-                    //mostramos el costo
-                    TxtCostoTotal.Text = costo.ToString();
-                    string PrespuestoSin = TxtPresupuesto.Text;
-                    int result = int.Parse(PrespuestoSin.Substring(1));
-                    if (costo > result)
+                    try
                     {
-                        guna2Button1.Enabled = false;
-                        MessageBox.Show("Excedió los limites del presepuesto","INFORMACION",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                        //mostramos el costo
+                        TxtCostoTotal.Text = costo.ToString();
+                        string PrespuestoSin = TxtPresupuesto.Text;
+                        int result = int.Parse(PrespuestoSin.Substring(1));
+                        if (costo > result)
+                        {
+                            guna2Button1.Enabled = false;
+                            MessageBox.Show("Excedió los limites del presepuesto", "INFORMACION", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else
+                        {
+                            guna2Button1.Enabled = true;
+
+                        }
                     }
-                    else 
+                    catch (Exception)
                     {
-                        guna2Button1.Enabled = true;
+
+                        MessageBox.Show("No tiene un presupuesto seleccionado", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                     }
                 }
@@ -420,8 +431,12 @@ namespace CapaPresentacion
 
             foreach (var item in PresupuestosList)
             {
-                CbListaPresupuestos.Items.Add(item.IdPresupuesto);
+                if (item.EstadoPresupuesto != true)
+                {
+                    CbListaPresupuestos.Items.Add(item.IdPresupuesto);
+                }
             }
+            CbListaPresupuestos.SelectedIndex = 0;
             //LLenamos el txt del codigo de la solicitud
             TxtSolicitud.Text = ObtenerCodigo_SolicitudCompra();
 
@@ -437,6 +452,7 @@ namespace CapaPresentacion
                     TxtPresupuesto.Text = item.MontoPresupuesto.ToString();
                 }
             }
+            DgvListaCompra.Rows.Clear();
         }
     }
 }
