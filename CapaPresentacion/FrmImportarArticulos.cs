@@ -59,9 +59,9 @@ namespace CapaPresentacion
             }
         }
 
-        private void FrmImportarArticulos_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            this.Close();
-        }
+        //private void FrmImportarArticulos_FormClosed(object sender, FormClosedEventArgs e)
+        //{
+        //    this.Close();
+        //}
     }
 }
