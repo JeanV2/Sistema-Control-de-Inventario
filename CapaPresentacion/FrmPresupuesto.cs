@@ -25,9 +25,9 @@ namespace CapaPresentacion
 
         private void BtnVerLista_Click(object sender, EventArgs e)
         {
-            FrmListaPresupuestos frmListaPresupuestos = new FrmListaPresupuestos();
-            frmListaPresupuestos.pasarDatosEvent += pasarDatosFormularios;
-            frmListaPresupuestos.ShowDialog();
+            FrmImportarExcelPresupuesto frmImportarExcel = new FrmImportarExcelPresupuesto();
+            //frmImportarExcel.pasarDatosEvent += pasarDatosFormularios;
+            frmImportarExcel.ShowDialog();
         }
 
         private void FrmPresupuesto_FormClosed(object sender, FormClosedEventArgs e)
@@ -41,7 +41,7 @@ namespace CapaPresentacion
             {
                 Validaciones.LimpiarError(TxtCodigoPresepuesto);
 
-                if (TxtMontuoProsupuesto.TextLength > 0)
+                if (TxtNombreProsupuesto.TextLength > 0)
                 {
                     //Validaciones.LimpiarError(TxtMontuoProsupuesto);
 
@@ -52,8 +52,8 @@ namespace CapaPresentacion
 
                     //Llenamos el presupuesto
                     tbPresupuesto.IdPresupuesto = TxtCodigoPresepuesto.Text;
-                    tbPresupuesto.MesPresupuesto = DtpFechaSolicitud.Value;
-                    tbPresupuesto.MontoPresupuesto = Convert.ToDouble(TxtMontuoProsupuesto.Text);
+                    //tbPresupuesto.MesPresupuesto = DtpFechaSolicitud.Value;
+                    tbPresupuesto.MontoPresupuesto = Convert.ToDouble(TxtNombreProsupuesto.Text);
                     tbPresupuesto.EstadoPresupuesto = true;
 
                     if (NegocioPresupuestos.GuardarPresupuesto(tbPresupuesto))
@@ -69,7 +69,7 @@ namespace CapaPresentacion
                 }
                 else
                 {
-                    Validaciones.MostarError(TxtMontuoProsupuesto, "Debes ingresar el codigo del presupuesto");
+                    Validaciones.MostarError(TxtNombreProsupuesto, "Debes ingresar el codigo del presupuesto");
                 }
             }
             else
@@ -84,9 +84,9 @@ namespace CapaPresentacion
             {
                 Validaciones.LimpiarError(TxtCodigoPresepuesto);
 
-                if (TxtMontuoProsupuesto.TextLength > 0)
+                if (TxtNombreProsupuesto.TextLength > 0)
                 {
-                    Validaciones.LimpiarError(TxtMontuoProsupuesto);
+                    Validaciones.LimpiarError(TxtNombreProsupuesto);
 
                     //------------------------------------------------------------------------------------------
                     // ACA VA EL CODIGO PARA REALIZAR LA MODIFICACION
@@ -97,7 +97,7 @@ namespace CapaPresentacion
                 }
                 else
                 {
-                    Validaciones.MostarError(TxtMontuoProsupuesto, "Debes ingresar el codigo del presupuesto");
+                    Validaciones.MostarError(TxtNombreProsupuesto, "Debes ingresar el codigo del presupuesto");
                 }
             }
             else
@@ -112,9 +112,9 @@ namespace CapaPresentacion
             {
                 Validaciones.LimpiarError(TxtCodigoPresepuesto);
 
-                if (TxtMontuoProsupuesto.TextLength > 0)
+                if (TxtNombreProsupuesto.TextLength > 0)
                 {
-                    Validaciones.LimpiarError(TxtMontuoProsupuesto);
+                    Validaciones.LimpiarError(TxtNombreProsupuesto);
 
                     //------------------------------------------------------------------------------------------
                     // ACA VA EL CODIGO PARA REALIZAR LA ELIMINACION
@@ -138,7 +138,7 @@ namespace CapaPresentacion
                 }
                 else
                 {
-                    Validaciones.MostarError(TxtMontuoProsupuesto, "Debes ingresar el codigo del presupuesto");
+                    Validaciones.MostarError(TxtNombreProsupuesto, "Debes ingresar el codigo del presupuesto");
                 }
             }
             else
@@ -154,12 +154,12 @@ namespace CapaPresentacion
 
         private void TxtMontuoProsupuesto_TextChanged(object sender, EventArgs e)
         {
-            Validaciones.AgregarSimboloColones(TxtMontuoProsupuesto);
+            Validaciones.AgregarSimboloColones(TxtNombreProsupuesto);
         }
 
         private void TxtMontuoProsupuesto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Validaciones.Numeros_Decimales_y_Borrar(e, TxtMontuoProsupuesto);
+            Validaciones.Numeros_Decimales_y_Borrar(e, TxtNombreProsupuesto);
         }
 
         private string ObtenerCodigo()
@@ -206,8 +206,8 @@ namespace CapaPresentacion
         public void CargarDatosFormulario(TbPresupuesto presupuesto)
         {
             TxtCodigoPresepuesto.Text = presupuesto.IdPresupuesto;
-            TxtMontuoProsupuesto.Text = presupuesto.MontoPresupuesto.ToString();
-            DtpFechaSolicitud.Text = presupuesto.MesPresupuesto.ToString();
+            TxtNombreProsupuesto.Text = presupuesto.MontoPresupuesto.ToString();
+            //DtpFechaSolicitud.Text = presupuesto.MesPresupuesto.ToString();
         }
 
         private void pasarDatosFormularios(TbPresupuesto _presupuesto)
@@ -231,8 +231,8 @@ namespace CapaPresentacion
         {
             if (estado)
             {
-                tbPresupuesto1.MontoPresupuesto = double.Parse(TxtMontuoProsupuesto.Text);
-                tbPresupuesto1.MesPresupuesto = DtpFechaSolicitud.Value;
+                tbPresupuesto1.MontoPresupuesto = double.Parse(TxtNombreProsupuesto.Text);
+                //tbPresupuesto1.MesPresupuesto = DtpFechaSolicitud.Value;
             }
             tbPresupuesto1.EstadoPresupuesto = true;
         }
