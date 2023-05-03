@@ -40,12 +40,11 @@
         </EntityType>
         <EntityType Name="TbPresupuesto">
           <Key>
-            <PropertyRef Name="IdPresupuesto" />
+            <PropertyRef Name="numeroCuenta" />
           </Key>
-          <Property Name="IdPresupuesto" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="MesPresupuesto" Type="datetime" />
+          <Property Name="numeroCuenta" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="MontoPresupuesto" Type="float" />
-          <Property Name="EstadoPresupuesto" Type="bit" />
+          <Property Name="nombrePresupuesto" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="TbProducto">
           <Key>
@@ -82,16 +81,16 @@
           <Property Name="IdSolicitudCompra" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="FechaSolicitudCompra" Type="datetime" />
           <Property Name="IdColaboradorCompra" Type="varchar" MaxLength="50" />
-          <Property Name="EstadoSolicitudCompra" Type="bit" />
         </EntityType>
         <EntityType Name="TbSolicitudInsumo">
           <Key>
             <PropertyRef Name="IdSolicitudInsumo" />
           </Key>
           <Property Name="IdSolicitudInsumo" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="IdColaborador" Type="varchar" MaxLength="50" />
-          <Property Name="Estado" Type="bit" />
-          <Property Name="FechaInsumo" Type="datetime" />
+          <Property Name="IdColaboradorEntrega" Type="varchar" MaxLength="50" />
+          <Property Name="tipoSolicitud" Type="int" />
+          <Property Name="IdColaboradorRecibe" Type="varchar" MaxLength="50" />
+          <Property Name="ReferenciaCurso" Type="varchar" MaxLength="50" />
         </EntityType>
         <Association Name="FK_TbCompraSolicitudP_TbProducto">
           <End Role="TbProducto" Type="Self.TbProducto" Multiplicity="0..1" />
@@ -161,7 +160,7 @@
               <PropertyRef Name="IdColaborador" />
             </Principal>
             <Dependent Role="TbSolicitudInsumo">
-              <PropertyRef Name="IdColaborador" />
+              <PropertyRef Name="IdColaboradorEntrega" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -276,12 +275,11 @@
         </EntityType>
         <EntityType Name="TbPresupuesto">
           <Key>
-            <PropertyRef Name="IdPresupuesto" />
+            <PropertyRef Name="numeroCuenta" />
           </Key>
-          <Property Name="IdPresupuesto" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="MesPresupuesto" Type="DateTime" Precision="3" />
+          <Property Name="numeroCuenta" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="MontoPresupuesto" Type="Double" />
-          <Property Name="EstadoPresupuesto" Type="Boolean" />
+          <Property Name="nombrePresupuesto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="TbProducto">
           <Key>
@@ -322,7 +320,6 @@
           <Property Name="IdSolicitudCompra" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="FechaSolicitudCompra" Type="DateTime" Precision="3" />
           <Property Name="IdColaboradorCompra" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="EstadoSolicitudCompra" Type="Boolean" />
           <NavigationProperty Name="TbColaborador" Relationship="inventarioModel.FK_TbSolicitudCompra_TbColaborador" FromRole="TbSolicitudCompra" ToRole="TbColaborador" />
           <NavigationProperty Name="TbCompraSolicitudP" Relationship="inventarioModel.FK_TbCompraSolicitudP_TbSolicitudCompra" FromRole="TbSolicitudCompra" ToRole="TbCompraSolicitudP" />
         </EntityType>
@@ -331,9 +328,10 @@
             <PropertyRef Name="IdSolicitudInsumo" />
           </Key>
           <Property Name="IdSolicitudInsumo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="IdColaborador" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Estado" Type="Boolean" />
-          <Property Name="FechaInsumo" Type="DateTime" Precision="3" />
+          <Property Name="IdColaboradorEntrega" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tipoSolicitud" Type="Int32" />
+          <Property Name="IdColaboradorRecibe" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ReferenciaCurso" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="TbColaborador" Relationship="inventarioModel.FK_TbSolicitudInsumo_TbColaborador" FromRole="TbSolicitudInsumo" ToRole="TbColaborador" />
           <NavigationProperty Name="TbProductoInsumoS" Relationship="inventarioModel.FK_TbProductoInsumoS_TbSolicitudInsumo1" FromRole="TbSolicitudInsumo" ToRole="TbProductoInsumoS" />
         </EntityType>
@@ -357,7 +355,7 @@
               <PropertyRef Name="IdColaborador" />
             </Principal>
             <Dependent Role="TbSolicitudInsumo">
-              <PropertyRef Name="IdColaborador" />
+              <PropertyRef Name="IdColaboradorEntrega" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -454,10 +452,9 @@
           <EntitySetMapping Name="TbPresupuesto">
             <EntityTypeMapping TypeName="inventarioModel.TbPresupuesto">
               <MappingFragment StoreEntitySet="TbPresupuesto">
-                <ScalarProperty Name="EstadoPresupuesto" ColumnName="EstadoPresupuesto" />
+                <ScalarProperty Name="nombrePresupuesto" ColumnName="nombrePresupuesto" />
                 <ScalarProperty Name="MontoPresupuesto" ColumnName="MontoPresupuesto" />
-                <ScalarProperty Name="MesPresupuesto" ColumnName="MesPresupuesto" />
-                <ScalarProperty Name="IdPresupuesto" ColumnName="IdPresupuesto" />
+                <ScalarProperty Name="numeroCuenta" ColumnName="numeroCuenta" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -494,7 +491,6 @@
           <EntitySetMapping Name="TbSolicitudCompra">
             <EntityTypeMapping TypeName="inventarioModel.TbSolicitudCompra">
               <MappingFragment StoreEntitySet="TbSolicitudCompra">
-                <ScalarProperty Name="EstadoSolicitudCompra" ColumnName="EstadoSolicitudCompra" />
                 <ScalarProperty Name="IdColaboradorCompra" ColumnName="IdColaboradorCompra" />
                 <ScalarProperty Name="FechaSolicitudCompra" ColumnName="FechaSolicitudCompra" />
                 <ScalarProperty Name="IdSolicitudCompra" ColumnName="IdSolicitudCompra" />
@@ -504,9 +500,10 @@
           <EntitySetMapping Name="TbSolicitudInsumo">
             <EntityTypeMapping TypeName="inventarioModel.TbSolicitudInsumo">
               <MappingFragment StoreEntitySet="TbSolicitudInsumo">
-                <ScalarProperty Name="FechaInsumo" ColumnName="FechaInsumo" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-                <ScalarProperty Name="IdColaborador" ColumnName="IdColaborador" />
+                <ScalarProperty Name="ReferenciaCurso" ColumnName="ReferenciaCurso" />
+                <ScalarProperty Name="IdColaboradorRecibe" ColumnName="IdColaboradorRecibe" />
+                <ScalarProperty Name="tipoSolicitud" ColumnName="tipoSolicitud" />
+                <ScalarProperty Name="IdColaboradorEntrega" ColumnName="IdColaboradorEntrega" />
                 <ScalarProperty Name="IdSolicitudInsumo" ColumnName="IdSolicitudInsumo" />
               </MappingFragment>
             </EntityTypeMapping>
