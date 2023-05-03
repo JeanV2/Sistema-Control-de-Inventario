@@ -72,12 +72,41 @@ namespace CapaPresentacion
             for (int i = 0; i <= dgvDatos.RowCount; i++)
             {
                 string cod = dgvDatos.Rows[i].Cells[0].ToString();
-                if (ListProductos.Where(x => x.CodProducto == cod).Count().Equals(1))
+                foreach (var item in ListProductos)
                 {
-                    producto.CodProducto = cod;
-                    producto.NombreProducto = dgvDatos.Rows[i].Cells[1].ToString();
+                    if (item.CodProducto==cod)
+                    {
+                        producto.CodProducto = cod;
+                        producto.NombreProducto = dgvDatos.Rows[i].Cells[1].Value.ToString();
+                        producto.CostoProducto = dgvDatos.Rows[i].Cells[2].Value.ToString();
+                        producto.CFamilia = dgvDatos.Rows[i].Cells[3].Value.ToString();
+                        producto.CSubFamilia = dgvDatos.Rows[i].Cells[4].Value.ToString();
+                        producto.NumProducto = dgvDatos.Rows[i].Cells[5].Value.ToString();
+                        producto.CFUnidadMedida = dgvDatos.Rows[i].Cells[6].Value.ToString();
+                        if ((int)dgvDatos.Rows[i].Cells[7].Value != 0)
+                        {
+                            producto.InventarioRequerido = item.InventarioRequerido + (int)dgvDatos.Rows[i].Cells[7].Value;
+                        }
+                        else
+                        {
+                            producto.InventarioRequerido = (int)dgvDatos.Rows[i].Cells[7].Value;
+                        }
+                        
+                        //producto.CostoTotal =(int)producto.CostoProducto* producto.InventarioRequerido;
 
+                        if ((int)dgvDatos.Rows[i].Cells[9].Value != 0)
+                        {
+                            producto.InventarioExistente = item.InventarioExistente + (int)dgvDatos.Rows[i].Cells[7].Value;
+                        }
+                        else
+                        {
+                            producto.InventarioExistente = (int)dgvDatos.Rows[i].Cells[7].Value;
+                        }
+
+
+                    }
                 }
+                   
             }
         }
 
