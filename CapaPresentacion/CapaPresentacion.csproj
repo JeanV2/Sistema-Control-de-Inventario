@@ -431,6 +431,10 @@
       <Project>{33cb981d-5e3c-45c2-b834-bc3e38292291}</Project>
       <Name>CapaNegocios</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Utilidades\Utilidades.csproj">
+      <Project>{68695305-8385-4919-8D3D-7E7659EC4613}</Project>
+      <Name>Utilidades</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8_cancel_48.png" />

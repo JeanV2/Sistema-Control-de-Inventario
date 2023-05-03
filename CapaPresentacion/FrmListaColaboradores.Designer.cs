@@ -176,6 +176,7 @@
             this.BtnFiltrar.Text = "Filtrar ";
             this.BtnFiltrar.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.BtnFiltrar.UseTransparentBackground = true;
+            this.BtnFiltrar.Click += new System.EventHandler(this.BtnFiltrar_Click);
             // 
             // label1
             // 
@@ -260,6 +261,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lista de Colaboradores";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmListaColaboradores_FormClosed);
+            this.Load += new System.EventHandler(this.FrmListaColaboradores_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaColaboradores)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

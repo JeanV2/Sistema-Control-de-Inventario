@@ -62,7 +62,7 @@ namespace CapaPresentacion
                                         colabo.IdColaborador = TxtCedula.Text;
                                         colabo.SegundoApellidoColaborador = TxtApe2.Text;
                                         colabo.PasswordColaborador = TxtContraseña.Text;
-                                        //colabo.TipoColaborador= CbTipo.Text;
+                                        colabo.TipoColaborador = (int)CbTipo.SelectedValue;
                                         colabo.EstadoColaborador = true;
                                         colabo.UserNameColaborador = TxtUsuario.Text;
 
@@ -179,11 +179,12 @@ namespace CapaPresentacion
                                             }
 
                                         }
-                                        //CODIGO PARA GUARDAR Y ENVIAR A DB*****************************
+                                        //CODIGO PARA GUARDAR Y MODIFICAR EN DB*****************************
                                         colabo.NombreColaborador = TxtNombre.Text;
                                         colabo.PrimerApellidoColaborador = TxtApe1.Text;
                                         colabo.SegundoApellidoColaborador = TxtApe2.Text;
                                         colabo.PasswordColaborador = TxtContraseña.Text;
+                                        colabo.UserNameColaborador= TxtUsuario.Text;
                                         //colabo.TipoColaborador= CbTipo.Text;
                                         //colabo.EstadoColaborador = true;
                                         if (CNColaborador.ModificarColaborador(colabo))
@@ -207,6 +208,9 @@ namespace CapaPresentacion
                                         //CODIGO PARA MODIFICAR Y ENVIAR A DB*****************************
 
 
+                                        //**************************************************************
+                                        //LIMPIAR FORMULARIO
+                                        Validaciones.LimpiarFormulario(flowLayoutPanel2);
                                     }
                                     else
                                     {
@@ -322,6 +326,9 @@ namespace CapaPresentacion
 
 
 
+                                        //**************************************************************
+                                        //LIMPIAR FORMULARIO
+                                        Validaciones.LimpiarFormulario(flowLayoutPanel2);
 
                                     }
                                     else
@@ -423,6 +430,28 @@ namespace CapaPresentacion
             {
                 Validaciones.MostarError(TxtContraseña, "Seguridad de contraseña vulnerable debe ser de minimo 6 digitos entre mayuculas, minusculas y numeros");
                 TxtContraseña.BorderColor = Color.Red;
+            }
+        }
+
+        private void TxtCedula_TextChanged(object sender, EventArgs e)
+        {
+            if (TxtCedula.Text.Length == 9 || TxtCedula.Text.Length == 12
+                
+                )
+            {
+                List<TbColaborador> ListaColabo = CNColaborador.listaColaboadores();
+                foreach (TbColaborador colabo in ListaColabo)
+                {
+                    if (colabo.IdColaborador == TxtCedula.Text)
+                    {
+                        TxtNombre.Text = colabo.NombreColaborador;
+                        TxtApe2.Text = colabo.SegundoApellidoColaborador;
+                        TxtApe1.Text = colabo.PrimerApellidoColaborador;
+                        TxtUsuario.Text = colabo.UserNameColaborador;
+                        CbTipo.SelectedIndex = (int)colabo.TipoColaborador;
+                        break;
+                    }
+                }
             }
         }
     }
