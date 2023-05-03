@@ -58,9 +58,9 @@ namespace CapaPresentacion
             }
         }
 
-        private void FrmImportarExcelPresupuesto_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            this.Close();   
-        }
+        //private void FrmImportarExcelPresupuesto_FormClosed(object sender, FormClosedEventArgs e)
+        //{
+        //    this.Close();   
+        //}
     }
 }

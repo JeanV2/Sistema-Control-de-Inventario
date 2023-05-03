@@ -41,8 +41,6 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaProductos)).BeginInit();
             this.SuspendLayout();
@@ -57,7 +55,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(844, 100);
+            this.panel1.Size = new System.Drawing.Size(844, 78);
             this.panel1.TabIndex = 0;
             // 
             // BtnFiltrar
@@ -182,9 +180,7 @@
             this.DgvListaProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5});
+            this.Column3});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(194)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -195,14 +191,14 @@
             this.DgvListaProductos.DefaultCellStyle = dataGridViewCellStyle3;
             this.DgvListaProductos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgvListaProductos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(194)))));
-            this.DgvListaProductos.Location = new System.Drawing.Point(0, 100);
+            this.DgvListaProductos.Location = new System.Drawing.Point(0, 78);
             this.DgvListaProductos.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.DgvListaProductos.Name = "DgvListaProductos";
             this.DgvListaProductos.ReadOnly = true;
             this.DgvListaProductos.RowHeadersVisible = false;
             this.DgvListaProductos.RowHeadersWidth = 62;
             this.DgvListaProductos.RowTemplate.Height = 25;
-            this.DgvListaProductos.Size = new System.Drawing.Size(844, 387);
+            this.DgvListaProductos.Size = new System.Drawing.Size(844, 409);
             this.DgvListaProductos.TabIndex = 4;
             this.DgvListaProductos.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Lime;
             this.DgvListaProductos.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(244)))), ((int)(((byte)(196)))));
@@ -230,10 +226,12 @@
             // 
             // Column1
             // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.Column1.HeaderText = "Codigo";
             this.Column1.MinimumWidth = 8;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
+            this.Column1.Width = 109;
             // 
             // Column2
             // 
@@ -244,23 +242,12 @@
             // 
             // Column3
             // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.Column3.HeaderText = "Cantidad";
             this.Column3.MinimumWidth = 8;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Costo";
-            this.Column4.MinimumWidth = 8;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Descripcion";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
+            this.Column3.Width = 129;
             // 
             // FrmListaProductos
             // 
@@ -299,7 +286,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
     }
 }
