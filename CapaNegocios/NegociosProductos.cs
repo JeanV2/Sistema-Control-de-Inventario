@@ -32,5 +32,9 @@ namespace CapaNegocios
             return datosProduc.ListProduct();
         }
 
+        public bool ExisteProducto(TbProducto producto)
+        {
+            return datosProduc.ExisteProducto(producto);
+        }
     }
 }

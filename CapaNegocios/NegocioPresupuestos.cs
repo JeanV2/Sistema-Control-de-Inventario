@@ -28,5 +28,9 @@ namespace CapaNegocios
         {
             return datosPresupuestos.ListaPresupuestos();
         }
+        public List<TbColaborador> ListaColaboradores()
+        {
+            return datosPresupuestos.ListaColaborador();
+        }
     }
 }
