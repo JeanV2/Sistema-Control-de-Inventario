@@ -95,5 +95,17 @@ namespace CapaPresentacion
         {
             AbrirFormularioHijo(new FrmSolicitudInsumos());
         }
+
+        private void BtnHCompras_Click(object sender, EventArgs e)
+        {
+            FrmHistCompras histCompras = new FrmHistCompras();
+            histCompras.ShowDialog();
+        }
+
+        private void BtnHInsumos_Click(object sender, EventArgs e)
+        {
+            FrmHistInsumos histInsumos = new FrmHistInsumos();
+            histInsumos.ShowDialog();
+        }
     }
 }
