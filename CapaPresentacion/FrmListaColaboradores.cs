@@ -54,5 +54,10 @@ namespace CapaPresentacion
         {
             this.Close();
         }
+
+        private void BtnFiltrar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
