@@ -16,14 +16,14 @@ namespace CapaPresentacion
 {
     public partial class FrmSolicitudCompra : Form
     {
-        
-        
+
+
         public FrmSolicitudCompra()
         {
             InitializeComponent();
             //SET DATETIMEPICKER
             DtpFechaSolicitud.MinDate = DateTime.Today;
-            
+
 
             //LLenamos el cb de presupuesto con una lista de presupuesto
             PresupuestosList = NPresupuestos.ListaPresupuestos();
@@ -35,8 +35,8 @@ namespace CapaPresentacion
         NegocioPresupuestos NPresupuestos = new NegocioPresupuestos();
         //Lista de presupuesto
         List<TbPresupuesto> PresupuestosList;
-        
-        
+
+
         private string ObtenerCodigo_SolicitudCompra()
         {
             String Codigo = "";
@@ -82,6 +82,7 @@ namespace CapaPresentacion
         {
             FrmListaProductosSolicituCompra frmListaProductos = new FrmListaProductosSolicituCompra();
             frmListaProductos.ShowDialog();
+            TxtCantidad.Text = "";
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
@@ -120,6 +121,7 @@ namespace CapaPresentacion
 
                                     //agregamos el producto al datagridview
                                     //limpiamos el txt de precio producto para que no contenga caracteres invalidos
+
                                     int TxtPrecioProdLim = int.Parse(TxtPrecioProd.Text.Replace("₡", ""));
                                     int row = DgvListaCompra.Rows.Add();
                                     DgvListaCompra.Rows[row].Cells[0].Value = TxtSolicitud.Text;
@@ -128,8 +130,8 @@ namespace CapaPresentacion
                                     DgvListaCompra.Rows[row].Cells[3].Value = TxtPrecioProdLim;
 
 
-                                   
-                                   
+
+
                                     //actualizamos el monto total
                                     int CostoFinal = 0;
                                     int CostoAñadir = 0;
@@ -148,13 +150,14 @@ namespace CapaPresentacion
                                     string result = PrespuestoSin.Substring(1);
                                     TxtPresupuesto.Text = (double.Parse(result) - CostoFinal).ToString();
 
-                                    
+
                                     TxtSolicitud.Text = ObtenerCodigo_SolicitudCompra();
                                     //Limpiamos los txt del producto
                                     TxtCodigoProd.Clear();
                                     TxtPrecioProd.Clear();
                                     TxtCantidad.Clear();
                                     TxtCostoTotal.Clear();
+                                    TxtCantidad.Text = "";
 
                                 }
                                 else
@@ -221,7 +224,15 @@ namespace CapaPresentacion
 
         private void TxtPrecioProd_TextChanged(object sender, EventArgs e)
         {
-            Validaciones.AgregarSimboloColones(TxtPrecioProd);
+            if (TxtPrecioProd.Text != String.Empty)
+            {
+                TxtCantidad.Enabled = true;
+            }
+            else
+            {
+                TxtCantidad.Enabled = false;
+            }
+                Validaciones.AgregarSimboloColones(TxtPrecioProd);
         }
 
         private void TxtCostoTotal_TextChanged(object sender, EventArgs e)
@@ -238,7 +249,7 @@ namespace CapaPresentacion
         private void BtnConfirmar_Click(object sender, EventArgs e)
         {
 
-            if (DgvListaCompra.RowCount!=0)
+            if (DgvListaCompra.RowCount != 0)
             {
                 // CODIGO PARA GUARDAR
 
@@ -247,7 +258,7 @@ namespace CapaPresentacion
                 Scompra.IdSolicitudCompra = TxtSolicitud.Text;
                 Scompra.FechaSolicitudCompra = DtpFechaSolicitud.Value;
                 Scompra.IdColaboradorCompra = FrmLogin.Idetificacion.ToString();
-                Scompra.EstadoSolicitudCompra = true;
+                //Scompra.EstadoSolicitudCompra = true;
 
                 NegocioSCompra.GuardarSolicitud(Scompra);
                 //Entidad de los productos para guardarlos relacionandolo con la id de la solicitud
@@ -285,37 +296,37 @@ namespace CapaPresentacion
                 foreach (var item in PresupuestosList)
                 {
 
-                    if (item.IdPresupuesto == CbListaPresupuestos.SelectedItem)
-                    {
-                        //realizamos el rebajo al presupuesto
-                        double Presupuesto;
-                        Presupuesto = (double)item.MontoPresupuesto;
-                        Presupuesto = Presupuesto - double.Parse(TxtCostoTotal.Text);
-                        //y actualizamos el presupuesto
-                        PresupuestoTb.IdPresupuesto = item.IdPresupuesto;
-                        PresupuestoTb.MontoPresupuesto = Presupuesto;
-                        PresupuestoTb.MesPresupuesto = item.MesPresupuesto;
-                        PresupuestoTb.EstadoPresupuesto = false;
-                        NPresupuestos.EditarPresupuesto(PresupuestoTb);
-                       
+                    //if (item.IdPresupuesto == CbListaPresupuestos.SelectedItem)
+                    //{
+                    //    //realizamos el rebajo al presupuesto
+                    //    double Presupuesto;
+                    //    Presupuesto = (double)item.MontoPresupuesto;
+                    //    Presupuesto = Presupuesto - int.Parse(TxtTotalCompra.Text);
+                    //    //y actualizamos el presupuesto
+                    //    PresupuestoTb.IdPresupuesto = item.IdPresupuesto;
+                    //    PresupuestoTb.MontoPresupuesto = Presupuesto;
+                    //    PresupuestoTb.MesPresupuesto = item.MesPresupuesto;
+                    //    PresupuestoTb.EstadoPresupuesto = false;
+                    //    NPresupuestos.EditarPresupuesto(PresupuestoTb);
 
-                    }
+
+                    //}
                 }
-                //LIMPIAR FORM
-                Validaciones.LimpiarFormulario(flowLayoutPanel4);
-
-            DgvListaCompra.Rows.Clear();
-            DgvListaCompra.Columns.Clear();
-            //CLEAR DATE TIME PICKER
-            DtpFechaSolicitud.Value = DateTime.Today;
-            //CLEAR DATA GRID VIEW
-            // -- ACA VA EL CODIGO PARA LIMPIAR EL DATA GRIG VIEW
+                
+                DgvListaCompra.Rows.Clear();
+              
+                //CLEAR DATE TIME PICKER
+                DtpFechaSolicitud.Value = DateTime.Today;
+                //CLEAR DATA GRID VIEW
+                // -- ACA VA EL CODIGO PARA LIMPIAR EL DATA GRIG VIEW
 
                 MessageBox.Show("La solictud de compra se a realizado con exitó", "INFORMACIÓN", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 //LIMPIAR FORM
                 Validaciones.LimpiarFormulario(flowLayoutPanel4);
-                TxtPresupuesto.Clear();
+                CbListaPresupuestos.SelectedIndex = -1;
+               
+                
                 //CLEAR DATE TIME PICKER
                 DtpFechaSolicitud.Value = DateTime.Today;
                 TxtTotalCompra.Clear();
@@ -347,8 +358,29 @@ namespace CapaPresentacion
                     int TxtPrecioProdLim = int.Parse(TxtPrecioProd.Text.Replace("₡", ""));
                     //realizamos la multiplicacion 
                     int costo = int.Parse(TxtCantidad.Text) * TxtPrecioProdLim;
-                    //mostramos el costo
-                    TxtCostoTotal.Text = costo.ToString();
+                    try
+                    {
+                        //mostramos el costo
+                        TxtCostoTotal.Text = costo.ToString();
+                        string PrespuestoSin = TxtPresupuesto.Text;
+                        int result = int.Parse(PrespuestoSin.Substring(1));
+                        if (costo > result)
+                        {
+                            guna2Button1.Enabled = false;
+                            MessageBox.Show("Excedió los limites del presepuesto", "INFORMACION", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else
+                        {
+                            guna2Button1.Enabled = true;
+
+                        }
+                    }
+                    catch (Exception)
+                    {
+
+                        MessageBox.Show("No tiene un presupuesto seleccionado", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    }
                 }
 
             }
@@ -371,12 +403,21 @@ namespace CapaPresentacion
         {
             if (e.ColumnIndex == DgvListaCompra.Columns["x"].Index && e.RowIndex >= 0)
             {
+                string PrespuestoSin = TxtPresupuesto.Text;
+                int result = int.Parse(PrespuestoSin.Substring(1));
+                int monto = int.Parse(DgvListaCompra.Rows[e.RowIndex].Cells[2].Value.ToString()) * int.Parse(DgvListaCompra.Rows[e.RowIndex].Cells[3].Value.ToString());
+                int montoActual = result + monto;
+                TxtPresupuesto.Text = montoActual.ToString();
+                int montoCompraActual = int.Parse(TxtTotalCompra.Text) - monto;
+                TxtTotalCompra.Text = montoCompraActual.ToString();
+
                 // Obtener la fila que se está eliminando
                 DataGridViewRow fila = DgvListaCompra.Rows[e.RowIndex];
 
                 // Eliminar la fila del DataGridView
+
                 DgvListaCompra.Rows.Remove(fila);
-                
+
             }
         }
 
@@ -387,11 +428,15 @@ namespace CapaPresentacion
 
         private void FrmSolicitudCompra_Load(object sender, EventArgs e)
         {
-            
+
             foreach (var item in PresupuestosList)
             {
-                CbListaPresupuestos.Items.Add(item.IdPresupuesto);
+                //if (item.EstadoPresupuesto != true)
+                //{
+                //    CbListaPresupuestos.Items.Add(item.IdPresupuesto);
+                //}
             }
+            CbListaPresupuestos.SelectedIndex = 0;
             //LLenamos el txt del codigo de la solicitud
             TxtSolicitud.Text = ObtenerCodigo_SolicitudCompra();
 
@@ -402,11 +447,12 @@ namespace CapaPresentacion
         {
             foreach (var item in PresupuestosList)
             {
-                if (item.IdPresupuesto== CbListaPresupuestos.SelectedItem)
+                //if (item.IdPresupuesto == CbListaPresupuestos.SelectedItem)
                 {
                     TxtPresupuesto.Text = item.MontoPresupuesto.ToString();
                 }
             }
+            DgvListaCompra.Rows.Clear();
         }
     }
 }

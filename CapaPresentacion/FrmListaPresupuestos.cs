@@ -38,14 +38,14 @@ namespace CapaPresentacion
         {
             if (e.RowIndex != -1)
             {
-                int Fila = e.RowIndex;
-                string id = DgvListaProductos.Rows[Fila].Cells[0].Value.ToString();
+                //int Fila = e.RowIndex;
+                //string id = DgvListaProductos.Rows[Fila].Cells[0].Value.ToString();
 
-                TbPresupuesto presupuesto = new TbPresupuesto();
-                presupuesto = listaPresupuestos.Where(x => x.IdPresupuesto.Trim() == id.Trim()).SingleOrDefault();
+                //TbPresupuesto presupuesto = new TbPresupuesto();
+                //presupuesto = listaPresupuestos.Where(x => x.IdPresupuesto.Trim() == id.Trim()).SingleOrDefault();
 
-                pasarDatosEvent(presupuesto);
-                this.Close();
+                //pasarDatosEvent(presupuesto);
+                //this.Close();
             }
         }
 
@@ -65,10 +65,10 @@ namespace CapaPresentacion
             {
                 int nr = DgvListaProductos.Rows.Add();
 
-                DgvListaProductos.Rows[nr].Cells[0].Value = presupuesto.IdPresupuesto;
-                DgvListaProductos.Rows[nr].Cells[1].Value = presupuesto.MesPresupuesto;
+                DgvListaProductos.Rows[nr].Cells[0].Value = presupuesto.numeroCuenta;
+                DgvListaProductos.Rows[nr].Cells[1].Value = presupuesto.nombrePresupuesto;
                 DgvListaProductos.Rows[nr].Cells[2].Value = presupuesto.MontoPresupuesto;
-                DgvListaProductos.Rows[nr].Cells[3].Value = presupuesto.EstadoPresupuesto;
+               
             }
         }
 
@@ -86,7 +86,7 @@ namespace CapaPresentacion
 
             if (TxtCodigo.Text != string.Empty)
             {
-                Auxiliar = listaPresupuestos.Where(x => x.IdPresupuesto.Trim().ToUpper().Contains(TxtCodigo.Text.Trim().ToUpper())).ToList();
+                //Auxiliar = listaPresupuestos.Where(x => x.IdPresupuesto.Trim().ToUpper().Contains(TxtCodigo.Text.Trim().ToUpper())).ToList();
             }
             if (Auxiliar.Count() == 0 && TxtCodigo.Text == string.Empty)
             {
