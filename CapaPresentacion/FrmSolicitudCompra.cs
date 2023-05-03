@@ -258,7 +258,7 @@ namespace CapaPresentacion
                 Scompra.IdSolicitudCompra = TxtSolicitud.Text;
                 Scompra.FechaSolicitudCompra = DtpFechaSolicitud.Value;
                 Scompra.IdColaboradorCompra = FrmLogin.Idetificacion.ToString();
-                Scompra.EstadoSolicitudCompra = true;
+                //Scompra.EstadoSolicitudCompra = true;
 
                 NegocioSCompra.GuardarSolicitud(Scompra);
                 //Entidad de los productos para guardarlos relacionandolo con la id de la solicitud
@@ -296,21 +296,21 @@ namespace CapaPresentacion
                 foreach (var item in PresupuestosList)
                 {
 
-                    if (item.IdPresupuesto == CbListaPresupuestos.SelectedItem)
-                    {
-                        //realizamos el rebajo al presupuesto
-                        double Presupuesto;
-                        Presupuesto = (double)item.MontoPresupuesto;
-                        Presupuesto = Presupuesto - int.Parse(TxtTotalCompra.Text);
-                        //y actualizamos el presupuesto
-                        PresupuestoTb.IdPresupuesto = item.IdPresupuesto;
-                        PresupuestoTb.MontoPresupuesto = Presupuesto;
-                        PresupuestoTb.MesPresupuesto = item.MesPresupuesto;
-                        PresupuestoTb.EstadoPresupuesto = false;
-                        NPresupuestos.EditarPresupuesto(PresupuestoTb);
+                    //if (item.IdPresupuesto == CbListaPresupuestos.SelectedItem)
+                    //{
+                    //    //realizamos el rebajo al presupuesto
+                    //    double Presupuesto;
+                    //    Presupuesto = (double)item.MontoPresupuesto;
+                    //    Presupuesto = Presupuesto - int.Parse(TxtTotalCompra.Text);
+                    //    //y actualizamos el presupuesto
+                    //    PresupuestoTb.IdPresupuesto = item.IdPresupuesto;
+                    //    PresupuestoTb.MontoPresupuesto = Presupuesto;
+                    //    PresupuestoTb.MesPresupuesto = item.MesPresupuesto;
+                    //    PresupuestoTb.EstadoPresupuesto = false;
+                    //    NPresupuestos.EditarPresupuesto(PresupuestoTb);
 
 
-                    }
+                    //}
                 }
                 
                 DgvListaCompra.Rows.Clear();
@@ -431,10 +431,10 @@ namespace CapaPresentacion
 
             foreach (var item in PresupuestosList)
             {
-                if (item.EstadoPresupuesto != true)
-                {
-                    CbListaPresupuestos.Items.Add(item.IdPresupuesto);
-                }
+                //if (item.EstadoPresupuesto != true)
+                //{
+                //    CbListaPresupuestos.Items.Add(item.IdPresupuesto);
+                //}
             }
             CbListaPresupuestos.SelectedIndex = 0;
             //LLenamos el txt del codigo de la solicitud
@@ -447,7 +447,7 @@ namespace CapaPresentacion
         {
             foreach (var item in PresupuestosList)
             {
-                if (item.IdPresupuesto == CbListaPresupuestos.SelectedItem)
+                //if (item.IdPresupuesto == CbListaPresupuestos.SelectedItem)
                 {
                     TxtPresupuesto.Text = item.MontoPresupuesto.ToString();
                 }
