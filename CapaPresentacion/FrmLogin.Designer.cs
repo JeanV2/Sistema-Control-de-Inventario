@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.BtnLogin = new Guna.UI2.WinForms.Guna2Button();
+            this.lblError = new System.Windows.Forms.Label();
             this.TxtUsuario = new Guna.UI2.WinForms.Guna2TextBox();
             this.TxtContraseña = new Guna.UI2.WinForms.Guna2TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -52,21 +53,34 @@
             this.BtnLogin.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(99)))), ((int)(((byte)(174)))));
             this.BtnLogin.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
             this.BtnLogin.HoverState.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnLogin.Location = new System.Drawing.Point(62, 307);
+            this.BtnLogin.Location = new System.Drawing.Point(71, 385);
             this.BtnLogin.Name = "BtnLogin";
             this.BtnLogin.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
             this.BtnLogin.Size = new System.Drawing.Size(217, 53);
-            this.BtnLogin.TabIndex = 4;
+            this.BtnLogin.TabIndex = 3;
             this.BtnLogin.Text = "Log in";
             this.BtnLogin.UseTransparentBackground = true;
             this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
+            // 
+            // lblError
+            // 
+            this.lblError.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblError.ForeColor = System.Drawing.Color.White;
+            this.lblError.Image = global::CapaPresentacion.Properties.Resources.icons8_cancel_32;
+            this.lblError.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblError.Location = new System.Drawing.Point(30, 272);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(294, 51);
+            this.lblError.TabIndex = 4;
+            this.lblError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblError.Visible = false;
             // 
             // TxtUsuario
             // 
             this.TxtUsuario.Animated = true;
             this.TxtUsuario.BorderColor = System.Drawing.Color.White;
             this.TxtUsuario.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TxtUsuario.DefaultText = "";
+            this.TxtUsuario.DefaultText = "Jona";
             this.TxtUsuario.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.TxtUsuario.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.TxtUsuario.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -86,7 +100,7 @@
             this.TxtUsuario.SelectedText = "";
             this.TxtUsuario.Size = new System.Drawing.Size(294, 44);
             this.TxtUsuario.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
-            this.TxtUsuario.TabIndex = 3;
+            this.TxtUsuario.TabIndex = 1;
             this.TxtUsuario.TextOffset = new System.Drawing.Point(22, 7);
             // 
             // TxtContraseña
@@ -94,7 +108,7 @@
             this.TxtContraseña.Animated = true;
             this.TxtContraseña.BorderColor = System.Drawing.Color.White;
             this.TxtContraseña.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TxtContraseña.DefaultText = "";
+            this.TxtContraseña.DefaultText = "2020";
             this.TxtContraseña.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.TxtContraseña.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.TxtContraseña.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -131,10 +145,12 @@
             // 
             // FrmLogin
             // 
+            this.AcceptButton = this.BtnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(54)))), ((int)(((byte)(94)))));
             this.ClientSize = new System.Drawing.Size(354, 451);
+            this.Controls.Add(this.lblError);
             this.Controls.Add(this.BtnLogin);
             this.Controls.Add(this.TxtUsuario);
             this.Controls.Add(this.TxtContraseña);
@@ -159,5 +175,6 @@
         private Guna.UI2.WinForms.Guna2TextBox TxtContraseña;
         private Guna.UI2.WinForms.Guna2TextBox TxtUsuario;
         private Guna.UI2.WinForms.Guna2Button BtnLogin;
+        private System.Windows.Forms.Label lblError;
     }
 }

@@ -58,7 +58,7 @@ namespace CapaPresentacion
 
         private void BtnAñadirProductos_Click(object sender, EventArgs e)
         {
-            AbrirFormularioHijo(new FrmAñadirProductos());
+            AbrirFormularioHijo(new FrmImportarArticulos());
         }
 
         private void BtnColaboradores_Click(object sender, EventArgs e)
@@ -87,8 +87,24 @@ namespace CapaPresentacion
 
         private void BtnPresupuesto_Click(object sender, EventArgs e)
         {
-            FrmPresupuesto frmPresupuesto = new FrmPresupuesto();
-            frmPresupuesto.ShowDialog();
+            AbrirFormularioHijo(new FrmImportarExcelPresupuesto());
+        }
+
+        private void BtnSolicitud_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioHijo(new FrmSolicitudEntrega());
+        }
+
+        private void BtnHCompras_Click(object sender, EventArgs e)
+        {
+            FrmHistCompras histCompras = new FrmHistCompras();
+            histCompras.ShowDialog();
+        }
+
+        private void BtnHInsumos_Click(object sender, EventArgs e)
+        {
+            FrmHistInsumos histInsumos = new FrmHistInsumos();
+            histInsumos.ShowDialog();
         }
     }
 }

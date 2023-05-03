@@ -29,6 +29,27 @@ namespace CapaPresentacion
                 }
                 else if (txt is Guna2ComboBox)
                 {
+                    ((Guna2ComboBox)txt).StartIndex = 0;
+                }
+            }
+
+        }
+
+        /// <summary>
+        /// Metodo para limpiar el formulario
+        /// </summary>
+        /// <param name="control">resibe el panel que contiene los controles a limpiar</param>
+        public static void LimpiarFormularioSolicitudEntrega(System.Windows.Forms.Panel control)
+        {
+            foreach (var txt in control.Controls)
+            {
+                if (txt is Guna2TextBox && control.Name != "TxtCedula")
+                {
+
+                    ((Guna2TextBox)txt).Clear();
+                }
+                else if (txt is Guna2ComboBox)
+                {
                     ((Guna2ComboBox)txt).StartIndex = -1;
                 }
             }
@@ -36,7 +57,7 @@ namespace CapaPresentacion
         }
         #endregion
         //-----------------------------------------------------------------------------------------
-
+        //dd
         //-----------------------------------------------------------------------------------------
         // VALIDA LA LONGITUD DE LAS CEDULAS DE IDENTIDAD 
         #region Validar Longitud de la cedulas
@@ -191,6 +212,24 @@ namespace CapaPresentacion
                 LimpiarError(txt);
             }
         }
+
+        /// <summary>
+        /// Metodo para permitir el ingreso de letras y numeros
+        /// </summary>
+        /// <param name="e"></param>
+        /// <param name="txt"></param>
+        public static void Letras_y_Numeros(KeyPressEventArgs e, Guna2TextBox txt)
+        {
+            if (!char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != '-' && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                MostarError(txt, "No se admiten caracteres especiales");
+            }
+            else
+            {
+                LimpiarError(txt);
+            }
+        }
         //----------------------------------------------------------------------------------------------
         #endregion
         //-----------------------------------------------------------------------------------------
@@ -273,5 +312,48 @@ namespace CapaPresentacion
         #endregion
         //-----------------------------------------------------------------------------------------
 
+        /// <summary>
+        /// Metodo para ingresar el simbolo de colones a los txt de tipo divisa
+        /// </summary>
+        /// <param name="Txt">Resibe el control al que se desea mostrar el simbolo de colones</param>
+        public static void AgregarSimboloColones(Guna2TextBox Txt)
+        {
+            if (!string.IsNullOrEmpty(Txt.Text))
+            {
+                if (!Txt.Text.StartsWith("₡"))
+                {
+                    Txt.Text = "₡" + Txt.Text;
+                    Txt.SelectionStart = Txt.Text.Length;
+
+                }
+            }
+        }
+
+        public static bool ContraseñaSegura2(string password)
+        {
+            bool Mayuscula = false, Miniscula = false, Numeros = false;
+            for (int i = 0; i < password.Length; i++)
+            {
+                if (char.IsUpper(password, i))
+                {
+                    Mayuscula = true;
+                }
+                else if (char.IsLower(password, i))
+                {
+                    Miniscula = true;
+                }
+                else if (char.IsDigit(password, i))
+                {
+                    Numeros = true;
+                }
+            }
+            if (Mayuscula && Miniscula && Numeros && password.Length >= 6)
+            {
+
+                return true;
+            }
+
+            return false;
+        }
     }
 }

@@ -20,10 +20,11 @@ namespace CapaEntidades
             this.TbProductoInsumoS = new HashSet<TbProductoInsumoS>();
         }
     
-        public int IdSolicitudInsumo { get; set; }
-        public string IdColaborador { get; set; }
-        public Nullable<bool> Estado { get; set; }
-        public Nullable<System.DateTime> FechaInsumo { get; set; }
+        public string IdSolicitudInsumo { get; set; }
+        public string IdColaboradorEntrega { get; set; }
+        public Nullable<int> tipoSolicitud { get; set; }
+        public string IdColaboradorRecibe { get; set; }
+        public string ReferenciaCurso { get; set; }
     
         public virtual TbColaborador TbColaborador { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

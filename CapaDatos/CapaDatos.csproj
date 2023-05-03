@@ -50,38 +50,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CDColaborador.cs" />
-    <Compile Include="ModelInventario.Context.cs">
+    <Compile Include="CDcolaborador.cs" />
+    <Compile Include="DatosInsumos.cs" />
+    <Compile Include="DatosPresupuestos.cs" />
+    <Compile Include="DatosInsumosSoli.cs" />
+
+    <Compile Include="DatosProductos.cs" />
+    <Compile Include="DatosSolictudCompra.cs" />
+    <Compile Include="DatosUnionSoliCompra.cs" />
+    <Compile Include="DatosUsuario.cs" />
+    <Compile Include="Modelinventario.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelInventario.Context.tt</DependentUpon>
+      <DependentUpon>Modelinventario.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModelInventario.Designer.cs">
+    <Compile Include="Modelinventario.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelInventario.edmx</DependentUpon>
+      <DependentUpon>Modelinventario.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="ModelInventario.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelInventario.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.Config" />
-    <None Include="ModelInventario.edmx.diagram">
-      <DependentUpon>ModelInventario.edmx</DependentUpon>
+    <EntityDeploy Include="Modelinventario.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Modelinventario.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Modelinventario.edmx.diagram">
+      <DependentUpon>Modelinventario.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="ModelInventario.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ModelInventario.Context.cs</LastGenOutput>
-      <DependentUpon>ModelInventario.edmx</DependentUpon>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -91,6 +90,13 @@
       <Project>{71B8644A-E2D2-4BAB-BDE1-3FD6B3C1A9F9}</Project>
       <Name>CapaEntidades</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Modelinventario.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Modelinventario.edmx</DependentUpon>
+      <LastGenOutput>Modelinventario.Context.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

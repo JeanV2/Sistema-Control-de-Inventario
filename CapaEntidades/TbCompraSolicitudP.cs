@@ -15,10 +15,10 @@ namespace CapaEntidades
     public partial class TbCompraSolicitudP
     {
         public int IdUnionCompra { get; set; }
-        public Nullable<int> CodProducto { get; set; }
+        public string CodProducto { get; set; }
         public Nullable<int> Cantidad { get; set; }
         public Nullable<bool> EstadoSolicitudCompra { get; set; }
-        public Nullable<int> IdsolicitudCompra { get; set; }
+        public string IdsolicitudCompra { get; set; }
     
         public virtual TbProducto TbProducto { get; set; }
         public virtual TbSolicitudCompra TbSolicitudCompra { get; set; }

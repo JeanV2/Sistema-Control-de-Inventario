@@ -26,7 +26,11 @@ namespace CapaNegocios
         }
         public List<TbColaborador> listaColaboadores()
         {
-            return CDcolaborador.listaColaboadores( );
+            return CDcolaborador.listaColaboadores();
+        }
+        public bool ExisteColaborador(TbColaborador colaborador)
+        {
+            return CDcolaborador.ExisteColaborador(colaborador);
         }
     }
 }

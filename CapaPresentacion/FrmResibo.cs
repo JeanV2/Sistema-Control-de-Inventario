@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion
 {
-    public partial class FrmPresupuesto : Form
+    public partial class FrmResibo : Form
     {
-        public FrmPresupuesto()
+        public FrmResibo()
         {
             InitializeComponent();
         }
 
-        private void BtnVolver_Click(object sender, EventArgs e)
+        private void FrmResibo_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Close();
         }
