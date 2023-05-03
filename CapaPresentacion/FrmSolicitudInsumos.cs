@@ -47,10 +47,10 @@ namespace CapaPresentacion
             //Creamos la entidad
             TbSolicitudInsumo tbinsumo = new TbSolicitudInsumo();
             //llenamos los datos
-            tbinsumo.IdSolicitudInsumo = ObtenerCodigoSolicitudInsumo().ToString();
-            tbinsumo.FechaInsumo =Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd"));
-            tbinsumo.Estado = true;
-            tbinsumo.IdColaborador = FrmLogin.Idetificacion;
+            //tbinsumo.IdSolicitudInsumo = ObtenerCodigoSolicitudInsumo().ToString();
+            //tbinsumo.FechaInsumo =Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd"));
+            //tbinsumo.Estado = true;
+            //tbinsumo.IdColaborador = FrmLogin.Idetificacion;
             //guardamos la solicitud de insumo
             if (insumosIns.GuardarInsumos(tbinsumo))
             {
@@ -113,7 +113,7 @@ namespace CapaPresentacion
             {
                 MessageBox.Show("Registro exitoso", "Guadar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DgvListaProductos.Rows.Clear();
-                Validaciones.LimpiarFormularioSolicitudEntrega(tableLayoutPanel2);
+                //Validaciones.LimpiarFormularioSolicitudEntrega(tableLayoutPanel2);
             }
             else
             {
