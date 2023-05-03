@@ -14,7 +14,7 @@ namespace CapaDatos
         public bool GuardarColaborador(TbColaborador colaborador)
         {
             try
-                //hola
+            //hola
             {
                 //ttt
                 using (inventarioEntities1 DB = new inventarioEntities1())
@@ -23,7 +23,7 @@ namespace CapaDatos
                     DB.SaveChanges();
 
                 }
-                    return true;
+                return true;
             }
             catch (Exception)
             {
@@ -81,7 +81,7 @@ namespace CapaDatos
             {
                 using (inventarioEntities1 DB = new inventarioEntities1())
                 {
-                    return (from c in DB.TbColaborador 
+                    return (from c in DB.TbColaborador
                             select c).ToList();
 
 
@@ -94,6 +94,16 @@ namespace CapaDatos
             }
         }
 
+        public bool ExisteColaborador(TbColaborador colaborador)
+        {
 
+            var Existe = false;
+            using (var Conn = new inventarioEntities1())
+            {
+                Existe = Conn.TbColaborador.Any(c => c.IdColaborador == colaborador.IdColaborador);
+                return Existe;
+            }
+
+        }
     }
 }
