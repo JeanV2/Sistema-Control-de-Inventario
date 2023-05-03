@@ -92,7 +92,7 @@ namespace CapaPresentacion
 
         private void BtnSolicitud_Click(object sender, EventArgs e)
         {
-            AbrirFormularioHijo(new FrmSolicitudInsumos());
+            AbrirFormularioHijo(new FrmSolicitudEntrega());
         }
 
         private void BtnHCompras_Click(object sender, EventArgs e)

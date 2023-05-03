@@ -250,37 +250,37 @@ namespace CapaPresentacion
                 {
 
 
-                    if (item.IdPresupuesto == CbListaPresupuestos.SelectedItem)
-                    {
-                        //realizamos el rebajo al presupuesto
-                        double Presupuesto;
-                        Presupuesto = (double)item.MontoPresupuesto;
-                        Presupuesto = Presupuesto - double.Parse(TxtCostoTotal.Text);
-                        //y actualizamos el presupuesto
-                        PresupuestoTb.IdPresupuesto = item.IdPresupuesto;
-                        PresupuestoTb.MontoPresupuesto = Presupuesto;
-                        PresupuestoTb.MesPresupuesto = item.MesPresupuesto;
-                        PresupuestoTb.EstadoPresupuesto = false;
-                        NPresupuestos.EditarPresupuesto(PresupuestoTb);
+                    //if (item.IdPresupuesto == CbListaPresupuestos.SelectedItem)
+                    //{
+                    //    //realizamos el rebajo al presupuesto
+                    //    double Presupuesto;
+                    //    Presupuesto = (double)item.MontoPresupuesto;
+                    //    Presupuesto = Presupuesto - double.Parse(TxtCostoTotal.Text);
+                    //    //y actualizamos el presupuesto
+                    //    PresupuestoTb.IdPresupuesto = item.IdPresupuesto;
+                    //    PresupuestoTb.MontoPresupuesto = Presupuesto;
+                    //    PresupuestoTb.MesPresupuesto = item.MesPresupuesto;
+                    //    PresupuestoTb.EstadoPresupuesto = false;
+                    //    NPresupuestos.EditarPresupuesto(PresupuestoTb);
 
 
-                        //if (item.IdPresupuesto == CbListaPresupuestos.SelectedItem)
-                        //{
-                        //    //realizamos el rebajo al presupuesto
-                        //    double Presupuesto;
-                        //    Presupuesto = (double)item.MontoPresupuesto;
-                        //    Presupuesto = Presupuesto - int.Parse(TxtTotalCompra.Text);
-                        //    //y actualizamos el presupuesto
-                        //    PresupuestoTb.IdPresupuesto = item.IdPresupuesto;
-                        //    PresupuestoTb.MontoPresupuesto = Presupuesto;
-                        //    PresupuestoTb.MesPresupuesto = item.MesPresupuesto;
-                        //    PresupuestoTb.EstadoPresupuesto = false;
-                        //    NPresupuestos.EditarPresupuesto(PresupuestoTb);
+                    //    //if (item.IdPresupuesto == CbListaPresupuestos.SelectedItem)
+                    //    //{
+                    //    //    //realizamos el rebajo al presupuesto
+                    //    //    double Presupuesto;
+                    //    //    Presupuesto = (double)item.MontoPresupuesto;
+                    //    //    Presupuesto = Presupuesto - int.Parse(TxtTotalCompra.Text);
+                    //    //    //y actualizamos el presupuesto
+                    //    //    PresupuestoTb.IdPresupuesto = item.IdPresupuesto;
+                    //    //    PresupuestoTb.MontoPresupuesto = Presupuesto;
+                    //    //    PresupuestoTb.MesPresupuesto = item.MesPresupuesto;
+                    //    //    PresupuestoTb.EstadoPresupuesto = false;
+                    //    //    NPresupuestos.EditarPresupuesto(PresupuestoTb);
 
 
 
-                        //}
-                    }
+                    //    //}
+                    //}
 
                     //LIMPIAR FORM
                     Validaciones.LimpiarFormulario(tableLayoutPanel1);
@@ -419,13 +419,13 @@ namespace CapaPresentacion
                 foreach (var item in PresupuestosList)
                 {
 
-                    if (item.IdPresupuesto == CbListaPresupuestos.SelectedItem)
+                //    if (item.IdPresupuesto == CbListaPresupuestos.SelectedItem)
 
-                //if (item.IdPresupuesto == CbListaPresupuestos.SelectedItem)
+                ////if (item.IdPresupuesto == CbListaPresupuestos.SelectedItem)
 
-                    {
-                        TxtNombreProducto.Text = item.MontoPresupuesto.ToString();
-                    }
+                //    {
+                //        TxtNombreProducto.Text = item.MontoPresupuesto.ToString();
+                //    }
                 }
                 DgvListaCompra.Rows.Clear();
             }

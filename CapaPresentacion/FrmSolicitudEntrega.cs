@@ -16,9 +16,9 @@ using static TheArtOfDevHtmlRenderer.Adapters.RGraphicsPath;
 
 namespace CapaPresentacion
 {
-    public partial class FrmSolicitudInsumos : Form
+    public partial class FrmSolicitudEntrega : Form
     {
-        public FrmSolicitudInsumos()
+        public FrmSolicitudEntrega()
         {
             InitializeComponent();
         }
@@ -218,7 +218,7 @@ namespace CapaPresentacion
         }
         public void Limpiarcampos()
         {
-            TxtCodigoProcd.Text = string.Empty;
+            TxtCodigoProcd.ResetText();
             TxtNombreProduc.ResetText();
             TxtDisponibles.ResetText();
             txtCantProducto.ResetText();
