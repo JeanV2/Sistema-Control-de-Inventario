@@ -403,7 +403,7 @@ namespace CapaPresentacion
 
         private void TxtCodigoProcd_Click(object sender, EventArgs e)
         {
-            Validaciones.LimpiarFormulario(tableLayoutPanel2);
+            //Validaciones.LimpiarFormulario(tableLayoutPanel2);
         }
     }
 }
