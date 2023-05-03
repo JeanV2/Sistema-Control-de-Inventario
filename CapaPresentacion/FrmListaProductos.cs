@@ -26,7 +26,7 @@ namespace CapaPresentacion
         /// <summary>
         /// Instancia al formulario principal para acceder a los controles que se encuentran en el
         /// </summary>
-        FrmSolicitudInsumos frmSolicitud = (FrmSolicitudInsumos)Application.OpenForms["FrmSolicitudInsumos"];
+        FrmSolicitudEntrega frmSolicitud = (FrmSolicitudEntrega)Application.OpenForms["FrmSolicitudInsumos"];
         //------------------------------------------------------------------------------------------
 
 
@@ -77,7 +77,7 @@ namespace CapaPresentacion
                     //AñadirProductos.TxtCodigoProducto.ReadOnly = true;
                     //AñadirProductos.TxtNombreProducto.Focus();
                 }
-                else if (FormularioOrigen is FrmSolicitudInsumos)
+                else if (FormularioOrigen is FrmSolicitudEntrega)
                 {
                     frmSolicitud.TxtCodigoProcd.Text = DgvListaProductos.Rows[fila].Cells[0].Value.ToString();
                     frmSolicitud.TxtNombreProduc.Text = DgvListaProductos.Rows[fila].Cells[1].Value.ToString();
