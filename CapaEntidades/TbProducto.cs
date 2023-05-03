@@ -26,7 +26,15 @@ namespace CapaEntidades
         public Nullable<int> CantidadProducto { get; set; }
         public string CostoProducto { get; set; }
         public string Descripcion { get; set; }
-        public Nullable<bool> Estado { get; set; }
+        public string CFamilia { get; set; }
+        public string CSubFamilia { get; set; }
+        public string NumProducto { get; set; }
+        public string CFUnidadMedida { get; set; }
+        public string DesResumida { get; set; }
+        public Nullable<double> MUltCosto { get; set; }
+        public Nullable<int> InventarioRequerido { get; set; }
+        public Nullable<int> InventarioExistente { get; set; }
+        public Nullable<double> CostoTotal { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TbCompraSolicitudP> TbCompraSolicitudP { get; set; }

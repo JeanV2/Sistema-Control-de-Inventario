@@ -75,16 +75,16 @@ namespace CapaPresentacion
                     //lenamos datos
 
                     TbProductoInsumo.IdSolictudInsumo = tbinsumo.IdSolicitudInsumo;
-                    TbProductoInsumo.CantidadP = int.Parse(DgvListaProductos.Rows[i].Cells[3].Value.ToString());
-                    TbProductoInsumo.IdProducto = DgvListaProductos.Rows[i].Cells[2].Value.ToString();
+                    TbProductoInsumo.CantidadP = int.Parse(DgvListaProductos.Rows[i].Cells[2].Value.ToString());
+                    TbProductoInsumo.IdProducto = DgvListaProductos.Rows[i].Cells[1].Value.ToString();
 
 
                     //-------------------------------------------------------------------------------
                     //vamos guardando cada producto solicitado en la tabla union
                     //validaciones
-                   
+
                     //restamos la cantidad de proc a tbl productos
-                    if (RestarantProductos(DgvListaProductos.Rows[i].Cells[2].Value.ToString(), int.Parse(DgvListaProductos.Rows[i].Cells[3].Value.ToString()))==true)
+                    if (RestarantProductos(DgvListaProductos.Rows[i].Cells[1].Value.ToString(), int.Parse(DgvListaProductos.Rows[i].Cells[2].Value.ToString())) == true)
                     {
                         if (InsumosSoli.GuardarInsumos(TbProductoInsumo))
                         {
@@ -168,25 +168,45 @@ namespace CapaPresentacion
 
             return Codigo;
         }
-
+        private bool ValidarProductoGrid()
+        {
+            bool estado = true;
+            int row = DgvListaProductos.Rows.Count;
+            for(int i=0; i < row; i++)
+            {
+                if (DgvListaProductos.Rows[i].Cells[1].Value.ToString().Trim() == TxtCodigoProcd.Text.Trim())
+                {
+                    estado = false;
+                    break;
+                }
+            }
+            return estado;
+        }
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
             if (validarCampos())
             {
-                //valido que la cantidad proc se mayor a 0 y menor o = a la cantidad proc disponibles
-                if (ValCantProductos(TxtCodigoProcd.Text, int.Parse(txtCantProducto.Text)) == true)
+                if (ValidarProductoGrid() == true)
                 {
-                    int row = DgvListaProductos.Rows.Add();
-                    DgvListaProductos.Rows[row].Cells[0].Value = "x";
-                    DgvListaProductos.Rows[row].Cells[1].Value = FrmLogin.Idetificacion;
-                    DgvListaProductos.Rows[row].Cells[2].Value = TxtCodigoProcd.Text;
-                    DgvListaProductos.Rows[row].Cells[3].Value = txtCantProducto.Text;
-
+                    //valido que la cantidad proc se mayor a 0 y menor o = a la cantidad proc disponibles
+                    if (ValCantProductos(TxtCodigoProcd.Text, int.Parse(txtCantProducto.Text)) == true)
+                    {
+                        int row = DgvListaProductos.Rows.Add();
+                        DgvListaProductos.Rows[row].Cells[0].Value = FrmLogin.Idetificacion;
+                        DgvListaProductos.Rows[row].Cells[1].Value = TxtCodigoProcd.Text;
+                        DgvListaProductos.Rows[row].Cells[2].Value = txtCantProducto.Text;
+                        Limpiarcampos();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Verifica que la cantidad de productos sea mayor que 0 menor o igual a la cantidad de productos disponibles", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Verifica que la cantidad de productos sea mayor que 0 menor o igual a la cantidad de productos disponibles", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Este producto ya existe en la solictud", "Solicitud Insumo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+
             }
             else
             {
@@ -194,6 +214,13 @@ namespace CapaPresentacion
 
             }
 
+        }
+        public void Limpiarcampos()
+        {
+            TxtCodigoProcd.Text = string.Empty;
+            TxtNombreProduc.ResetText();
+            TxtDisponibles.ResetText();
+            txtCantProducto.ResetText();
         }
         private bool RestarantProductos(String Codigo, int cantidad)
         {
@@ -207,18 +234,19 @@ namespace CapaPresentacion
 
                 if (Codigo == pr.CodProducto)
                 {
-                    int total = (int)pr.CantidadProducto-cantidad;
+                    int total = (int)pr.CantidadProducto - cantidad;
                     pr.CantidadProducto = total;
                     if (Insproductos.ModificarProduct(pr))
                     {
-                        cod= true;
+                        cod = true;
                         break;
-                      
-                    }else
-                    {
-                        cod= false;
+
                     }
-                
+                    else
+                    {
+                        cod = false;
+                    }
+
 
 
                 }
@@ -278,7 +306,7 @@ namespace CapaPresentacion
 
         private void DgvListaProductos_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.ColumnIndex == 0)
+            if (e.ColumnIndex == 3)
             {
                 string mensaje = "quitar la fila " + e.RowIndex + " con CodigoProducto " + DgvListaProductos.CurrentRow.Cells[2].Value;
                 string caption = "Eliminar Fila";
@@ -287,31 +315,34 @@ namespace CapaPresentacion
 
                 // Displays the MessageBox.
                 result = MessageBox.Show(mensaje, caption, buttons);
-        
-        
-                if (result==DialogResult.Yes)
+
+
+                if (result == DialogResult.Yes)
                 {
                     DgvListaProductos.Rows.RemoveAt(e.RowIndex);
                 }
-               
+
             }
-           
+
         }
         private bool validarCampos()
         {
-            if(txtCantProducto.Text== string.Empty)
+            if (txtCantProducto.Text == string.Empty)
             {
                 txtCantProducto.Focus();
                 return false;
-            }else if (TxtCedula.Text == string.Empty)
+            }
+            else if (TxtCedula.Text == string.Empty)
             {
                 TxtCedula.Focus();
                 return false;
-            }else if (TxtCodigoProcd.Text == string.Empty)
+            }
+            else if (TxtCodigoProcd.Text == string.Empty)
             {
                 TxtCodigoProcd.Focus();
                 return false;
-            }else if (TxtNombreProduc.Text == string.Empty)
+            }
+            else if (TxtNombreProduc.Text == string.Empty)
             {
                 TxtNombreProduc.Focus();
                 return false;
@@ -325,14 +356,14 @@ namespace CapaPresentacion
         private void DgvListaProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             // Verificar si se hizo clic en el botón de eliminación
-            if (e.ColumnIndex == DgvListaProductos.Columns["X"].Index && e.RowIndex >= 0)
-            {
-                // Obtener la fila que se está eliminando
-                DataGridViewRow fila = DgvListaProductos.Rows[e.RowIndex];
+            //if (e.ColumnIndex == DgvListaProductos.Columns["X"].Index && e.RowIndex >= 0)
+            //{
+            //    // Obtener la fila que se está eliminando
+            //    DataGridViewRow fila = DgvListaProductos.Rows[e.RowIndex];
 
-                // Eliminar la fila del DataGridView
-                DgvListaProductos.Rows.Remove(fila);
-            }
+            //    // Eliminar la fila del DataGridView
+            //    DgvListaProductos.Rows.Remove(fila);
+            //}
         }
 
         private void TxtCodigoProcd_Leave(object sender, EventArgs e)
@@ -340,7 +371,7 @@ namespace CapaPresentacion
             producto.CodProducto = txtCantProducto.Text;
 
             productos = insumosIns.ObtenerListaProductos(TxtCodigoProcd.Text);
-            
+
             if (producto.CodProducto == TxtCodigoProcd.Text)
             {
 
@@ -360,7 +391,7 @@ namespace CapaPresentacion
             }
             else
             {
-               DialogResult opc = MessageBox.Show("Codigo digitado no existe","Error de Codigo",MessageBoxButtons.OK,MessageBoxIcon.Stop);
+                DialogResult opc = MessageBox.Show("Codigo digitado no existe", "Error de Codigo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 if (opc == DialogResult.OK)
                 {
                     TxtCodigoProcd.Focus();
