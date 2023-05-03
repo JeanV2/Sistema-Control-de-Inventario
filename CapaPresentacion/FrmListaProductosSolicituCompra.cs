@@ -62,7 +62,7 @@ namespace CapaPresentacion
             {
                 int fila = e.RowIndex;
 
-                frmSolicitud.TxtCodigoProd.Text = DgvListaProductos.Rows[fila].Cells[0].Value.ToString();
+                //frmSolicitud.TxtCodigoProd.Text = DgvListaProductos.Rows[fila].Cells[0].Value.ToString();
                 frmSolicitud.TxtPrecioProd.Text = DgvListaProductos.Rows[fila].Cells[3].Value.ToString();
 
 

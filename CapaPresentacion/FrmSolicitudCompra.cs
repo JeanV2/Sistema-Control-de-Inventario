@@ -16,14 +16,14 @@ namespace CapaPresentacion
 {
     public partial class FrmSolicitudCompra : Form
     {
-        
-        
+
+
         public FrmSolicitudCompra()
         {
             InitializeComponent();
             //SET DATETIMEPICKER
             DtpFechaSolicitud.MinDate = DateTime.Today;
-            
+            TxtSolicitud.Text = ObtenerCodigo_SolicitudCompra();
 
             //LLenamos el cb de presupuesto con una lista de presupuesto
             PresupuestosList = NPresupuestos.ListaPresupuestos();
@@ -35,8 +35,8 @@ namespace CapaPresentacion
         NegocioPresupuestos NPresupuestos = new NegocioPresupuestos();
         //Lista de presupuesto
         List<TbPresupuesto> PresupuestosList;
-        
-        
+
+
         private string ObtenerCodigo_SolicitudCompra()
         {
             String Codigo = "";
@@ -87,9 +87,9 @@ namespace CapaPresentacion
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             //VALIDACIONES
-            if (TxtPresupuesto.TextLength > 0)
+            if (TxtNombreProducto.TextLength > 0)
             {
-                Validaciones.LimpiarError(TxtPresupuesto);
+                Validaciones.LimpiarError(TxtNombreProducto);
 
                 //SOLICITUD
                 if (TxtSolicitud.TextLength > 0)
@@ -101,76 +101,71 @@ namespace CapaPresentacion
                     {
                         Validaciones.LimpiarError(TxtCantidad);
 
-                        //CODIGO PRODUCTO
-                        if (TxtCodigoProd.TextLength > 0)
+
+                        //COSTO TOTAL
+                        if (TxtCostoTotal.TextLength > 0)
                         {
-                            Validaciones.LimpiarError(TxtCodigoProd);
+                            Validaciones.LimpiarError(TxtCostoTotal);
 
-                            //COSTO TOTAL
-                            if (TxtCostoTotal.TextLength > 0)
+                            //PRECIO PRODUCTO
+                            if (TxtPrecioProd.TextLength > 0)
                             {
-                                Validaciones.LimpiarError(TxtCostoTotal);
+                                Validaciones.LimpiarError(TxtPrecioProd);
 
-                                //PRECIO PRODUCTO
-                                if (TxtPrecioProd.TextLength > 0)
+
+
+                                //agregamos el producto al datagridview
+                                //limpiamos el txt de precio producto para que no contenga caracteres invalidos
+                                int TxtPrecioProdLim = int.Parse(TxtPrecioProd.Text.Replace("₡", ""));
+                                int row = DgvListaCompra.Rows.Add();
+                                DgvListaCompra.Rows[row].Cells[0].Value = CbListaPresupuestos.Text + "-" + CbCodigoFamilia.Text + "-" + CbCodigoProducto.Text;
+                                DgvListaCompra.Rows[row].Cells[1].Value = TxtNombreProducto.Text;
+                                DgvListaCompra.Rows[row].Cells[2].Value = TxtCantidad.Text;
+                                DgvListaCompra.Rows[row].Cells[3].Value = TxtPrecioProdLim;
+
+
+
+
+                                //actualizamos el monto total
+                                int CostoFinal = 0;
+                                int CostoAñadir = 0;
+                                for (int i = 0; i < DgvListaCompra.RowCount; i++)
                                 {
-                                    Validaciones.LimpiarError(TxtPrecioProd);
-
-
-
-                                    //agregamos el producto al datagridview
-                                    //limpiamos el txt de precio producto para que no contenga caracteres invalidos
-                                    int TxtPrecioProdLim = int.Parse(TxtPrecioProd.Text.Replace("₡", ""));
-                                    int row = DgvListaCompra.Rows.Add();
-                                    DgvListaCompra.Rows[row].Cells[0].Value = TxtSolicitud.Text;
-                                    DgvListaCompra.Rows[row].Cells[1].Value = TxtCodigoProd.Text;
-                                    DgvListaCompra.Rows[row].Cells[2].Value = TxtCantidad.Text;
-                                    DgvListaCompra.Rows[row].Cells[3].Value = TxtPrecioProdLim;
-
-
-                                   
-                                   
-                                    //actualizamos el monto total
-                                    int CostoFinal = 0;
-                                    int CostoAñadir = 0;
-                                    for (int i = 0; i < DgvListaCompra.RowCount; i++)
+                                    if (DgvListaCompra.Rows[i].Cells[0].Value != null)
                                     {
-                                        if (DgvListaCompra.Rows[i].Cells[0].Value != null)
-                                        {
-                                            CostoAñadir = int.Parse(DgvListaCompra.Rows[i].Cells[3].Value.ToString()) * int.Parse(DgvListaCompra.Rows[i].Cells[2].Value.ToString());
-                                            CostoFinal = CostoFinal + CostoAñadir;
-                                        }
-
+                                        CostoAñadir = int.Parse(DgvListaCompra.Rows[i].Cells[3].Value.ToString()) * int.Parse(DgvListaCompra.Rows[i].Cells[2].Value.ToString());
+                                        CostoFinal = CostoFinal + CostoAñadir;
                                     }
-                                    TxtTotalCompra.Text = CostoFinal.ToString();
-                                    //Actualizamos el txt de prespuesto
-                                    string PrespuestoSin = TxtPresupuesto.Text;
-                                    string result = PrespuestoSin.Substring(1);
-                                    TxtPresupuesto.Text = (double.Parse(result) - CostoFinal).ToString();
-
-                                    
-                                    TxtSolicitud.Text = ObtenerCodigo_SolicitudCompra();
-                                    //Limpiamos los txt del producto
-                                    TxtCodigoProd.Clear();
-                                    TxtPrecioProd.Clear();
-                                    TxtCantidad.Clear();
-                                    TxtCostoTotal.Clear();
 
                                 }
-                                else
-                                {
-                                    Validaciones.MostarError(TxtPrecioProd, "Ingresar precio de producto");
-                                }
+                                TxtTotalCompra.Text = CostoFinal.ToString();
+                                //Actualizamos el txt de prespuesto
+                                string PrespuestoSin = TxtNombreProducto.Text;
+                                string result = PrespuestoSin.Substring(1);
+                                TxtNombreProducto.Text = (double.Parse(result) - CostoFinal).ToString();
+
+
+
+                                //Limpiamos los txt del producto
+                                CbListaPresupuestos.SelectedIndex = -1;
+                                CbCodigoFamilia.SelectedIndex = -1;
+                                CbCodigoProducto.SelectedIndex = -1;
+                                TxtNombreProducto.Clear();
+                                TxtPrecioProd.Clear();
+                                TxtCantidad.Clear();
+                                TxtCostoTotal.Clear();
+
                             }
                             else
                             {
-                                Validaciones.MostarError(TxtCostoTotal, "Ingresar costo total");
+                                Validaciones.MostarError(TxtPrecioProd, "Ingresar precio de producto");
                             }
                         }
                         else
                         {
-                            Validaciones.MostarError(TxtCodigoProd, "Ingresar código de producto");
+                            Validaciones.MostarError(TxtCostoTotal, "Ingresar costo total");
                         }
+
                     }
                     else
                     {
@@ -185,7 +180,7 @@ namespace CapaPresentacion
             }
             else
             {
-                Validaciones.MostarError(TxtPresupuesto, "Debes ingresar el monto del presupuesto");
+                Validaciones.MostarError(TxtNombreProducto, "Debes ingresar el monto del presupuesto");
             }
         }
 
@@ -204,14 +199,11 @@ namespace CapaPresentacion
             Validaciones.Numeros_y_Borrar(e, TxtCostoTotal);
         }
 
-        private void TxtCodigoProd_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Validaciones.Letras_y_Numeros(e, TxtCodigoProd);
-        }
+ 
 
         private void TxtPresupuesto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Validaciones.Letras_y_Numeros(e, TxtPresupuesto);
+            Validaciones.Letras_y_Numeros(e, TxtNombreProducto);
         }
 
         private void TxtSolicitud_KeyPress(object sender, KeyPressEventArgs e)
@@ -238,7 +230,7 @@ namespace CapaPresentacion
         private void BtnConfirmar_Click(object sender, EventArgs e)
         {
 
-            if (DgvListaCompra.RowCount!=0)
+            if (DgvListaCompra.RowCount != 0)
             {
                 // CODIGO PARA GUARDAR
 
@@ -297,25 +289,25 @@ namespace CapaPresentacion
                         PresupuestoTb.MesPresupuesto = item.MesPresupuesto;
                         PresupuestoTb.EstadoPresupuesto = false;
                         NPresupuestos.EditarPresupuesto(PresupuestoTb);
-                       
+
 
                     }
                 }
                 //LIMPIAR FORM
-                Validaciones.LimpiarFormulario(flowLayoutPanel4);
+                Validaciones.LimpiarFormulario(tableLayoutPanel1);
 
-            DgvListaCompra.Rows.Clear();
-            DgvListaCompra.Columns.Clear();
-            //CLEAR DATE TIME PICKER
-            DtpFechaSolicitud.Value = DateTime.Today;
-            //CLEAR DATA GRID VIEW
-            // -- ACA VA EL CODIGO PARA LIMPIAR EL DATA GRIG VIEW
+                DgvListaCompra.Rows.Clear();
+                DgvListaCompra.Columns.Clear();
+                //CLEAR DATE TIME PICKER
+                DtpFechaSolicitud.Value = DateTime.Today;
+                //CLEAR DATA GRID VIEW
+                // -- ACA VA EL CODIGO PARA LIMPIAR EL DATA GRIG VIEW
 
                 MessageBox.Show("La solictud de compra se a realizado con exitó", "INFORMACIÓN", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 //LIMPIAR FORM
-                Validaciones.LimpiarFormulario(flowLayoutPanel4);
-                TxtPresupuesto.Clear();
+                Validaciones.LimpiarFormulario(tableLayoutPanel1);
+                TxtNombreProducto.Clear();
                 //CLEAR DATE TIME PICKER
                 DtpFechaSolicitud.Value = DateTime.Today;
                 TxtTotalCompra.Clear();
@@ -356,12 +348,12 @@ namespace CapaPresentacion
 
         private void TxtPresupuesto_TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(TxtPresupuesto.Text))
+            if (!string.IsNullOrEmpty(TxtNombreProducto.Text))
             {
-                if (!TxtPresupuesto.Text.StartsWith("₡"))
+                if (!TxtNombreProducto.Text.StartsWith("₡"))
                 {
-                    TxtPresupuesto.Text = "₡" + TxtPresupuesto.Text;
-                    TxtPresupuesto.SelectionStart = TxtPresupuesto.Text.Length;
+                    TxtNombreProducto.Text = "₡" + TxtNombreProducto.Text;
+                    TxtNombreProducto.SelectionStart = TxtNombreProducto.Text.Length;
 
                 }
             }
@@ -376,7 +368,7 @@ namespace CapaPresentacion
 
                 // Eliminar la fila del DataGridView
                 DgvListaCompra.Rows.Remove(fila);
-                
+
             }
         }
 
@@ -387,7 +379,7 @@ namespace CapaPresentacion
 
         private void FrmSolicitudCompra_Load(object sender, EventArgs e)
         {
-            
+
             foreach (var item in PresupuestosList)
             {
                 CbListaPresupuestos.Items.Add(item.IdPresupuesto);
@@ -402,9 +394,9 @@ namespace CapaPresentacion
         {
             foreach (var item in PresupuestosList)
             {
-                if (item.IdPresupuesto== CbListaPresupuestos.SelectedItem)
+                if (item.IdPresupuesto == CbListaPresupuestos.SelectedItem)
                 {
-                    TxtPresupuesto.Text = item.MontoPresupuesto.ToString();
+                    TxtNombreProducto.Text = item.MontoPresupuesto.ToString();
                 }
             }
         }
