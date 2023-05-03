@@ -62,7 +62,7 @@ namespace CapaPresentacion
                                 producto.CostoProducto = TxtCosto.Text;
                                 producto.Descripcion = TxtDescripcion.Text;
                                 producto.CantidadProducto = int.Parse(TxtCantidad.Text.Trim());
-
+                                producto.Estado = true;
                                 if (NegProduct.ModificarProduct(producto))
                                 {
                                     MessageBox.Show("Producto modificar con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
