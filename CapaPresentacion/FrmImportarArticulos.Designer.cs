@@ -37,6 +37,7 @@
             this.BtnGuardar = new Guna.UI2.WinForms.Guna2Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.BtnImportar = new Guna.UI2.WinForms.Guna2Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.panel1.SuspendLayout();
@@ -47,9 +48,9 @@
             // 
             this.panel2.Controls.Add(this.dgvDatos);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 46);
+            this.panel2.Location = new System.Drawing.Point(0, 40);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1037, 447);
+            this.panel2.Size = new System.Drawing.Size(1037, 453);
             this.panel2.TabIndex = 12;
             // 
             // dgvDatos
@@ -87,7 +88,7 @@
             this.dgvDatos.ReadOnly = true;
             this.dgvDatos.RowHeadersVisible = false;
             this.dgvDatos.RowTemplate.Height = 25;
-            this.dgvDatos.Size = new System.Drawing.Size(1037, 447);
+            this.dgvDatos.Size = new System.Drawing.Size(1037, 453);
             this.dgvDatos.TabIndex = 7;
             this.dgvDatos.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Lime;
             this.dgvDatos.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(244)))), ((int)(((byte)(196)))));
@@ -151,12 +152,13 @@
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.Controls.Add(this.label1);
             this.flowLayoutPanel1.Controls.Add(this.BtnImportar);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1037, 46);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1037, 40);
             this.flowLayoutPanel1.TabIndex = 10;
             // 
             // BtnImportar
@@ -177,7 +179,7 @@
             this.BtnImportar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(99)))), ((int)(((byte)(174)))));
             this.BtnImportar.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
             this.BtnImportar.HoverState.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnImportar.Location = new System.Drawing.Point(18, 3);
+            this.BtnImportar.Location = new System.Drawing.Point(530, 3);
             this.BtnImportar.Name = "BtnImportar";
             this.BtnImportar.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
             this.BtnImportar.Size = new System.Drawing.Size(152, 32);
@@ -185,6 +187,18 @@
             this.BtnImportar.Text = "Importar Excel";
             this.BtnImportar.UseTransparentBackground = true;
             this.BtnImportar.Click += new System.EventHandler(this.BtnImportar_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(18, 8);
+            this.label1.Margin = new System.Windows.Forms.Padding(3, 8, 50, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(459, 22);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Importar datos de inventario desde libro de Excel";
             // 
             // FrmImportarArticulos
             // 
@@ -198,7 +212,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmImportarArticulos";
             this.Text = "Importar Articulos";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmImportarArticulos_FormClosed);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -217,5 +230,6 @@
         public Guna.UI2.WinForms.Guna2Button BtnGuardar;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         public Guna.UI2.WinForms.Guna2Button BtnImportar;
+        private System.Windows.Forms.Label label1;
     }
 }

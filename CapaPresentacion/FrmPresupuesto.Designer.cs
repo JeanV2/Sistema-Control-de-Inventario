@@ -79,6 +79,9 @@
             this.label1.Size = new System.Drawing.Size(166, 30);
             this.label1.TabIndex = 0;
 
+            this.label1.Text = "Presupuestos";
+
+
             this.label1.Size = new System.Drawing.Size(336, 37);
             this.label1.TabIndex = 0;
             this.label1.Text = "Registrar Presupuestos";
@@ -141,6 +144,7 @@
             this.label4.Size = new System.Drawing.Size(241, 25);
             this.label4.TabIndex = 17;
             this.label4.Text = "Montuo Presupuestos";
+
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // TxtNombreProsupuesto
