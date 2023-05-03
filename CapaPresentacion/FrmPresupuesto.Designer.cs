@@ -56,12 +56,12 @@
             this.flowLayoutPanel2.Controls.Add(this.label3);
             this.flowLayoutPanel2.Controls.Add(this.TxtSaldo);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-<<<<<<< HEAD
+
             this.flowLayoutPanel2.Location = new System.Drawing.Point(5, 5);
-=======
+
             this.flowLayoutPanel2.Location = new System.Drawing.Point(7, 6);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
->>>>>>> 1a9839c1038dd6e77ee07e786be53fca52871af6
+
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(10, 10, 0, 10);
             this.flowLayoutPanel2.Size = new System.Drawing.Size(379, 378);
@@ -75,15 +75,14 @@
             this.label1.Location = new System.Drawing.Point(13, 10);
             this.label1.Margin = new System.Windows.Forms.Padding(3, 0, 3000, 0);
             this.label1.Name = "label1";
-<<<<<<< HEAD
+
             this.label1.Size = new System.Drawing.Size(166, 30);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Presupuestos";
-=======
+
             this.label1.Size = new System.Drawing.Size(336, 37);
             this.label1.TabIndex = 0;
             this.label1.Text = "Registrar Presupuestos";
->>>>>>> 1a9839c1038dd6e77ee07e786be53fca52871af6
+
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
@@ -94,11 +93,11 @@
             this.label2.Location = new System.Drawing.Point(13, 70);
             this.label2.Margin = new System.Windows.Forms.Padding(3, 30, 0, 0);
             this.label2.Name = "label2";
-<<<<<<< HEAD
+
             this.label2.Size = new System.Drawing.Size(135, 21);
-=======
+
             this.label2.Size = new System.Drawing.Size(172, 25);
->>>>>>> 1a9839c1038dd6e77ee07e786be53fca52871af6
+
             this.label2.TabIndex = 1;
             this.label2.Text = "Presupuestos #";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -134,15 +133,14 @@
             this.label4.Location = new System.Drawing.Point(13, 153);
             this.label4.Margin = new System.Windows.Forms.Padding(3, 20, 0, 0);
             this.label4.Name = "label4";
-<<<<<<< HEAD
+
             this.label4.Size = new System.Drawing.Size(190, 21);
             this.label4.TabIndex = 17;
             this.label4.Text = "Nombre Presupuestos";
-=======
+
             this.label4.Size = new System.Drawing.Size(241, 25);
             this.label4.TabIndex = 17;
             this.label4.Text = "Montuo Presupuestos";
->>>>>>> 1a9839c1038dd6e77ee07e786be53fca52871af6
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // TxtNombreProsupuesto
@@ -178,12 +176,12 @@
             this.flowLayoutPanel1.Controls.Add(this.BtnEliminar);
             this.flowLayoutPanel1.Controls.Add(this.BtnVerLista);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
-<<<<<<< HEAD
+
             this.flowLayoutPanel1.Location = new System.Drawing.Point(384, 5);
-=======
+
             this.flowLayoutPanel1.Location = new System.Drawing.Point(539, 6);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
->>>>>>> 1a9839c1038dd6e77ee07e786be53fca52871af6
+
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 0, 4, 5);
             this.flowLayoutPanel1.Size = new System.Drawing.Size(254, 378);
@@ -348,10 +346,10 @@
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.flowLayoutPanel1);
             this.ForeColor = System.Drawing.Color.White;
-<<<<<<< HEAD
-=======
+
+
             this.Margin = new System.Windows.Forms.Padding(4);
->>>>>>> 1a9839c1038dd6e77ee07e786be53fca52871af6
+
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(620, 426);
