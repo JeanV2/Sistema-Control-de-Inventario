@@ -7,6 +7,7 @@ using System.Data;
 using System.DirectoryServices.AccountManagement;
 using System.Drawing;
 using System.Linq;
+using System.Net.PeerToPeer.Collaboration;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,6 +17,18 @@ namespace CapaPresentacion
 {
     public partial class FrmAñadirProductos : Form
     {
+        public FrmAñadirProductos()
+        {
+            InitializeComponent();
+        }
+        //entidad
+        TbProducto producto = new TbProducto();
+
+        NegociosProductos NegProduct = new NegociosProductos();
+        //Lista
+        List<TbProducto> ListProducto;
+        String CodigoArmado = "";
+
         private void MostrarDataGridView()
         {
             if (PanelDataGrid.Visible == false)
@@ -34,104 +47,93 @@ namespace CapaPresentacion
                 TxtBuscarPorPresupuesto.ResetText();
             }
         }
-        //entidad
-        TbProducto producto = new TbProducto();
-
-        NegociosProductos NegProduct = new NegociosProductos();
-
-        String CodigoArmado = "";
-
-        public FrmAñadirProductos()
-        {
-            InitializeComponent();
-        }
-
-        
-
 
         private void BtnVerLista_Click(object sender, EventArgs e)
         {
             //CREAR CODIGO PARA REFRESCAR EL DATAGRIDVIEW ANTES DEL METODO Mostrar DataGridView
-
+            ListProducto = NegProduct.ListProduct();
+            RefreshDatos(ListProducto);
             MostrarDataGridView();
         }
 
-        
+
 
         private void BtnModificar_Click(object sender, EventArgs e)
         {
             //VALICIONES
-            //if (TxtCodigoProducto.TextLength > 0)
-            //{
-            //    Validaciones.LimpiarError(TxtCodigoProducto);
+            if (TxtCodigoProducto.TextLength > 0)
+            {
+                Validaciones.LimpiarError(TxtCodigoProducto);
 
-            //    if (TxtNombreProducto.TextLength > 0)
-            //    {
-            //        Validaciones.LimpiarError(TxtNombreProducto);
+                if (TxtNombreProducto.TextLength > 0)
+                {
+                    Validaciones.LimpiarError(TxtNombreProducto);
 
-            //        if (TxtCantidad.TextLength > 0)
-            //        {
-            //            Validaciones.LimpiarError(TxtCantidad);
-            //            if (TxtCosto.TextLength > 0)
-            //            {
-            //                Validaciones.LimpiarError(TxtCosto);
-            //                if (TxtDescripcion.TextLength > 0)
-            //                {
-            //                    Validaciones.LimpiarError(TxtDescripcion);
+                    if (TxtInventRequerido.TextLength > 0)
+                    {
+                        Validaciones.LimpiarError(TxtInventRequerido);
 
-            //                    //CODIGO PARA MODIFICAR Y ENVIAR A LA BASE DE DATOS********************
+                        if (TxtPrecioProducto.TextLength > 0)
+                        {
+                            Validaciones.LimpiarError(TxtPrecioProducto);
 
-            //                    producto.CodProducto = TxtCodigoProducto.Text;
-            //                    producto.NombreProducto = TxtNombreProducto.Text;
-            //                    producto.CostoProducto = TxtCosto.Text;
-            //                    producto.Descripcion = TxtDescripcion.Text;
-            //                    producto.CantidadProducto = int.Parse(TxtCantidad.Text.Trim());
-            //                    //producto.Estado = true;
-            //                    if (NegProduct.ModificarProduct(producto))
-            //                    {
-            //                        MessageBox.Show("Producto modificado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            if (TxtExistencia.TextLength > 0)
+                            {
+                                Validaciones.LimpiarError(TxtExistencia);
 
-            //                        //LIMPIAR FORM
-            //                        Validaciones.LimpiarFormulario(flowLayoutPanel2);
-            //                        //OCULTAR LOS BOTONES DE NUEVO
-            //                        BtnModificar.Visible = false;
-            //                        BtnEliminar.Visible = false;
-            //                        BtnGuardar.Enabled = true;
-            //                        TxtCantidad.Enabled = true;
-            //                    }
-            //                    else
-            //                    {
-            //                        MessageBox.Show("Error al modificar el producto", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            //                    }
+                                //CODIGO PARA MODIFICAR Y ENVIAR A LA BASE DE DATOS********************
+                                producto.CodProducto = TxtCodigoProducto.Text;
+                                producto.CFamilia = TxtCodigoPresupuesto.Text;
+                                producto.CSubFamilia = TxtSubFamilia.Text;
+                                producto.NumProducto = TxtSubFam_Producto.Text;
+                                producto.CFUnidadMedida = CbUnidadMedida.Text;
+                                producto.DesResumida = TxtNombreProducto.Text;
+                                producto.MUltCosto = Convert.ToDouble(TxtPrecioProducto.Text.Replace("₡", ""));
+                                producto.InventarioRequerido = int.Parse(TxtInventRequerido.Text);
+                                producto.InventarioExistente = int.Parse(TxtExistencia.Text);
+                                producto.CostoTotal = Convert.ToDouble(TxtCostoTotal.Text);
 
+                                if (NegProduct.ModificarProduct(producto))
+                                {
+                                    MessageBox.Show("Producto modificado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
-            //                }
-            //                else
-            //                {
-            //                    Validaciones.MostarError(TxtDescripcion, "Debes ingresar la drescripcion del producto");
-            //                }
+                                    //LIMPIAR FORM
+                                    Validaciones.LimpiarFormulario(tableLayoutPanel1);
+                                    TxtCodigoProducto.ReadOnly = false;
+                                    TxtCodigoProducto.Focus();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Error al modificar el producto", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                }
+                            }
+                            else
+                            {
+                                Validaciones.MostarError(TxtExistencia, "Debes ingresar la existencia del producto");
+                            }
 
-            //            }
-            //            else
-            //            {
-            //                Validaciones.MostarError(TxtCantidad, "Debes ingresar cantidad de producto");
-            //            }
-            //        }
-            //        else
-            //        {
-            //            Validaciones.MostarError(TxtCosto, "Debes Digitar el costo del producto");
-            //        }
-            //    }
-            //    else
-            //    {
-            //        Validaciones.MostarError(TxtNombreProducto, "Debes ingresar el nombre del producto");
-            //    }
+                        }
+                        else
+                        {
+                            Validaciones.MostarError(TxtPrecioProducto, "Debes Digitar el costo del producto");
+                        }
 
-            //}
-            //else
-            //{
-            //    Validaciones.MostarError(TxtCodigoProducto, "Debes ingresar el codigo del producto");
-            //}
+                    }
+                    else
+                    {
+                        Validaciones.MostarError(TxtInventRequerido, "Debes ingresar cantidad de producto");
+                    }
+                }
+                else
+                {
+                    Validaciones.MostarError(TxtNombreProducto, "Debes ingresar el nombre del producto");
+                }
+
+            }
+            else
+            {
+                Validaciones.MostarError(TxtCodigoProducto, "Debes ingresar el codigo del producto");
+            }
 
 
         }
@@ -139,68 +141,69 @@ namespace CapaPresentacion
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
             ////VALICIONES
-            //if (TxtCodigoProducto.TextLength > 0)
-            //{
-            //    Validaciones.LimpiarError(TxtCodigoProducto);
+            if (TxtCodigoProducto.TextLength > 0)
+            {
+                Validaciones.LimpiarError(TxtCodigoProducto);
 
-            //    if (TxtNombreProducto.TextLength > 0)
-            //    {
-            //        Validaciones.LimpiarError(TxtNombreProducto);
+                if (TxtNombreProducto.TextLength > 0)
+                {
+                    Validaciones.LimpiarError(TxtNombreProducto);
 
-            //        if (TxtCantidad.TextLength > 0)
-            //        {
-            //            Validaciones.LimpiarError(TxtCantidad);
+                    if (TxtInventRequerido.TextLength > 0)
+                    {
+                        Validaciones.LimpiarError(TxtInventRequerido);
 
-            //            if (TxtDescripcion.TextLength > 0)
-            //            {
-            //                Validaciones.LimpiarError(TxtDescripcion);
+                        if (TxtPrecioProducto.TextLength > 0)
+                        {
+                            Validaciones.LimpiarError(TxtPrecioProducto);
 
-            //                //CODIGO PARA ELIMINAR Y ENVIAR A LA BASE DE DATOS********************
-            //                producto.CodProducto = TxtCodigoProducto.Text;
-            //                //producto.Estado = false;
+                            if (TxtExistencia.TextLength > 0)
+                            {
+                                Validaciones.LimpiarError(TxtExistencia);
 
-            //                if (NegProduct.EliminarProduct(producto))
-            //                {
-            //                    MessageBox.Show("Producto eliminado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            //                    //LIMPIAR FORM
-            //                    Validaciones.LimpiarFormulario(flowLayoutPanel2);
-            //                    //OCULTAR LOS BOTONES DE NUEVO
-            //                    BtnModificar.Visible = false;
-            //                    BtnEliminar.Visible = false;
-            //                    BtnGuardar.Enabled = true;
-            //                    TxtCodigoProducto.ReadOnly = false;
-            //                    TxtCodigoProducto.Focus();
-            //                }
-            //                else
-            //                {
-            //                    MessageBox.Show("Error al eliminar el producto", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            //                }
+                                //CODIGO PARA Eliminar Y ENVIAR A LA BASE DE DATOS********************
+                                producto.CodProducto = TxtCodigoProducto.Text;
+                                producto.EstadoProD = false;
+                                if (NegProduct.EliminarProduct(producto))
+                                {
+                                    MessageBox.Show("Producto eliminado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
+                                    //LIMPIAR FORM
+                                    Validaciones.LimpiarFormulario(tableLayoutPanel1);
+                                    TxtCodigoProducto.ReadOnly = false;
+                                    TxtCodigoProducto.Focus();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Error al eliminar el producto", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                }
+                            }
+                            else
+                            {
+                                Validaciones.MostarError(TxtExistencia, "Debes ingresar la existencia del producto");
+                            }
 
+                        }
+                        else
+                        {
+                            Validaciones.MostarError(TxtPrecioProducto, "Debes Digitar el costo del producto");
+                        }
 
-            //            }
-            //            else
-            //            {
-            //                Validaciones.MostarError(TxtDescripcion, "Debes ingresar la drescripcion del producto");
-            //            }
-
-            //        }
-            //        else
-            //        {
-            //            Validaciones.MostarError(TxtCantidad, "Debes ingresar cantidad de producto");
-            //        }
-
-            //    }
-            //    else
-            //    {
-            //        Validaciones.MostarError(TxtNombreProducto, "Debes ingresar el nombre del producto");
-            //    }
-
-            //}
-            //else
-            //{
-            //    Validaciones.MostarError(TxtCodigoProducto, "Debes ingresar el codigo del producto");
-            //}
+                    }
+                    else
+                    {
+                        Validaciones.MostarError(TxtInventRequerido, "Debes ingresar cantidad de producto");
+                    }
+                }
+                else
+                {
+                    Validaciones.MostarError(TxtNombreProducto, "Debes ingresar el nombre del producto");
+                }
+            }
+            else
+            {
+                Validaciones.MostarError(TxtCodigoProducto, "Debes ingresar el codigo del producto");
+            }
 
 
 
@@ -209,75 +212,88 @@ namespace CapaPresentacion
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
             ////VALICIONES
-            //if (TxtCodigoProducto.TextLength > 0)
-            //{
-            //    Validaciones.LimpiarError(TxtCodigoProducto);
+            if (TxtCodigoProducto.TextLength > 0)
+            {
+                Validaciones.LimpiarError(TxtCodigoProducto);
 
-            //    if (TxtNombreProducto.TextLength > 0)
-            //    {
-            //        Validaciones.LimpiarError(TxtNombreProducto);
+                if (TxtNombreProducto.TextLength > 0)
+                {
+                    Validaciones.LimpiarError(TxtNombreProducto);
 
-            //        if (TxtCantidad.TextLength > 0)
-            //        {
-            //            Validaciones.LimpiarError(TxtCantidad);
+                    if (TxtInventRequerido.TextLength > 0)
+                    {
+                        Validaciones.LimpiarError(TxtInventRequerido);
 
-            //            if (TxtCosto.TextLength > 0)
-            //            {
-            //                Validaciones.LimpiarError(TxtCosto);
-            //                if (TxtDescripcion.TextLength > 0)
-            //                {
-            //                    Validaciones.LimpiarError(TxtDescripcion);
+                        if (TxtPrecioProducto.TextLength > 0)
+                        {
+                            Validaciones.LimpiarError(TxtPrecioProducto);
+                            if (TxtInventRequerido.TextLength > 0)
+                            {
+                                Validaciones.LimpiarError(TxtInventRequerido);
 
-            //                    //CODIGO PARA GUARDAR Y ENVIAR A LA BASE DE DATOS********************
-            //                    producto.CodProducto = TxtCodigoProducto.Text;
-            //                    producto.NombreProducto = TxtNombreProducto.Text;
-            //                    producto.CostoProducto = TxtCosto.Text.Replace("₡", "");
-            //                    producto.Descripcion = TxtDescripcion.Text;
-            //                    producto.CantidadProducto = int.Parse(TxtCantidad.Text.Trim());
-            //                    //producto.Estado = true;
+                                if (TxtExistencia.TextLength > 0)
+                                {
+                                    Validaciones.LimpiarError(TxtExistencia);
 
-            //                    if (NegProduct.GuardarProduct(producto))
-            //                    {
-            //                        MessageBox.Show("Producto Guardado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                    //CODIGO PARA GUARDAR Y ENVIAR A LA BASE DE DATOS********************
+                                    producto.CodProducto = TxtCodigoProducto.Text;
+                                    producto.CFamilia = TxtCodigoPresupuesto.Text;
+                                    producto.CSubFamilia = TxtSubFamilia.Text;
+                                    producto.NumProducto = TxtSubFam_Producto.Text;
+                                    producto.CFUnidadMedida = CbUnidadMedida.Text;
+                                    producto.DesResumida = TxtNombreProducto.Text;
+                                    producto.MUltCosto = Convert.ToDouble(TxtPrecioProducto.Text.Replace("₡", ""));
+                                    producto.InventarioRequerido = int.Parse(TxtInventRequerido.Text);
+                                    producto.InventarioExistente = int.Parse(TxtExistencia.Text);
+                                    producto.CostoTotal = Convert.ToDouble(TxtCostoTotal.Text);
+                                    producto.EstadoProD = true;
 
-            //                        //LIMPIAR FORM
-            //                        Validaciones.LimpiarFormulario(flowLayoutPanel2);
-            //                        TxtCodigoProducto.ReadOnly = false;
-            //                        TxtCodigoProducto.Focus();
-            //                    }
-            //                    else
-            //                    {
-            //                        MessageBox.Show("Error al guardar el producto", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            //                    }
+                                    if (NegProduct.GuardarProduct(producto))
+                                    {
+                                        MessageBox.Show("Producto Guardado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
-            //                }
-            //                else
-            //                {
-            //                    Validaciones.MostarError(TxtDescripcion, "Debes ingresar la drescripcion del producto");
-            //                }
-            //            }
-            //            else
-            //            {
-            //                Validaciones.MostarError(TxtCosto, "Debes Digitar el costo del producto");
-            //            }
+                                        //LIMPIAR FORM
+                                        Validaciones.LimpiarFormulario(tableLayoutPanel1);
+                                        TxtCodigoProducto.ReadOnly = false;
+                                        TxtCodigoProducto.Focus();
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Error al guardar el producto", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                    }
+                                }
+                                else
+                                {
+                                    Validaciones.MostarError(TxtExistencia, "Debes ingresar la drescripcion del producto");
+                                }
+                            }
+                            else
+                            {
+                                Validaciones.MostarError(TxtInventRequerido, "Debes ingresar la drescripcion del producto");
+                            }
+                        }
+                        else
+                        {
+                            Validaciones.MostarError(TxtPrecioProducto, "Debes Digitar el costo del producto");
+                        }
 
-            //        }
-            //        else
-            //        {
-            //            Validaciones.MostarError(TxtCantidad, "Debes ingresar cantidad de producto");
-            //        }
+                    }
+                    else
+                    {
+                        Validaciones.MostarError(TxtInventRequerido, "Debes ingresar cantidad de producto");
+                    }
 
-            //    }
-            //    else
-            //    {
-            //        Validaciones.MostarError(TxtNombreProducto, "Debes ingresar el nombre del producto");
-            //    }
+                }
+                else
+                {
+                    Validaciones.MostarError(TxtNombreProducto, "Debes ingresar el nombre del producto");
+                }
 
-            //}
-            //else
-            //{
-            //    Validaciones.MostarError(TxtCodigoProducto, "Debes ingresar el codigo del producto");
-            //}
+            }
+            else
+            {
+                Validaciones.MostarError(TxtCodigoProducto, "Debes ingresar el codigo del producto");
+            }
 
         }
 
@@ -288,7 +304,7 @@ namespace CapaPresentacion
 
         private void TxtCodigoProducto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+
 
         }
 
@@ -324,10 +340,10 @@ namespace CapaPresentacion
 
         private void TxtSubFam_Producto_Leave(object sender, EventArgs e)
         {
-            if (TxtCodigoPresupuesto.Text!= string.Empty)
+            if (TxtCodigoPresupuesto.Text != string.Empty)
             {
                 Validaciones.LimpiarError(TxtCodigoPresupuesto);
-                
+
                 CodigoArmado = TxtCodigoPresupuesto.Text.Trim();
 
                 if (TxtSubFamilia.Text != string.Empty)
@@ -361,10 +377,45 @@ namespace CapaPresentacion
                 Validaciones.MostarError(TxtCodigoPresupuesto, "Debes Ingresar el Codigo de Presupuesto");
             }
         }
+        //Filtrar por presupuesto
+        private void BtnFiltrar_Click(object sender, EventArgs e)
+        {
+            //buscar
+            IEnumerable<TbProducto> listaAux = new List<TbProducto>();
 
+            if (TxtBuscarPorPresupuesto.Text != string.Empty)
+            {
+
+                listaAux = ListProducto.Where(x => x.CFamilia.ToString().Contains(TxtBuscarPorPresupuesto.Text)).ToList();
+                TxtBuscarPorPresupuesto.ResetText();
+            }
+            RefreshDatos((List<TbProducto>)listaAux);
+  
+        }
+        //Refrescar DataGridView
+        private void RefreshDatos(List<TbProducto> listaProductos)
+        {
+            DgvListaProductos.Rows.Clear();
+
+            foreach (TbProducto tbProducto in listaProductos)
+            {
+                int nr = DgvListaProductos.Rows.Add();
+
+                DgvListaProductos.Rows[nr].Cells[0].Value = tbProducto.CFamilia;
+                DgvListaProductos.Rows[nr].Cells[1].Value = tbProducto.CSubFamilia;
+                DgvListaProductos.Rows[nr].Cells[2].Value = tbProducto.NumProducto;
+                DgvListaProductos.Rows[nr].Cells[3].Value = tbProducto.CodProducto;
+                DgvListaProductos.Rows[nr].Cells[4].Value = tbProducto.DesResumida;
+                DgvListaProductos.Rows[nr].Cells[5].Value = tbProducto.CFUnidadMedida;
+                DgvListaProductos.Rows[nr].Cells[6].Value = tbProducto.InventarioRequerido;
+                DgvListaProductos.Rows[nr].Cells[7].Value = tbProducto.MUltCosto;
+                DgvListaProductos.Rows[nr].Cells[8].Value = tbProducto.CostoTotal;
+                DgvListaProductos.Rows[nr].Cells[9].Value = tbProducto.InventarioExistente;
+            }
+        }
         private void DgvListaProductos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex!=-1)
+            if (e.RowIndex != -1)
             {
                 int fila = e.RowIndex;
 
@@ -373,7 +424,7 @@ namespace CapaPresentacion
                 TxtSubFam_Producto.Text = DgvListaProductos.Rows[fila].Cells[2].Value.ToString();
                 TxtCodigoProducto.Text = DgvListaProductos.Rows[fila].Cells[3].Value.ToString();
                 TxtNombreProducto.Text = DgvListaProductos.Rows[fila].Cells[4].Value.ToString();
-                if (DgvListaProductos.Rows[fila].Cells[5].Value.ToString()== "Unidad")
+                if (DgvListaProductos.Rows[fila].Cells[5].Value.ToString() == "Unidad")
                 {
                     CbUnidadMedida.SelectedIndex = 0;
                 }
@@ -400,18 +451,17 @@ namespace CapaPresentacion
             int InventarioRequerido = Convert.ToInt32(TxtInventRequerido.Text);
             double Precio = Convert.ToDouble(TxtPrecioProducto.Text.Replace("₡", ""));
             double CostoTotal = InventarioRequerido * Precio;
-            TxtCostoTotal.Text= CostoTotal.ToString();
+            TxtCostoTotal.Text = CostoTotal.ToString();
         }
 
         private void FrmAñadirProductos_Load(object sender, EventArgs e)
         {
             CbUnidadMedida.DataSource = Enum.GetValues(typeof(Enums.Unidad_Medida));
-          
         }
 
         private void TxtCostoTotal_TextChanged(object sender, EventArgs e)
         {
             Validaciones.AgregarSimboloColones(TxtCostoTotal);
-        }
+        }      
     }
 }
