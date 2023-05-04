@@ -12,15 +12,15 @@ using Utilidades;
 
 namespace CapaPresentacion
 {
-    public partial class FrmListaColaboradores : Form
+    public partial class FrmListaUsuarios : Form
     {
         //------------------------------------------------------------------------------------------
         /// <summary>
         /// Instancia al formulario principal para acceder a los controles que se encuentran en el
         /// </summary>
-        FrmColaboradores frmcolaboradores = (FrmColaboradores)Application.OpenForms["FrmColaboradores"];
+        FrmUsuarios frmcolaboradores = (FrmUsuarios)Application.OpenForms["FrmColaboradores"];
         //------------------------------------------------------------------------------------------
-        public FrmListaColaboradores()
+        public FrmListaUsuarios()
         {
             InitializeComponent();
         }
