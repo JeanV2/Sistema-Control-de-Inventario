@@ -1,4 +1,5 @@
-﻿using CapaEntidades;
+﻿using CapaDatos;
+using CapaEntidades;
 using CapaNegocios;
 using System;
 using System.Collections;
@@ -26,7 +27,7 @@ namespace CapaPresentacion
 
             TxtSolicitud.Text = ObtenerCodigo_SolicitudCompra();
 
-
+     
             //LLenamos el cb de presupuesto con una lista de presupuesto
             PresupuestosList = NPresupuestos.ListaPresupuestos();
 
@@ -442,7 +443,31 @@ namespace CapaPresentacion
                 }
             }
         }
-    
+        /// <summary>
+        /// metodo para cargar el Combo de Presupuestos
+        /// </summary>
+        public void CargarComboPresupuesto()
+        {
+            NegocioPresupuestos presupuestos= new NegocioPresupuestos();
+            List<TbPresupuesto> presupuestosList;
+            presupuestosList = presupuestos.ListaPresupuestos();
+            CbListaPresupuestos.DataSource= presupuestosList;
+            CbListaPresupuestos.DisplayMember = "NombrePresupuesto";
+            CbListaPresupuestos.ValueMember = "numeroCuenta";
+
+        }
+        public void CargarComboProductos(string NumeroCuenta)
+        {
+            inventarioEntities1 db = new inventarioEntities1();
+            CbCodigoProducto.DataSource= db.TbProducto.Where(x=>x.CFamilia.Contains(NumeroCuenta));
+            CbCodigoProducto.DisplayMember = "CodProducto";
+            CbCodigoProducto.ValueMember = "CodProducto";
+        }
+        private void FrmSolicitudCompra_Load_1(object sender, EventArgs e)
+        {
+            txtAutoriza.Text = FrmLogin.NombreCompleto;
+            CargarComboPresupuesto();
+        }
     }
 
 }
