@@ -14,12 +14,7 @@ namespace CapaPresentacion
 {
     public partial class FrmListaProductosSolicituCompra : Form
     {
-        //------------------------------------------------------------------------------------------
-        /// <summary>
-        /// Instancia al formulario principal para acceder a los controles que se encuentran en el
-        /// </summary>
-        FrmSolicitudCompra frmSolicitud = (FrmSolicitudCompra)Application.OpenForms["FrmSolicitudCompra"];
-        //------------------------------------------------------------------------------------------
+
         /// <summary>
         /// Istancia de la capa negocios de productos
         /// </summary>
@@ -43,33 +38,22 @@ namespace CapaPresentacion
             foreach (TbProducto Producto in Lista)
             {
                 int row = DgvListaProductos.Rows.Add();
-                DgvListaProductos.Rows[row].Cells[0].Value = Producto.CodProducto;
-                DgvListaProductos.Rows[row].Cells[1].Value = Producto.NombreProducto;
-                DgvListaProductos.Rows[row].Cells[2].Value = Producto.CantidadProducto;
-                DgvListaProductos.Rows[row].Cells[3].Value = Producto.CostoProducto;
+                DgvListaProductos.Rows[row].Cells[0].Value = Producto.CFamilia;
+                DgvListaProductos.Rows[row].Cells[1].Value = Producto.CSubFamilia;
+                DgvListaProductos.Rows[row].Cells[2].Value = Producto.NumProducto;
+                DgvListaProductos.Rows[row].Cells[3].Value = Producto.CodProducto;
+                DgvListaProductos.Rows[row].Cells[4].Value = Producto.DesResumida;
+                DgvListaProductos.Rows[row].Cells[5].Value = Producto.CFUnidadMedida;
+                DgvListaProductos.Rows[row].Cells[6].Value = Producto.InventarioRequerido;
+                DgvListaProductos.Rows[row].Cells[7].Value = Producto.MUltCosto;
+                DgvListaProductos.Rows[row].Cells[8].Value = Producto.CostoTotal;
+                DgvListaProductos.Rows[row].Cells[9].Value = Producto.InventarioExistente;
 
             }
         }
-        private void BtnVolver_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void DgvListaProductos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            // METODO PASAR DATOS NO CAMBIAR
-            if (e.RowIndex != -1)
-            {
-                int fila = e.RowIndex;
-
-                frmSolicitud.TxtCodigoProd.Text = DgvListaProductos.Rows[fila].Cells[0].Value.ToString();
-                frmSolicitud.TxtPrecioProd.Text = DgvListaProductos.Rows[fila].Cells[3].Value.ToString();
 
 
-                //frmSolicitud.TxtCantidad.Text = DgvListaProductos.Rows[fila].Cells[2].Value.ToString();
-                this.Close();
-            }
-        }
+
 
         private void FrmListaProductosSolicituCompra_FormClosed(object sender, FormClosedEventArgs e)
         {

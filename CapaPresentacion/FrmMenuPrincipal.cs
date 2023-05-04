@@ -63,7 +63,7 @@ namespace CapaPresentacion
 
         private void BtnColaboradores_Click(object sender, EventArgs e)
         {
-            AbrirFormularioHijo(new FrmColaboradores());
+            AbrirFormularioHijo(new FrmUsuarios());
         }
 
         private void BtnGenerarCompras_Click(object sender, EventArgs e)
@@ -92,7 +92,7 @@ namespace CapaPresentacion
 
         private void BtnSolicitud_Click(object sender, EventArgs e)
         {
-            AbrirFormularioHijo(new FrmSolicitudInsumos());
+            AbrirFormularioHijo(new FrmSolicitudEntrega());
         }
 
         private void BtnHCompras_Click(object sender, EventArgs e)
@@ -105,6 +105,29 @@ namespace CapaPresentacion
         {
             FrmHistInsumos histInsumos = new FrmHistInsumos();
             histInsumos.ShowDialog();
+        }
+
+        private void MenuProductos_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (MenuProductos.SelectedIndex == 0)
+            {
+                
+            }
+            if (MenuProductos.SelectedIndex==1)
+            {
+                AbrirFormularioHijo(new FrmAñadirProductos());
+                MenuProductos.SelectedIndex = 0;
+            }
+            if (MenuProductos.SelectedIndex ==2)
+            {
+                AbrirFormularioHijo(new FrmImportarArticulos());
+                MenuProductos.SelectedIndex = 0;
+            }
+        }
+
+        private void MenuProductos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
