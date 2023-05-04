@@ -226,12 +226,12 @@ namespace CapaPresentacion
                     {
                         if (item.CodProducto == DgvListaCompra.Rows[r].Cells[1].Value.ToString())
                         {
-                            Producto.CodProducto = item.CodProducto;
-                            Producto.NombreProducto = item.NombreProducto;
-                            Producto.CostoProducto = item.CostoProducto;
-                            Producto.Descripcion = item.Descripcion;
-                            Producto.CantidadProducto = item.CantidadProducto + int.Parse(DgvListaCompra.Rows[r].Cells[2].Value.ToString());
-                            NProducto.ModificarProduct(Producto);
+                            //Producto.CodProducto = item.CodProducto;
+                            //Producto.NombreProducto = item.NombreProducto;
+                            //Producto.CostoProducto = item.CostoProducto;
+                            //Producto.Descripcion = item.Descripcion;
+                            //Producto.CantidadProducto = item.CantidadProducto + int.Parse(DgvListaCompra.Rows[r].Cells[2].Value.ToString());
+                            //NProducto.ModificarProduct(Producto);
                         }
 
                     }
