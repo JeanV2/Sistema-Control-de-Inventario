@@ -83,17 +83,11 @@ namespace CapaPresentacion
                 presupuesto.nombrePresupuesto = nombre;
                 saldo = Convert.ToDouble(dt.Rows[i]["Saldo "].ToString());
                 presupuesto.MontoPresupuesto = saldo;
+                presupuesto.EstadoPresupuesto = 1;
                 //MessageBox.Show(saldo.ToString());
             }
 
-            if(negocioPresupuestos.GuardarPresupuesto(presupuesto))
-            {
-                MessageBox.Show("Guardado");
-            }
-            else
-            {
-                MessageBox.Show("Error");
-            }
+            negocioPresupuestos.GuardarPresupuesto(presupuesto);
 
         }
 
