@@ -22,10 +22,6 @@ namespace CapaEntidades
         }
     
         public string CodProducto { get; set; }
-        public string NombreProducto { get; set; }
-        public Nullable<int> CantidadProducto { get; set; }
-        public string CostoProducto { get; set; }
-        public string Descripcion { get; set; }
         public string CFamilia { get; set; }
         public string CSubFamilia { get; set; }
         public string NumProducto { get; set; }
@@ -35,9 +31,11 @@ namespace CapaEntidades
         public Nullable<int> InventarioRequerido { get; set; }
         public Nullable<int> InventarioExistente { get; set; }
         public Nullable<double> CostoTotal { get; set; }
+        public Nullable<bool> EstadoProD { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TbCompraSolicitudP> TbCompraSolicitudP { get; set; }
+        public virtual TbPresupuesto TbPresupuesto { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TbProductoInsumoS> TbProductoInsumoS { get; set; }
     }

@@ -42,7 +42,7 @@ namespace CapaPresentacion
                 DgvListaProductos.Rows[row].Cells[1].Value = Producto.CSubFamilia;
                 DgvListaProductos.Rows[row].Cells[2].Value = Producto.NumProducto;
                 DgvListaProductos.Rows[row].Cells[3].Value = Producto.CodProducto;
-                DgvListaProductos.Rows[row].Cells[4].Value = Producto.NombreProducto;
+                DgvListaProductos.Rows[row].Cells[4].Value = Producto.DesResumida;
                 DgvListaProductos.Rows[row].Cells[5].Value = Producto.CFUnidadMedida;
                 DgvListaProductos.Rows[row].Cells[6].Value = Producto.InventarioRequerido;
                 DgvListaProductos.Rows[row].Cells[7].Value = Producto.MUltCosto;
