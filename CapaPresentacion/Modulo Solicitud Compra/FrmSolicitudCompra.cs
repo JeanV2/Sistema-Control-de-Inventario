@@ -456,17 +456,67 @@ namespace CapaPresentacion
             CbListaPresupuestos.ValueMember = "numeroCuenta";
 
         }
+        /// <summary>
+        /// carga el combo de productos segun la seleccion del combo de presupuesto
+        /// </summary>
+        /// <param name="NumeroCuenta"></param>
         public void CargarComboProductos(string NumeroCuenta)
         {
             inventarioEntities1 db = new inventarioEntities1();
-            CbCodigoProducto.DataSource= db.TbProducto.Where(x=>x.CFamilia.Contains(NumeroCuenta));
+            CbCodigoProducto.DataSource= db.TbProducto.Where(x=>x.CFamilia.Contains(NumeroCuenta)).ToList();
             CbCodigoProducto.DisplayMember = "CodProducto";
             CbCodigoProducto.ValueMember = "CodProducto";
         }
+        /// <summary>
+        /// carga los campos segun la seleeccion del combo de codigo de producto
+        /// </summary>
+        /// <param name="CodigoProducto"></param>
+        public void CargarCamposProducto(String CodigoProducto)
+        {
+            inventarioEntities1 db = new inventarioEntities1();
+            List<TbProducto> ListProd=db.TbProducto.ToList();
+            ListProd.Where(x=>x.CodProducto==CodigoProducto).SingleOrDefault();
+            foreach (TbProducto Prod in ListProd)
+            {
+                TxtNombreProducto.Text = Prod.DesResumida;
+                TxtPrecioProd.Text = Prod.MUltCosto.ToString();
+            }
+           
+        }
+        /// <summary>
+        /// carga el monto del presupuesto segun la seleccion del combo de presupuesto
+        /// </summary>
+        /// <param name="NumeroCuenta"></param>
+        public void CargarCampoPresupuesto(String NumeroCuenta)
+        {
+            inventarioEntities1 db = new inventarioEntities1();
+              List<TbPresupuesto> listPre= db.TbPresupuesto.ToList();
+            listPre.Where(x=>x.numeroCuenta==NumeroCuenta).SingleOrDefault();
+            foreach (TbPresupuesto Pre in listPre)
+            {
+                TxtMontuoDisponible.Text=Pre.MontoPresupuesto.ToString();
+            }
+        }
+
         private void FrmSolicitudCompra_Load_1(object sender, EventArgs e)
         {
             txtAutoriza.Text = FrmLogin.NombreCompleto;
             CargarComboPresupuesto();
+        }
+
+        private void CbListaPresupuestos_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+ 
+        }
+
+        private void CbListaPresupuestos_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            CargarComboProductos(CbListaPresupuestos.ValueMember);
+        }
+
+        private void CbCodigoFamilia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 
