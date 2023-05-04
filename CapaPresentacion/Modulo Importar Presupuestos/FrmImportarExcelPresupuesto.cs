@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaEntidades;
+using CapaNegocios;
 using Microsoft.Office.Interop.Excel;
 using Application = Microsoft.Office.Interop.Excel.Application;
 using DataTable = System.Data.DataTable;
@@ -18,7 +19,7 @@ namespace CapaPresentacion
     {
         DataTable dt = new DataTable();
         TbPresupuesto presupuesto = new TbPresupuesto();
-
+        NegocioPresupuestos negocioPresupuestos = new NegocioPresupuestos();
         public FrmImportarExcelPresupuesto()
         {
             InitializeComponent();
@@ -65,7 +66,7 @@ namespace CapaPresentacion
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
             //Validacion de si la tablas se encuentra vacia
-            if (dt.Columns == null)
+            if (dgvDatos.Rows.Count == -1)
             {
                 MessageBox.Show("Debes importar el exel");
                 return;
@@ -82,7 +83,16 @@ namespace CapaPresentacion
                 presupuesto.nombrePresupuesto = nombre;
                 saldo = Convert.ToDouble(dt.Rows[i]["Saldo "].ToString());
                 presupuesto.MontoPresupuesto = saldo;
-                MessageBox.Show(saldo.ToString());
+                //MessageBox.Show(saldo.ToString());
+            }
+
+            if(negocioPresupuestos.GuardarPresupuesto(presupuesto))
+            {
+                MessageBox.Show("Guardado");
+            }
+            else
+            {
+                MessageBox.Show("Error");
             }
 
         }
