@@ -61,8 +61,8 @@ namespace CapaPresentacion
 
                 if (Codigo == pr.CodProducto)
                 {
-                    int total = (int)pr.CantidadProducto - cantidad;
-                    pr.CantidadProducto = total;
+                    int total = (int)pr.InventarioExistente - cantidad;
+                    pr.InventarioExistente = total;
                     if (Insproductos.ModificarProduct(pr))
                     {
                         cod = true;
@@ -97,7 +97,7 @@ namespace CapaPresentacion
                 {
                     if (cantidad > 0)
                     {
-                        if (cantidad <= pr.CantidadProducto)
+                        if (cantidad <= pr.InventarioExistente)
                         {
                             cod = true;
                             break;

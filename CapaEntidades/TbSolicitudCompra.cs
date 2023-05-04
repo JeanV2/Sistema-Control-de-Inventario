@@ -23,6 +23,7 @@ namespace CapaEntidades
         public string IdSolicitudCompra { get; set; }
         public Nullable<System.DateTime> FechaSolicitudCompra { get; set; }
         public string IdColaboradorCompra { get; set; }
+        public Nullable<bool> EstadoSolicitud { get; set; }
     
         public virtual TbColaborador TbColaborador { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
