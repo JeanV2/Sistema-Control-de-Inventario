@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaEntidades;
 using Microsoft.Office.Interop.Excel;
 using Application = Microsoft.Office.Interop.Excel.Application;
 using DataTable = System.Data.DataTable;
@@ -15,6 +16,9 @@ namespace CapaPresentacion
 {
     public partial class FrmImportarExcelPresupuesto : Form
     {
+        DataTable dt = new DataTable();
+        TbPresupuesto presupuesto = new TbPresupuesto();
+
         public FrmImportarExcelPresupuesto()
         {
             InitializeComponent();
@@ -34,7 +38,7 @@ namespace CapaPresentacion
                 Worksheet worksheet = (Worksheet)workbook.Sheets[1];
 
                 // Obtiene los datos de la hoja de trabajo y los guarda en un DataTable
-                DataTable dt = new DataTable();
+               
                 for (int i = 1; i <= worksheet.UsedRange.Columns.Count; i++)
                 {
                     dt.Columns.Add((string)(worksheet.Cells[1, i] as Range).Value);
@@ -56,6 +60,31 @@ namespace CapaPresentacion
                 // Asigna los datos al DataGridView
                 dgvDatos.DataSource = dt;
             }
+        }
+
+        private void BtnGuardar_Click(object sender, EventArgs e)
+        {
+            //Validacion de si la tablas se encuentra vacia
+            if (dt.Columns == null)
+            {
+                MessageBox.Show("Debes importar el exel");
+                return;
+            }
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            { 
+                string cuenta = string.Empty;
+                string nombre = string.Empty;
+                double saldo = 0;
+                cuenta =  dt.Rows[i]["Cuenta"].ToString();
+                presupuesto.numeroCuenta = cuenta;
+                nombre = dt.Rows[i]["Nombre Presupuesto"].ToString().Trim();
+                presupuesto.nombrePresupuesto = nombre;
+                saldo = Convert.ToDouble(dt.Rows[i]["Saldo "].ToString());
+                presupuesto.MontoPresupuesto = saldo;
+                MessageBox.Show(saldo.ToString());
+            }
+
         }
 
         //private void FrmImportarExcelPresupuesto_FormClosed(object sender, FormClosedEventArgs e)
