@@ -38,10 +38,19 @@ namespace Utilidades
         /// <summary>
         /// El tipo que se asigna a su respectivo retiro
         /// </summary>
-        public enum Estado_retiro
+        public enum Tipo_retiro
         {
             Administrativo=0,
             Cursos=1
+
+        }
+        /// <summary>
+        /// Unidad de medida para los productos
+        /// </summary>
+        public enum Unidad_Medida
+        {
+            Unidad = 0,
+            Kilogramos = 1
 
         }
     }
