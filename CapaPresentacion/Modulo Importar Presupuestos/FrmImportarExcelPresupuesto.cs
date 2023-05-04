@@ -27,6 +27,8 @@ namespace CapaPresentacion
 
         private void BtnImportar_Click(object sender, EventArgs e)
         {
+            dt.Rows.Clear();
+            dt.Columns.Clear();
             // Abre el cuadro de diálogo para seleccionar el archivo de Excel
             OpenFileDialog openFileDialog = new OpenFileDialog();
             if (openFileDialog.ShowDialog() == DialogResult.OK)
@@ -38,22 +40,28 @@ namespace CapaPresentacion
                 // Obtiene la primera hoja de trabajo
                 Worksheet worksheet = (Worksheet)workbook.Sheets[1];
 
-                // Obtiene los datos de la hoja de trabajo y los guarda en un DataTable
-               
-                for (int i = 1; i <= worksheet.UsedRange.Columns.Count; i++)
+                if (validarFormatoExcel(worksheet))
                 {
-                    dt.Columns.Add((string)(worksheet.Cells[1, i] as Range).Value);
-                }
-                for (int i = 2; i <= worksheet.UsedRange.Rows.Count; i++)
-                {
-                    DataRow dr = dt.NewRow();
-                    for (int j = 1; j <= worksheet.UsedRange.Columns.Count; j++)
+                    // Obtiene los datos de la hoja de trabajo y los guarda en un DataTable
+                    for (int i = 1; i <= worksheet.UsedRange.Columns.Count; i++)
                     {
-                        dr[j - 1] = (worksheet.Cells[i, j] as Range).Value;
+                        dt.Columns.Add((string)(worksheet.Cells[1, i] as Range).Value);
                     }
-                    dt.Rows.Add(dr);
+                    for (int i = 2; i <= worksheet.UsedRange.Rows.Count; i++)
+                    {
+                        DataRow dr = dt.NewRow();
+                        for (int j = 1; j <= worksheet.UsedRange.Columns.Count; j++)
+                        {
+                            dr[j - 1] = (worksheet.Cells[i, j] as Range).Value;
+                        }
+                        dt.Rows.Add(dr);
+                    }
                 }
-
+                else
+                {
+                    MessageBox.Show("Error en el formato");
+                }
+                
                 // Cierra el archivo y la instancia de Excel
                 workbook.Close();
                 excel.Quit();
@@ -65,35 +73,50 @@ namespace CapaPresentacion
 
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
-            //Validacion de si la tablas se encuentra vacia
-            if (dgvDatos.Rows.Count == -1)
-            {
-                MessageBox.Show("Debes importar el exel");
-                return;
-            }
+            
+            //for (int i = 0; i < dt.Rows.Count; i++)
+            //{ 
+            //    string cuenta = string.Empty;
+            //    string nombre = string.Empty;
+            //    double saldo = 0;
+            //    cuenta =  dt.Rows[i]["Cuenta"].ToString();
+            //    presupuesto.numeroCuenta = cuenta;
+            //    nombre = dt.Rows[i]["Nombre Presupuesto"].ToString().Trim();
+            //    presupuesto.nombrePresupuesto = nombre;
+            //    saldo = Convert.ToDouble(dt.Rows[i]["Saldo "].ToString());
+            //    presupuesto.MontoPresupuesto = saldo;
+            //    presupuesto.EstadoPresupuesto = 1;
 
-            for (int i = 0; i < dt.Rows.Count; i++)
-            { 
-                string cuenta = string.Empty;
-                string nombre = string.Empty;
-                double saldo = 0;
-                cuenta =  dt.Rows[i]["Cuenta"].ToString();
-                presupuesto.numeroCuenta = cuenta;
-                nombre = dt.Rows[i]["Nombre Presupuesto"].ToString().Trim();
-                presupuesto.nombrePresupuesto = nombre;
-                saldo = Convert.ToDouble(dt.Rows[i]["Saldo "].ToString());
-                presupuesto.MontoPresupuesto = saldo;
-                presupuesto.EstadoPresupuesto = 1;
-                //MessageBox.Show(saldo.ToString());
-            }
-
-            negocioPresupuestos.GuardarPresupuesto(presupuesto);
-
+            //   negocioPresupuestos.GuardarPresupuesto(presupuesto);
+             
+            //    if(cuenta == presupuesto.numeroCuenta)
+            //    {
+            //        nombre = dt.Rows[i]["Nombre Presupuesto"].ToString().Trim();
+            //        saldo = Convert.ToDouble(dt.Rows[i]["Saldo "].ToString());
+            //        negocioPresupuestos.EditarPresupuesto(presupuesto);
+            //    }
+           // }
         }
+        public bool validarFormatoExcel(Microsoft.Office.Interop.Excel.Worksheet worksheet)
+        {
 
-        //private void FrmImportarExcelPresupuesto_FormClosed(object sender, FormClosedEventArgs e)
-        //{
-        //    this.Close();   
-        //}
+            if ((string)(worksheet.Cells[1, 1] as Range).Value != "Nombre Presupuesto")
+            {
+                return false;
+            }
+            else if (Convert.ToString((string)(worksheet.Cells[1, 2] as Range).Value) != "Cuenta")
+            {
+                return false;
+            }
+            else if ((string)(worksheet.Cells[1, 3] as Range).Value != "Saldo ")
+            {
+                return false;
+
+            }
+            else
+            {
+                return true;
+            }
+        }
     }
 }
