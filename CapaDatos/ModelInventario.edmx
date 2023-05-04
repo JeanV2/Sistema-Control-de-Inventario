@@ -91,6 +91,7 @@
           <Property Name="IdColaboradorRecibe" Type="varchar" MaxLength="50" />
           <Property Name="ReferenciaCurso" Type="varchar" MaxLength="50" />
           <Property Name="EstadoSolicitud" Type="bit" />
+          <Property Name="fechaSolicitud" Type="date" />
         </EntityType>
         <Association Name="FK_NumeroCuenta_CodPresupuesto">
           <End Role="TbPresupuesto" Type="Self.TbPresupuesto" Multiplicity="1" />
@@ -354,6 +355,7 @@
           <Property Name="IdColaboradorRecibe" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ReferenciaCurso" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="EstadoSolicitud" Type="Boolean" />
+          <Property Name="fechaSolicitud" Type="DateTime" Precision="0" />
           <NavigationProperty Name="TbColaborador" Relationship="inventarioModel.FK_TbSolicitudInsumo_TbColaborador" FromRole="TbSolicitudInsumo" ToRole="TbColaborador" />
           <NavigationProperty Name="TbProductoInsumoS" Relationship="inventarioModel.FK_TbProductoInsumoS_TbSolicitudInsumo1" FromRole="TbSolicitudInsumo" ToRole="TbProductoInsumoS" />
         </EntityType>
@@ -533,6 +535,7 @@
           <EntitySetMapping Name="TbSolicitudInsumo">
             <EntityTypeMapping TypeName="inventarioModel.TbSolicitudInsumo">
               <MappingFragment StoreEntitySet="TbSolicitudInsumo">
+                <ScalarProperty Name="fechaSolicitud" ColumnName="fechaSolicitud" />
                 <ScalarProperty Name="EstadoSolicitud" ColumnName="EstadoSolicitud" />
                 <ScalarProperty Name="ReferenciaCurso" ColumnName="ReferenciaCurso" />
                 <ScalarProperty Name="IdColaboradorRecibe" ColumnName="IdColaboradorRecibe" />
