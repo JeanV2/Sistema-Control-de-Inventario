@@ -48,7 +48,7 @@ namespace CapaPresentacion
                     {
                         dt.Columns.Add((string)(worksheet.Cells[1, i] as Range).Value);
                     }
-                    for (int i = 2; i <= 20; i++)
+                    for (int i = 2; i <= 10; i++)
                     {
                         DataRow dr = dt.NewRow();
                         for (int j = 1; j <= 10; j++)
@@ -135,41 +135,26 @@ namespace CapaPresentacion
             ListProductos = Db.TbProducto.ToList();
             for (int i = 0; i < dgvDatos.RowCount; i++)
             {
-                string cod = dgvDatos.Rows[i].Cells[0].ToString();
-                foreach (var item in ListProductos)
-                {
-                    if (item.CodProducto==cod)
-                    {
-                        producto.CodProducto = cod;
-                        producto.DesResumida = dgvDatos.Rows[i].Cells[1].Value.ToString();
-                        producto.CostoTotal =int.Parse( dgvDatos.Rows[i].Cells[2].Value.ToString());
-                        producto.CFamilia = dgvDatos.Rows[i].Cells[3].Value.ToString();
-                        producto.CSubFamilia = dgvDatos.Rows[i].Cells[4].Value.ToString();
-                        producto.NumProducto = dgvDatos.Rows[i].Cells[5].Value.ToString();
-                        producto.CFUnidadMedida = dgvDatos.Rows[i].Cells[6].Value.ToString();
-                        if ((int)dgvDatos.Rows[i].Cells[7].Value != 0)
-                        {
-                            producto.InventarioRequerido = item.InventarioRequerido + (int)dgvDatos.Rows[i].Cells[7].Value;
-                        }
-                        else
-                        {
-                            producto.InventarioRequerido = (int)dgvDatos.Rows[i].Cells[7].Value;
-                        }
-                        
-                        //producto.CostoTotal =(int)producto.CostoProducto* producto.InventarioRequerido;
+               
 
-
-
-               producto.CFamilia = dgvDatos.Rows[i].Cells[0].Value.ToString();
+               producto.CFamilia = "1"+dgvDatos.Rows[i].Cells[0].Value.ToString();
                producto.CSubFamilia = dgvDatos.Rows[i].Cells[1].Value.ToString();
                producto.NumProducto = dgvDatos.Rows[i].Cells[2].Value.ToString();
                producto.CodProducto = dgvDatos.Rows[i].Cells[3].ToString();
                producto.CFUnidadMedida = dgvDatos.Rows[i].Cells[4].Value.ToString();
-               producto.NombreProducto = dgvDatos.Rows[i].Cells[5].Value.ToString();
+               producto.DesResumida = dgvDatos.Rows[i].Cells[5].Value.ToString();
                producto.InventarioRequerido = int.Parse(dgvDatos.Rows[i].Cells[6].Value.ToString());
-               producto.CostoProducto = dgvDatos.Rows[i].Cells[7].Value.ToString();
+               producto.MUltCosto = int.Parse(dgvDatos.Rows[i].Cells[7].Value.ToString());
                producto.CostoTotal = int.Parse(dgvDatos.Rows[i].Cells[8].Value.ToString());
-                //producto.InventarioExistente= int.Parse(dgvDatos.Rows[i].Cells[9].Value.ToString());
+                if (dgvDatos.Rows[i].Cells[9].Value.ToString() != "")
+                {
+                    producto.InventarioExistente = int.Parse(dgvDatos.Rows[i].Cells[9].Value.ToString());
+                }
+                else
+                {
+                    producto.InventarioExistente = 0;
+                }
+                   
 
                 Prod.GuardarProduct(producto);
 
