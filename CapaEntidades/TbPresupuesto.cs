@@ -17,5 +17,8 @@ namespace CapaEntidades
         public string numeroCuenta { get; set; }
         public Nullable<double> MontoPresupuesto { get; set; }
         public string nombrePresupuesto { get; set; }
+        public Nullable<int> EstadoPresupuesto { get; set; }
+    
+        public virtual TbProducto TbProducto { get; set; }
     }
 }
