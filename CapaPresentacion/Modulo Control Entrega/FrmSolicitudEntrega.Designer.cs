@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.BtnConfirmar = new Guna.UI2.WinForms.Guna2Button();
             this.DgvListaProductos = new Guna.UI2.WinForms.Guna2DataGridView();
@@ -69,7 +69,8 @@
             // 
             this.panel2.Controls.Add(this.BtnConfirmar);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 459);
+            this.panel2.Location = new System.Drawing.Point(0, 565);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(4, 4, 10, 4);
             this.panel2.Size = new System.Drawing.Size(914, 43);
@@ -108,8 +109,8 @@
             // 
             this.DgvListaProductos.AllowUserToAddRows = false;
             this.DgvListaProductos.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(244)))), ((int)(((byte)(196)))));
-            this.DgvListaProductos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(244)))), ((int)(((byte)(196)))));
+            this.DgvListaProductos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.DgvListaProductos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(54)))), ((int)(((byte)(94)))));
             this.DgvListaProductos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -127,14 +128,14 @@
             this.Column3,
             this.Column4,
             this.X});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(194)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(231)))), ((int)(((byte)(123)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DgvListaProductos.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(194)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(231)))), ((int)(((byte)(123)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DgvListaProductos.DefaultCellStyle = dataGridViewCellStyle6;
             this.DgvListaProductos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgvListaProductos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(194)))));
             this.DgvListaProductos.Location = new System.Drawing.Point(10, 10);
@@ -196,11 +197,12 @@
             // 
             this.X.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.X.HeaderText = "X";
+            this.X.MinimumWidth = 6;
             this.X.Name = "X";
             this.X.ReadOnly = true;
             this.X.Text = "X";
             this.X.UseColumnTextForButtonValue = true;
-            this.X.Width = 30;
+            this.X.Width = 36;
             // 
             // tableLayoutPanel2
             // 
@@ -230,15 +232,16 @@
             this.tableLayoutPanel2.Controls.Add(this.label3, 0, 3);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 6;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(914, 243);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1218, 299);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
             // CbCodigoProducto
@@ -282,10 +285,10 @@
             this.label9.AutoSize = true;
             this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(0, 80);
+            this.label9.Location = new System.Drawing.Point(0, 98);
             this.label9.Margin = new System.Windows.Forms.Padding(0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(166, 40);
+            this.label9.Size = new System.Drawing.Size(221, 49);
             this.label9.TabIndex = 16;
             this.label9.Text = "Nombre Presupuesto";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -294,7 +297,6 @@
             // 
             this.TxtReferencia.BorderRadius = 10;
             this.tableLayoutPanel2.SetColumnSpan(this.TxtReferencia, 2);
-            this.TxtReferencia.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TxtReferencia.DefaultText = "";
             this.TxtReferencia.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.TxtReferencia.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
@@ -341,9 +343,10 @@
             this.CbTipoSilicitud.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CbTipoSilicitud.ForeColor = System.Drawing.Color.Black;
             this.CbTipoSilicitud.ItemHeight = 30;
-            this.CbTipoSilicitud.Location = new System.Drawing.Point(169, 43);
+            this.CbTipoSilicitud.Location = new System.Drawing.Point(225, 53);
+            this.CbTipoSilicitud.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.CbTipoSilicitud.Name = "CbTipoSilicitud";
-            this.CbTipoSilicitud.Size = new System.Drawing.Size(293, 36);
+            this.CbTipoSilicitud.Size = new System.Drawing.Size(390, 36);
             this.CbTipoSilicitud.TabIndex = 16;
             // 
             // label7
@@ -351,10 +354,10 @@
             this.label7.AutoSize = true;
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(3, 43);
-            this.label7.Margin = new System.Windows.Forms.Padding(3);
+            this.label7.Location = new System.Drawing.Point(4, 53);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(160, 34);
+            this.label7.Size = new System.Drawing.Size(213, 41);
             this.label7.TabIndex = 17;
             this.label7.Text = "Tipo Solicitud";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -363,7 +366,6 @@
             // 
             this.TxtSolicitadoPor.BorderRadius = 10;
             this.tableLayoutPanel2.SetColumnSpan(this.TxtSolicitadoPor, 2);
-            this.TxtSolicitadoPor.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TxtSolicitadoPor.DefaultText = "";
             this.TxtSolicitadoPor.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.TxtSolicitadoPor.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
@@ -401,7 +403,6 @@
             // 
             this.TxtCedula.BorderRadius = 10;
             this.tableLayoutPanel2.SetColumnSpan(this.TxtCedula, 2);
-            this.TxtCedula.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TxtCedula.DefaultText = "";
             this.TxtCedula.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.TxtCedula.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
@@ -429,7 +430,7 @@
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(166, 40);
+            this.label2.Size = new System.Drawing.Size(221, 49);
             this.label2.TabIndex = 3;
             this.label2.Text = "Autorizado por";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -467,10 +468,10 @@
             this.label5.AutoSize = true;
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 163);
-            this.label5.Margin = new System.Windows.Forms.Padding(3);
+            this.label5.Location = new System.Drawing.Point(4, 200);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(160, 34);
+            this.label5.Size = new System.Drawing.Size(213, 41);
             this.label5.TabIndex = 11;
             this.label5.Text = "Disponibles";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -478,7 +479,6 @@
             // TxtDisponibles
             // 
             this.TxtDisponibles.BorderRadius = 10;
-            this.TxtDisponibles.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TxtDisponibles.DefaultText = "";
             this.TxtDisponibles.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.TxtDisponibles.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
@@ -489,14 +489,14 @@
             this.TxtDisponibles.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtDisponibles.ForeColor = System.Drawing.Color.Black;
             this.TxtDisponibles.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TxtDisponibles.Location = new System.Drawing.Point(170, 164);
-            this.TxtDisponibles.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TxtDisponibles.Location = new System.Drawing.Point(226, 201);
+            this.TxtDisponibles.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.TxtDisponibles.Name = "TxtDisponibles";
             this.TxtDisponibles.PasswordChar = '\0';
             this.TxtDisponibles.PlaceholderText = "";
             this.TxtDisponibles.ReadOnly = true;
             this.TxtDisponibles.SelectedText = "";
-            this.TxtDisponibles.Size = new System.Drawing.Size(129, 32);
+            this.TxtDisponibles.Size = new System.Drawing.Size(172, 39);
             this.TxtDisponibles.TabIndex = 12;
             // 
             // label4
@@ -515,7 +515,6 @@
             // txtCantProducto
             // 
             this.txtCantProducto.BorderRadius = 10;
-            this.txtCantProducto.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtCantProducto.DefaultText = "";
             this.txtCantProducto.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtCantProducto.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
@@ -526,13 +525,13 @@
             this.txtCantProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCantProducto.ForeColor = System.Drawing.Color.Black;
             this.txtCantProducto.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCantProducto.Location = new System.Drawing.Point(469, 164);
-            this.txtCantProducto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCantProducto.Location = new System.Drawing.Point(624, 201);
+            this.txtCantProducto.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtCantProducto.Name = "txtCantProducto";
             this.txtCantProducto.PasswordChar = '\0';
             this.txtCantProducto.PlaceholderText = "";
             this.txtCantProducto.SelectedText = "";
-            this.txtCantProducto.Size = new System.Drawing.Size(134, 32);
+            this.txtCantProducto.Size = new System.Drawing.Size(179, 39);
             this.txtCantProducto.TabIndex = 10;
             this.txtCantProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantProducto_KeyPress);
             // 
@@ -541,10 +540,10 @@
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 123);
-            this.label3.Margin = new System.Windows.Forms.Padding(3);
+            this.label3.Location = new System.Drawing.Point(4, 151);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(160, 34);
+            this.label3.Size = new System.Drawing.Size(213, 41);
             this.label3.TabIndex = 5;
             this.label3.Text = "Producto";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -555,16 +554,18 @@
             this.panel1.Controls.Add(this.tableLayoutPanel2);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(5, 5);
+            this.panel1.Location = new System.Drawing.Point(7, 6);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(914, 502);
+            this.panel1.Size = new System.Drawing.Size(1218, 618);
             this.panel1.TabIndex = 2;
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.DgvListaProductos);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 243);
+            this.panel3.Location = new System.Drawing.Point(0, 299);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(10);
             this.panel3.Size = new System.Drawing.Size(914, 216);
@@ -572,15 +573,16 @@
             // 
             // FrmSolicitudEntrega
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(54)))), ((int)(((byte)(94)))));
-            this.ClientSize = new System.Drawing.Size(924, 512);
+            this.ClientSize = new System.Drawing.Size(1232, 630);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmSolicitudEntrega";
-            this.Padding = new System.Windows.Forms.Padding(5);
+            this.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.Text = "FrmSolicitudInsumos";
             this.Load += new System.EventHandler(this.FrmSolicitudInsumos_Load);
             this.panel2.ResumeLayout(false);

@@ -11,6 +11,8 @@ using System.Windows.Forms;
 using Microsoft.Office.Interop.Excel;
 using Application = Microsoft.Office.Interop.Excel.Application;
 using DataTable = System.Data.DataTable;
+using CapaDatos;
+using CapaEntidades;
 
 namespace CapaPresentacion
 {
@@ -56,6 +58,55 @@ namespace CapaPresentacion
 
                 // Asigna los datos al DataGridView
                 dgvDatos.DataSource = dt;
+            }
+        }
+
+        private void BtnGuardar_Click(object sender, EventArgs e)
+        {
+            //Obtenemos un listado de los productos directamente con el entities
+            inventarioEntities1 Db = new inventarioEntities1();
+            List<TbProducto> ListProductos;
+            //Elaborado una entidad donde almacenar los datos a guardar o actualizar
+            TbProducto producto = new TbProducto();
+            ListProductos = Db.TbProducto.ToList();
+            for (int i = 0; i <= dgvDatos.RowCount; i++)
+            {
+                string cod = dgvDatos.Rows[i].Cells[0].ToString();
+                foreach (var item in ListProductos)
+                {
+                    if (item.CodProducto==cod)
+                    {
+                        producto.CodProducto = cod;
+                        producto.NombreProducto = dgvDatos.Rows[i].Cells[1].Value.ToString();
+                        producto.CostoProducto = dgvDatos.Rows[i].Cells[2].Value.ToString();
+                        producto.CFamilia = dgvDatos.Rows[i].Cells[3].Value.ToString();
+                        producto.CSubFamilia = dgvDatos.Rows[i].Cells[4].Value.ToString();
+                        producto.NumProducto = dgvDatos.Rows[i].Cells[5].Value.ToString();
+                        producto.CFUnidadMedida = dgvDatos.Rows[i].Cells[6].Value.ToString();
+                        if ((int)dgvDatos.Rows[i].Cells[7].Value != 0)
+                        {
+                            producto.InventarioRequerido = item.InventarioRequerido + (int)dgvDatos.Rows[i].Cells[7].Value;
+                        }
+                        else
+                        {
+                            producto.InventarioRequerido = (int)dgvDatos.Rows[i].Cells[7].Value;
+                        }
+                        
+                        //producto.CostoTotal =(int)producto.CostoProducto* producto.InventarioRequerido;
+
+                        if ((int)dgvDatos.Rows[i].Cells[9].Value != 0)
+                        {
+                            producto.InventarioExistente = item.InventarioExistente + (int)dgvDatos.Rows[i].Cells[7].Value;
+                        }
+                        else
+                        {
+                            producto.InventarioExistente = (int)dgvDatos.Rows[i].Cells[7].Value;
+                        }
+
+
+                    }
+                }
+                   
             }
         }
 
