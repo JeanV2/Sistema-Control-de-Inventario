@@ -77,8 +77,8 @@ namespace CapaPresentacion
                     if (item.CodProducto==cod)
                     {
                         producto.CodProducto = cod;
-                        producto.NombreProducto = dgvDatos.Rows[i].Cells[1].Value.ToString();
-                        producto.CostoProducto = dgvDatos.Rows[i].Cells[2].Value.ToString();
+                        producto.DesResumida = dgvDatos.Rows[i].Cells[1].Value.ToString();
+                        producto.CostoTotal =int.Parse( dgvDatos.Rows[i].Cells[2].Value.ToString());
                         producto.CFamilia = dgvDatos.Rows[i].Cells[3].Value.ToString();
                         producto.CSubFamilia = dgvDatos.Rows[i].Cells[4].Value.ToString();
                         producto.NumProducto = dgvDatos.Rows[i].Cells[5].Value.ToString();
