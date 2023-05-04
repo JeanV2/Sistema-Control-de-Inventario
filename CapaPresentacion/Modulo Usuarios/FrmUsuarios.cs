@@ -13,9 +13,9 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion
 {
-    public partial class FrmColaboradores : Form
+    public partial class FrmUsuarios : Form
     {
-        public FrmColaboradores()
+        public FrmUsuarios()
         {
             InitializeComponent();
         }
@@ -125,7 +125,7 @@ namespace CapaPresentacion
 
         private void BtnVerLista_Click(object sender, EventArgs e)
         {
-            FrmListaColaboradores frmListaColaboradores = new FrmListaColaboradores();
+            FrmListaUsuarios frmListaColaboradores = new FrmListaUsuarios();
             frmListaColaboradores.ShowDialog();
         }
 
