@@ -453,8 +453,7 @@ namespace CapaPresentacion
 
         private void CbListaPresupuestos_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            CargarCampoPresupuesto(CbListaPresupuestos.SelectedValue.ToString()) ;
-            CargarComboProductos(CbListaPresupuestos.SelectedValue.ToString());
+            
                 
         }
 
@@ -470,7 +469,7 @@ namespace CapaPresentacion
 
         private void CbCodigoProducto_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CargarCamposProducto(CbCodigoProducto.SelectedValue.ToString());
+     
         }
 
         private void CbCodigoProducto_SelectionChangeCommitted(object sender, EventArgs e)
@@ -497,6 +496,24 @@ namespace CapaPresentacion
                 DgvListaCompra.Rows.Remove(fila);
 
             }
+        }
+
+        private void CbListaPresupuestos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CargarCampoPresupuesto(CbListaPresupuestos.SelectedValue.ToString());
+            CargarComboProductos(CbListaPresupuestos.SelectedValue.ToString());
+        }
+
+        private void FrmSolicitudCompra_Load(object sender, EventArgs e)
+        {
+            CargarComboPresupuesto();
+            txtAutoriza.Text = FrmLogin.NombreCompleto;
+        }
+
+        private void CbCodigoProducto_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            CargarCamposProducto(CbCodigoProducto.SelectedValue.ToString());
+            
         }
     }
 

@@ -28,11 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-
-
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -102,7 +97,7 @@
             this.BtnGuardar.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
             this.BtnGuardar.HoverState.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnGuardar.Location = new System.Drawing.Point(1153, 151);
-            this.BtnGuardar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
             this.BtnGuardar.Size = new System.Drawing.Size(233, 41);
@@ -131,7 +126,7 @@
             this.BtnModificar.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
             this.BtnModificar.HoverState.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnModificar.Location = new System.Drawing.Point(1140, 200);
-            this.BtnModificar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnModificar.Margin = new System.Windows.Forms.Padding(4);
             this.BtnModificar.Name = "BtnModificar";
             this.BtnModificar.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
             this.BtnModificar.Size = new System.Drawing.Size(246, 41);
@@ -161,7 +156,7 @@
             this.BtnEliminar.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
             this.BtnEliminar.HoverState.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnEliminar.Location = new System.Drawing.Point(1169, 249);
-            this.BtnEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.BtnEliminar.Name = "BtnEliminar";
             this.BtnEliminar.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
             this.BtnEliminar.Size = new System.Drawing.Size(217, 41);
@@ -192,7 +187,7 @@
             this.BtnVerLista.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
             this.BtnVerLista.HoverState.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnVerLista.Location = new System.Drawing.Point(946, 312);
-            this.BtnVerLista.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnVerLista.Margin = new System.Windows.Forms.Padding(4);
             this.BtnVerLista.Name = "BtnVerLista";
             this.BtnVerLista.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
             this.BtnVerLista.Size = new System.Drawing.Size(187, 41);
@@ -242,7 +237,7 @@
             this.tableLayoutPanel1.Controls.Add(this.BtnGuardar, 6, 3);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(7, 6);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 8;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
@@ -285,7 +280,7 @@
             this.CbUnidadMedida.ForeColor = System.Drawing.Color.Black;
             this.CbUnidadMedida.ItemHeight = 30;
             this.CbUnidadMedida.Location = new System.Drawing.Point(202, 200);
-            this.CbUnidadMedida.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CbUnidadMedida.Margin = new System.Windows.Forms.Padding(4);
             this.CbUnidadMedida.Name = "CbUnidadMedida";
             this.CbUnidadMedida.Size = new System.Drawing.Size(385, 36);
             this.CbUnidadMedida.TabIndex = 17;
@@ -700,7 +695,7 @@
             this.BtnFiltrar.Image = global::CapaPresentacion.Properties.Resources.filter_52px;
             this.BtnFiltrar.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.BtnFiltrar.Location = new System.Drawing.Point(668, 312);
-            this.BtnFiltrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnFiltrar.Margin = new System.Windows.Forms.Padding(4);
             this.BtnFiltrar.Name = "BtnFiltrar";
             this.BtnFiltrar.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
             this.BtnFiltrar.Size = new System.Drawing.Size(107, 41);
@@ -715,20 +710,6 @@
             // 
             this.DgvListaProductos.AllowUserToAddRows = false;
             this.DgvListaProductos.AllowUserToDeleteRows = false;
-
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(244)))), ((int)(((byte)(196)))));
-            this.DgvListaProductos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.DgvListaProductos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(54)))), ((int)(((byte)(94)))));
-            this.DgvListaProductos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(219)))), ((int)(((byte)(57)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgvListaProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(244)))), ((int)(((byte)(196)))));
             this.DgvListaProductos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DgvListaProductos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(54)))), ((int)(((byte)(94)))));
@@ -741,7 +722,6 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DgvListaProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-
             this.DgvListaProductos.ColumnHeadersHeight = 50;
             this.DgvListaProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.DgvListaProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -755,18 +735,10 @@
             this.Column7,
             this.Column8,
             this.Column9});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(194)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(231)))), ((int)(((byte)(123)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-          this.DgvListaProductos.DefaultCellStyle = dataGridViewCellStyle6;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(194)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(231)))), ((int)(((byte)(123)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -780,10 +752,7 @@
             this.DgvListaProductos.RowHeadersVisible = false;
             this.DgvListaProductos.RowHeadersWidth = 62;
             this.DgvListaProductos.RowTemplate.Height = 25;
-
-            this.DgvListaProductos.Size = new System.Drawing.Size(1043, 294);
             this.DgvListaProductos.Size = new System.Drawing.Size(1390, 335);
-
             this.DgvListaProductos.TabIndex = 5;
             this.DgvListaProductos.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Lime;
             this.DgvListaProductos.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(244)))), ((int)(((byte)(196)))));
@@ -803,7 +772,7 @@
             this.DgvListaProductos.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(194)))));
             this.DgvListaProductos.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.DgvListaProductos.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DgvListaProductos.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.White;
+            this.DgvListaProductos.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.DgvListaProductos.ThemeStyle.RowsStyle.Height = 25;
             this.DgvListaProductos.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(231)))), ((int)(((byte)(123)))));
             this.DgvListaProductos.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
@@ -891,10 +860,8 @@
             this.PanelDataGrid.Controls.Add(this.DgvListaProductos);
             this.PanelDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelDataGrid.Location = new System.Drawing.Point(7, 363);
-            this.PanelDataGrid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PanelDataGrid.Margin = new System.Windows.Forms.Padding(4);
             this.PanelDataGrid.Name = "PanelDataGrid";
-
-            this.PanelDataGrid.Size = new System.Drawing.Size(1043, 294);
             this.PanelDataGrid.Size = new System.Drawing.Size(1390, 335);
             this.PanelDataGrid.TabIndex = 2;
             this.PanelDataGrid.Visible = false;
@@ -904,14 +871,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(54)))), ((int)(((byte)(94)))));
-            this.ClientSize = new System.Drawing.Size(1053, 595);
-
             this.ClientSize = new System.Drawing.Size(1404, 704);
             this.Controls.Add(this.PanelDataGrid);
             this.Controls.Add(this.tableLayoutPanel1);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmAñadirProductos";
             this.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.Text = "FrmAñadirProductos";

@@ -534,6 +534,8 @@ namespace CapaPresentacion
             if (CbTipoSilicitud.SelectedIndex == 1)
             {
                 TxtReferencia.Enabled = false;
+            }
+        }
         private void CbNombrePresupuesto_SelectedIndexChanged(object sender, EventArgs e)
         {
             RefrescarComboProductos();

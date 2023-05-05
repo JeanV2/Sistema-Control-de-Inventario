@@ -39,13 +39,11 @@ namespace CapaPresentacion
                 // Crea una instancia de Excel y abre el archivo
                 Application excel = new Application();
                 Workbook workbook = excel.Workbooks.Open(openFileDialog.FileName);
-<<<<<<< HEAD
-=======
+
                 // Crea una instancia de Excel y abre el archivo
                 Application Excel= new Application();
                 Workbook Workbook = excel.Workbooks.Open(openFileDialog.FileName);
 
->>>>>>> af3d31a48a06cb7d5824ff30f484ded3a4fb3c65
 
                 // Obtiene la primera hoja de trabajo
                 Worksheet worksheet = (Worksheet)workbook.Sheets[1];
@@ -66,10 +64,6 @@ namespace CapaPresentacion
                         for (int j = 1; j <= worksheet.UsedRange.Columns.Count; j++)
                         {
                             dr[j - 1] = (worksheet.Cells[i, j] as Range).Value;
-<<<<<<< HEAD
-
-=======
->>>>>>> af3d31a48a06cb7d5824ff30f484ded3a4fb3c65
                         }
                         dt.Rows.Add(dr);
                     }
@@ -169,47 +163,12 @@ namespace CapaPresentacion
             ListProductos = Db.TbProducto.ToList();
             for (int i = 0; i < dgvDatos.RowCount; i++)
             {
-<<<<<<< HEAD
                 string cod = dgvDatos.Rows[i].Cells[0].ToString();
                 foreach (var item in ListProductos)
                 {
                     if (item.CodProducto == cod)
                     {
-                        producto.CodProducto = cod;
-                        producto.DesResumida = dgvDatos.Rows[i].Cells[1].Value.ToString();
-                        producto.CostoTotal = int.Parse(dgvDatos.Rows[i].Cells[2].Value.ToString());
-                        producto.CFamilia = dgvDatos.Rows[i].Cells[3].Value.ToString();
-                        producto.CSubFamilia = dgvDatos.Rows[i].Cells[4].Value.ToString();
-                        producto.NumProducto = dgvDatos.Rows[i].Cells[5].Value.ToString();
-                        producto.CFUnidadMedida = dgvDatos.Rows[i].Cells[6].Value.ToString();
-                        if ((int)dgvDatos.Rows[i].Cells[7].Value != 0)
-                        {
-                            producto.InventarioRequerido = item.InventarioRequerido + (int)dgvDatos.Rows[i].Cells[7].Value;
-                        }
-                        else
-                        {
-                            producto.InventarioRequerido = (int)dgvDatos.Rows[i].Cells[7].Value;
-                        }
-
-                        //producto.CostoTotal =(int)producto.CostoProducto* producto.InventarioRequerido;
-
-
-
-                        producto.CFamilia = dgvDatos.Rows[i].Cells[0].Value.ToString();
-                        producto.CSubFamilia = dgvDatos.Rows[i].Cells[1].Value.ToString();
-                        producto.NumProducto = dgvDatos.Rows[i].Cells[2].Value.ToString();
-                        producto.CodProducto = dgvDatos.Rows[i].Cells[3].ToString();
-                        producto.CFUnidadMedida = dgvDatos.Rows[i].Cells[4].Value.ToString();
-                        producto.NumProducto = dgvDatos.Rows[i].Cells[5].Value.ToString();
-                        producto.InventarioRequerido = int.Parse(dgvDatos.Rows[i].Cells[6].Value.ToString());
-                        producto.CodProducto = dgvDatos.Rows[i].Cells[7].Value.ToString();
-                        producto.CostoTotal = int.Parse(dgvDatos.Rows[i].Cells[8].Value.ToString());
-                        //producto.InventarioExistente= int.Parse(dgvDatos.Rows[i].Cells[9].Value.ToString());
-
-                        Prod.GuardarProduct(producto);
-
-=======
-
+                        
   
                producto.CFamilia ="1"+dgvDatos.Rows[i].Cells[0].Value.ToString();
                producto.CSubFamilia = dgvDatos.Rows[i].Cells[1].Value.ToString();
@@ -221,7 +180,6 @@ namespace CapaPresentacion
                producto.MUltCosto = Convert.ToDouble(dgvDatos.Rows[i].Cells[7].Value.ToString());
                producto.CostoTotal = Convert.ToDouble(dgvDatos.Rows[i].Cells[8].Value.ToString());
             
->>>>>>> af3d31a48a06cb7d5824ff30f484ded3a4fb3c65
 
                         Prod.GuardarProduct(producto);
 
@@ -229,26 +187,18 @@ namespace CapaPresentacion
 
                     
 
-<<<<<<< HEAD
+
                     }
 
                 }
             }
-=======
-                }
-            }
+
+                
+            
 
           
->>>>>>> af3d31a48a06cb7d5824ff30f484ded3a4fb3c65
         }
     }
 }
-
-            //private void FrmImportarArticulos_FormClosed(object sender, FormClosedEventArgs e)
-            //{
-            //    this.Close();
-            //}
-
-
 
 
