@@ -55,8 +55,9 @@
             this.PanelMenu.Controls.Add(this.BtnHInsumos);
             this.PanelMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelMenu.Location = new System.Drawing.Point(0, 0);
+            this.PanelMenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.PanelMenu.Name = "PanelMenu";
-            this.PanelMenu.Size = new System.Drawing.Size(1053, 84);
+            this.PanelMenu.Size = new System.Drawing.Size(1404, 88);
             this.PanelMenu.TabIndex = 0;
             // 
             // BtnInicio
@@ -76,10 +77,11 @@
             this.BtnInicio.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(99)))), ((int)(((byte)(174)))));
             this.BtnInicio.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
             this.BtnInicio.HoverState.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnInicio.Location = new System.Drawing.Point(3, 3);
+            this.BtnInicio.Location = new System.Drawing.Point(4, 4);
+            this.BtnInicio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnInicio.Name = "BtnInicio";
             this.BtnInicio.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
-            this.BtnInicio.Size = new System.Drawing.Size(73, 36);
+            this.BtnInicio.Size = new System.Drawing.Size(97, 36);
             this.BtnInicio.TabIndex = 5;
             this.BtnInicio.Text = "Inicio";
             this.BtnInicio.UseTransparentBackground = true;
@@ -102,10 +104,11 @@
             this.BtnSolicitud.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(99)))), ((int)(((byte)(174)))));
             this.BtnSolicitud.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
             this.BtnSolicitud.HoverState.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnSolicitud.Location = new System.Drawing.Point(82, 3);
+            this.BtnSolicitud.Location = new System.Drawing.Point(109, 4);
+            this.BtnSolicitud.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnSolicitud.Name = "BtnSolicitud";
             this.BtnSolicitud.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
-            this.BtnSolicitud.Size = new System.Drawing.Size(183, 36);
+            this.BtnSolicitud.Size = new System.Drawing.Size(244, 36);
             this.BtnSolicitud.TabIndex = 9;
             this.BtnSolicitud.Text = "Control de Entrega";
             this.BtnSolicitud.UseTransparentBackground = true;
@@ -128,10 +131,11 @@
             this.BtnGenerarCompras.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(99)))), ((int)(((byte)(174)))));
             this.BtnGenerarCompras.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
             this.BtnGenerarCompras.HoverState.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGenerarCompras.Location = new System.Drawing.Point(271, 3);
+            this.BtnGenerarCompras.Location = new System.Drawing.Point(361, 4);
+            this.BtnGenerarCompras.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnGenerarCompras.Name = "BtnGenerarCompras";
             this.BtnGenerarCompras.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
-            this.BtnGenerarCompras.Size = new System.Drawing.Size(179, 36);
+            this.BtnGenerarCompras.Size = new System.Drawing.Size(239, 36);
             this.BtnGenerarCompras.TabIndex = 7;
             this.BtnGenerarCompras.Text = "Control de Ingreso";
             this.BtnGenerarCompras.UseTransparentBackground = true;
@@ -159,9 +163,10 @@
             this.MenuProductos.ItemsAppearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
             this.MenuProductos.ItemsAppearance.SelectedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
             this.MenuProductos.ItemsAppearance.SelectedFont = new System.Drawing.Font("Century Gothic", 12F);
-            this.MenuProductos.Location = new System.Drawing.Point(456, 3);
+            this.MenuProductos.Location = new System.Drawing.Point(608, 4);
+            this.MenuProductos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MenuProductos.Name = "MenuProductos";
-            this.MenuProductos.Size = new System.Drawing.Size(128, 36);
+            this.MenuProductos.Size = new System.Drawing.Size(169, 36);
             this.MenuProductos.StartIndex = 0;
             this.MenuProductos.TabIndex = 13;
             this.MenuProductos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -185,10 +190,11 @@
             this.BtnPresupuesto.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(99)))), ((int)(((byte)(174)))));
             this.BtnPresupuesto.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
             this.BtnPresupuesto.HoverState.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnPresupuesto.Location = new System.Drawing.Point(590, 3);
+            this.BtnPresupuesto.Location = new System.Drawing.Point(785, 4);
+            this.BtnPresupuesto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnPresupuesto.Name = "BtnPresupuesto";
             this.BtnPresupuesto.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
-            this.BtnPresupuesto.Size = new System.Drawing.Size(206, 36);
+            this.BtnPresupuesto.Size = new System.Drawing.Size(275, 36);
             this.BtnPresupuesto.TabIndex = 10;
             this.BtnPresupuesto.Text = "Importar Presupuestos";
             this.BtnPresupuesto.UseTransparentBackground = true;
@@ -211,10 +217,11 @@
             this.BtnColaboradores.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(99)))), ((int)(((byte)(174)))));
             this.BtnColaboradores.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
             this.BtnColaboradores.HoverState.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnColaboradores.Location = new System.Drawing.Point(802, 3);
+            this.BtnColaboradores.Location = new System.Drawing.Point(1068, 4);
+            this.BtnColaboradores.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnColaboradores.Name = "BtnColaboradores";
             this.BtnColaboradores.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
-            this.BtnColaboradores.Size = new System.Drawing.Size(95, 36);
+            this.BtnColaboradores.Size = new System.Drawing.Size(127, 36);
             this.BtnColaboradores.TabIndex = 8;
             this.BtnColaboradores.Text = "Usuarios";
             this.BtnColaboradores.UseTransparentBackground = true;
@@ -237,10 +244,11 @@
             this.BtnHCompras.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(99)))), ((int)(((byte)(174)))));
             this.BtnHCompras.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
             this.BtnHCompras.HoverState.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnHCompras.Location = new System.Drawing.Point(3, 45);
+            this.BtnHCompras.Location = new System.Drawing.Point(4, 48);
+            this.BtnHCompras.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnHCompras.Name = "BtnHCompras";
             this.BtnHCompras.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
-            this.BtnHCompras.Size = new System.Drawing.Size(186, 36);
+            this.BtnHCompras.Size = new System.Drawing.Size(248, 36);
             this.BtnHCompras.TabIndex = 11;
             this.BtnHCompras.Text = "Historial de Ingresos";
             this.BtnHCompras.UseTransparentBackground = true;
@@ -264,10 +272,11 @@
             this.BtnHInsumos.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(99)))), ((int)(((byte)(174)))));
             this.BtnHInsumos.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
             this.BtnHInsumos.HoverState.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnHInsumos.Location = new System.Drawing.Point(195, 45);
+            this.BtnHInsumos.Location = new System.Drawing.Point(260, 48);
+            this.BtnHInsumos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnHInsumos.Name = "BtnHInsumos";
             this.BtnHInsumos.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
-            this.BtnHInsumos.Size = new System.Drawing.Size(191, 36);
+            this.BtnHInsumos.Size = new System.Drawing.Size(255, 36);
             this.BtnHInsumos.TabIndex = 12;
             this.BtnHInsumos.Text = "Historial de Entregas";
             this.BtnHInsumos.UseTransparentBackground = true;
@@ -280,20 +289,22 @@
             this.PanelContenedor.BackgroundImage = global::CapaPresentacion.Properties.Resources.ina;
             this.PanelContenedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.PanelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanelContenedor.Location = new System.Drawing.Point(0, 84);
+            this.PanelContenedor.Location = new System.Drawing.Point(0, 88);
+            this.PanelContenedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.PanelContenedor.Name = "PanelContenedor";
-            this.PanelContenedor.Size = new System.Drawing.Size(1053, 595);
+            this.PanelContenedor.Size = new System.Drawing.Size(1404, 748);
             this.PanelContenedor.TabIndex = 1;
             // 
             // FrmMenuPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(54)))), ((int)(((byte)(94)))));
-            this.ClientSize = new System.Drawing.Size(1053, 679);
+            this.ClientSize = new System.Drawing.Size(1404, 836);
             this.Controls.Add(this.PanelContenedor);
             this.Controls.Add(this.PanelMenu);
-            this.MinimumSize = new System.Drawing.Size(1069, 718);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MinimumSize = new System.Drawing.Size(1419, 873);
             this.Name = "FrmMenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema de Control de Inventario                                   Generación Pro" +
