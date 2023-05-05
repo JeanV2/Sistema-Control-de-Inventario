@@ -520,7 +520,7 @@ namespace CapaPresentacion
         {
             Validaciones.LetrasEspacio_y_Borrar(e, TxtSolicitadoPor);
         }
-
+        //
         private void txtCantProducto_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validaciones.Numeros_y_Borrar(e, txtCantProducto);

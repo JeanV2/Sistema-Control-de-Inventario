@@ -40,7 +40,7 @@ namespace CapaPresentacion
 
         #endregion
         //------------------------------------------------------------------------------------------
-
+        //
         public FrmMenuPrincipal()
         {
             InitializeComponent();

@@ -15,6 +15,7 @@ using Utilidades;
 
 namespace CapaPresentacion
 {
+    //
     public partial class FrmAñadirProductos : Form
     {
         public FrmAñadirProductos()
