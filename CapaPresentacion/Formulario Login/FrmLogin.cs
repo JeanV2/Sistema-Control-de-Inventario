@@ -106,6 +106,7 @@ namespace CapaPresentacion
             //pregunto si ambos son correctos
             if ((user == true) && (pass == true))
             {
+                obtenerdatoscontraseña();
                 lblError.Visible = false;
                 this.Hide();
                 FrmMenuPrincipal frmMenu = new FrmMenuPrincipal();

@@ -320,8 +320,7 @@ namespace CapaPresentacion
             tbinsumo.IdColaboradorRecibe=TxtSolicitadoPor.ToString();
             //tbinsumo.tipoSolicitud = CbTipoSilicitud.SelectedItem.ToString();
             tbinsumo.ReferenciaCurso = TxtReferencia.Text;
-            
-        
+                    
             //guardamos la solicitud de insumo
             if (insumosIns.GuardarInsumos(tbinsumo))
             {
