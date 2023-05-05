@@ -24,8 +24,8 @@ namespace CapaPresentacion
             InitializeComponent();
         }
         NegociosProductos Prod = new NegociosProductos();
-        public async void CargarExcel() 
-        { 
+        public async void CargarExcel()
+        {
         }
         private void BtnImportar_Click(object sender, EventArgs e)
         {
@@ -34,8 +34,8 @@ namespace CapaPresentacion
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 // Crea una instancia de Excel y abre el archivo
-            Application excel = new Application();
-                  Workbook workbook = excel.Workbooks.Open(openFileDialog.FileName);
+                Application excel = new Application();
+                Workbook workbook = excel.Workbooks.Open(openFileDialog.FileName);
 
                 // Obtiene la primera hoja de trabajo
                 Worksheet worksheet = (Worksheet)workbook.Sheets[1];
@@ -54,7 +54,7 @@ namespace CapaPresentacion
                         for (int j = 1; j <= 10; j++)
                         {
                             dr[j - 1] = (worksheet.Cells[i, j] as Range).Value;
-                     
+
                         }
                         dt.Rows.Add(dr);
                     }
@@ -70,7 +70,7 @@ namespace CapaPresentacion
                 {
                     MessageBox.Show("Formato incorrecto");
                 }
-               
+
             }
         }
         public bool validarFormatoExcel(Microsoft.Office.Interop.Excel.Worksheet worksheet)
@@ -80,7 +80,7 @@ namespace CapaPresentacion
             {
                 return false;
             }
-            else if(Convert.ToString((string)(worksheet.Cells[1, 2] as Range).Value) != "C_SUBFAM")
+            else if (Convert.ToString((string)(worksheet.Cells[1, 2] as Range).Value) != "C_SUBFAM")
             {
                 return false;
             }
@@ -124,7 +124,7 @@ namespace CapaPresentacion
                 return true;
             }
         }
-        
+
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
             //Obtenemos un listado de los productos directamente con el entities
@@ -138,11 +138,11 @@ namespace CapaPresentacion
                 string cod = dgvDatos.Rows[i].Cells[0].ToString();
                 foreach (var item in ListProductos)
                 {
-                    if (item.CodProducto==cod)
+                    if (item.CodProducto == cod)
                     {
                         producto.CodProducto = cod;
                         producto.DesResumida = dgvDatos.Rows[i].Cells[1].Value.ToString();
-                        producto.CostoTotal =int.Parse( dgvDatos.Rows[i].Cells[2].Value.ToString());
+                        producto.CostoTotal = int.Parse(dgvDatos.Rows[i].Cells[2].Value.ToString());
                         producto.CFamilia = dgvDatos.Rows[i].Cells[3].Value.ToString();
                         producto.CSubFamilia = dgvDatos.Rows[i].Cells[4].Value.ToString();
                         producto.NumProducto = dgvDatos.Rows[i].Cells[5].Value.ToString();
@@ -155,36 +155,39 @@ namespace CapaPresentacion
                         {
                             producto.InventarioRequerido = (int)dgvDatos.Rows[i].Cells[7].Value;
                         }
-                        
+
                         //producto.CostoTotal =(int)producto.CostoProducto* producto.InventarioRequerido;
 
 
 
-               producto.CFamilia = dgvDatos.Rows[i].Cells[0].Value.ToString();
-               producto.CSubFamilia = dgvDatos.Rows[i].Cells[1].Value.ToString();
-               producto.NumProducto = dgvDatos.Rows[i].Cells[2].Value.ToString();
-               producto.CodProducto = dgvDatos.Rows[i].Cells[3].ToString();
-               producto.CFUnidadMedida = dgvDatos.Rows[i].Cells[4].Value.ToString();
-               producto.NombreProducto = dgvDatos.Rows[i].Cells[5].Value.ToString();
-               producto.InventarioRequerido = int.Parse(dgvDatos.Rows[i].Cells[6].Value.ToString());
-               producto.CostoProducto = dgvDatos.Rows[i].Cells[7].Value.ToString();
-               producto.CostoTotal = int.Parse(dgvDatos.Rows[i].Cells[8].Value.ToString());
-                //producto.InventarioExistente= int.Parse(dgvDatos.Rows[i].Cells[9].Value.ToString());
+                        producto.CFamilia = dgvDatos.Rows[i].Cells[0].Value.ToString();
+                        producto.CSubFamilia = dgvDatos.Rows[i].Cells[1].Value.ToString();
+                        producto.NumProducto = dgvDatos.Rows[i].Cells[2].Value.ToString();
+                        producto.CodProducto = dgvDatos.Rows[i].Cells[3].ToString();
+                        producto.CFUnidadMedida = dgvDatos.Rows[i].Cells[4].Value.ToString();
+                        producto.NumProducto = dgvDatos.Rows[i].Cells[5].Value.ToString();
+                        producto.InventarioRequerido = int.Parse(dgvDatos.Rows[i].Cells[6].Value.ToString());
+                        producto.CodProducto = dgvDatos.Rows[i].Cells[7].Value.ToString();
+                        producto.CostoTotal = int.Parse(dgvDatos.Rows[i].Cells[8].Value.ToString());
+                        //producto.InventarioExistente= int.Parse(dgvDatos.Rows[i].Cells[9].Value.ToString());
 
-                Prod.GuardarProduct(producto);
-
-
+                        Prod.GuardarProduct(producto);
 
 
 
-            }
-                   
+
+
+                    }
+
+                }
             }
         }
-
-        //private void FrmImportarArticulos_FormClosed(object sender, FormClosedEventArgs e)
-        //{
-        //    this.Close();
-        //}
     }
+}
+
+            //private void FrmImportarArticulos_FormClosed(object sender, FormClosedEventArgs e)
+            //{
+            //    this.Close();
+            //}
+
 
