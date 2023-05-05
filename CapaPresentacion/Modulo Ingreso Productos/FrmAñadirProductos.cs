@@ -52,7 +52,7 @@ namespace CapaPresentacion
         {
             //CREAR CODIGO PARA REFRESCAR EL DATAGRIDVIEW ANTES DEL METODO Mostrar DataGridView
             ListProducto = NegProduct.ListProduct();
-            if (ListProducto!= null)
+            if (ListProducto != null)
             {
                 RefreshDatos(ListProducto);
                 MostrarDataGridView();
@@ -61,7 +61,7 @@ namespace CapaPresentacion
             {
                 MessageBox.Show("No hay datos");
             }
-            
+
         }
 
 
@@ -99,7 +99,7 @@ namespace CapaPresentacion
                                 producto.MUltCosto = Convert.ToDouble(TxtPrecioProducto.Text.Replace("₡", ""));
                                 producto.InventarioRequerido = int.Parse(TxtInventRequerido.Text);
                                 producto.InventarioExistente = int.Parse(TxtExistencia.Text);
-                                producto.CostoTotal = Convert.ToDouble(TxtCostoTotal.Text);
+                                producto.CostoTotal = Convert.ToDouble(TxtCostoTotal.Text.Replace("₡", ""));
 
                                 if (NegProduct.ModificarProduct(producto))
                                 {
@@ -109,6 +109,9 @@ namespace CapaPresentacion
                                     Validaciones.LimpiarFormulario(tableLayoutPanel1);
                                     TxtCodigoProducto.ReadOnly = false;
                                     TxtCodigoProducto.Focus();
+                                    BtnEliminar.Visible = false;
+                                    BtnGuardar.Visible = true;
+                                    BtnModificar.Visible = false;
                                 }
                                 else
                                 {
@@ -180,6 +183,9 @@ namespace CapaPresentacion
                                     Validaciones.LimpiarFormulario(tableLayoutPanel1);
                                     TxtCodigoProducto.ReadOnly = false;
                                     TxtCodigoProducto.Focus();
+                                    BtnEliminar.Visible = false;
+                                    BtnGuardar.Visible = true;
+                                    BtnModificar.Visible = false;
                                 }
                                 else
                                 {
@@ -243,31 +249,15 @@ namespace CapaPresentacion
                                 {
                                     Validaciones.LimpiarError(TxtExistencia);
 
-                                    //CODIGO PARA GUARDAR Y ENVIAR A LA BASE DE DATOS********************
                                     producto.CodProducto = TxtCodigoProducto.Text;
-                                    producto.CFamilia = TxtCodigoPresupuesto.Text;
-                                    producto.CSubFamilia = TxtSubFamilia.Text;
-                                    producto.NumProducto = TxtSubFam_Producto.Text;
-                                    producto.CFUnidadMedida = CbUnidadMedida.Text;
-                                    producto.DesResumida = TxtNombreProducto.Text;
-                                    producto.MUltCosto = Convert.ToDouble(TxtPrecioProducto.Text.Replace("₡", ""));
-                                    producto.InventarioRequerido = int.Parse(TxtInventRequerido.Text);
-                                    producto.InventarioExistente = int.Parse(TxtExistencia.Text);
-                                    producto.CostoTotal = Convert.ToDouble(TxtCostoTotal.Text);
-                                    producto.EstadoProD = true;
 
-                                    if (NegProduct.GuardarProduct(producto))
+                                    if (NegProduct.ExisteProducto(producto))
                                     {
-                                        MessageBox.Show("Producto Guardado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                                        //LIMPIAR FORM
-                                        Validaciones.LimpiarFormulario(tableLayoutPanel1);
-                                        TxtCodigoProducto.ReadOnly = false;
-                                        TxtCodigoProducto.Focus();
+                                        MessageBox.Show("Codigo ya se encuentrado registrado", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                     }
                                     else
                                     {
-                                        MessageBox.Show("Error al guardar el producto", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                        GuardarProducto();
                                     }
                                 }
                                 else
@@ -305,7 +295,35 @@ namespace CapaPresentacion
 
         }
 
+        private void GuardarProducto()
+        {
+            //CODIGO PARA GUARDAR Y ENVIAR A LA BASE DE DATOS********************
+            producto.CodProducto = TxtCodigoProducto.Text;
+            producto.CFamilia = TxtCodigoPresupuesto.Text;
+            producto.CSubFamilia = TxtSubFamilia.Text;
+            producto.NumProducto = TxtSubFam_Producto.Text;
+            producto.CFUnidadMedida = CbUnidadMedida.Text;
+            producto.DesResumida = TxtNombreProducto.Text;
+            producto.MUltCosto = Convert.ToDouble(TxtPrecioProducto.Text.Replace("₡", ""));
+            producto.InventarioRequerido = int.Parse(TxtInventRequerido.Text);
+            producto.InventarioExistente = int.Parse(TxtExistencia.Text);
+            producto.CostoTotal = Convert.ToDouble(TxtCostoTotal.Text.Replace("₡", ""));
+            producto.EstadoProD = true;
 
+            if (NegProduct.GuardarProduct(producto))
+            {
+                MessageBox.Show("Producto Guardado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                //LIMPIAR FORM
+                Validaciones.LimpiarFormulario(tableLayoutPanel1);
+                TxtCodigoProducto.ReadOnly = false;
+                TxtCodigoProducto.Focus();
+            }
+            else
+            {
+                MessageBox.Show("Error al guardar el producto", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
 
 
 
@@ -397,12 +415,13 @@ namespace CapaPresentacion
                 listaAux = ListProducto.Where(x => x.CFamilia.ToString().Contains(TxtBuscarPorPresupuesto.Text)).ToList();
                 TxtBuscarPorPresupuesto.ResetText();
             }
-            else if(TxtBuscarPorPresupuesto.Text == string.Empty)
+            else
             {
+                ListProducto = NegProduct.ListProduct();
                 listaAux = ListProducto;
             }
             RefreshDatos((List<TbProducto>)listaAux);
-  
+
         }
         //Refrescar DataGridView
         private void RefreshDatos(List<TbProducto> listaProductos)
@@ -450,6 +469,9 @@ namespace CapaPresentacion
                 TxtCostoTotal.Text = DgvListaProductos.Rows[fila].Cells[8].Value.ToString();
                 TxtExistencia.Text = DgvListaProductos.Rows[fila].Cells[9].Value.ToString();
                 MostrarDataGridView();
+                BtnEliminar.Visible = true;
+                BtnGuardar.Visible = false;
+                BtnModificar.Visible = true;
             }
         }
 
@@ -463,7 +485,7 @@ namespace CapaPresentacion
             int InventarioRequerido = Convert.ToInt32(TxtInventRequerido.Text);
             double Precio = Convert.ToDouble(TxtPrecioProducto.Text.Replace("₡", ""));
             double CostoTotal = InventarioRequerido * Precio;
-            TxtCostoTotal.Text = CostoTotal.ToString();
+            TxtCostoTotal.Text = CostoTotal.ToString().Replace(" ", "₡");
         }
 
         private void FrmAñadirProductos_Load(object sender, EventArgs e)
@@ -474,6 +496,6 @@ namespace CapaPresentacion
         private void TxtCostoTotal_TextChanged(object sender, EventArgs e)
         {
             Validaciones.AgregarSimboloColones(TxtCostoTotal);
-        }      
+        }
     }
 }
