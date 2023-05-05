@@ -52,10 +52,9 @@ namespace CapaPresentacion
                 //disparar el evento y mandar la identidad
                 pasarDatosEvent(Colaborador);
                 
-                /*****Aca da error en el codigo de jonathan no hace instancia******/
-                //frmcolaboradores.BtnGuardarColaborador.Enabled = false;
-                //frmcolaboradores.BtnModificar.Visible = true;
-                //frmcolaboradores.BtnEliminar.Visible = true;
+                frmcolaboradores.BtnGuardarColaborador.Enabled = false;
+                frmcolaboradores.BtnModificar.Visible = true;
+                frmcolaboradores.BtnEliminar.Visible = true;
                 this.Close();
             }
 
