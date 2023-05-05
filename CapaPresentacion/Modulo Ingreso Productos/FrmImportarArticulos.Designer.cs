@@ -51,7 +51,11 @@
             this.panel2.Location = new System.Drawing.Point(0, 49);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
+
+            this.panel2.Size = new System.Drawing.Size(1053, 515);
+
             this.panel2.Size = new System.Drawing.Size(1383, 558);
+
             this.panel2.TabIndex = 12;
             // 
             // dgvDatos
@@ -90,7 +94,11 @@
             this.dgvDatos.RowHeadersVisible = false;
             this.dgvDatos.RowHeadersWidth = 51;
             this.dgvDatos.RowTemplate.Height = 25;
+
+            this.dgvDatos.Size = new System.Drawing.Size(1053, 515);
+
             this.dgvDatos.Size = new System.Drawing.Size(1383, 558);
+
             this.dgvDatos.TabIndex = 7;
             this.dgvDatos.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Lime;
             this.dgvDatos.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(244)))), ((int)(((byte)(196)))));
@@ -119,11 +127,18 @@
             // 
             this.panel1.Controls.Add(this.BtnGuardar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+
+            this.panel1.Location = new System.Drawing.Point(0, 555);
+            this.panel1.Name = "panel1";
+            this.panel1.Padding = new System.Windows.Forms.Padding(0, 3, 10, 3);
+            this.panel1.Size = new System.Drawing.Size(1053, 40);
+
             this.panel1.Location = new System.Drawing.Point(0, 607);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(0, 4, 13, 4);
             this.panel1.Size = new System.Drawing.Size(1383, 49);
+
             this.panel1.TabIndex = 11;
             // 
             // BtnGuardar
@@ -145,8 +160,12 @@
             this.BtnGuardar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(99)))), ((int)(((byte)(174)))));
             this.BtnGuardar.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
             this.BtnGuardar.HoverState.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
+            this.BtnGuardar.Location = new System.Drawing.Point(939, 3);
+
             this.BtnGuardar.Location = new System.Drawing.Point(1247, 4);
             this.BtnGuardar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
             this.BtnGuardar.Size = new System.Drawing.Size(123, 41);
@@ -163,8 +182,13 @@
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1053, 40);
+
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1383, 49);
+
             this.flowLayoutPanel1.TabIndex = 10;
             // 
             // label1
@@ -172,10 +196,17 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
+
+            this.label1.Location = new System.Drawing.Point(18, 8);
+            this.label1.Margin = new System.Windows.Forms.Padding(3, 8, 50, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(459, 22);
+
             this.label1.Location = new System.Drawing.Point(24, 10);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 10, 67, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(600, 30);
+
             this.label1.TabIndex = 12;
             this.label1.Text = "Importar datos de inventario desde libro de Excel";
             // 
@@ -212,7 +243,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(54)))), ((int)(((byte)(94)))));
+
+            this.ClientSize = new System.Drawing.Size(1053, 595);
+
             this.ClientSize = new System.Drawing.Size(1383, 656);
+
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.flowLayoutPanel1);

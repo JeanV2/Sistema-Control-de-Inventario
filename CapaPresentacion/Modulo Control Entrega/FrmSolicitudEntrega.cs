@@ -525,6 +525,15 @@ namespace CapaPresentacion
             Validaciones.Numeros_y_Borrar(e, txtCantProducto);
         }
 
+        private void CbTipoSilicitud_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CbTipoSilicitud.SelectedIndex == 0)
+            {
+                TxtReferencia.Enabled = true;
+            }
+            if (CbTipoSilicitud.SelectedIndex == 1)
+            {
+                TxtReferencia.Enabled = false;
         private void CbNombrePresupuesto_SelectedIndexChanged(object sender, EventArgs e)
         {
             RefrescarComboProductos();
