@@ -1,4 +1,5 @@
-﻿using CapaEntidades;
+﻿using CapaDatos;
+using CapaEntidades;
 using CapaNegocios;
 using System;
 using System.Collections.Generic;
@@ -19,11 +20,15 @@ namespace CapaPresentacion
         /// Istancia de la capa negocios de productos
         /// </summary>
         NegociosProductos Productos = new NegociosProductos();
+        List<TbProducto> products;
+       
+        FrmSolicitudCompra FrmSolicitud = (FrmSolicitudCompra)Application.OpenForms["FrmListaProductosSolicituCompra"];
+        
         public FrmListaProductosSolicituCompra()
         {
             InitializeComponent();
             //Definimos una lista para almacenar los productos
-            List<TbProducto> products;
+         
             //rellenamos la lista con los productos
             products = Productos.ListProduct();
             //cargamos el datagridview con los productos
@@ -68,8 +73,44 @@ namespace CapaPresentacion
         //filtrar
         private void BtnFiltrar_Click(object sender, EventArgs e)
         {
+            inventarioEntities1 Db = new inventarioEntities1();
+            List<TbProducto> ListaProductos;
 
+           
+            if (TxtCodigoPresupuesto.Text!=string.Empty && TxtProducto.Text!=string.Empty)
+            {
+                //busqueda por los dos
+                DgvListaProductos.Rows.Clear();
+                ListaProductos = Db.TbProducto.Where(x => x.CFamilia == TxtCodigoPresupuesto.Text && x.CodProducto == TxtProducto.Text).ToList();
+                cargarDt(ListaProductos);
+            }else if (TxtCodigoPresupuesto.Text!=string.Empty)
+            {
+                //solo por presupuesto
+                DgvListaProductos.Rows.Clear();
+                ListaProductos = Db.TbProducto.Where(x => x.CFamilia == TxtCodigoPresupuesto.Text).ToList();
+                cargarDt(ListaProductos);
+            }
+            else if (TxtProducto.Text!=string.Empty)
+            {
+                //solo por cod Producto
+                DgvListaProductos.Rows.Clear();
+                ListaProductos = Db.TbProducto.Where(x => x.CodProducto == TxtProducto.Text).ToList();
+                cargarDt(ListaProductos);
+            }
+            else
+            {
+                cargarDt(products);
+            }
         }
 
+        private void DgvListaProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex!=-1)
+            {
+                FrmSolicitud.TxtCantidad.Text = DgvListaProductos.Rows[e.RowIndex].Cells[3].Value.ToString();
+                this.Close();
+
+            }
+        }
     }
 }
