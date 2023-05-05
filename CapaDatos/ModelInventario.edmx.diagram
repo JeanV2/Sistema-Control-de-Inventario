@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="192d756b421043cda0d30417c479cd14" Name="Diagram1" ZoomLevel="82">
+      <Diagram DiagramId="192d756b421043cda0d30417c479cd14" Name="Diagram1" ZoomLevel="53">
         <EntityTypeShape EntityType="inventarioModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="6.875" />
         <EntityTypeShape EntityType="inventarioModel.TbColaborador" Width="1.5" PointX="0.75" PointY="8.375" />
         <EntityTypeShape EntityType="inventarioModel.TbCompraSolicitudP" Width="1.5" PointX="5.25" PointY="3.625" />
@@ -17,7 +17,7 @@
         <AssociationConnector Association="inventarioModel.FK_TbSolicitudInsumo_TbColaborador" />
         <AssociationConnector Association="inventarioModel.FK_TbCompraSolicitudP_TbProducto" />
         <AssociationConnector Association="inventarioModel.FK_TbCompraSolicitudP_TbSolicitudCompra" />
-        <AssociationConnector Association="inventarioModel.FK_NumeroCuenta_CodPresupuesto" />
+        <AssociationConnector Association="inventarioModel.FK_TbProducto_TbPresupuesto" />
         <AssociationConnector Association="inventarioModel.FK_TbProductoInsumoS_TbProducto1" />
         <AssociationConnector Association="inventarioModel.FK_TbProductoInsumoS_TbSolicitudInsumo1" />
       </Diagram>
