@@ -1,4 +1,4 @@
-﻿// La generación de código T4 está habilitada para el modelo 'C:\Users\calde\OneDrive\Escritorio\Sistema Control de Inventario\Sistema Control de Inventario\CapaDatos\Modelinventario.edmx'. 
+﻿// La generación de código T4 está habilitada para el modelo 'C:\Users\admin\source\repos\Sistema-Control-de-Inventario\CapaDatos\Modelinventario.edmx'. 
 // Para habilitar la generación de código heredada, cambie el valor de la propiedad del diseñador 'Estrategia de generación de código'
 // por 'ObjectContext heredado'. Esta propiedad está disponible en la ventana Propiedades cuando se abre
 // el modelo en el diseñador.
