@@ -52,8 +52,16 @@ namespace CapaPresentacion
         {
             //CREAR CODIGO PARA REFRESCAR EL DATAGRIDVIEW ANTES DEL METODO Mostrar DataGridView
             ListProducto = NegProduct.ListProduct();
-            RefreshDatos(ListProducto);
-            MostrarDataGridView();
+            if (ListProducto!= null)
+            {
+                RefreshDatos(ListProducto);
+                MostrarDataGridView();
+            }
+            else
+            {
+                MessageBox.Show("No hay datos");
+            }
+            
         }
 
 
@@ -388,6 +396,10 @@ namespace CapaPresentacion
 
                 listaAux = ListProducto.Where(x => x.CFamilia.ToString().Contains(TxtBuscarPorPresupuesto.Text)).ToList();
                 TxtBuscarPorPresupuesto.ResetText();
+            }
+            else if(TxtBuscarPorPresupuesto.Text == string.Empty)
+            {
+                listaAux = ListProducto;
             }
             RefreshDatos((List<TbProducto>)listaAux);
   
