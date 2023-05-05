@@ -66,6 +66,7 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.X = new System.Windows.Forms.DataGridViewButtonColumn();
             this.guna2Panel1.SuspendLayout();
@@ -337,13 +338,15 @@
             this.CbCodigoProducto.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.CbCodigoProducto.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.CbCodigoProducto.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.CbCodigoProducto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.CbCodigoProducto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.CbCodigoProducto.ItemHeight = 30;
             this.CbCodigoProducto.Location = new System.Drawing.Point(1474, 53);
             this.CbCodigoProducto.Margin = new System.Windows.Forms.Padding(4);
             this.CbCodigoProducto.Name = "CbCodigoProducto";
             this.CbCodigoProducto.Size = new System.Drawing.Size(356, 36);
             this.CbCodigoProducto.TabIndex = 16;
+            this.CbCodigoProducto.SelectedIndexChanged += new System.EventHandler(this.CbCodigoProducto_SelectedIndexChanged);
+            this.CbCodigoProducto.SelectionChangeCommitted += new System.EventHandler(this.CbCodigoProducto_SelectionChangeCommitted);
             // 
             // label11
             // 
@@ -704,12 +707,13 @@
             this.Column1,
             this.Column3,
             this.Column2,
+            this.Column5,
             this.Column4,
             this.X});
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(194)))));
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(247)))), ((int)(((byte)(215)))));
             dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(231)))), ((int)(((byte)(123)))));
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -740,13 +744,14 @@
             this.DgvListaCompra.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.DgvListaCompra.ThemeStyle.HeaderStyle.Height = 35;
             this.DgvListaCompra.ThemeStyle.ReadOnly = true;
-            this.DgvListaCompra.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(194)))));
+            this.DgvListaCompra.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(247)))), ((int)(((byte)(215)))));
             this.DgvListaCompra.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.DgvListaCompra.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DgvListaCompra.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.White;
+            this.DgvListaCompra.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.DgvListaCompra.ThemeStyle.RowsStyle.Height = 25;
             this.DgvListaCompra.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(231)))), ((int)(((byte)(123)))));
             this.DgvListaCompra.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.DgvListaCompra.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListaCompra_CellContentClick_1);
             // 
             // Column1
             // 
@@ -774,6 +779,13 @@
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             this.Column2.Width = 206;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "CostoPorUnidad";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             // 
             // Column4
             // 
@@ -852,11 +864,12 @@
         private System.Windows.Forms.Label label12;
         public Guna.UI2.WinForms.Guna2TextBox TxtCantidad;
         private Guna.UI2.WinForms.Guna2Button BtnModificar;
+        public Guna.UI2.WinForms.Guna2TextBox txtAutoriza;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewButtonColumn X;
-        public Guna.UI2.WinForms.Guna2TextBox txtAutoriza;
     }
 }
