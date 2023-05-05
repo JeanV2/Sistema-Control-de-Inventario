@@ -59,6 +59,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.TxtExistencia = new Guna.UI2.WinForms.Guna2TextBox();
             this.TxtBuscarPorPresupuesto = new Guna.UI2.WinForms.Guna2TextBox();
+            this.BtnFiltrar = new Guna.UI2.WinForms.Guna2Button();
             this.DgvListaProductos = new Guna.UI2.WinForms.Guna2DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,7 +72,6 @@
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PanelDataGrid = new System.Windows.Forms.Panel();
-            this.BtnFiltrar = new Guna.UI2.WinForms.Guna2Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaProductos)).BeginInit();
             this.PanelDataGrid.SuspendLayout();
@@ -667,6 +667,38 @@
             this.TxtBuscarPorPresupuesto.TabIndex = 9;
             this.TxtBuscarPorPresupuesto.Visible = false;
             // 
+            // BtnFiltrar
+            // 
+            this.BtnFiltrar.Animated = true;
+            this.BtnFiltrar.BackColor = System.Drawing.Color.Transparent;
+            this.BtnFiltrar.BorderColor = System.Drawing.Color.Transparent;
+            this.BtnFiltrar.BorderRadius = 10;
+            this.BtnFiltrar.BorderThickness = 1;
+            this.BtnFiltrar.DefaultAutoSize = true;
+            this.BtnFiltrar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.BtnFiltrar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.BtnFiltrar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.BtnFiltrar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnFiltrar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnFiltrar.FillColor = System.Drawing.SystemColors.Control;
+            this.BtnFiltrar.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnFiltrar.ForeColor = System.Drawing.Color.Black;
+            this.BtnFiltrar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(99)))), ((int)(((byte)(174)))));
+            this.BtnFiltrar.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
+            this.BtnFiltrar.HoverState.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnFiltrar.Image = global::CapaPresentacion.Properties.Resources.filter_52px;
+            this.BtnFiltrar.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.BtnFiltrar.Location = new System.Drawing.Point(480, 254);
+            this.BtnFiltrar.Name = "BtnFiltrar";
+            this.BtnFiltrar.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
+            this.BtnFiltrar.Size = new System.Drawing.Size(95, 34);
+            this.BtnFiltrar.TabIndex = 14;
+            this.BtnFiltrar.Text = "Filtrar ";
+            this.BtnFiltrar.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.BtnFiltrar.UseTransparentBackground = true;
+            this.BtnFiltrar.Visible = false;
+            this.BtnFiltrar.Click += new System.EventHandler(this.BtnFiltrar_Click);
+            // 
             // DgvListaProductos
             // 
             this.DgvListaProductos.AllowUserToAddRows = false;
@@ -826,38 +858,6 @@
             this.PanelDataGrid.TabIndex = 2;
             this.PanelDataGrid.Visible = false;
             // 
-            // BtnFiltrar
-            // 
-            this.BtnFiltrar.Animated = true;
-            this.BtnFiltrar.BackColor = System.Drawing.Color.Transparent;
-            this.BtnFiltrar.BorderColor = System.Drawing.Color.Transparent;
-            this.BtnFiltrar.BorderRadius = 10;
-            this.BtnFiltrar.BorderThickness = 1;
-            this.BtnFiltrar.DefaultAutoSize = true;
-            this.BtnFiltrar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.BtnFiltrar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.BtnFiltrar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.BtnFiltrar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnFiltrar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BtnFiltrar.FillColor = System.Drawing.SystemColors.Control;
-            this.BtnFiltrar.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnFiltrar.ForeColor = System.Drawing.Color.Black;
-            this.BtnFiltrar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(99)))), ((int)(((byte)(174)))));
-            this.BtnFiltrar.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
-            this.BtnFiltrar.HoverState.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnFiltrar.Image = global::CapaPresentacion.Properties.Resources.filter_52px;
-            this.BtnFiltrar.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.BtnFiltrar.Location = new System.Drawing.Point(480, 254);
-            this.BtnFiltrar.Name = "BtnFiltrar";
-            this.BtnFiltrar.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
-            this.BtnFiltrar.Size = new System.Drawing.Size(95, 34);
-            this.BtnFiltrar.TabIndex = 14;
-            this.BtnFiltrar.Text = "Filtrar ";
-            this.BtnFiltrar.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.BtnFiltrar.UseTransparentBackground = true;
-            this.BtnFiltrar.Visible = false;
-            this.BtnFiltrar.Click += new System.EventHandler(this.BtnFiltrar_Click);
-            // 
             // FrmAñadirProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -869,7 +869,7 @@
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmAñadirProductos";
-            this.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Padding = new System.Windows.Forms.Padding(5);
             this.Text = "FrmAñadirProductos";
             this.Load += new System.EventHandler(this.FrmAñadirProductos_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
