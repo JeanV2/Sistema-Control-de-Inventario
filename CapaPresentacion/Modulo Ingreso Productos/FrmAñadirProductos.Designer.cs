@@ -744,7 +744,7 @@
             this.DgvListaProductos.RowHeadersVisible = false;
             this.DgvListaProductos.RowHeadersWidth = 62;
             this.DgvListaProductos.RowTemplate.Height = 25;
-            this.DgvListaProductos.Size = new System.Drawing.Size(1043, 271);
+            this.DgvListaProductos.Size = new System.Drawing.Size(1043, 294);
             this.DgvListaProductos.TabIndex = 5;
             this.DgvListaProductos.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Lime;
             this.DgvListaProductos.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(244)))), ((int)(((byte)(196)))));
@@ -846,7 +846,7 @@
             this.PanelDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelDataGrid.Location = new System.Drawing.Point(5, 296);
             this.PanelDataGrid.Name = "PanelDataGrid";
-            this.PanelDataGrid.Size = new System.Drawing.Size(1043, 271);
+            this.PanelDataGrid.Size = new System.Drawing.Size(1043, 294);
             this.PanelDataGrid.TabIndex = 2;
             this.PanelDataGrid.Visible = false;
             // 
@@ -855,7 +855,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(54)))), ((int)(((byte)(94)))));
-            this.ClientSize = new System.Drawing.Size(1053, 572);
+            this.ClientSize = new System.Drawing.Size(1053, 595);
             this.Controls.Add(this.PanelDataGrid);
             this.Controls.Add(this.tableLayoutPanel1);
             this.ForeColor = System.Drawing.Color.White;
