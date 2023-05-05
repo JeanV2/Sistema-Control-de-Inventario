@@ -32,12 +32,12 @@
             this.BtnInicio = new Guna.UI2.WinForms.Guna2Button();
             this.BtnSolicitud = new Guna.UI2.WinForms.Guna2Button();
             this.BtnGenerarCompras = new Guna.UI2.WinForms.Guna2Button();
+            this.MenuProductos = new Guna.UI2.WinForms.Guna2ComboBox();
             this.BtnPresupuesto = new Guna.UI2.WinForms.Guna2Button();
             this.BtnColaboradores = new Guna.UI2.WinForms.Guna2Button();
             this.BtnHCompras = new Guna.UI2.WinForms.Guna2Button();
             this.BtnHInsumos = new Guna.UI2.WinForms.Guna2Button();
             this.PanelContenedor = new System.Windows.Forms.Panel();
-            this.MenuProductos = new Guna.UI2.WinForms.Guna2ComboBox();
             this.PanelMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -136,6 +136,37 @@
             this.BtnGenerarCompras.Text = "Control de Ingreso";
             this.BtnGenerarCompras.UseTransparentBackground = true;
             this.BtnGenerarCompras.Click += new System.EventHandler(this.BtnGenerarCompras_Click);
+            // 
+            // MenuProductos
+            // 
+            this.MenuProductos.BackColor = System.Drawing.Color.Transparent;
+            this.MenuProductos.BorderRadius = 10;
+            this.MenuProductos.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.MenuProductos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MenuProductos.DropDownWidth = 250;
+            this.MenuProductos.FillColor = System.Drawing.SystemColors.Control;
+            this.MenuProductos.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.MenuProductos.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.MenuProductos.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.MenuProductos.ForeColor = System.Drawing.Color.Black;
+            this.MenuProductos.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
+            this.MenuProductos.HoverState.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.MenuProductos.ItemHeight = 30;
+            this.MenuProductos.Items.AddRange(new object[] {
+            "Productos",
+            "Ingresar Producto",
+            "Importar Productos"});
+            this.MenuProductos.ItemsAppearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
+            this.MenuProductos.ItemsAppearance.SelectedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
+            this.MenuProductos.ItemsAppearance.SelectedFont = new System.Drawing.Font("Century Gothic", 12F);
+            this.MenuProductos.Location = new System.Drawing.Point(456, 3);
+            this.MenuProductos.Name = "MenuProductos";
+            this.MenuProductos.Size = new System.Drawing.Size(128, 36);
+            this.MenuProductos.StartIndex = 0;
+            this.MenuProductos.TabIndex = 13;
+            this.MenuProductos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.MenuProductos.SelectedIndexChanged += new System.EventHandler(this.MenuProductos_SelectedIndexChanged);
+            this.MenuProductos.SelectionChangeCommitted += new System.EventHandler(this.MenuProductos_SelectionChangeCommitted);
             // 
             // BtnPresupuesto
             // 
@@ -253,37 +284,6 @@
             this.PanelContenedor.Name = "PanelContenedor";
             this.PanelContenedor.Size = new System.Drawing.Size(1053, 595);
             this.PanelContenedor.TabIndex = 1;
-            // 
-            // MenuProductos
-            // 
-            this.MenuProductos.BackColor = System.Drawing.Color.Transparent;
-            this.MenuProductos.BorderRadius = 10;
-            this.MenuProductos.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.MenuProductos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.MenuProductos.DropDownWidth = 250;
-            this.MenuProductos.FillColor = System.Drawing.SystemColors.Control;
-            this.MenuProductos.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.MenuProductos.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.MenuProductos.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.MenuProductos.ForeColor = System.Drawing.Color.Black;
-            this.MenuProductos.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
-            this.MenuProductos.HoverState.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.MenuProductos.ItemHeight = 30;
-            this.MenuProductos.Items.AddRange(new object[] {
-            "Productos",
-            "Ingresar Producto",
-            "Importar Productos"});
-            this.MenuProductos.ItemsAppearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
-            this.MenuProductos.ItemsAppearance.SelectedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
-            this.MenuProductos.ItemsAppearance.SelectedFont = new System.Drawing.Font("Century Gothic", 12F);
-            this.MenuProductos.Location = new System.Drawing.Point(456, 3);
-            this.MenuProductos.Name = "MenuProductos";
-            this.MenuProductos.Size = new System.Drawing.Size(128, 36);
-            this.MenuProductos.StartIndex = 0;
-            this.MenuProductos.TabIndex = 13;
-            this.MenuProductos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.MenuProductos.SelectedIndexChanged += new System.EventHandler(this.MenuProductos_SelectedIndexChanged);
-            this.MenuProductos.SelectionChangeCommitted += new System.EventHandler(this.MenuProductos_SelectionChangeCommitted);
             // 
             // FrmMenuPrincipal
             // 
