@@ -45,17 +45,14 @@
           <Property Name="numeroCuenta" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="MontoPresupuesto" Type="float" />
           <Property Name="nombrePresupuesto" Type="varchar(max)" />
+          <Property Name="EstadoPresupuesto" Type="int" />
         </EntityType>
         <EntityType Name="TbProducto">
           <Key>
             <PropertyRef Name="CodProducto" />
           </Key>
           <Property Name="CodProducto" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="NombreProducto" Type="varchar" MaxLength="50" />
-          <Property Name="CantidadProducto" Type="int" />
-          <Property Name="CostoProducto" Type="nchar" MaxLength="10" />
-          <Property Name="Descripcion" Type="varchar(max)" />
-          <Property Name="CFamilia" Type="varchar" MaxLength="50" />
+          <Property Name="CFamilia" Type="varchar" MaxLength="100" />
           <Property Name="CSubFamilia" Type="varchar" MaxLength="50" />
           <Property Name="NumProducto" Type="varchar" MaxLength="50" />
           <Property Name="CFUnidadMedida" Type="varchar" MaxLength="50" />
@@ -64,6 +61,7 @@
           <Property Name="InventarioRequerido" Type="int" />
           <Property Name="InventarioExistente" Type="int" />
           <Property Name="CostoTotal" Type="float" />
+          <Property Name="EstadoProD" Type="bit" />
         </EntityType>
         <EntityType Name="TbProductoInsumoS">
           <Key>
@@ -81,6 +79,7 @@
           <Property Name="IdSolicitudCompra" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="FechaSolicitudCompra" Type="datetime" />
           <Property Name="IdColaboradorCompra" Type="varchar" MaxLength="50" />
+          <Property Name="EstadoSolicitud" Type="bit" />
         </EntityType>
         <EntityType Name="TbSolicitudInsumo">
           <Key>
@@ -91,6 +90,8 @@
           <Property Name="tipoSolicitud" Type="int" />
           <Property Name="IdColaboradorRecibe" Type="varchar" MaxLength="50" />
           <Property Name="ReferenciaCurso" Type="varchar" MaxLength="50" />
+          <Property Name="EstadoSolicitud" Type="bit" />
+          <Property Name="fechaSolicitud" Type="date" />
         </EntityType>
         <Association Name="FK_TbCompraSolicitudP_TbProducto">
           <End Role="TbProducto" Type="Self.TbProducto" Multiplicity="0..1" />
@@ -113,6 +114,18 @@
             </Principal>
             <Dependent Role="TbCompraSolicitudP">
               <PropertyRef Name="IdsolicitudCompra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TbProducto_TbPresupuesto">
+          <End Role="TbPresupuesto" Type="Self.TbPresupuesto" Multiplicity="0..1" />
+          <End Role="TbProducto" Type="Self.TbProducto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TbPresupuesto">
+              <PropertyRef Name="numeroCuenta" />
+            </Principal>
+            <Dependent Role="TbProducto">
+              <PropertyRef Name="CFamilia" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -181,6 +194,10 @@
             <End Role="TbSolicitudCompra" EntitySet="TbSolicitudCompra" />
             <End Role="TbCompraSolicitudP" EntitySet="TbCompraSolicitudP" />
           </AssociationSet>
+          <AssociationSet Name="FK_TbProducto_TbPresupuesto" Association="Self.FK_TbProducto_TbPresupuesto">
+            <End Role="TbPresupuesto" EntitySet="TbPresupuesto" />
+            <End Role="TbProducto" EntitySet="TbProducto" />
+          </AssociationSet>
           <AssociationSet Name="FK_TbProductoInsumoS_TbProducto1" Association="Self.FK_TbProductoInsumoS_TbProducto1">
             <End Role="TbProducto" EntitySet="TbProducto" />
             <End Role="TbProductoInsumoS" EntitySet="TbProductoInsumoS" />
@@ -226,6 +243,10 @@
           <AssociationSet Name="FK_TbCompraSolicitudP_TbSolicitudCompra" Association="inventarioModel.FK_TbCompraSolicitudP_TbSolicitudCompra">
             <End Role="TbSolicitudCompra" EntitySet="TbSolicitudCompra" />
             <End Role="TbCompraSolicitudP" EntitySet="TbCompraSolicitudP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TbProducto_TbPresupuesto" Association="inventarioModel.FK_TbProducto_TbPresupuesto">
+            <End Role="TbPresupuesto" EntitySet="TbPresupuesto" />
+            <End Role="TbProducto" EntitySet="TbProducto" />
           </AssociationSet>
           <AssociationSet Name="FK_TbProductoInsumoS_TbProducto1" Association="inventarioModel.FK_TbProductoInsumoS_TbProducto1">
             <End Role="TbProducto" EntitySet="TbProducto" />
@@ -280,17 +301,15 @@
           <Property Name="numeroCuenta" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="MontoPresupuesto" Type="Double" />
           <Property Name="nombrePresupuesto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="EstadoPresupuesto" Type="Int32" />
+          <NavigationProperty Name="TbProducto" Relationship="inventarioModel.FK_TbProducto_TbPresupuesto" FromRole="TbPresupuesto" ToRole="TbProducto" />
         </EntityType>
         <EntityType Name="TbProducto">
           <Key>
             <PropertyRef Name="CodProducto" />
           </Key>
           <Property Name="CodProducto" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="NombreProducto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="CantidadProducto" Type="Int32" />
-          <Property Name="CostoProducto" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="CFamilia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CFamilia" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="CSubFamilia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="NumProducto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="CFUnidadMedida" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -299,7 +318,9 @@
           <Property Name="InventarioRequerido" Type="Int32" />
           <Property Name="InventarioExistente" Type="Int32" />
           <Property Name="CostoTotal" Type="Double" />
+          <Property Name="EstadoProD" Type="Boolean" />
           <NavigationProperty Name="TbCompraSolicitudP" Relationship="inventarioModel.FK_TbCompraSolicitudP_TbProducto" FromRole="TbProducto" ToRole="TbCompraSolicitudP" />
+          <NavigationProperty Name="TbPresupuesto" Relationship="inventarioModel.FK_TbProducto_TbPresupuesto" FromRole="TbProducto" ToRole="TbPresupuesto" />
           <NavigationProperty Name="TbProductoInsumoS" Relationship="inventarioModel.FK_TbProductoInsumoS_TbProducto1" FromRole="TbProducto" ToRole="TbProductoInsumoS" />
         </EntityType>
         <EntityType Name="TbProductoInsumoS">
@@ -320,6 +341,7 @@
           <Property Name="IdSolicitudCompra" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="FechaSolicitudCompra" Type="DateTime" Precision="3" />
           <Property Name="IdColaboradorCompra" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EstadoSolicitud" Type="Boolean" />
           <NavigationProperty Name="TbColaborador" Relationship="inventarioModel.FK_TbSolicitudCompra_TbColaborador" FromRole="TbSolicitudCompra" ToRole="TbColaborador" />
           <NavigationProperty Name="TbCompraSolicitudP" Relationship="inventarioModel.FK_TbCompraSolicitudP_TbSolicitudCompra" FromRole="TbSolicitudCompra" ToRole="TbCompraSolicitudP" />
         </EntityType>
@@ -332,6 +354,8 @@
           <Property Name="tipoSolicitud" Type="Int32" />
           <Property Name="IdColaboradorRecibe" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ReferenciaCurso" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EstadoSolicitud" Type="Boolean" />
+          <Property Name="fechaSolicitud" Type="DateTime" Precision="0" />
           <NavigationProperty Name="TbColaborador" Relationship="inventarioModel.FK_TbSolicitudInsumo_TbColaborador" FromRole="TbSolicitudInsumo" ToRole="TbColaborador" />
           <NavigationProperty Name="TbProductoInsumoS" Relationship="inventarioModel.FK_TbProductoInsumoS_TbSolicitudInsumo1" FromRole="TbSolicitudInsumo" ToRole="TbProductoInsumoS" />
         </EntityType>
@@ -380,6 +404,18 @@
             </Principal>
             <Dependent Role="TbCompraSolicitudP">
               <PropertyRef Name="IdsolicitudCompra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TbProducto_TbPresupuesto">
+          <End Type="inventarioModel.TbPresupuesto" Role="TbPresupuesto" Multiplicity="0..1" />
+          <End Type="inventarioModel.TbProducto" Role="TbProducto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TbPresupuesto">
+              <PropertyRef Name="numeroCuenta" />
+            </Principal>
+            <Dependent Role="TbProducto">
+              <PropertyRef Name="CFamilia" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -452,6 +488,7 @@
           <EntitySetMapping Name="TbPresupuesto">
             <EntityTypeMapping TypeName="inventarioModel.TbPresupuesto">
               <MappingFragment StoreEntitySet="TbPresupuesto">
+                <ScalarProperty Name="EstadoPresupuesto" ColumnName="EstadoPresupuesto" />
                 <ScalarProperty Name="nombrePresupuesto" ColumnName="nombrePresupuesto" />
                 <ScalarProperty Name="MontoPresupuesto" ColumnName="MontoPresupuesto" />
                 <ScalarProperty Name="numeroCuenta" ColumnName="numeroCuenta" />
@@ -461,6 +498,7 @@
           <EntitySetMapping Name="TbProducto">
             <EntityTypeMapping TypeName="inventarioModel.TbProducto">
               <MappingFragment StoreEntitySet="TbProducto">
+                <ScalarProperty Name="EstadoProD" ColumnName="EstadoProD" />
                 <ScalarProperty Name="CostoTotal" ColumnName="CostoTotal" />
                 <ScalarProperty Name="InventarioExistente" ColumnName="InventarioExistente" />
                 <ScalarProperty Name="InventarioRequerido" ColumnName="InventarioRequerido" />
@@ -470,10 +508,6 @@
                 <ScalarProperty Name="NumProducto" ColumnName="NumProducto" />
                 <ScalarProperty Name="CSubFamilia" ColumnName="CSubFamilia" />
                 <ScalarProperty Name="CFamilia" ColumnName="CFamilia" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-                <ScalarProperty Name="CostoProducto" ColumnName="CostoProducto" />
-                <ScalarProperty Name="CantidadProducto" ColumnName="CantidadProducto" />
-                <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
                 <ScalarProperty Name="CodProducto" ColumnName="CodProducto" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -491,6 +525,7 @@
           <EntitySetMapping Name="TbSolicitudCompra">
             <EntityTypeMapping TypeName="inventarioModel.TbSolicitudCompra">
               <MappingFragment StoreEntitySet="TbSolicitudCompra">
+                <ScalarProperty Name="EstadoSolicitud" ColumnName="EstadoSolicitud" />
                 <ScalarProperty Name="IdColaboradorCompra" ColumnName="IdColaboradorCompra" />
                 <ScalarProperty Name="FechaSolicitudCompra" ColumnName="FechaSolicitudCompra" />
                 <ScalarProperty Name="IdSolicitudCompra" ColumnName="IdSolicitudCompra" />
@@ -500,6 +535,8 @@
           <EntitySetMapping Name="TbSolicitudInsumo">
             <EntityTypeMapping TypeName="inventarioModel.TbSolicitudInsumo">
               <MappingFragment StoreEntitySet="TbSolicitudInsumo">
+                <ScalarProperty Name="fechaSolicitud" ColumnName="fechaSolicitud" />
+                <ScalarProperty Name="EstadoSolicitud" ColumnName="EstadoSolicitud" />
                 <ScalarProperty Name="ReferenciaCurso" ColumnName="ReferenciaCurso" />
                 <ScalarProperty Name="IdColaboradorRecibe" ColumnName="IdColaboradorRecibe" />
                 <ScalarProperty Name="tipoSolicitud" ColumnName="tipoSolicitud" />

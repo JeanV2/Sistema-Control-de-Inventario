@@ -14,8 +14,18 @@ namespace CapaEntidades
     
     public partial class TbPresupuesto
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public TbPresupuesto()
+        {
+            this.TbProducto = new HashSet<TbProducto>();
+        }
+    
         public string numeroCuenta { get; set; }
         public Nullable<double> MontoPresupuesto { get; set; }
         public string nombrePresupuesto { get; set; }
+        public Nullable<int> EstadoPresupuesto { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TbProducto> TbProducto { get; set; }
     }
 }
