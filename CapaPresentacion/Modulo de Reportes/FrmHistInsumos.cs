@@ -21,5 +21,11 @@ namespace CapaPresentacion
         {
             this.Close();
         }
+
+        private void FrmHistInsumos_Load(object sender, EventArgs e)
+        {
+
+            this.reportViewer1.RefreshReport();
+        }
     }
 }

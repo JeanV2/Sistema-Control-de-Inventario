@@ -73,7 +73,7 @@
             this.flowLayoutPanel2.Location = new System.Drawing.Point(5, 5);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(10, 10, 0, 10);
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(770, 562);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(770, 585);
             this.flowLayoutPanel2.TabIndex = 3;
             // 
             // label1
@@ -336,7 +336,7 @@
             this.flowLayoutPanel1.Location = new System.Drawing.Point(775, 5);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 0, 4, 5);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(273, 562);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(273, 585);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
             // BtnGuardarColaborador
@@ -453,17 +453,17 @@
             this.BtnVerLista.UseTransparentBackground = true;
             this.BtnVerLista.Click += new System.EventHandler(this.BtnVerLista_Click);
             // 
-            // FrmColaboradores
+            // FrmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(54)))), ((int)(((byte)(94)))));
-            this.ClientSize = new System.Drawing.Size(1053, 572);
+            this.ClientSize = new System.Drawing.Size(1053, 595);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.flowLayoutPanel1);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmColaboradores";
+            this.Name = "FrmUsuarios";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.Text = "FrmColaboradores";
             this.flowLayoutPanel2.ResumeLayout(false);
