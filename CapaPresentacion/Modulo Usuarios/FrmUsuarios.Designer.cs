@@ -453,7 +453,7 @@
             this.BtnVerLista.UseTransparentBackground = true;
             this.BtnVerLista.Click += new System.EventHandler(this.BtnVerLista_Click);
             // 
-            // FrmColaboradores
+            // FrmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -463,9 +463,10 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmColaboradores";
+            this.Name = "FrmUsuarios";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.Text = "FrmColaboradores";
+            this.Load += new System.EventHandler(this.FrmUsuarios_Load);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);

@@ -1,4 +1,5 @@
 ﻿using CapaEntidades;
+using CapaNegocios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,11 +21,19 @@ namespace CapaPresentacion
         /// </summary>
         FrmUsuarios frmcolaboradores = (FrmUsuarios)Application.OpenForms["FrmColaboradores"];
         //------------------------------------------------------------------------------------------
+        List<TbColaborador> ListaColabo;
+        CNColaborador NegocioColaborador = new CNColaborador();
         public FrmListaUsuarios()
         {
             InitializeComponent();
         }
 
+        //Atravez del evento vamos a poder pasar datos entre los formularios
+
+        public delegate void pasarDatos(TbColaborador Colaboradores);
+        //Aquí vamos a llamar al evento
+        //[acceso] [tipoEvento] [delegado] [identificadorEvento]
+        public event pasarDatos pasarDatosEvent;
         private void DgvListaColaboradores_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             // METODO PASAR DATOS NO CAMBIAR
@@ -32,19 +41,24 @@ namespace CapaPresentacion
             {
                 int fila = e.RowIndex;
 
-                frmcolaboradores.TxtCedula.Text = DgvListaColaboradores.Rows[fila].Cells[0].Value.ToString();
-                frmcolaboradores.TxtNombre.Text = DgvListaColaboradores.Rows[fila].Cells[1].Value.ToString();
-                frmcolaboradores.TxtApe1.Text = DgvListaColaboradores.Rows[fila].Cells[2].Value.ToString();
-                frmcolaboradores.TxtApe2.Text = DgvListaColaboradores.Rows[fila].Cells[3].Value.ToString();
-                frmcolaboradores.CbTipo.SelectedValue = DgvListaColaboradores.Rows[fila].Cells[4].Value.ToString();
-                frmcolaboradores.TxtUsuario.Text = DgvListaColaboradores.Rows[fila].Cells[5].Value.ToString();
-                frmcolaboradores.TxtContraseña.Text = DgvListaColaboradores.Rows[fila].Cells[6].Value.ToString();
+                string id = DgvListaColaboradores.Rows[fila].Cells[0].Value.ToString();
+                //int tipoId = (int)dtgvClientes.Rows[n].Cells[1].Value;
 
-                frmcolaboradores.BtnGuardarColaborador.Enabled = false;
-                frmcolaboradores.BtnModificar.Visible = true;
-                frmcolaboradores.BtnEliminar.Visible = true;
+                TbColaborador Colaborador = new TbColaborador();
+                 
+                //filtra los tipos de id sean igual al tipo de id cuando hacemos el dobleclick en el grid
+                Colaborador = ListaColabo.Where(x => x.IdColaborador.Trim() == id.Trim()).SingleOrDefault();
+
+                //disparar el evento y mandar la identidad
+                pasarDatosEvent(Colaborador);
+                
+                /*****Aca da error en el codigo de jonathan no hace instancia******/
+                //frmcolaboradores.BtnGuardarColaborador.Enabled = false;
+                //frmcolaboradores.BtnModificar.Visible = true;
+                //frmcolaboradores.BtnEliminar.Visible = true;
                 this.Close();
             }
+
         }
 
         private void BtnVolver_Click(object sender, EventArgs e)
@@ -63,15 +77,41 @@ namespace CapaPresentacion
             IEnumerable<TbColaborador> ListAux= new List<TbColaborador>();
             if (TxtCodigo.Text!=string.Empty)
             {
-                //ListAux= listaColabo
+                ListAux= ListaColabo.Where(x => x.IdColaborador.Trim().ToUpper().Contains(TxtCodigo.Text.Trim().ToUpper())).ToList();
             }
+            if (TxtNombreProducto.Text!=string.Empty)
+            {
+                ListAux= ListaColabo.Where(x => x.NombreColaborador.Trim().ToUpper().Contains(TxtNombreProducto.Text.Trim().ToUpper())).ToList();
+            }
+
+            if (ListAux.Count() == 0 && TxtCodigo.Text == string.Empty && TxtNombreProducto.Text == string.Empty)
+            {
+                ListAux = ListaColabo;
+            }
+
+            CargarData((List<TbColaborador>) ListAux);
+
         }
 
         private void FrmListaColaboradores_Load(object sender, EventArgs e)
         {
-
+            refrescarDataGridView();
         }
-        private void CargarCambios(List<TbColaborador> colaboradores)
+        /// <summary>
+        /// Metodo que hace la sobrecarga del datagrid tanto en el load como en los filtros de busqueda
+        /// </summary>
+        public void refrescarDataGridView()
+        {
+            ListaColabo = NegocioColaborador.listaColaboadores();
+
+
+            CargarData(ListaColabo);
+        }
+        /// <summary>
+        /// Metodoo que Muestra los datos de los colaboaradores en un Datagrid
+        /// </summary>
+        /// <param name="colaboradores"></param>
+        private void CargarData(List<TbColaborador> colaboradores)
         {
             DgvListaColaboradores.Rows.Clear();
             foreach (TbColaborador Colabo in colaboradores)
@@ -88,7 +128,7 @@ namespace CapaPresentacion
                 }
                 else
                 {
-                    DgvListaColaboradores.Rows[nr].Cells[4].Value =Enum.GetName(typeof(Enums.Tipo_Colaborador), Colabo.TipoColaborador);
+                    DgvListaColaboradores.Rows[nr].Cells[4].Value =Enum.GetName(typeof(Enums.Tipo_Colaborador),Colabo.TipoColaborador);
 
                 }
             }

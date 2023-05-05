@@ -10,6 +10,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Utilidades;
+using static CapaPresentacion.FrmListaUsuarios;
 
 namespace CapaPresentacion
 {
@@ -20,6 +22,7 @@ namespace CapaPresentacion
             InitializeComponent();
         }
         CNColaborador CNColaborador = new CNColaborador();
+        TbColaborador TbColabo = new TbColaborador();
 
         private void BtnGuardarColaborador_Click(object sender, EventArgs e)
         {
@@ -122,10 +125,34 @@ namespace CapaPresentacion
                 Validaciones.MostarError(TxtCedula, "Debes ingresar una identificación valida");
             }
         }
+        /// <summary>
+        /// Ejecuatamos el pasar datos y llenamos los controles conrespondientes
+        /// </summary>
+        /// <param name="Colaborador"></param>
+        private void pasarDatos(TbColaborador Colaborador)
+        {
+            TbColabo = Colaborador;
+            cargarDatosForm(TbColabo);
 
+        }
+        /// <summary>
+        /// Cargamos el formulario por medio de pasar datos 
+        /// </summary>
+        /// <param name="tbColaborador"></param>
+        private void cargarDatosForm(TbColaborador tbColaborador)
+        {
+            TxtCedula.Text = tbColaborador.IdColaborador;
+            TxtNombre.Text = tbColaborador.NombreColaborador;
+            TxtApe2.Text = tbColaborador.SegundoApellidoColaborador;
+            TxtApe1.Text = tbColaborador.PrimerApellidoColaborador;
+            TxtUsuario.Text = tbColaborador.UserNameColaborador;
+            CbTipo.SelectedIndex = (int)tbColaborador.TipoColaborador;
+            TxtContraseña.Text = tbColaborador.PasswordColaborador;
+        }
         private void BtnVerLista_Click(object sender, EventArgs e)
         {
             FrmListaUsuarios frmListaColaboradores = new FrmListaUsuarios();
+            frmListaColaboradores.pasarDatosEvent += pasarDatos;
             frmListaColaboradores.ShowDialog();
         }
 
@@ -184,7 +211,7 @@ namespace CapaPresentacion
                                         colabo.PrimerApellidoColaborador = TxtApe1.Text;
                                         colabo.SegundoApellidoColaborador = TxtApe2.Text;
                                         colabo.PasswordColaborador = TxtContraseña.Text;
-                                        colabo.UserNameColaborador= TxtUsuario.Text;
+                                        colabo.UserNameColaborador = TxtUsuario.Text;
                                         //colabo.TipoColaborador= CbTipo.Text;
                                         //colabo.EstadoColaborador = true;
                                         if (CNColaborador.ModificarColaborador(colabo))
@@ -386,7 +413,7 @@ namespace CapaPresentacion
             {
                 Validaciones.LimpiarError(TxtCedula);
 
-                //   ACA BA EL CODIGO PARA VALIDAR SI EXISTE YA EL USUARIO REGISTRADO
+                //   ACA VA EL CODIGO PARA VALIDAR SI EXISTE YA EL USUARIO REGISTRADO
                 TbColaborador colaborador = new TbColaborador();
                 colaborador.IdColaborador = TxtCedula.Text;
                 if (CNColaborador.ExisteColaborador(colaborador))
@@ -435,24 +462,28 @@ namespace CapaPresentacion
 
         private void TxtCedula_TextChanged(object sender, EventArgs e)
         {
-            if (TxtCedula.Text.Length == 9 || TxtCedula.Text.Length == 12
-                
-                )
-            {
-                List<TbColaborador> ListaColabo = CNColaborador.listaColaboadores();
-                foreach (TbColaborador colabo in ListaColabo)
-                {
-                    if (colabo.IdColaborador == TxtCedula.Text)
-                    {
-                        TxtNombre.Text = colabo.NombreColaborador;
-                        TxtApe2.Text = colabo.SegundoApellidoColaborador;
-                        TxtApe1.Text = colabo.PrimerApellidoColaborador;
-                        TxtUsuario.Text = colabo.UserNameColaborador;
-                        CbTipo.SelectedIndex = (int)colabo.TipoColaborador;
-                        break;
-                    }
-                }
-            }
+            //if (TxtCedula.Text.Length == 9 || TxtCedula.Text.Length == 12)
+            //{
+            //    List<TbColaborador> ListaColabo = CNColaborador.listaColaboadores();
+            //    foreach (TbColaborador colabo in ListaColabo)
+            //    {
+            //        if (colabo.IdColaborador == TxtCedula.Text)
+            //        {
+            //            TxtNombre.Text = colabo.NombreColaborador;
+            //            TxtApe2.Text = colabo.SegundoApellidoColaborador;
+            //            TxtApe1.Text = colabo.PrimerApellidoColaborador;
+            //            TxtUsuario.Text = colabo.UserNameColaborador;
+            //            CbTipo.SelectedIndex = (int)colabo.TipoColaborador;
+            //            break;
+            //        }
+            //    }
+            //}
+        }
+
+        private void FrmUsuarios_Load(object sender, EventArgs e)
+        {
+            //Agreagamos el tipo de colaborador por medioo de enumeradores
+            CbTipo.DataSource = Enum.GetValues(typeof(Enums.Tipo_Colaborador));
         }
     }
 }
