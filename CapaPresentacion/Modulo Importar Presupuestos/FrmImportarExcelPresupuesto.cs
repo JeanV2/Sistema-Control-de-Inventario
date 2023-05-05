@@ -73,29 +73,29 @@ namespace CapaPresentacion
 
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
-            
-            //for (int i = 0; i < dt.Rows.Count; i++)
-            //{ 
-            //    string cuenta = string.Empty;
-            //    string nombre = string.Empty;
-            //    double saldo = 0;
-            //    cuenta =  dt.Rows[i]["Cuenta"].ToString();
-            //    presupuesto.numeroCuenta = cuenta;
-            //    nombre = dt.Rows[i]["Nombre Presupuesto"].ToString().Trim();
-            //    presupuesto.nombrePresupuesto = nombre;
-            //    saldo = Convert.ToDouble(dt.Rows[i]["Saldo "].ToString());
-            //    presupuesto.MontoPresupuesto = saldo;
-            //    presupuesto.EstadoPresupuesto = 1;
 
-            //   negocioPresupuestos.GuardarPresupuesto(presupuesto);
-             
-            //    if(cuenta == presupuesto.numeroCuenta)
-            //    {
-            //        nombre = dt.Rows[i]["Nombre Presupuesto"].ToString().Trim();
-            //        saldo = Convert.ToDouble(dt.Rows[i]["Saldo "].ToString());
-            //        negocioPresupuestos.EditarPresupuesto(presupuesto);
-            //    }
-           // }
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                string cuenta = string.Empty;
+                string nombre = string.Empty;
+                double saldo = 0;
+                cuenta = dt.Rows[i]["Cuenta"].ToString();
+                presupuesto.numeroCuenta = cuenta;
+                nombre = dt.Rows[i]["Nombre Presupuesto"].ToString().Trim();
+                presupuesto.nombrePresupuesto = nombre;
+                saldo = Convert.ToDouble(dt.Rows[i]["Saldo "].ToString());
+                presupuesto.MontoPresupuesto = saldo;
+                presupuesto.EstadoPresupuesto = 1;
+
+                negocioPresupuestos.GuardarPresupuesto(presupuesto);
+
+                if (cuenta == presupuesto.numeroCuenta)
+                {
+                    nombre = dt.Rows[i]["Nombre Presupuesto"].ToString().Trim();
+                    saldo = Convert.ToDouble(dt.Rows[i]["Saldo "].ToString());
+                    negocioPresupuestos.EditarPresupuesto(presupuesto);
+                }
+            }
         }
         public bool validarFormatoExcel(Microsoft.Office.Interop.Excel.Worksheet worksheet)
         {
@@ -114,7 +114,7 @@ namespace CapaPresentacion
 
             }
             else
-            {
+            { 
                 return true;
             }
         }
