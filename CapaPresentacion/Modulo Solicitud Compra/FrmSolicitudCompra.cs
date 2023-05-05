@@ -437,11 +437,10 @@ namespace CapaPresentacion
         public void CargarCampoPresupuesto(String NumeroCuenta)
         {
             inventarioEntities1 db = new inventarioEntities1();
-              List<TbPresupuesto> listPre= db.TbPresupuesto.ToList();
-            listPre.Where(x=>x.numeroCuenta==NumeroCuenta).SingleOrDefault();
+            List<TbPresupuesto> listPre = db.TbPresupuesto.Where(x => x.numeroCuenta == NumeroCuenta).ToList();
             foreach (TbPresupuesto Pre in listPre)
             {
-                TxtMontuoDisponible.Text=Pre.MontoPresupuesto.ToString();
+                TxtMontuoDisponible.Text = Pre.MontoPresupuesto.ToString();
             }
         }
 
