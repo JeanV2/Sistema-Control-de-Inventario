@@ -4,6 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
+
       <Diagram DiagramId="192d756b421043cda0d30417c479cd14" Name="Diagram1" ZoomLevel="53">
         <EntityTypeShape EntityType="inventarioModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="6.875" />
         <EntityTypeShape EntityType="inventarioModel.TbColaborador" Width="1.5" PointX="0.75" PointY="8.375" />
@@ -13,6 +14,25 @@
         <EntityTypeShape EntityType="inventarioModel.TbProductoInsumoS" Width="1.5" PointX="5.25" PointY="0.75" />
         <EntityTypeShape EntityType="inventarioModel.TbSolicitudCompra" Width="1.5" PointX="3" PointY="12.75" />
         <EntityTypeShape EntityType="inventarioModel.TbSolicitudInsumo" Width="1.5" PointX="3" PointY="8.375" />
+
+      <Diagram DiagramId="192d756b421043cda0d30417c479cd14" Name="Diagram1" ZoomLevel="82">
+
+        <EntityTypeShape EntityType="inventarioModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="inventarioModel.TbColaborador" Width="1.5" PointX="0.75" PointY="2.375" />
+        <EntityTypeShape EntityType="inventarioModel.TbCompraSolicitudP" Width="1.5" PointX="5.25" PointY="5.25" />
+        <EntityTypeShape EntityType="inventarioModel.TbPresupuesto" Width="1.5" PointX="7.875" PointY="3.875" />
+        <EntityTypeShape EntityType="inventarioModel.TbProducto" Width="1.5" PointX="3" PointY="7.375" />
+        <EntityTypeShape EntityType="inventarioModel.TbProductoInsumoS" Width="1.5" PointX="5.25" PointY="1.375" />
+        <EntityTypeShape EntityType="inventarioModel.TbSolicitudCompra" Width="1.5" PointX="3" PointY="4.375" />
+        <EntityTypeShape EntityType="inventarioModel.TbSolicitudInsumo" Width="1.5" PointX="3" PointY="1.25" />
+        
+        
+        
+        
+        
+        
+        
+
         <AssociationConnector Association="inventarioModel.FK_TbSolicitudCompra_TbColaborador" />
         <AssociationConnector Association="inventarioModel.FK_TbSolicitudInsumo_TbColaborador" />
         <AssociationConnector Association="inventarioModel.FK_TbCompraSolicitudP_TbProducto" />
