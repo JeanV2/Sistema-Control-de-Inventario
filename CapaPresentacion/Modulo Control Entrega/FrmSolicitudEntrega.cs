@@ -530,11 +530,11 @@ namespace CapaPresentacion
         {
             if (CbTipoSilicitud.SelectedIndex == 0)
             {
-                TxtReferencia.Enabled = true;
+                TxtReferencia.Enabled = false;
             }
             if (CbTipoSilicitud.SelectedIndex == 1)
             {
-                TxtReferencia.Enabled = false;
+                TxtReferencia.Enabled = true;
             }
         }
         private void CbNombrePresupuesto_SelectedIndexChanged(object sender, EventArgs e)
