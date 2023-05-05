@@ -83,11 +83,11 @@
             this.guna2Panel1.Location = new System.Drawing.Point(7, 6);
             this.guna2Panel1.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.guna2Panel1.Name = "guna2Panel1";
-<<<<<<< HEAD
+
             this.guna2Panel1.Size = new System.Drawing.Size(1043, 201);
-=======
+
             this.guna2Panel1.Size = new System.Drawing.Size(1834, 247);
->>>>>>> 4518394998f82d5e82da4d554d7e23f0e9894ca6
+
             this.guna2Panel1.TabIndex = 1;
             // 
             // tableLayoutPanel1
@@ -128,7 +128,7 @@
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
-<<<<<<< HEAD
+
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
@@ -136,7 +136,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1043, 201);
-=======
+
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
@@ -144,35 +144,14 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1834, 247);
->>>>>>> 4518394998f82d5e82da4d554d7e23f0e9894ca6
+
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // txtAutoriza
             // 
-<<<<<<< HEAD
-            this.guna2TextBox3.BorderRadius = 10;
-            this.tableLayoutPanel1.SetColumnSpan(this.guna2TextBox3, 2);
-            this.guna2TextBox3.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox3.DefaultText = "";
-            this.guna2TextBox3.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox3.DisabledState.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox3.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2TextBox3.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2TextBox3.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox3.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox3.Location = new System.Drawing.Point(352, 4);
-            this.guna2TextBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.guna2TextBox3.Name = "guna2TextBox3";
-            this.guna2TextBox3.PasswordChar = '\0';
-            this.guna2TextBox3.PlaceholderText = "";
-            this.guna2TextBox3.ReadOnly = true;
-            this.guna2TextBox3.SelectedText = "";
-            this.guna2TextBox3.Size = new System.Drawing.Size(322, 32);
-            this.guna2TextBox3.TabIndex = 14;
-=======
+
+
+
             this.txtAutoriza.BorderRadius = 10;
             this.tableLayoutPanel1.SetColumnSpan(this.txtAutoriza, 2);
             this.txtAutoriza.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -195,7 +174,7 @@
             this.txtAutoriza.SelectedText = "";
             this.txtAutoriza.Size = new System.Drawing.Size(572, 39);
             this.txtAutoriza.TabIndex = 14;
->>>>>>> 4518394998f82d5e82da4d554d7e23f0e9894ca6
+
             // 
             // CbCodigoFamilia
             // 
@@ -209,35 +188,35 @@
             this.CbCodigoFamilia.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.CbCodigoFamilia.ForeColor = System.Drawing.Color.Black;
             this.CbCodigoFamilia.ItemHeight = 30;
-<<<<<<< HEAD
+
             this.CbCodigoFamilia.Location = new System.Drawing.Point(491, 43);
             this.CbCodigoFamilia.Name = "CbCodigoFamilia";
             this.CbCodigoFamilia.Size = new System.Drawing.Size(184, 36);
-=======
+
             this.CbCodigoFamilia.Location = new System.Drawing.Point(863, 53);
             this.CbCodigoFamilia.Margin = new System.Windows.Forms.Padding(4);
             this.CbCodigoFamilia.Name = "CbCodigoFamilia";
             this.CbCodigoFamilia.Size = new System.Drawing.Size(327, 36);
->>>>>>> 4518394998f82d5e82da4d554d7e23f0e9894ca6
+
             this.CbCodigoFamilia.TabIndex = 17;
-            this.CbCodigoFamilia.SelectedIndexChanged += new System.EventHandler(this.CbCodigoFamilia_SelectedIndexChanged);
+
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
+
             this.label12.Location = new System.Drawing.Point(351, 43);
             this.label12.Margin = new System.Windows.Forms.Padding(3);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(134, 34);
-=======
+
             this.label12.Location = new System.Drawing.Point(616, 53);
             this.label12.Margin = new System.Windows.Forms.Padding(4);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(239, 41);
->>>>>>> 4518394998f82d5e82da4d554d7e23f0e9894ca6
+
             this.label12.TabIndex = 14;
             this.label12.Text = "Codigo Familia";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -251,13 +230,13 @@
             this.label1.Location = new System.Drawing.Point(4, 4);
             this.label1.Margin = new System.Windows.Forms.Padding(4);
             this.label1.Name = "label1";
-<<<<<<< HEAD
+
             this.label1.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
             this.label1.Size = new System.Drawing.Size(342, 34);
-=======
+
             this.label1.Padding = new System.Windows.Forms.Padding(0, 0, 7, 0);
             this.label1.Size = new System.Drawing.Size(604, 41);
->>>>>>> 4518394998f82d5e82da4d554d7e23f0e9894ca6
+
             this.label1.TabIndex = 4;
             this.label1.Text = "Solicitud de Compra autorizada por";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -277,22 +256,22 @@
             this.TxtSolicitud.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtSolicitud.ForeColor = System.Drawing.Color.Black;
             this.TxtSolicitud.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-<<<<<<< HEAD
+
             this.TxtSolicitud.Location = new System.Drawing.Point(839, 4);
             this.TxtSolicitud.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-=======
+
             this.TxtSolicitud.Location = new System.Drawing.Point(1475, 5);
             this.TxtSolicitud.Margin = new System.Windows.Forms.Padding(5);
->>>>>>> 4518394998f82d5e82da4d554d7e23f0e9894ca6
+
             this.TxtSolicitud.Name = "TxtSolicitud";
             this.TxtSolicitud.PasswordChar = '\0';
             this.TxtSolicitud.PlaceholderText = "";
             this.TxtSolicitud.SelectedText = "";
-<<<<<<< HEAD
+
             this.TxtSolicitud.Size = new System.Drawing.Size(200, 32);
-=======
+
             this.TxtSolicitud.Size = new System.Drawing.Size(354, 39);
->>>>>>> 4518394998f82d5e82da4d554d7e23f0e9894ca6
+
             this.TxtSolicitud.TabIndex = 5;
             this.TxtSolicitud.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtSolicitud_KeyPress);
             // 
@@ -301,17 +280,17 @@
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
+
             this.label3.Location = new System.Drawing.Point(681, 3);
             this.label3.Margin = new System.Windows.Forms.Padding(3);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(151, 34);
-=======
+
             this.label3.Location = new System.Drawing.Point(1198, 4);
             this.label3.Margin = new System.Windows.Forms.Padding(4);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(268, 41);
->>>>>>> 4518394998f82d5e82da4d554d7e23f0e9894ca6
+
             this.label3.TabIndex = 4;
             this.label3.Text = "Solicitud #";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -330,23 +309,22 @@
             this.TxtMontuoDisponible.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtMontuoDisponible.ForeColor = System.Drawing.Color.Black;
             this.TxtMontuoDisponible.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-<<<<<<< HEAD
             this.TxtMontuoDisponible.Location = new System.Drawing.Point(839, 84);
             this.TxtMontuoDisponible.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-=======
+
             this.TxtMontuoDisponible.Location = new System.Drawing.Point(1475, 103);
             this.TxtMontuoDisponible.Margin = new System.Windows.Forms.Padding(5);
->>>>>>> 4518394998f82d5e82da4d554d7e23f0e9894ca6
+
             this.TxtMontuoDisponible.Name = "TxtMontuoDisponible";
             this.TxtMontuoDisponible.PasswordChar = '\0';
             this.TxtMontuoDisponible.PlaceholderText = "";
             this.TxtMontuoDisponible.ReadOnly = true;
             this.TxtMontuoDisponible.SelectedText = "";
-<<<<<<< HEAD
+
             this.TxtMontuoDisponible.Size = new System.Drawing.Size(200, 32);
-=======
+
             this.TxtMontuoDisponible.Size = new System.Drawing.Size(354, 39);
->>>>>>> 4518394998f82d5e82da4d554d7e23f0e9894ca6
+
             this.TxtMontuoDisponible.TabIndex = 17;
             this.TxtMontuoDisponible.TextChanged += new System.EventHandler(this.TxtMontuoDisponible_TextChanged);
             // 
@@ -355,17 +333,17 @@
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
+
             this.label2.Location = new System.Drawing.Point(681, 83);
             this.label2.Margin = new System.Windows.Forms.Padding(3);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(151, 34);
-=======
+
             this.label2.Location = new System.Drawing.Point(1198, 102);
             this.label2.Margin = new System.Windows.Forms.Padding(4);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(268, 41);
->>>>>>> 4518394998f82d5e82da4d554d7e23f0e9894ca6
+
             this.label2.TabIndex = 2;
             this.label2.Text = "Montuo Disponible";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -378,13 +356,13 @@
             this.label10.Location = new System.Drawing.Point(4, 53);
             this.label10.Margin = new System.Windows.Forms.Padding(4);
             this.label10.Name = "label10";
-<<<<<<< HEAD
+
             this.label10.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
             this.label10.Size = new System.Drawing.Size(168, 34);
-=======
+
             this.label10.Padding = new System.Windows.Forms.Padding(0, 0, 7, 0);
             this.label10.Size = new System.Drawing.Size(298, 41);
->>>>>>> 4518394998f82d5e82da4d554d7e23f0e9894ca6
+
             this.label10.TabIndex = 3;
             this.label10.Text = "Codigo Presupuesto";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -401,36 +379,34 @@
             this.CbListaPresupuestos.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.CbListaPresupuestos.ForeColor = System.Drawing.Color.Black;
             this.CbListaPresupuestos.ItemHeight = 30;
-<<<<<<< HEAD
+
             this.CbListaPresupuestos.Location = new System.Drawing.Point(177, 43);
             this.CbListaPresupuestos.Name = "CbListaPresupuestos";
             this.CbListaPresupuestos.Size = new System.Drawing.Size(168, 36);
-=======
+
             this.CbListaPresupuestos.Location = new System.Drawing.Point(310, 53);
             this.CbListaPresupuestos.Margin = new System.Windows.Forms.Padding(4);
             this.CbListaPresupuestos.Name = "CbListaPresupuestos";
             this.CbListaPresupuestos.Size = new System.Drawing.Size(298, 36);
->>>>>>> 4518394998f82d5e82da4d554d7e23f0e9894ca6
+
             this.CbListaPresupuestos.TabIndex = 4;
-            this.CbListaPresupuestos.SelectedIndexChanged += new System.EventHandler(this.CbListaPresupuestos_SelectedIndexChanged_1);
-            this.CbListaPresupuestos.SelectionChangeCommitted += new System.EventHandler(this.CbListaPresupuestos_SelectionChangeCommitted);
-            // 
+           // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
+
             this.label4.Location = new System.Drawing.Point(681, 43);
             this.label4.Margin = new System.Windows.Forms.Padding(3);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(151, 34);
-=======
+
             this.label4.Location = new System.Drawing.Point(1198, 53);
             this.label4.Margin = new System.Windows.Forms.Padding(4);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(268, 41);
->>>>>>> 4518394998f82d5e82da4d554d7e23f0e9894ca6
+
             this.label4.TabIndex = 6;
             this.label4.Text = "Codigo Producto";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -445,23 +421,20 @@
             this.CbCodigoProducto.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.CbCodigoProducto.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.CbCodigoProducto.Font = new System.Drawing.Font("Segoe UI", 10F);
-<<<<<<< HEAD
+
             this.CbCodigoProducto.ForeColor = System.Drawing.Color.Black;
             this.CbCodigoProducto.ItemHeight = 30;
             this.CbCodigoProducto.Location = new System.Drawing.Point(838, 43);
             this.CbCodigoProducto.Name = "CbCodigoProducto";
             this.CbCodigoProducto.Size = new System.Drawing.Size(202, 36);
-=======
             this.CbCodigoProducto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.CbCodigoProducto.ItemHeight = 30;
             this.CbCodigoProducto.Location = new System.Drawing.Point(1474, 53);
             this.CbCodigoProducto.Margin = new System.Windows.Forms.Padding(4);
             this.CbCodigoProducto.Name = "CbCodigoProducto";
             this.CbCodigoProducto.Size = new System.Drawing.Size(356, 36);
->>>>>>> 4518394998f82d5e82da4d554d7e23f0e9894ca6
+
             this.CbCodigoProducto.TabIndex = 16;
-            this.CbCodigoProducto.SelectedIndexChanged += new System.EventHandler(this.CbCodigoProducto_SelectedIndexChanged);
-            this.CbCodigoProducto.SelectionChangeCommitted += new System.EventHandler(this.CbCodigoProducto_SelectionChangeCommitted);
             // 
             // label11
             // 
@@ -471,11 +444,11 @@
             this.label11.Location = new System.Drawing.Point(4, 102);
             this.label11.Margin = new System.Windows.Forms.Padding(4);
             this.label11.Name = "label11";
-<<<<<<< HEAD
+
             this.label11.Size = new System.Drawing.Size(168, 34);
-=======
+
             this.label11.Size = new System.Drawing.Size(298, 41);
->>>>>>> 4518394998f82d5e82da4d554d7e23f0e9894ca6
+
             this.label11.TabIndex = 16;
             this.label11.Text = "Producto";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -496,23 +469,23 @@
             this.TxtNombreProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F);
             this.TxtNombreProducto.ForeColor = System.Drawing.Color.Black;
             this.TxtNombreProducto.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-<<<<<<< HEAD
+
             this.TxtNombreProducto.Location = new System.Drawing.Point(178, 84);
             this.TxtNombreProducto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-=======
+
             this.TxtNombreProducto.Location = new System.Drawing.Point(311, 103);
             this.TxtNombreProducto.Margin = new System.Windows.Forms.Padding(5);
->>>>>>> 4518394998f82d5e82da4d554d7e23f0e9894ca6
+
             this.TxtNombreProducto.Name = "TxtNombreProducto";
             this.TxtNombreProducto.PasswordChar = '\0';
             this.TxtNombreProducto.PlaceholderText = "";
             this.TxtNombreProducto.ReadOnly = true;
             this.TxtNombreProducto.SelectedText = "";
-<<<<<<< HEAD
+
             this.TxtNombreProducto.Size = new System.Drawing.Size(496, 32);
-=======
+
             this.TxtNombreProducto.Size = new System.Drawing.Size(878, 39);
->>>>>>> 4518394998f82d5e82da4d554d7e23f0e9894ca6
+
             this.TxtNombreProducto.TabIndex = 3;
             this.TxtNombreProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtPresupuesto_KeyPress);
             // 
@@ -524,11 +497,11 @@
             this.label5.Location = new System.Drawing.Point(4, 151);
             this.label5.Margin = new System.Windows.Forms.Padding(4);
             this.label5.Name = "label5";
-<<<<<<< HEAD
+
             this.label5.Size = new System.Drawing.Size(168, 34);
-=======
+
             this.label5.Size = new System.Drawing.Size(298, 41);
->>>>>>> 4518394998f82d5e82da4d554d7e23f0e9894ca6
+
             this.label5.TabIndex = 8;
             this.label5.Text = "Precio Producto";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -548,23 +521,23 @@
             this.TxtPrecioProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtPrecioProd.ForeColor = System.Drawing.Color.Black;
             this.TxtPrecioProd.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-<<<<<<< HEAD
+
             this.TxtPrecioProd.Location = new System.Drawing.Point(178, 124);
             this.TxtPrecioProd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-=======
+
             this.TxtPrecioProd.Location = new System.Drawing.Point(311, 152);
             this.TxtPrecioProd.Margin = new System.Windows.Forms.Padding(5);
->>>>>>> 4518394998f82d5e82da4d554d7e23f0e9894ca6
+
             this.TxtPrecioProd.Name = "TxtPrecioProd";
             this.TxtPrecioProd.PasswordChar = '\0';
             this.TxtPrecioProd.PlaceholderText = "";
             this.TxtPrecioProd.ReadOnly = true;
             this.TxtPrecioProd.SelectedText = "";
-<<<<<<< HEAD
+
             this.TxtPrecioProd.Size = new System.Drawing.Size(166, 32);
-=======
+
             this.TxtPrecioProd.Size = new System.Drawing.Size(296, 39);
->>>>>>> 4518394998f82d5e82da4d554d7e23f0e9894ca6
+
             this.TxtPrecioProd.TabIndex = 9;
             this.TxtPrecioProd.TextChanged += new System.EventHandler(this.TxtPrecioProd_TextChanged);
             this.TxtPrecioProd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtPrecioProd_KeyPress);
@@ -574,17 +547,17 @@
             this.label6.AutoSize = true;
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
+
             this.label6.Location = new System.Drawing.Point(351, 123);
             this.label6.Margin = new System.Windows.Forms.Padding(3);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(134, 34);
-=======
+
             this.label6.Location = new System.Drawing.Point(616, 151);
             this.label6.Margin = new System.Windows.Forms.Padding(4);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(239, 41);
->>>>>>> 4518394998f82d5e82da4d554d7e23f0e9894ca6
+
             this.label6.TabIndex = 10;
             this.label6.Text = "Cantidad";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -604,22 +577,22 @@
             this.TxtCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtCantidad.ForeColor = System.Drawing.Color.Black;
             this.TxtCantidad.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-<<<<<<< HEAD
+
             this.TxtCantidad.Location = new System.Drawing.Point(492, 124);
             this.TxtCantidad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-=======
+
             this.TxtCantidad.Location = new System.Drawing.Point(864, 152);
             this.TxtCantidad.Margin = new System.Windows.Forms.Padding(5);
->>>>>>> 4518394998f82d5e82da4d554d7e23f0e9894ca6
+
             this.TxtCantidad.Name = "TxtCantidad";
             this.TxtCantidad.PasswordChar = '\0';
             this.TxtCantidad.PlaceholderText = "";
             this.TxtCantidad.SelectedText = "";
-<<<<<<< HEAD
+
             this.TxtCantidad.Size = new System.Drawing.Size(182, 32);
-=======
+
             this.TxtCantidad.Size = new System.Drawing.Size(325, 39);
->>>>>>> 4518394998f82d5e82da4d554d7e23f0e9894ca6
+
             this.TxtCantidad.TabIndex = 11;
             this.TxtCantidad.TextChanged += new System.EventHandler(this.TxtCantidad_TextChanged);
             this.TxtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCantidad_KeyPress);
@@ -629,17 +602,17 @@
             this.label7.AutoSize = true;
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
+
             this.label7.Location = new System.Drawing.Point(681, 123);
             this.label7.Margin = new System.Windows.Forms.Padding(3);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(151, 34);
-=======
+
             this.label7.Location = new System.Drawing.Point(1198, 151);
             this.label7.Margin = new System.Windows.Forms.Padding(4);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(268, 41);
->>>>>>> 4518394998f82d5e82da4d554d7e23f0e9894ca6
+
             this.label7.TabIndex = 12;
             this.label7.Text = "Costo Total";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -659,23 +632,23 @@
             this.TxtCostoTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtCostoTotal.ForeColor = System.Drawing.Color.Black;
             this.TxtCostoTotal.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-<<<<<<< HEAD
+
             this.TxtCostoTotal.Location = new System.Drawing.Point(839, 124);
             this.TxtCostoTotal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-=======
+
             this.TxtCostoTotal.Location = new System.Drawing.Point(1475, 152);
             this.TxtCostoTotal.Margin = new System.Windows.Forms.Padding(5);
->>>>>>> 4518394998f82d5e82da4d554d7e23f0e9894ca6
+
             this.TxtCostoTotal.Name = "TxtCostoTotal";
             this.TxtCostoTotal.PasswordChar = '\0';
             this.TxtCostoTotal.PlaceholderText = "";
             this.TxtCostoTotal.ReadOnly = true;
             this.TxtCostoTotal.SelectedText = "";
-<<<<<<< HEAD
+
             this.TxtCostoTotal.Size = new System.Drawing.Size(200, 32);
-=======
+
             this.TxtCostoTotal.Size = new System.Drawing.Size(354, 39);
->>>>>>> 4518394998f82d5e82da4d554d7e23f0e9894ca6
+
             this.TxtCostoTotal.TabIndex = 13;
             this.TxtCostoTotal.TextChanged += new System.EventHandler(this.TxtCostoTotal_TextChanged);
             this.TxtCostoTotal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCostoTotal_KeyPress);
@@ -688,11 +661,11 @@
             this.label8.Location = new System.Drawing.Point(4, 200);
             this.label8.Margin = new System.Windows.Forms.Padding(4);
             this.label8.Name = "label8";
-<<<<<<< HEAD
+
             this.label8.Size = new System.Drawing.Size(168, 35);
-=======
+
             this.label8.Size = new System.Drawing.Size(298, 43);
->>>>>>> 4518394998f82d5e82da4d554d7e23f0e9894ca6
+
             this.label8.TabIndex = 14;
             this.label8.Text = "Fecha Solicitud";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -706,20 +679,20 @@
             this.DtpFechaSolicitud.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DtpFechaSolicitud.ForeColor = System.Drawing.Color.Black;
             this.DtpFechaSolicitud.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-<<<<<<< HEAD
+
             this.DtpFechaSolicitud.Location = new System.Drawing.Point(177, 163);
             this.DtpFechaSolicitud.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.DtpFechaSolicitud.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.DtpFechaSolicitud.Name = "DtpFechaSolicitud";
             this.DtpFechaSolicitud.Size = new System.Drawing.Size(168, 35);
-=======
+
             this.DtpFechaSolicitud.Location = new System.Drawing.Point(310, 200);
             this.DtpFechaSolicitud.Margin = new System.Windows.Forms.Padding(4);
             this.DtpFechaSolicitud.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.DtpFechaSolicitud.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.DtpFechaSolicitud.Name = "DtpFechaSolicitud";
             this.DtpFechaSolicitud.Size = new System.Drawing.Size(298, 43);
->>>>>>> 4518394998f82d5e82da4d554d7e23f0e9894ca6
+
             this.DtpFechaSolicitud.TabIndex = 15;
             this.DtpFechaSolicitud.Value = new System.DateTime(2023, 4, 28, 0, 31, 37, 383);
             // 
@@ -742,12 +715,12 @@
             this.BtnModificar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(99)))), ((int)(((byte)(174)))));
             this.BtnModificar.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
             this.BtnModificar.HoverState.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
+
             this.BtnModificar.Location = new System.Drawing.Point(491, 163);
-=======
+
             this.BtnModificar.Location = new System.Drawing.Point(863, 200);
             this.BtnModificar.Margin = new System.Windows.Forms.Padding(4);
->>>>>>> 4518394998f82d5e82da4d554d7e23f0e9894ca6
+
             this.BtnModificar.Name = "BtnModificar";
             this.BtnModificar.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
             this.BtnModificar.Size = new System.Drawing.Size(277, 43);
@@ -775,12 +748,12 @@
             this.guna2Button1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(99)))), ((int)(((byte)(174)))));
             this.guna2Button1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
             this.guna2Button1.HoverState.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
+
             this.guna2Button1.Location = new System.Drawing.Point(840, 163);
-=======
+
             this.guna2Button1.Location = new System.Drawing.Point(1563, 200);
             this.guna2Button1.Margin = new System.Windows.Forms.Padding(4);
->>>>>>> 4518394998f82d5e82da4d554d7e23f0e9894ca6
+
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
             this.guna2Button1.Size = new System.Drawing.Size(267, 43);
@@ -795,17 +768,17 @@
             this.panel1.Controls.Add(this.BtnConfirmar);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-<<<<<<< HEAD
+
             this.panel1.Location = new System.Drawing.Point(5, 506);
             this.panel1.Margin = new System.Windows.Forms.Padding(5);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1043, 84);
-=======
+
             this.panel1.Location = new System.Drawing.Point(7, 757);
             this.panel1.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1834, 103);
->>>>>>> 4518394998f82d5e82da4d554d7e23f0e9894ca6
+
             this.panel1.TabIndex = 3;
             // 
             // TxtTotalCompra
@@ -823,13 +796,13 @@
             this.TxtTotalCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtTotalCompra.ForeColor = System.Drawing.Color.Black;
             this.TxtTotalCompra.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-<<<<<<< HEAD
+
             this.TxtTotalCompra.Location = new System.Drawing.Point(778, 0);
             this.TxtTotalCompra.Margin = new System.Windows.Forms.Padding(3, 9, 0, 0);
-=======
+
             this.TxtTotalCompra.Location = new System.Drawing.Point(1480, 0);
             this.TxtTotalCompra.Margin = new System.Windows.Forms.Padding(4, 11, 0, 0);
->>>>>>> 4518394998f82d5e82da4d554d7e23f0e9894ca6
+
             this.TxtTotalCompra.Name = "TxtTotalCompra";
             this.TxtTotalCompra.PasswordChar = '\0';
             this.TxtTotalCompra.PlaceholderText = "";
@@ -858,13 +831,13 @@
             this.BtnConfirmar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(99)))), ((int)(((byte)(174)))));
             this.BtnConfirmar.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
             this.BtnConfirmar.HoverState.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
+
             this.BtnConfirmar.Location = new System.Drawing.Point(862, 47);
             this.BtnConfirmar.Margin = new System.Windows.Forms.Padding(4, 12, 4, 37);
-=======
+
             this.BtnConfirmar.Location = new System.Drawing.Point(1592, 58);
             this.BtnConfirmar.Margin = new System.Windows.Forms.Padding(5, 15, 5, 46);
->>>>>>> 4518394998f82d5e82da4d554d7e23f0e9894ca6
+
             this.BtnConfirmar.Name = "BtnConfirmar";
             this.BtnConfirmar.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
             this.BtnConfirmar.Size = new System.Drawing.Size(202, 36);
@@ -877,13 +850,13 @@
             // 
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
+
             this.label9.Location = new System.Drawing.Point(517, 0);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 18, 0, 0);
-=======
+
             this.label9.Location = new System.Drawing.Point(1132, 0);
             this.label9.Margin = new System.Windows.Forms.Padding(5, 22, 0, 0);
->>>>>>> 4518394998f82d5e82da4d554d7e23f0e9894ca6
+
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(331, 43);
             this.label9.TabIndex = 4;
@@ -897,13 +870,12 @@
             this.panel2.Location = new System.Drawing.Point(7, 253);
             this.panel2.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.panel2.Name = "panel2";
-<<<<<<< HEAD
             this.panel2.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.panel2.Size = new System.Drawing.Size(1043, 300);
-=======
+
             this.panel2.Padding = new System.Windows.Forms.Padding(9, 7, 9, 7);
             this.panel2.Size = new System.Drawing.Size(1834, 504);
->>>>>>> 4518394998f82d5e82da4d554d7e23f0e9894ca6
+
             this.panel2.TabIndex = 4;
             // 
             // DgvListaCompra
@@ -947,11 +919,11 @@
             this.DgvListaCompra.RowHeadersVisible = false;
             this.DgvListaCompra.RowHeadersWidth = 62;
             this.DgvListaCompra.RowTemplate.Height = 25;
-<<<<<<< HEAD
+
             this.DgvListaCompra.Size = new System.Drawing.Size(1029, 288);
-=======
+
             this.DgvListaCompra.Size = new System.Drawing.Size(1816, 490);
->>>>>>> 4518394998f82d5e82da4d554d7e23f0e9894ca6
+
             this.DgvListaCompra.TabIndex = 3;
             this.DgvListaCompra.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Lime;
             this.DgvListaCompra.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(244)))), ((int)(((byte)(196)))));
@@ -975,7 +947,6 @@
             this.DgvListaCompra.ThemeStyle.RowsStyle.Height = 25;
             this.DgvListaCompra.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(231)))), ((int)(((byte)(123)))));
             this.DgvListaCompra.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.DgvListaCompra.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListaCompra_CellContentClick_1);
             // 
             // Column1
             // 
@@ -1034,11 +1005,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(54)))), ((int)(((byte)(94)))));
-<<<<<<< HEAD
+
             this.ClientSize = new System.Drawing.Size(1053, 595);
-=======
+
             this.ClientSize = new System.Drawing.Size(1848, 866);
->>>>>>> 4518394998f82d5e82da4d554d7e23f0e9894ca6
+
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.guna2Panel1);
@@ -1048,7 +1019,6 @@
             this.Name = "FrmSolicitudCompra";
             this.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.Text = "FrmSolicitudCompra";
-            this.Load += new System.EventHandler(this.FrmSolicitudCompra_Load_1);
             this.guna2Panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
