@@ -151,6 +151,11 @@ namespace CapaPresentacion
                                     DgvListaCompra.Rows[Row].Cells[4].Value = TxtCostoTotal.Text;
 
                                     TxtMontuoDisponible.Text = (Convert.ToDouble(TxtMontuoDisponible.Text.Replace("₡", "")) - Convert.ToDouble(TxtCostoTotal.Text.Replace("₡", ""))).ToString();
+                                    if (TxtTotalCompra.Text==string.Empty)
+                                    {
+                                        TxtTotalCompra.Text = "0";
+                                    }
+                                    TxtTotalCompra.Text = (Convert.ToDouble(TxtTotalCompra.Text.Replace("₡", "")) + Convert.ToDouble(TxtCostoTotal.Text.Replace("₡", ""))).ToString();
                                 }
                                 else
                                 {
@@ -276,10 +281,16 @@ namespace CapaPresentacion
                     //Restamos el total Al presupuesto;
                     RestarPresupuesto();
                     //Le restamos a inventario requerido y le sumamos a inventario existente
-                    //MessageBox.Show(DgvListaCompra.Rows[i].Cells[2].Value.ToString());
-                    MasMenosInventario(DgvListaCompra.Rows[i].Cells[0].ToString(), int.Parse((DgvListaCompra.Rows[i].Cells[2].Value.ToString()))) ;
+            
+                    MasMenosInventario(DgvListaCompra.Rows[i].Cells[0].Value.ToString(), int.Parse((DgvListaCompra.Rows[i].Cells[2].Value.ToString()))) ;
                 }
+                DgvListaCompra.Rows.Clear();
                 Validaciones.LimpiarFormulario(tableLayoutPanel1);
+                if (DgvListaCompra.Rows.Count==0)
+                {
+                    MessageBox.Show("Solicitud creada con exito","Alerta",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                }
+               
             }
             else
             {
@@ -301,8 +312,16 @@ namespace CapaPresentacion
             inventarioEntities1 Db = new inventarioEntities1();
             TbProducto producto = new TbProducto();
             producto = Db.TbProducto.Where(x => x.CodProducto == CodProducto).SingleOrDefault();
+            if (producto.InventarioRequerido==0)
+            {
+                producto.InventarioRequerido = producto.InventarioRequerido;
+            }
+            else
+            {
+                producto.InventarioRequerido = producto.InventarioRequerido - Cantidad;
+            }
             producto.InventarioExistente = producto.InventarioExistente + Cantidad;
-            producto.InventarioRequerido = producto.InventarioRequerido - Cantidad;
+            producto.CostoTotal = producto.MUltCosto * producto.InventarioExistente;
             Db.SaveChanges();
            
         }
@@ -357,49 +376,9 @@ namespace CapaPresentacion
             }
 
 
-            private void DgvListaCompra_CellContentClick(object sender, DataGridViewCellEventArgs e)
-            {
-               
-            }
+          
 
-            //private void DgvListaCompra_CellContentClick(object sender, DataGridViewCellEventArgs e)
-            //{
-
-            //}
-
-            private void FrmSolicitudCompra_Load(object sender, EventArgs e)
-            {
-
-                foreach (var item in PresupuestosList)
-                {
-                    //if (item.EstadoPresupuesto != true)
-                    //{
-                    //    CbListaPresupuestos.Items.Add(item.IdPresupuesto);
-                    //}
-                }
-                CbListaPresupuestos.SelectedIndex = 0;
-                //LLenamos el txt del codigo de la solicitud
-                TxtSolicitud.Text = ObtenerCodigo_SolicitudCompra();
-
-
-            }
-
-            private void CbListaPresupuestos_SelectedIndexChanged(object sender, EventArgs e)
-            {
-                foreach (var item in PresupuestosList)
-                {
-
-                //    if (item.IdPresupuesto == CbListaPresupuestos.SelectedItem)
-
-                ////if (item.IdPresupuesto == CbListaPresupuestos.SelectedItem)
-
-                //    {
-                //        TxtNombreProducto.Text = item.MontoPresupuesto.ToString();
-                //    }
-                }
-                DgvListaCompra.Rows.Clear();
-            }
-
+     
         private void TxtMontuoDisponible_TextChanged(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(TxtNombreProducto.Text))
@@ -508,6 +487,7 @@ namespace CapaPresentacion
                 double Presupuesto =  Convert.ToDouble(TxtMontuoDisponible.Text.Replace("₡", ""));
                 double CostoTotal = Convert.ToDouble(DgvListaCompra.Rows[Row].Cells[4].Value.ToString().Replace("₡", ""));
                 TxtMontuoDisponible.Text = (Presupuesto + CostoTotal).ToString();
+                TxtTotalCompra.Text = (Convert.ToDouble(TxtTotalCompra.Text.Replace("₡", ""))-CostoTotal  ).ToString();
 
                 // Obtener la fila que se está eliminando
                 DataGridViewRow fila = DgvListaCompra.Rows[e.RowIndex];
