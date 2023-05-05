@@ -17,8 +17,8 @@ namespace CapaDatos
         /// <returns></returns>
         public bool GuardarProduct(TbProducto producto)
         {
-            //try
-            //{
+            try
+            {
                 using (var C = new inventarioEntities1())
                 {
                     C.TbProducto.Add(producto);
@@ -26,11 +26,11 @@ namespace CapaDatos
                 }
                 return true;
 
-            //}
-            //catch (Exception exe)
-            //{
-            //    return false;
-            //}
+            }
+            catch (Exception exe)
+            {
+                return false;
+            }
         }
         /// <summary>
         /// Modifica los productos
