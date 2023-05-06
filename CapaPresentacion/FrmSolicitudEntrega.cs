@@ -1,4 +1,5 @@
-﻿using CapaEntidades;
+﻿
+using CapaEntidades;
 using CapaNegocios;
 using Microsoft.Office.Interop.Excel;
 using RestSharp.Extensions;

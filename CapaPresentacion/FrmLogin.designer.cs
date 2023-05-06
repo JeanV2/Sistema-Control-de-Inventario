@@ -66,7 +66,7 @@
             // 
             this.lblError.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblError.ForeColor = System.Drawing.Color.White;
-            this.lblError.Image = global::CapaPresentacion.Properties.Resources.icons8_cancel_32;
+            //this.lblError.Image = global::CapaPresentacion.Properties.Resources.icons8_cancel_32;
             this.lblError.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblError.Location = new System.Drawing.Point(30, 272);
             this.lblError.Name = "lblError";
@@ -90,7 +90,7 @@
             this.TxtUsuario.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtUsuario.ForeColor = System.Drawing.Color.White;
             this.TxtUsuario.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TxtUsuario.IconLeft = global::CapaPresentacion.Properties.Resources.customer_52px;
+            //this.TxtUsuario.IconLeft = global::CapaPresentacion.Properties.Resources.customer_52px;
             this.TxtUsuario.IconLeftSize = new System.Drawing.Size(35, 35);
             this.TxtUsuario.Location = new System.Drawing.Point(30, 153);
             this.TxtUsuario.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
@@ -118,7 +118,7 @@
             this.TxtContraseña.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtContraseña.ForeColor = System.Drawing.Color.White;
             this.TxtContraseña.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TxtContraseña.IconLeft = global::CapaPresentacion.Properties.Resources.unlock_52px;
+            //this.TxtContraseña.IconLeft = global::CapaPresentacion.Properties.Resources.unlock_52px;
             this.TxtContraseña.IconLeftSize = new System.Drawing.Size(35, 35);
             this.TxtContraseña.Location = new System.Drawing.Point(30, 224);
             this.TxtContraseña.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
@@ -135,7 +135,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.INA_logo_blanco1;
+            //this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.INA_logo_blanco1;
             this.pictureBox1.Location = new System.Drawing.Point(10, 10);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(334, 87);
