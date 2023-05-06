@@ -316,10 +316,6 @@
       <Project>{33cb981d-5e3c-45c2-b834-bc3e38292291}</Project>
       <Name>CapaNegocios</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Utilidades\Utilidades.csproj">
-      <Project>{68695305-8385-4919-8d3d-7e7659ec4613}</Project>
-      <Name>Utilidades</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
