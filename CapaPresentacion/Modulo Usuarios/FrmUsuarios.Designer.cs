@@ -466,6 +466,7 @@
             this.Name = "FrmUsuarios";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.Text = "FrmColaboradores";
+            this.Load += new System.EventHandler(this.FrmUsuarios_Load);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
