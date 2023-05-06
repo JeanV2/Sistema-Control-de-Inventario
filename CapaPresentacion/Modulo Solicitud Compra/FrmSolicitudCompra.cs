@@ -158,17 +158,10 @@ namespace CapaPresentacion
                                         TxtTotalCompra.Text = "0";
                                     }
                                     TxtTotalCompra.Text = (Convert.ToDouble(TxtTotalCompra.Text.Replace("₡", "")) + Convert.ToDouble(TxtCostoTotal.Text.Replace("₡", ""))).ToString();
-                                    //Limpiamos los campos del productos agregado al carrito
-                                    TxtNombreProducto.Clear();
-                                    TxtPrecioProd.Clear();
-                                    TxtCostoTotal.Clear();
-                                    TxtCantidad.Text = "";
-
                                 }
                                 else
                                 {
                                     MessageBox.Show("El Producto que deseas ingresar ya se encuentra en la lista, si deseas actualizarlo debes quitarlo de la lista y agregarlo nuevamente","Alerta",MessageBoxButtons.OKCancel,MessageBoxIcon.Information);
-
                                 }
 
 
@@ -449,7 +442,7 @@ namespace CapaPresentacion
             List<TbPresupuesto> listPre = db.TbPresupuesto.Where(x => x.numeroCuenta == NumeroCuenta).ToList();
             foreach (TbPresupuesto Pre in listPre)
             {
-                TxtMontuoDisponible.Text = Pre.MontoPresupuesto.ToString();
+                TxtMontuoDisponible.Text=Pre.MontoPresupuesto.ToString();
             }
         }
 
@@ -521,9 +514,7 @@ namespace CapaPresentacion
         private void CbCodigoProducto_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             CargarCamposProducto(CbCodigoProducto.SelectedValue.ToString());
-            TxtCantidad.Text = "";
-            TxtCostoTotal.Text = "0";
-
+            
         }
     }
 
