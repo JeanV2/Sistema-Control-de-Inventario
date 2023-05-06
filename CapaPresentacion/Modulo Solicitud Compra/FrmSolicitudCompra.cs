@@ -15,6 +15,7 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion
 {
+    //
     public partial class FrmSolicitudCompra : Form
     {
 
@@ -81,6 +82,7 @@ namespace CapaPresentacion
 
             return Codigo;
         }
+        //
         private void BtnModificar_Click(object sender, EventArgs e)
         {
             FrmListaProductosSolicituCompra frmListaProductos = new FrmListaProductosSolicituCompra();

@@ -40,7 +40,7 @@ namespace CapaPresentacion
 
         #endregion
         //------------------------------------------------------------------------------------------
-
+        //
         public FrmMenuPrincipal()
         {
             InitializeComponent();
@@ -113,21 +113,39 @@ namespace CapaPresentacion
             {
                 
             }
-            if (MenuProductos.SelectedIndex==1)
+            if (MenuProductos.SelectedIndex == 1)
+            {
+                AbrirFormularioHijo(new FrmVerListaProductos());
+                MenuProductos.SelectedIndex = 0;
+            }
+            if (MenuProductos.SelectedIndex==2)
             {
                 AbrirFormularioHijo(new FrmAñadirProductos());
                 MenuProductos.SelectedIndex = 0;
             }
-            if (MenuProductos.SelectedIndex ==2)
+            if (MenuProductos.SelectedIndex ==3)
             {
                 AbrirFormularioHijo(new FrmImportarArticulos());
                 MenuProductos.SelectedIndex = 0;
             }
         }
 
-        private void MenuProductos_SelectedIndexChanged(object sender, EventArgs e)
+        private void MenuPresupuestos_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            if (MenuPresupuestos.SelectedIndex == 0)
+            {
 
+            }
+            if (MenuPresupuestos.SelectedIndex == 1)
+            {
+                AbrirFormularioHijo(new FrmListaPresupuestos());
+                MenuPresupuestos.SelectedIndex = 0;
+            }
+            if (MenuPresupuestos.SelectedIndex == 2)
+            {
+                AbrirFormularioHijo(new FrmImportarExcelPresupuesto());
+                MenuPresupuestos.SelectedIndex = 0;
+            }
         }
     }
 }
