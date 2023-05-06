@@ -86,7 +86,7 @@
             this.BtnFiltrar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(99)))), ((int)(((byte)(174)))));
             this.BtnFiltrar.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
             this.BtnFiltrar.HoverState.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            //this.BtnFiltrar.Image = global::CapaPresentacion.Properties.Resources.filter_52px;
+            this.BtnFiltrar.Image = global::CapaPresentacion.Properties.Resources.filter_52px;
             this.BtnFiltrar.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.BtnFiltrar.Location = new System.Drawing.Point(811, 76);
             this.BtnFiltrar.Margin = new System.Windows.Forms.Padding(4, 12, 4, 37);

@@ -1,5 +1,4 @@
-﻿
-using CapaDatos;
+﻿using CapaDatos;
 using CapaEntidades;
 using CapaNegocios;
 using System;

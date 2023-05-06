@@ -279,7 +279,7 @@
             // PanelContenedor
             // 
             this.PanelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(54)))), ((int)(((byte)(94)))));
-            //this.PanelContenedor.BackgroundImage = global::CapaPresentacion.Properties.Resources.ina;
+            this.PanelContenedor.BackgroundImage = global::CapaPresentacion.Properties.Resources.ina;
             this.PanelContenedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.PanelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelContenedor.Location = new System.Drawing.Point(0, 84);
