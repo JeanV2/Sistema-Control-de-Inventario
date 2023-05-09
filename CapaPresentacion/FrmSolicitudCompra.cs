@@ -28,7 +28,7 @@ namespace CapaPresentacion
 
             TxtSolicitud.Text = ObtenerCodigo_SolicitudCompra();
 
-     
+
             //LLenamos el cb de presupuesto con una lista de presupuesto
             PresupuestosList = NPresupuestos.ListaPresupuestos();
 
@@ -39,7 +39,8 @@ namespace CapaPresentacion
         NegocioPresupuestos NPresupuestos = new NegocioPresupuestos();
         //Lista de presupuesto
         List<TbPresupuesto> PresupuestosList;
-
+        //Para que el listado de productos solo muestre el de diseño presupuesto
+        public static string codPrespuesto = "";
 
         private string ObtenerCodigo_SolicitudCompra()
         {
@@ -86,9 +87,19 @@ namespace CapaPresentacion
         private void BtnModificar_Click(object sender, EventArgs e)
         {
             FrmListaProductosSolicituCompra frmListaProductos = new FrmListaProductosSolicituCompra();
+            frmListaProductos.PasarDatosEvent += obtenerCod;
             frmListaProductos.ShowDialog();
-            TxtCantidad.Text = "";
+
         }
+
+        private void obtenerCod(string cod)
+        {
+            CbCodigoProducto.SelectedValue = cod;
+
+        }
+
+
+
         /// <summary>
         /// valida que no se metan productos repetidos a la lista de compra
         /// </summary>
@@ -98,10 +109,10 @@ namespace CapaPresentacion
             bool validar = true;
             for (int i = 0; i < DgvListaCompra.RowCount; i++)
             {
-      
-                if (DgvListaCompra.Rows[i].Cells[0].Value.ToString()==codigoProducto)
+
+                if (DgvListaCompra.Rows[i].Cells[1].Value.ToString() == codigoProducto)
                 {
-           
+
                     validar = false;
                     break;
 
@@ -109,7 +120,7 @@ namespace CapaPresentacion
                 else
                 {
                     validar = true;
-                   
+
                 }
             }
             return validar;
@@ -145,23 +156,30 @@ namespace CapaPresentacion
                                 {
                                     int Row = DgvListaCompra.Rows.Add();
 
-
-                                    DgvListaCompra.Rows[Row].Cells[0].Value = CbCodigoProducto.SelectedValue.ToString();
-                                    DgvListaCompra.Rows[Row].Cells[1].Value = TxtNombreProducto.Text;
-                                    DgvListaCompra.Rows[Row].Cells[2].Value = TxtCantidad.Text;
-                                    DgvListaCompra.Rows[Row].Cells[3].Value = TxtPrecioProd.Text;
-                                    DgvListaCompra.Rows[Row].Cells[4].Value = TxtCostoTotal.Text;
+                                    DgvListaCompra.Rows[Row].Cells[0].Value = CbListaPresupuestos.SelectedValue.ToString();
+                                    DgvListaCompra.Rows[Row].Cells[1].Value = CbCodigoProducto.SelectedValue.ToString();
+                                    DgvListaCompra.Rows[Row].Cells[2].Value = TxtNombreProducto.Text;
+                                    DgvListaCompra.Rows[Row].Cells[3].Value = TxtCantidad.Text;
+                                    DgvListaCompra.Rows[Row].Cells[4].Value = TxtPrecioProd.Text;
+                                    DgvListaCompra.Rows[Row].Cells[5].Value = TxtCostoTotal.Text;
 
                                     TxtMontuoDisponible.Text = (Convert.ToDouble(TxtMontuoDisponible.Text.Replace("₡", "")) - Convert.ToDouble(TxtCostoTotal.Text.Replace("₡", ""))).ToString();
-                                    if (TxtTotalCompra.Text==string.Empty)
+                                    if (TxtTotalCompra.Text == string.Empty)
                                     {
                                         TxtTotalCompra.Text = "0";
                                     }
                                     TxtTotalCompra.Text = (Convert.ToDouble(TxtTotalCompra.Text.Replace("₡", "")) + Convert.ToDouble(TxtCostoTotal.Text.Replace("₡", ""))).ToString();
+                                    //Limpiamos los datos del producto
+                                    //Limpiamos el formulario
+                                    TxtCantidad.Clear();
+                                    TxtPrecioProd.Text = "";
+                                    TxtCostoTotal.Clear();
+                                    TxtNombreProducto.Text = "";
+                                    
                                 }
                                 else
                                 {
-                                    MessageBox.Show("El Producto que deseas ingresar ya se encuentra en la lista, si deseas actualizarlo debes quitarlo de la lista y agregarlo nuevamente","Alerta",MessageBoxButtons.OKCancel,MessageBoxIcon.Information);
+                                    MessageBox.Show("El Producto que deseas ingresar ya se encuentra en la lista, si deseas actualizarlo debes quitarlo de la lista y agregarlo nuevamente", "Alerta", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
                                 }
 
 
@@ -273,48 +291,55 @@ namespace CapaPresentacion
                 for (int i = 0; i < DgvListaCompra.RowCount; i++)
                 {
                     //completamos los datos del producto a guardar
-                    UnionCompra.CodProducto = DgvListaCompra.Rows[i].Cells[0].Value.ToString();
-                    UnionCompra.Cantidad = int.Parse(DgvListaCompra.Rows[i].Cells[2].Value.ToString());
+                    UnionCompra.CodProducto = DgvListaCompra.Rows[i].Cells[1].Value.ToString();
+                    UnionCompra.Cantidad = int.Parse(DgvListaCompra.Rows[i].Cells[3].Value.ToString());
                     UnionCompra.EstadoSolicitudCompra = true;
                     UnionCompra.IdsolicitudCompra = TxtSolicitud.Text;
                     //guardamos el producto
                     NCompraUnion.GuardarSolicitud(UnionCompra);
-
-                    //Restamos el total Al presupuesto;
-                    RestarPresupuesto();
                     //Le restamos a inventario requerido y le sumamos a inventario existente
-            
-                    MasMenosInventario(DgvListaCompra.Rows[i].Cells[0].Value.ToString(), int.Parse((DgvListaCompra.Rows[i].Cells[2].Value.ToString()))) ;
+                    //Restamos el total Al presupuesto;
+                    RestarPresupuesto(i);
+                    MasMenosInventario(DgvListaCompra.Rows[i].Cells[1].Value.ToString(), int.Parse((DgvListaCompra.Rows[i].Cells[3].Value.ToString())));
+                  
                 }
+                
+                CargarComboPresupuesto();
                 DgvListaCompra.Rows.Clear();
                 Validaciones.LimpiarFormulario(tableLayoutPanel1);
-                if (DgvListaCompra.Rows.Count==0)
+                TxtTotalCompra.Text = "";
+                if (DgvListaCompra.Rows.Count == 0)
                 {
-                    MessageBox.Show("Solicitud creada con exito","Alerta",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    MessageBox.Show("Solicitud creada con exito", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-               
+
             }
             else
             {
                 MessageBox.Show("La solictud de compra no se puede realizar porque no tiene datos que solicitar", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
-        
+
         }
-           public void RestarPresupuesto()
-           {
-            inventarioEntities1 Db = new inventarioEntities1();
-            TbPresupuesto presupuesto = new TbPresupuesto();
-            presupuesto = Db.TbPresupuesto.Where(x=>x.numeroCuenta==CbListaPresupuestos.SelectedValue.ToString()).SingleOrDefault();
-            presupuesto.MontoPresupuesto = Convert.ToDouble(TxtMontuoDisponible.Text);
-            Db.SaveChanges();
-            }
-        public void MasMenosInventario(String CodProducto,int Cantidad)
+        public void RestarPresupuesto(int i)
+        {
+            
+                inventarioEntities1 Db = new inventarioEntities1();
+                TbPresupuesto presupuesto = new TbPresupuesto();
+                string presupuestoCod = DgvListaCompra.Rows[i].Cells[0].Value.ToString();
+                presupuesto = Db.TbPresupuesto.Where(x => x.numeroCuenta == presupuestoCod).SingleOrDefault();
+                double PresupuestoVal = (double)presupuesto.MontoPresupuesto;
+                double totalcP =double.Parse( DgvListaCompra.Rows[i].Cells[5].Value.ToString().Replace("₡", ""));
+                presupuesto.MontoPresupuesto = PresupuestoVal -totalcP;
+                Db.SaveChanges();
+            
+        }
+        public void MasMenosInventario(String CodProducto, int Cantidad)
         {
             inventarioEntities1 Db = new inventarioEntities1();
             TbProducto producto = new TbProducto();
             producto = Db.TbProducto.Where(x => x.CodProducto == CodProducto).SingleOrDefault();
-            if (producto.InventarioRequerido==0)
+            if (producto.InventarioRequerido == 0)
             {
                 producto.InventarioRequerido = producto.InventarioRequerido;
             }
@@ -325,62 +350,63 @@ namespace CapaPresentacion
             producto.InventarioExistente = producto.InventarioExistente + Cantidad;
             producto.CostoTotal = producto.MUltCosto * producto.InventarioExistente;
             Db.SaveChanges();
-           
+
         }
-            private void TxtCantidad_TextChanged(object sender, EventArgs e)
+        private void TxtCantidad_TextChanged(object sender, EventArgs e)
+        {
+            //validamos que el txt no este vacio
+            if (TxtCantidad.Text != string.Empty)
             {
-                //validamos que el txt no este vacio
-                if (TxtCantidad.Text != string.Empty)
+                //si txtcantidad es igual a 0 costo total sera igual a 0
+                if (TxtCantidad.Text == "0")
                 {
-                    //si txtcantidad es igual a 0 costo total sera igual a 0
-                    if (TxtCantidad.Text == "0")
-                    {
-                        TxtCostoTotal.Text = "0";
-                    }
-                    //caso contrario se multipla el precio del producto por la cantidad
-                    else
-                    {
+                    TxtCostoTotal.Text = "0";
+                }
+                //caso contrario se multipla el precio del producto por la cantidad
+                else
+                {
                     //limpiamos el txt de precio producto para que no contenga caracteres invalidos
 
                     //realizamos la multiplicacion
-               
-                    double costo = Convert.ToDouble(TxtCantidad.Text) * Convert.ToDouble(TxtPrecioProd.Text.Replace("₡",""));
+
+                    double costo = Convert.ToDouble(TxtCantidad.Text) * Convert.ToDouble(TxtPrecioProd.Text.Replace("₡", ""));
                     try
                     {
                         //mostramos el costo
                         TxtCostoTotal.Text = costo.ToString();
-                            string PrespuestoSin = TxtMontuoDisponible.Text;
-                           double result = Convert.ToDouble(PrespuestoSin.Substring(1));
-                            if (costo > result)
-                            {
-                                guna2Button1.Enabled = false;
-                                MessageBox.Show("Excedió los limites del presepuesto", "INFORMACION", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            }
-                            else
-                            {
-                                guna2Button1.Enabled = true;
+                        string PrespuestoSin = TxtMontuoDisponible.Text;
+                        double result = Convert.ToDouble(PrespuestoSin.Substring(1));
+                        if (costo > result)
+                        {
+                            guna2Button1.Enabled = false;
+                            MessageBox.Show("Excedió los limites del presepuesto", "INFORMACION", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else
+                        {
+                            guna2Button1.Enabled = true;
+
+                        }
+                    }
+                    catch (Exception)
+                    {
+
+                        MessageBox.Show("No tiene un presupuesto seleccionado", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                     }
                 }
-                        catch (Exception)
-                {
-
-                    MessageBox.Show("No tiene un presupuesto seleccionado", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                }
-            }
 
             }
             else
             {
                 TxtCostoTotal.Text = "0";
+                guna2Button1.Enabled = false;
             }
-            }
+        }
 
 
-          
 
-     
+
+
         private void TxtMontuoDisponible_TextChanged(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(TxtNombreProducto.Text))
@@ -398,10 +424,10 @@ namespace CapaPresentacion
         /// </summary>
         public void CargarComboPresupuesto()
         {
-            NegocioPresupuestos presupuestos= new NegocioPresupuestos();
+            NegocioPresupuestos presupuestos = new NegocioPresupuestos();
             List<TbPresupuesto> presupuestosList;
             presupuestosList = presupuestos.ListaPresupuestos();
-            CbListaPresupuestos.DataSource= presupuestosList;
+            CbListaPresupuestos.DataSource = presupuestosList;
             CbListaPresupuestos.DisplayMember = "NombrePresupuesto";
             CbListaPresupuestos.ValueMember = "numeroCuenta";
 
@@ -412,10 +438,18 @@ namespace CapaPresentacion
         /// <param name="NumeroCuenta"></param>
         public void CargarComboProductos(string NumeroCuenta)
         {
-            inventarioEntities1 db = new inventarioEntities1();
-          CbCodigoProducto.DataSource= db.TbProducto.Where(x=>x.CFamilia==NumeroCuenta).ToList();
-            CbCodigoProducto.DisplayMember = "CodProducto";
-            CbCodigoProducto.ValueMember = "CodProducto";
+            try
+            {
+                inventarioEntities1 db = new inventarioEntities1();
+                CbCodigoProducto.DataSource = db.TbProducto.Where(x => x.CFamilia == NumeroCuenta).ToList();
+                CbCodigoProducto.DisplayMember = "CodProducto";
+                CbCodigoProducto.ValueMember = "CodProducto";
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Tenemos problema con el servidor, por favor reinicie el programa", "INFORMACION", MessageBoxButtons.OK, MessageBoxIcon.Question);
+            }
+           
         }
         /// <summary>
         /// carga los campos segun la seleeccion del combo de codigo de producto
@@ -440,9 +474,19 @@ namespace CapaPresentacion
         {
             inventarioEntities1 db = new inventarioEntities1();
             List<TbPresupuesto> listPre = db.TbPresupuesto.Where(x => x.numeroCuenta == NumeroCuenta).ToList();
+            //Variable para alamcenar el total de costo que hay que bajarle al presupuesto esto si ya el producto se encuentra en el datagrid
+            double TotalBajarPresupuesto=0;
+            for (int i = 0; i < DgvListaCompra.RowCount; i++)
+            {
+                if (DgvListaCompra.Rows[i].Cells[0].Value.ToString()==CbListaPresupuestos.SelectedValue)
+                {
+                    TotalBajarPresupuesto = TotalBajarPresupuesto + Convert.ToDouble(DgvListaCompra.Rows[i].Cells[5].Value.ToString().Replace("₡", ""));
+                }
+             }
             foreach (TbPresupuesto Pre in listPre)
             {
-                TxtMontuoDisponible.Text=Pre.MontoPresupuesto.ToString();
+               
+                    TxtMontuoDisponible.Text =((double)Pre.MontoPresupuesto-TotalBajarPresupuesto).ToString();
             }
         }
 
@@ -454,13 +498,13 @@ namespace CapaPresentacion
 
         private void CbListaPresupuestos_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            
-                
+
+
         }
 
         private void CbListaPresupuestos_SelectionChangeCommitted(object sender, EventArgs e)
         {
-           
+
         }
 
         private void CbCodigoFamilia_SelectedIndexChanged(object sender, EventArgs e)
@@ -470,12 +514,12 @@ namespace CapaPresentacion
 
         private void CbCodigoProducto_SelectedIndexChanged(object sender, EventArgs e)
         {
-     
+
         }
 
         private void CbCodigoProducto_SelectionChangeCommitted(object sender, EventArgs e)
         {
-      
+
         }
 
         private void DgvListaCompra_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
@@ -484,10 +528,10 @@ namespace CapaPresentacion
             if (e.ColumnIndex == DgvListaCompra.Columns["x"].Index && e.RowIndex >= 0)
             {
                 int Row = e.RowIndex;
-                double Presupuesto =  Convert.ToDouble(TxtMontuoDisponible.Text.Replace("₡", ""));
-                double CostoTotal = Convert.ToDouble(DgvListaCompra.Rows[Row].Cells[4].Value.ToString().Replace("₡", ""));
+                double Presupuesto = Convert.ToDouble(TxtMontuoDisponible.Text.Replace("₡", ""));
+                double CostoTotal = Convert.ToDouble(DgvListaCompra.Rows[Row].Cells[5].Value.ToString().Replace("₡", ""));
                 TxtMontuoDisponible.Text = (Presupuesto + CostoTotal).ToString();
-                TxtTotalCompra.Text = (Convert.ToDouble(TxtTotalCompra.Text.Replace("₡", ""))-CostoTotal  ).ToString();
+                TxtTotalCompra.Text = (Convert.ToDouble(TxtTotalCompra.Text.Replace("₡", "")) - CostoTotal).ToString();
 
                 // Obtener la fila que se está eliminando
                 DataGridViewRow fila = DgvListaCompra.Rows[e.RowIndex];
@@ -501,7 +545,14 @@ namespace CapaPresentacion
 
         private void CbListaPresupuestos_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //Limpiamos el formulario
+            TxtCantidad.Clear();
+            TxtPrecioProd.Text="";
+            TxtCostoTotal.Clear();
+            TxtNombreProducto.Text="";
+            TxtMontuoDisponible.Text = "" ;
             CargarCampoPresupuesto(CbListaPresupuestos.SelectedValue.ToString());
+            codPrespuesto = CbListaPresupuestos.SelectedValue.ToString();
             CargarComboProductos(CbListaPresupuestos.SelectedValue.ToString());
         }
 
@@ -514,7 +565,7 @@ namespace CapaPresentacion
         private void CbCodigoProducto_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             CargarCamposProducto(CbCodigoProducto.SelectedValue.ToString());
-            
+
         }
     }
 
