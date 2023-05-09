@@ -31,7 +31,8 @@ namespace CapaPresentacion
         double TotalCosto = 0;
         private void FrmVerListaProductos_Load(object sender, EventArgs e)
         {
-
+            ListProducto = NegProduct.ListProduct();
+            RefreshDatos(ListProducto);
         }
 
         /// <summary>
@@ -87,14 +88,14 @@ namespace CapaPresentacion
                 DgvListaProductos.Rows[nr].Cells[7].Value = tbProducto.MUltCosto;
                 //almaceno el costo total para compararlo con el monto de ese presupuesto
                 TotalCosto = (double)(tbProducto.InventarioRequerido * tbProducto.MUltCosto);
-                //if (PresupuestoAlcanza())
-                //{
+                if (PresupuestoAlcanza())
+                {
                     DgvListaProductos.Rows[nr].Cells[8].Value = TotalCosto;
-                //}
-                //else
-                //{
-                //    DgvListaProductos.Rows[nr].Cells[8].Value = "No hay presupuesto";
-                //}
+                }
+                else
+                {
+                    DgvListaProductos.Rows[nr].Cells[8].Value = "No hay presupuesto";
+                }
 
                 DgvListaProductos.Rows[nr].Cells[9].Value = tbProducto.InventarioExistente;
             }
@@ -104,32 +105,32 @@ namespace CapaPresentacion
         /// Valida que ahiga presupuesto
         /// </summary>
         /// <returns></returns>
-        //private bool PresupuestoAlcanza()
-        //{
-        //    ListPresupuesto = NegPresupuesto.ListaPresupuestos();
-        //    bool Alcanza = true;
-        //    foreach (TbPresupuesto pres in ListPresupuesto)
-        //    {
+        private bool PresupuestoAlcanza()
+        {
+            ListPresupuesto = NegPresupuesto.ListaPresupuestos();
+            bool Alcanza = true;
+            foreach (TbPresupuesto pres in ListPresupuesto)
+            {
 
-        //        if (pres.numeroCuenta.Equals(Presupuesto))
-        //        {
-        //            if (pres.MontoPresupuesto >= TotalCosto)
-        //            {
-        //                Alcanza = true;
-        //                break;
-        //            }
-        //            else
-        //            {
-        //                Alcanza = false;
-        //                break;
-        //            }
+                if (pres.numeroCuenta.Equals(Presupuesto))
+                {
+                    if (pres.MontoPresupuesto >= TotalCosto)
+                    {
+                        Alcanza = true;
+                        break;
+                    }
+                    else
+                    {
+                        Alcanza = false;
+                        break;
+                    }
 
-        //        }
+                }
 
 
-        //    }
+            }
 
-        //    return Alcanza;
-        //}
+            return Alcanza;
+        }
     }
 }
