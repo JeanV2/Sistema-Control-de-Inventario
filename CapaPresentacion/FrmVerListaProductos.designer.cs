@@ -43,11 +43,11 @@
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.BtnFiltrar = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.TxtProducto = new Guna.UI2.WinForms.Guna2TextBox();
+            this.TxtCodigoProducto = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.TxtCodigoPresupuesto = new Guna.UI2.WinForms.Guna2TextBox();
-            this.BtnFiltrar = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaProductos)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -100,7 +100,6 @@
             this.DgvListaProductos.RowTemplate.Height = 25;
             this.DgvListaProductos.Size = new System.Drawing.Size(800, 350);
             this.DgvListaProductos.TabIndex = 16;
-            //this.DgvListaProductos.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Lime;
             this.DgvListaProductos.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(244)))), ((int)(((byte)(196)))));
             this.DgvListaProductos.ThemeStyle.AlternatingRowsStyle.Font = null;
             this.DgvListaProductos.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
@@ -204,7 +203,7 @@
             // 
             this.panel1.Controls.Add(this.BtnFiltrar);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.TxtProducto);
+            this.panel1.Controls.Add(this.TxtCodigoProducto);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.TxtCodigoPresupuesto);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -212,6 +211,37 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 100);
             this.panel1.TabIndex = 15;
+            // 
+            // BtnFiltrar
+            // 
+            this.BtnFiltrar.Animated = true;
+            this.BtnFiltrar.BackColor = System.Drawing.Color.Transparent;
+            this.BtnFiltrar.BorderColor = System.Drawing.Color.Transparent;
+            this.BtnFiltrar.BorderRadius = 10;
+            this.BtnFiltrar.BorderThickness = 1;
+            this.BtnFiltrar.DefaultAutoSize = true;
+            this.BtnFiltrar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.BtnFiltrar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.BtnFiltrar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.BtnFiltrar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnFiltrar.FillColor = System.Drawing.SystemColors.Control;
+            this.BtnFiltrar.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnFiltrar.ForeColor = System.Drawing.Color.Black;
+            this.BtnFiltrar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(99)))), ((int)(((byte)(174)))));
+            this.BtnFiltrar.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
+            this.BtnFiltrar.HoverState.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnFiltrar.Image = global::CapaPresentacion.Properties.Resources.filter_52px;
+            this.BtnFiltrar.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.BtnFiltrar.Location = new System.Drawing.Point(608, 62);
+            this.BtnFiltrar.Margin = new System.Windows.Forms.Padding(3, 10, 3, 30);
+            this.BtnFiltrar.Name = "BtnFiltrar";
+            this.BtnFiltrar.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
+            this.BtnFiltrar.Size = new System.Drawing.Size(95, 32);
+            this.BtnFiltrar.TabIndex = 13;
+            this.BtnFiltrar.Text = "Filtrar ";
+            this.BtnFiltrar.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.BtnFiltrar.UseTransparentBackground = true;
+            this.BtnFiltrar.Click += new System.EventHandler(this.BtnFiltrar_Click);
             // 
             // label1
             // 
@@ -225,27 +255,27 @@
             this.label1.Text = "Codigo";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // TxtProducto
+            // TxtCodigoProducto
             // 
-            this.TxtProducto.BorderRadius = 10;
-            this.TxtProducto.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TxtProducto.DefaultText = "";
-            this.TxtProducto.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.TxtProducto.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.TxtProducto.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.TxtProducto.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.TxtProducto.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TxtProducto.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtProducto.ForeColor = System.Drawing.Color.Black;
-            this.TxtProducto.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TxtProducto.Location = new System.Drawing.Point(196, 59);
-            this.TxtProducto.Margin = new System.Windows.Forms.Padding(2, 15, 0, 0);
-            this.TxtProducto.Name = "TxtProducto";
-            this.TxtProducto.PasswordChar = '\0';
-            this.TxtProducto.PlaceholderText = "";
-            this.TxtProducto.SelectedText = "";
-            this.TxtProducto.Size = new System.Drawing.Size(312, 35);
-            this.TxtProducto.TabIndex = 7;
+            this.TxtCodigoProducto.BorderRadius = 10;
+            this.TxtCodigoProducto.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TxtCodigoProducto.DefaultText = "";
+            this.TxtCodigoProducto.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.TxtCodigoProducto.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.TxtCodigoProducto.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.TxtCodigoProducto.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.TxtCodigoProducto.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TxtCodigoProducto.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtCodigoProducto.ForeColor = System.Drawing.Color.Black;
+            this.TxtCodigoProducto.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TxtCodigoProducto.Location = new System.Drawing.Point(196, 59);
+            this.TxtCodigoProducto.Margin = new System.Windows.Forms.Padding(2, 15, 0, 0);
+            this.TxtCodigoProducto.Name = "TxtCodigoProducto";
+            this.TxtCodigoProducto.PasswordChar = '\0';
+            this.TxtCodigoProducto.PlaceholderText = "";
+            this.TxtCodigoProducto.SelectedText = "";
+            this.TxtCodigoProducto.Size = new System.Drawing.Size(312, 35);
+            this.TxtCodigoProducto.TabIndex = 7;
             // 
             // label2
             // 
@@ -281,36 +311,6 @@
             this.TxtCodigoPresupuesto.Size = new System.Drawing.Size(202, 35);
             this.TxtCodigoPresupuesto.TabIndex = 5;
             // 
-            // BtnFiltrar
-            // 
-            this.BtnFiltrar.Animated = true;
-            this.BtnFiltrar.BackColor = System.Drawing.Color.Transparent;
-            this.BtnFiltrar.BorderColor = System.Drawing.Color.Transparent;
-            this.BtnFiltrar.BorderRadius = 10;
-            this.BtnFiltrar.BorderThickness = 1;
-            this.BtnFiltrar.DefaultAutoSize = true;
-            this.BtnFiltrar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.BtnFiltrar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.BtnFiltrar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.BtnFiltrar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnFiltrar.FillColor = System.Drawing.SystemColors.Control;
-            this.BtnFiltrar.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnFiltrar.ForeColor = System.Drawing.Color.Black;
-            this.BtnFiltrar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(99)))), ((int)(((byte)(174)))));
-            this.BtnFiltrar.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
-            this.BtnFiltrar.HoverState.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnFiltrar.Image = global::CapaPresentacion.Properties.Resources.filter_52px;
-            this.BtnFiltrar.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.BtnFiltrar.Location = new System.Drawing.Point(608, 62);
-            this.BtnFiltrar.Margin = new System.Windows.Forms.Padding(3, 10, 3, 30);
-            this.BtnFiltrar.Name = "BtnFiltrar";
-            this.BtnFiltrar.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
-            this.BtnFiltrar.Size = new System.Drawing.Size(95, 32);
-            this.BtnFiltrar.TabIndex = 13;
-            this.BtnFiltrar.Text = "Filtrar ";
-            this.BtnFiltrar.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.BtnFiltrar.UseTransparentBackground = true;
-            // 
             // FrmVerListaProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -323,6 +323,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmVerListaProductos";
             this.Text = "FrmVerListaProductos";
+            this.Load += new System.EventHandler(this.FrmVerListaProductos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaProductos)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -346,7 +347,7 @@
         private System.Windows.Forms.Panel panel1;
         private Guna.UI2.WinForms.Guna2Button BtnFiltrar;
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2TextBox TxtProducto;
+        private Guna.UI2.WinForms.Guna2TextBox TxtCodigoProducto;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2TextBox TxtCodigoPresupuesto;
     }

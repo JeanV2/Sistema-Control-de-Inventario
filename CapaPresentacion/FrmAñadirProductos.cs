@@ -7,7 +7,6 @@ using System.Data;
 using System.DirectoryServices.AccountManagement;
 using System.Drawing;
 using System.Linq;
-
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,7 +14,7 @@ using Utilidades;
 
 namespace CapaPresentacion
 {
-    //
+    
     public partial class FrmAñadirProductos : Form
     {
         public FrmAñadirProductos()
@@ -26,8 +25,11 @@ namespace CapaPresentacion
         TbProducto producto = new TbProducto();
 
         NegociosProductos NegProduct = new NegociosProductos();
+        NegocioPresupuestos NegPresupuesto = new NegocioPresupuestos();
         //Lista
         List<TbProducto> ListProducto;
+        List<TbPresupuesto> ListPresupuesto;
+
         String CodigoArmado = "";
 
         private void MostrarDataGridView()
@@ -250,16 +252,24 @@ namespace CapaPresentacion
                                 {
                                     Validaciones.LimpiarError(TxtExistencia);
 
-                                    producto.CodProducto = TxtCodigoProducto.Text;
-
-                                    if (NegProduct.ExisteProducto(producto))
+                                    if (ExistePresupuesto()) 
                                     {
-                                        MessageBox.Show("Codigo ya se encuentrado registrado", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                        producto.CodProducto = TxtCodigoProducto.Text;
+
+                                        if (NegProduct.ExisteProducto(producto))
+                                        {
+                                            MessageBox.Show("Codigo ya se encuentrado registrado", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                        }
+                                        else
+                                        {
+                                            GuardarProducto();
+                                        }
                                     }
                                     else
                                     {
-                                        GuardarProducto();
+                                        MessageBox.Show("Codigo de Presupuesto no esta registrado, por favor verificar", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                     }
+                                   
                                 }
                                 else
                                 {
@@ -295,7 +305,7 @@ namespace CapaPresentacion
             }
 
         }
-
+  
         private void GuardarProducto()
         {
             //CODIGO PARA GUARDAR Y ENVIAR A LA BASE DE DATOS********************
@@ -404,6 +414,29 @@ namespace CapaPresentacion
                 Validaciones.MostarError(TxtCodigoPresupuesto, "Debes Ingresar el Codigo de Presupuesto");
             }
         }
+        /// <summary>
+        /// Verifica que el presupuesto ingresado existe
+        /// </summary>
+        /// <returns>true si existe,false si no</returns>
+        private bool ExistePresupuesto()
+        {
+            ListPresupuesto = NegPresupuesto.ListaPresupuestos();
+            bool Existe = false;
+
+            foreach (TbPresupuesto pres in ListPresupuesto)
+            {
+                if (pres.numeroCuenta.Equals(TxtCodigoPresupuesto.Text))
+                {
+                    Existe = true;
+                    break;
+                }
+                else
+                {
+                    Existe = false;
+                }
+            }
+            return Existe;
+        }
         //Filtrar por presupuesto
         private void BtnFiltrar_Click(object sender, EventArgs e)
         {
@@ -441,10 +474,15 @@ namespace CapaPresentacion
                 DgvListaProductos.Rows[nr].Cells[5].Value = tbProducto.CFUnidadMedida;
                 DgvListaProductos.Rows[nr].Cells[6].Value = tbProducto.InventarioRequerido;
                 DgvListaProductos.Rows[nr].Cells[7].Value = tbProducto.MUltCosto;
-                DgvListaProductos.Rows[nr].Cells[8].Value = tbProducto.CostoTotal;
+                DgvListaProductos.Rows[nr].Cells[8].Value = tbProducto.InventarioRequerido* tbProducto.MUltCosto;
                 DgvListaProductos.Rows[nr].Cells[9].Value = tbProducto.InventarioExistente;
             }
         }
+        /// <summary>
+        /// al hacer doble clik los datos se cargan para poder editar o eliminar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DgvListaProductos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex != -1)
