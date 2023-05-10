@@ -51,10 +51,10 @@ namespace CapaPresentacion
             }
         }
 
-        private void BtnVerLista_Click(object sender, EventArgs e)
+        private async void BtnVerLista_Click(object sender, EventArgs e)
         {
             //CREAR CODIGO PARA REFRESCAR EL DATAGRIDVIEW ANTES DEL METODO Mostrar DataGridView
-            ListProducto = NegProduct.ListProduct();
+            ListProducto = await NegProduct.ListProduct();
             if (ListProducto != null)
             {
                 RefreshDatos(ListProducto);
@@ -438,7 +438,7 @@ namespace CapaPresentacion
             return Existe;
         }
         //Filtrar por presupuesto
-        private void BtnFiltrar_Click(object sender, EventArgs e)
+        private  async void BtnFiltrar_Click(object sender, EventArgs e)
         {
             //buscar
             IEnumerable<TbProducto> listaAux = new List<TbProducto>();
@@ -451,7 +451,7 @@ namespace CapaPresentacion
             }
             else
             {
-                ListProducto = NegProduct.ListProduct();
+                ListProducto = await NegProduct.ListProduct();
                 listaAux = ListProducto;
             }
             RefreshDatos((List<TbProducto>)listaAux);

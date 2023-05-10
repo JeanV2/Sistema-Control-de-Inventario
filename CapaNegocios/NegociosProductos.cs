@@ -27,14 +27,19 @@ namespace CapaNegocios
             return datosProduc.EliminarProduct(producto);
         }
 
-        public List<TbProducto> ListProduct()
+        public async  Task<List<TbProducto>> ListProduct()
         {
-            return datosProduc.ListProduct();
+            return  await datosProduc.ListProduct();
         }
 
         public bool ExisteProducto(TbProducto producto)
         {
             return datosProduc.ExisteProducto(producto);
+        }
+        public List<TbProducto> ListProductosSinAsy()
+        {
+          return datosProduc.ListProductosSinAsy();
+
         }
     }
 }

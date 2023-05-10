@@ -27,15 +27,10 @@ namespace CapaPresentacion
         public delegate void PasarCodProduct(string cod);
         public event PasarCodProduct PasarDatosEvent;
 
-        public FrmListaProductosSolicituCompra()
+        public  FrmListaProductosSolicituCompra()
         {
             InitializeComponent();
-            //Definimos una lista para almacenar los productos
-
-            //rellenamos la lista con los productos
-            products = Productos.ListProduct();
-            //cargamos el datagridview con los productos
-            cargarDt(products);
+           
         }
 
         bool estadofiltro = false;
@@ -90,9 +85,14 @@ namespace CapaPresentacion
             this.Close();
         }
 
-        private void FrmListaProductosSolicituCompra_Load(object sender, EventArgs e)
+        private async void FrmListaProductosSolicituCompra_Load(object sender, EventArgs e)
         {
+            //Definimos una lista para almacenar los productos
 
+            //rellenamos la lista con los productos
+            products =  await Productos.ListProduct();
+            //cargamos el datagridview con los productos
+            cargarDt(products);
         }
 
         //filtrar

@@ -79,14 +79,29 @@ namespace CapaDatos
         /// Lista de todos los productos Guardados
         /// </summary>
         /// <returns></returns>
-        public List<TbProducto> ListProduct()
+        public async Task< List<TbProducto>> ListProduct()
         {
             try
             {
                 using (var C = new inventarioEntities1())
                 {
-                    return (from P in C.TbProducto
-                            select P).ToList();
+                    return await Task.Run(() => C.TbProducto.ToList());
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+        }
+        public List<TbProducto> ListProductosSinAsy()
+        {
+            try
+            {
+                using (var C = new inventarioEntities1())
+                {
+                    return (from P in C.TbProducto select P).ToList();
                 }
 
             }

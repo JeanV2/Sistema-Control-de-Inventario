@@ -29,9 +29,9 @@ namespace CapaPresentacion
         //
         string Presupuesto = "";
         double TotalCosto = 0;
-        private void FrmVerListaProductos_Load(object sender, EventArgs e)
+        private async void FrmVerListaProductos_Load(object sender, EventArgs e)
         {
-            ListProducto = NegProduct.ListProduct();
+            ListProducto = await NegProduct.ListProduct();
             RefreshDatos(ListProducto);
         }
 
@@ -40,9 +40,9 @@ namespace CapaPresentacion
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void BtnFiltrar_Click(object sender, EventArgs e)
+        private  async void BtnFiltrar_Click(object sender, EventArgs e)
         {
-            ListProducto = NegProduct.ListProduct();
+            ListProducto = await NegProduct.ListProduct();
 
             //buscar
             IEnumerable<TbProducto> listaAux = new List<TbProducto>();
@@ -61,21 +61,21 @@ namespace CapaPresentacion
             }
             else if ((TxtCodigoProducto.Text == string.Empty) && (TxtCodigoPresupuesto.Text == string.Empty))
             {
-                ListProducto = NegProduct.ListProduct();
+                ListProducto = await NegProduct.ListProduct();
                 listaAux = ListProducto;
             }
             RefreshDatos((List<TbProducto>)listaAux);
 
         }
         //Refrescar DataGridView conlos datos de la base
-        private void RefreshDatos(List<TbProducto> listaProductos)
+        private async  void RefreshDatos(List<TbProducto> listaProductos)
         {
             DgvListaProductos.Rows.Clear();
 
             foreach (TbProducto tbProducto in listaProductos)
             {
                 int nr = DgvListaProductos.Rows.Add();
-
+               
                 DgvListaProductos.Rows[nr].Cells[0].Value = tbProducto.CFamilia;
                 //almaceno el presupuesto
                 Presupuesto = tbProducto.CFamilia;
@@ -97,7 +97,7 @@ namespace CapaPresentacion
                     DgvListaProductos.Rows[nr].Cells[8].Value = "No hay presupuesto";
                 }
 
-                DgvListaProductos.Rows[nr].Cells[9].Value = tbProducto.InventarioExistente;
+               DgvListaProductos.Rows[nr].Cells[9].Value = tbProducto.InventarioExistente;
             }
         }
 

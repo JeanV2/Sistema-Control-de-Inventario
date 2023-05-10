@@ -51,10 +51,10 @@ namespace CapaPresentacion
             CargarComboPresupuestos(listapresupuestos);
             RefrescarComboProductos();
         }
-        public void RefrescarComboProductos()
+        public  async void RefrescarComboProductos()
         {
    
-            listaProductos = Insproductos.ListProduct();
+            listaProductos = await Insproductos.ListProduct();
             int valorCombo =( CbNombrePresupuesto.SelectedItem as OpcionCombo).valor;
             IEnumerable<TbProducto> listaaux = new List<TbProducto>();
             if (valorCombo>0)
@@ -147,10 +147,10 @@ namespace CapaPresentacion
             return estado;
         }
 
-        private bool RestarantProductos(String Codigo, int cantidad)
+        private  bool RestarantProductos(String Codigo, int cantidad)
         {
 
-            listaProductos = Insproductos.ListProduct();
+            listaProductos = Insproductos.ListProductosSinAsy();
             //consultamos si el usuario existe
             bool cod = true;
             foreach (TbProducto pr in listaProductos)
@@ -541,10 +541,10 @@ namespace CapaPresentacion
             RefrescarComboProductos();
         }
 
-        private void CbCodigoProducto_SelectedIndexChanged(object sender, EventArgs e)
+        private async void CbCodigoProducto_SelectedIndexChanged(object sender, EventArgs e)
         {
             //consultamos id del producto y mostramos la cantidad disponibles
-            listaProductos = Insproductos.ListProduct();
+            listaProductos = await Insproductos.ListProduct();
             string valorCombo = (CbCodigoProducto.SelectedItem as OpcionCombo2).valor;
             IEnumerable<TbProducto> listaaux = new List<TbProducto>();
             if (valorCombo != string.Empty)
