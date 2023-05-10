@@ -463,6 +463,7 @@ namespace CapaPresentacion
             {
                 TxtNombreProducto.Text = Prod.DesResumida;
                 TxtPrecioProd.Text = Prod.MUltCosto.ToString();
+                TxtInvenRequerido.Text=Prod.InventarioRequerido.ToString();
             }
             ListProd.Clear();
         }

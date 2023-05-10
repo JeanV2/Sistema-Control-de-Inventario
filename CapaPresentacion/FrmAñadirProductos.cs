@@ -521,10 +521,15 @@ namespace CapaPresentacion
 
         private void TxtPrecioProducto_Leave(object sender, EventArgs e)
         {
-            int InventarioRequerido = Convert.ToInt32(TxtInventRequerido.Text);
-            double Precio = Convert.ToDouble(TxtPrecioProducto.Text.Replace("₡", ""));
-            double CostoTotal = InventarioRequerido * Precio;
-            TxtCostoTotal.Text = CostoTotal.ToString().Replace(" ", "₡");
+            if (TxtInventRequerido.Text!=string.Empty)
+            {
+                int InventarioRequerido = Convert.ToInt32(TxtInventRequerido.Text);
+                double Precio = Convert.ToDouble(TxtPrecioProducto.Text.Replace("₡", ""));
+                double CostoTotal = InventarioRequerido * Precio;
+                TxtCostoTotal.Text = CostoTotal.ToString().Replace(" ", "₡");
+            }
+
+
         }
 
         private void FrmAñadirProductos_Load(object sender, EventArgs e)

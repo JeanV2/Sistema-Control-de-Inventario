@@ -32,17 +32,17 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DgvListaColaboradores = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SegundoApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnFiltrar = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
             this.TxtNombreProducto = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.TxtCodigo = new Guna.UI2.WinForms.Guna2TextBox();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SegundoApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaColaboradores)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -62,8 +62,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DgvListaColaboradores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.DgvListaColaboradores.ColumnHeadersHeight = 35;
-            this.DgvListaColaboradores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.DgvListaColaboradores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvListaColaboradores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
@@ -73,20 +72,21 @@
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(194)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(231)))), ((int)(((byte)(123)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DgvListaColaboradores.DefaultCellStyle = dataGridViewCellStyle3;
             this.DgvListaColaboradores.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgvListaColaboradores.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(194)))));
-            this.DgvListaColaboradores.Location = new System.Drawing.Point(0, 100);
-            this.DgvListaColaboradores.Margin = new System.Windows.Forms.Padding(10);
+            this.DgvListaColaboradores.Location = new System.Drawing.Point(0, 123);
+            this.DgvListaColaboradores.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
             this.DgvListaColaboradores.Name = "DgvListaColaboradores";
             this.DgvListaColaboradores.ReadOnly = true;
             this.DgvListaColaboradores.RowHeadersVisible = false;
+            this.DgvListaColaboradores.RowHeadersWidth = 51;
             this.DgvListaColaboradores.RowTemplate.Height = 25;
-            this.DgvListaColaboradores.Size = new System.Drawing.Size(969, 428);
+            this.DgvListaColaboradores.Size = new System.Drawing.Size(1292, 527);
             this.DgvListaColaboradores.TabIndex = 6;
             this.DgvListaColaboradores.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Lime;
             this.DgvListaColaboradores.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(244)))), ((int)(((byte)(196)))));
@@ -100,17 +100,57 @@
             this.DgvListaColaboradores.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.DgvListaColaboradores.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DgvListaColaboradores.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.Black;
-            this.DgvListaColaboradores.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.DgvListaColaboradores.ThemeStyle.HeaderStyle.Height = 35;
+            this.DgvListaColaboradores.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvListaColaboradores.ThemeStyle.HeaderStyle.Height = 68;
             this.DgvListaColaboradores.ThemeStyle.ReadOnly = true;
             this.DgvListaColaboradores.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(194)))));
             this.DgvListaColaboradores.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.DgvListaColaboradores.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DgvListaColaboradores.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.White;
+            this.DgvListaColaboradores.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.DgvListaColaboradores.ThemeStyle.RowsStyle.Height = 25;
             this.DgvListaColaboradores.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(231)))), ((int)(((byte)(123)))));
             this.DgvListaColaboradores.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.DgvListaColaboradores.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListaColaboradores_CellDoubleClick);
+            // 
+            // Column1
+            // 
+            this.Column1.FillWeight = 76.14214F;
+            this.Column1.HeaderText = "Cédula";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.FillWeight = 105.4607F;
+            this.Column2.HeaderText = "Nombre";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.FillWeight = 105.4607F;
+            this.Column3.HeaderText = "Primer Apellido";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // SegundoApellido
+            // 
+            this.SegundoApellido.FillWeight = 105.4607F;
+            this.SegundoApellido.HeaderText = "Segundo Apellido";
+            this.SegundoApellido.MinimumWidth = 6;
+            this.SegundoApellido.Name = "SegundoApellido";
+            this.SegundoApellido.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.FillWeight = 107.4758F;
+            this.Column4.HeaderText = "Tipo de usuario";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // panel1
             // 
@@ -121,8 +161,9 @@
             this.panel1.Controls.Add(this.TxtCodigo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(969, 100);
+            this.panel1.Size = new System.Drawing.Size(1292, 123);
             this.panel1.TabIndex = 5;
             // 
             // BtnFiltrar
@@ -145,11 +186,11 @@
             this.BtnFiltrar.HoverState.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnFiltrar.Image = global::CapaPresentacion.Properties.Resources.filter_52px;
             this.BtnFiltrar.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.BtnFiltrar.Location = new System.Drawing.Point(494, 18);
-            this.BtnFiltrar.Margin = new System.Windows.Forms.Padding(3, 10, 3, 30);
+            this.BtnFiltrar.Location = new System.Drawing.Point(659, 22);
+            this.BtnFiltrar.Margin = new System.Windows.Forms.Padding(4, 12, 4, 37);
             this.BtnFiltrar.Name = "BtnFiltrar";
             this.BtnFiltrar.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
-            this.BtnFiltrar.Size = new System.Drawing.Size(95, 32);
+            this.BtnFiltrar.Size = new System.Drawing.Size(107, 37);
             this.BtnFiltrar.TabIndex = 13;
             this.BtnFiltrar.Text = "Filtrar ";
             this.BtnFiltrar.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -160,10 +201,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(18, 67);
-            this.label1.Margin = new System.Windows.Forms.Padding(3, 23, 0, 0);
+            this.label1.Location = new System.Drawing.Point(24, 82);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 28, 0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 21);
+            this.label1.Size = new System.Drawing.Size(100, 25);
             this.label1.TabIndex = 6;
             this.label1.Text = "Nombre";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -181,23 +222,23 @@
             this.TxtNombreProducto.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtNombreProducto.ForeColor = System.Drawing.Color.Black;
             this.TxtNombreProducto.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TxtNombreProducto.Location = new System.Drawing.Point(147, 59);
-            this.TxtNombreProducto.Margin = new System.Windows.Forms.Padding(2, 15, 0, 0);
+            this.TxtNombreProducto.Location = new System.Drawing.Point(196, 73);
+            this.TxtNombreProducto.Margin = new System.Windows.Forms.Padding(3, 18, 0, 0);
             this.TxtNombreProducto.Name = "TxtNombreProducto";
             this.TxtNombreProducto.PasswordChar = '\0';
             this.TxtNombreProducto.PlaceholderText = "";
             this.TxtNombreProducto.SelectedText = "";
-            this.TxtNombreProducto.Size = new System.Drawing.Size(312, 35);
+            this.TxtNombreProducto.Size = new System.Drawing.Size(416, 43);
             this.TxtNombreProducto.TabIndex = 7;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(16, 23);
-            this.label2.Margin = new System.Windows.Forms.Padding(3, 23, 0, 0);
+            this.label2.Location = new System.Drawing.Point(21, 28);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 28, 0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(124, 21);
+            this.label2.Size = new System.Drawing.Size(157, 25);
             this.label2.TabIndex = 4;
             this.label2.Text = "Identificacion";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -215,59 +256,25 @@
             this.TxtCodigo.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtCodigo.ForeColor = System.Drawing.Color.Black;
             this.TxtCodigo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TxtCodigo.Location = new System.Drawing.Point(147, 15);
-            this.TxtCodigo.Margin = new System.Windows.Forms.Padding(2, 15, 0, 0);
+            this.TxtCodigo.Location = new System.Drawing.Point(196, 18);
+            this.TxtCodigo.Margin = new System.Windows.Forms.Padding(3, 18, 0, 0);
             this.TxtCodigo.Name = "TxtCodigo";
             this.TxtCodigo.PasswordChar = '\0';
             this.TxtCodigo.PlaceholderText = "";
             this.TxtCodigo.SelectedText = "";
-            this.TxtCodigo.Size = new System.Drawing.Size(232, 35);
+            this.TxtCodigo.Size = new System.Drawing.Size(309, 43);
             this.TxtCodigo.TabIndex = 5;
-            // 
-            // Column1
-            // 
-            this.Column1.FillWeight = 76.14214F;
-            this.Column1.HeaderText = "Cédula";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.FillWeight = 105.4607F;
-            this.Column2.HeaderText = "Nombre";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.FillWeight = 105.4607F;
-            this.Column3.HeaderText = "Primer Apellido";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // SegundoApellido
-            // 
-            this.SegundoApellido.FillWeight = 105.4607F;
-            this.SegundoApellido.HeaderText = "Segundo Apellido";
-            this.SegundoApellido.Name = "SegundoApellido";
-            this.SegundoApellido.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.FillWeight = 107.4758F;
-            this.Column4.HeaderText = "Tipo de usuario";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
             // 
             // FrmListaUsuarios
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(54)))), ((int)(((byte)(94)))));
-            this.ClientSize = new System.Drawing.Size(969, 528);
+            this.ClientSize = new System.Drawing.Size(1292, 650);
             this.Controls.Add(this.DgvListaColaboradores);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.Color.White;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmListaUsuarios";
