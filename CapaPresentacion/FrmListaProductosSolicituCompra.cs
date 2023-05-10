@@ -21,20 +21,24 @@ namespace CapaPresentacion
         /// </summary>
         NegociosProductos Productos = new NegociosProductos();
         List<TbProducto> products;
-       
-        FrmSolicitudCompra FrmSolicitud = (FrmSolicitudCompra)Application.OpenForms["FrmListaProductosSolicituCompra"];
-        
+
+
+        //Pasar codigo del producto al form de solicitud
+        public delegate void PasarCodProduct(string cod);
+        public event PasarCodProduct PasarDatosEvent;
+
         public FrmListaProductosSolicituCompra()
         {
             InitializeComponent();
             //Definimos una lista para almacenar los productos
-         
+
             //rellenamos la lista con los productos
             products = Productos.ListProduct();
             //cargamos el datagridview con los productos
             cargarDt(products);
         }
 
+        bool estadofiltro = false;
         /// <summary>
         /// Funcion para cargar un datagridview
         /// </summary>
@@ -42,17 +46,38 @@ namespace CapaPresentacion
         {
             foreach (TbProducto Producto in Lista)
             {
-                int row = DgvListaProductos.Rows.Add();
-                DgvListaProductos.Rows[row].Cells[0].Value = Producto.CFamilia;
-                DgvListaProductos.Rows[row].Cells[1].Value = Producto.CSubFamilia;
-                DgvListaProductos.Rows[row].Cells[2].Value = Producto.NumProducto;
-                DgvListaProductos.Rows[row].Cells[3].Value = Producto.CodProducto;
-                DgvListaProductos.Rows[row].Cells[4].Value = Producto.DesResumida;
-                DgvListaProductos.Rows[row].Cells[5].Value = Producto.CFUnidadMedida;
-                DgvListaProductos.Rows[row].Cells[6].Value = Producto.InventarioRequerido;
-                DgvListaProductos.Rows[row].Cells[7].Value = Producto.MUltCosto;
-                DgvListaProductos.Rows[row].Cells[8].Value = Producto.CostoTotal;
-                DgvListaProductos.Rows[row].Cells[9].Value = Producto.InventarioExistente;
+                if (estadofiltro==false)
+                {
+                    if (FrmSolicitudCompra.codPrespuesto == Producto.CFamilia)
+                    {
+                        int row = DgvListaProductos.Rows.Add();
+                        DgvListaProductos.Rows[row].Cells[0].Value = Producto.CFamilia;
+                        DgvListaProductos.Rows[row].Cells[1].Value = Producto.CSubFamilia;
+                        DgvListaProductos.Rows[row].Cells[2].Value = Producto.NumProducto;
+                        DgvListaProductos.Rows[row].Cells[3].Value = Producto.CodProducto;
+                        DgvListaProductos.Rows[row].Cells[4].Value = Producto.DesResumida;
+                        DgvListaProductos.Rows[row].Cells[5].Value = Producto.CFUnidadMedida;
+                        DgvListaProductos.Rows[row].Cells[6].Value = Producto.InventarioRequerido;
+                        DgvListaProductos.Rows[row].Cells[7].Value = Producto.MUltCosto;
+                        DgvListaProductos.Rows[row].Cells[8].Value = Producto.CostoTotal;
+                        DgvListaProductos.Rows[row].Cells[9].Value = Producto.InventarioExistente;
+                    }
+                }
+                else
+                {
+                    int row = DgvListaProductos.Rows.Add();
+                    DgvListaProductos.Rows[row].Cells[0].Value = Producto.CFamilia;
+                    DgvListaProductos.Rows[row].Cells[1].Value = Producto.CSubFamilia;
+                    DgvListaProductos.Rows[row].Cells[2].Value = Producto.NumProducto;
+                    DgvListaProductos.Rows[row].Cells[3].Value = Producto.CodProducto;
+                    DgvListaProductos.Rows[row].Cells[4].Value = Producto.DesResumida;
+                    DgvListaProductos.Rows[row].Cells[5].Value = Producto.CFUnidadMedida;
+                    DgvListaProductos.Rows[row].Cells[6].Value = Producto.InventarioRequerido;
+                    DgvListaProductos.Rows[row].Cells[7].Value = Producto.MUltCosto;
+                    DgvListaProductos.Rows[row].Cells[8].Value = Producto.CostoTotal;
+                    DgvListaProductos.Rows[row].Cells[9].Value = Producto.InventarioExistente;
+
+                }
 
             }
         }
@@ -73,24 +98,26 @@ namespace CapaPresentacion
         //filtrar
         private void BtnFiltrar_Click(object sender, EventArgs e)
         {
+            estadofiltro = true;
             inventarioEntities1 Db = new inventarioEntities1();
             List<TbProducto> ListaProductos;
 
-           
-            if (TxtCodigoPresupuesto.Text!=string.Empty && TxtProducto.Text!=string.Empty)
+
+            if (TxtCodigoPresupuesto.Text != string.Empty && TxtProducto.Text != string.Empty)
             {
                 //busqueda por los dos
                 DgvListaProductos.Rows.Clear();
                 ListaProductos = Db.TbProducto.Where(x => x.CFamilia == TxtCodigoPresupuesto.Text && x.CodProducto == TxtProducto.Text).ToList();
                 cargarDt(ListaProductos);
-            }else if (TxtCodigoPresupuesto.Text!=string.Empty)
+            }
+            else if (TxtCodigoPresupuesto.Text != string.Empty)
             {
                 //solo por presupuesto
                 DgvListaProductos.Rows.Clear();
                 ListaProductos = Db.TbProducto.Where(x => x.CFamilia == TxtCodigoPresupuesto.Text).ToList();
                 cargarDt(ListaProductos);
             }
-            else if (TxtProducto.Text!=string.Empty)
+            else if (TxtProducto.Text != string.Empty)
             {
                 //solo por cod Producto
                 DgvListaProductos.Rows.Clear();
@@ -105,9 +132,10 @@ namespace CapaPresentacion
 
         private void DgvListaProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex!=-1)
+            if (e.RowIndex != -1)
             {
-                FrmSolicitud.TxtCantidad.Text = DgvListaProductos.Rows[e.RowIndex].Cells[3].Value.ToString();
+
+                PasarDatosEvent(DgvListaProductos.Rows[e.RowIndex].Cells[3].Value.ToString());
                 this.Close();
 
             }
