@@ -155,7 +155,12 @@ namespace CapaPresentacion
             frmListaColaboradores.pasarDatosEvent += pasarDatos;
             frmListaColaboradores.ShowDialog();
         }
-
+        public void ActivarBtn()
+        {
+           BtnGuardarColaborador.Enabled = false;
+            BtnModificar.Visible = true;
+           BtnEliminar.Visible = true;
+        }
         private void BtnModificar_Click(object sender, EventArgs e)
         {
             if (TxtCedula.TextLength > 0)

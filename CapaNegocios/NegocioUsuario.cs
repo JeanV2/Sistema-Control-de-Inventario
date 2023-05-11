@@ -14,7 +14,7 @@ namespace CapaNegocios
         //prueba
         //holadddd
          DatosUsuario DatosUsuario = new DatosUsuario();
-        public List<TbColaborador> obtenerusuario()
+        public  List<TbColaborador> obtenerusuario()
         {
            return DatosUsuario.obtenerusuario();
         }

@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,7 +20,7 @@ namespace CapaPresentacion
         /// <summary>
         /// Instancia al formulario principal para acceder a los controles que se encuentran en el
         /// </summary>
-        FrmUsuarios frmcolaboradores = (FrmUsuarios)Application.OpenForms["FrmColaboradores"];
+        FrmUsuarios frmcolaboradores = (FrmUsuarios)Application.OpenForms["FrmUsuarios"];
         //------------------------------------------------------------------------------------------
         List<TbColaborador> ListaColabo;
         CNColaborador NegocioColaborador = new CNColaborador();
@@ -51,15 +52,13 @@ namespace CapaPresentacion
 
                 //disparar el evento y mandar la identidad
                 pasarDatosEvent(Colaborador);
-                
-                frmcolaboradores.BtnGuardarColaborador.Enabled = false;
-                frmcolaboradores.BtnModificar.Visible = true;
-                frmcolaboradores.BtnEliminar.Visible = true;
+
+                frmcolaboradores.ActivarBtn();
                 this.Close();
             }
 
         }
-
+     
         private void BtnVolver_Click(object sender, EventArgs e)
         {
             
