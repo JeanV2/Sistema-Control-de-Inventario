@@ -71,23 +71,48 @@ namespace CapaPresentacion
 
         private void BtnFiltrar_Click(object sender, EventArgs e)
         {
-            //Realizamos los tipos de busqueda de los colaboradores haciendo un filtro 
-            IEnumerable<TbColaborador> ListAux= new List<TbColaborador>();
-            if (TxtCodigo.Text!=string.Empty)
-            {
-                ListAux= ListaColabo.Where(x => x.IdColaborador.Trim().ToUpper().Contains(TxtCodigo.Text.Trim().ToUpper())).ToList();
-            }
-            if (TxtNombreProducto.Text!=string.Empty)
-            {
-                ListAux= ListaColabo.Where(x => x.NombreColaborador.Trim().ToUpper().Contains(TxtNombreProducto.Text.Trim().ToUpper())).ToList();
-            }
 
-            if (ListAux.Count() == 0 && TxtCodigo.Text == string.Empty && TxtNombreProducto.Text == string.Empty)
+            //codigo arreglado by JeanX Source Code && Kelvin
+            List<TbColaborador> ListAux=null;
+            // aca cargar por nombre y Cedula
+            if (TxtCodigo.Text != string.Empty && TxtNombreProducto.Text != string.Empty)
             {
+                ListAux = ListaColabo.Where(x => x.IdColaborador == TxtCodigo.Text.Trim() && x.NombreColaborador.Contains(TxtNombreProducto.Text.Trim())).ToList();
+                if (ListAux.Count==0)
+                {
+                    TxtCodigo.Text = string.Empty;
+                    TxtNombreProducto.Text= string.Empty;
+                    MessageBox.Show("el Colaborador no existe", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ListAux = ListaColabo;
+                }
+            
+            }else if (TxtCodigo.Text!= string.Empty && TxtNombreProducto.Text==string.Empty)
+            {
+                ListAux = ListaColabo.Where(x => x.IdColaborador == TxtCodigo.Text.Trim()).ToList();
+                if (ListAux.Count == 0)
+                {
+                    TxtCodigo.Text = string.Empty;
+                    MessageBox.Show("el Colaborador no existe", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ListAux = ListaColabo;
+                }
+            }
+            else if(TxtCodigo.Text == string.Empty && TxtNombreProducto.Text != string.Empty)
+            {
+                ListAux = ListaColabo.Where(x => x.NombreColaborador == TxtNombreProducto.Text.Trim()).ToList();
+                if (ListAux.Count == 0)
+                {
+                    TxtNombreProducto.Text = string.Empty;
+                    MessageBox.Show("el Colaborador no existe", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ListAux = ListaColabo;
+                }
+            }
+            else
+            {
+                MessageBox.Show("el Colaborador no existe","Alerta",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 ListAux = ListaColabo;
             }
 
-            CargarData((List<TbColaborador>) ListAux);
+            CargarData(ListAux);
 
         }
 

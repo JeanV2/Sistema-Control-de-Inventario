@@ -80,22 +80,11 @@ namespace CapaPresentacion
 
         private void CargarComboPresupuestos(List<TbPresupuesto> ListPre)
         {
-            int valor = 0;
-            string texto ="";
-            foreach (TbPresupuesto presupuestos in ListPre)
-            {
+            listapresupuestos = inspresupuestos.ListaPresupuestos();
 
-                valor = int.Parse(presupuestos.numeroCuenta);
-                texto = presupuestos.nombrePresupuesto.ToString();
-                CbNombrePresupuesto.Items.Add(new OpcionCombo() { valor = valor, texto = texto });
-
-            }
-          
-            CbNombrePresupuesto.DisplayMember = "texto";
-            CbNombrePresupuesto.ValueMember = "valor";
-          
-            CbNombrePresupuesto.SelectedIndex = 0;
-
+            CbNombrePresupuesto.DataSource=listapresupuestos;
+            CbNombrePresupuesto.DisplayMember = "NombrePresupuesto";
+            CbNombrePresupuesto.ValueMember = "numerocuenta";
         }
 
 
@@ -319,7 +308,15 @@ namespace CapaPresentacion
             tbinsumo.IdSolicitudInsumo = ObtenerCodigoSolicitudInsumo().ToString();
             tbinsumo.IdColaboradorRecibe=TxtSolicitadoPor.ToString();
             //tbinsumo.tipoSolicitud = CbTipoSilicitud.SelectedItem.ToString();
-            tbinsumo.ReferenciaCurso = TxtReferencia.Text;
+            if ((int)CbTipoSilicitud.SelectedValue==1)
+            {
+                tbinsumo.ReferenciaCurso = "No Aplica";
+            }
+            else
+            {
+                tbinsumo.ReferenciaCurso = TxtReferencia.Text;
+            }
+       
                     
             //guardamos la solicitud de insumo
             if (insumosIns.GuardarInsumos(tbinsumo))
@@ -346,7 +343,7 @@ namespace CapaPresentacion
 
                     TbProductoInsumo.IdSolictudInsumo = tbinsumo.IdSolicitudInsumo;
                     TbProductoInsumo.CantidadP = int.Parse(DgvListaProductos.Rows[i].Cells[2].Value.ToString());
-                    TbProductoInsumo.IdProducto = DgvListaProductos.Rows[i].Cells[1].Value.ToString();
+                    TbProductoInsumo.IdProducto = DgvListaProductos.Rows[i].Cells[i].Value.ToString();
 
 
                     //-------------------------------------------------------------------------------
@@ -402,7 +399,8 @@ namespace CapaPresentacion
             TxtCedula.Enabled = false;
             TxtDisponibles.Enabled = false;
             TxtCedula.ReadOnly = true;
-            RefrescarComboPresupuestos();
+            listapresupuestos = inspresupuestos.ListaPresupuestos();    
+            CargarComboPresupuestos(listapresupuestos);
 
             CbTipoSilicitud.DataSource = Enum.GetValues(typeof(Enums.Tipo_retiro));
 

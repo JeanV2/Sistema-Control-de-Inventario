@@ -32,11 +32,11 @@ namespace CapaDatos
         }
         public bool ModificarColaborador(TbColaborador colaborador)
         {
-            try
+            //try
+            //{
+            using (inventarioEntities1 DB = new inventarioEntities1())
             {
-                using (inventarioEntities1 DB = new inventarioEntities1())
-                {
-                    TbColaborador ColaboradorModifica = DB.TbColaborador.Single(C => C.IdColaborador == colaborador.IdColaborador);
+                TbColaborador ColaboradorModifica = DB.TbColaborador.Single(C => C.IdColaborador == colaborador.IdColaborador);
                     ColaboradorModifica.PasswordColaborador = colaborador.PasswordColaborador;
                     ColaboradorModifica.NombreColaborador = colaborador.NombreColaborador;
                     ColaboradorModifica.PrimerApellidoColaborador = colaborador.PrimerApellidoColaborador;
@@ -49,11 +49,11 @@ namespace CapaDatos
                 }
 
                 return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+            //}
+            //catch (Exception)
+            //{
+            //    return false;
+            //}
         }
         public bool EliminarColaborador(TbColaborador colaborador)
         {

@@ -212,11 +212,13 @@ namespace CapaPresentacion
 
                                         }
                                         //CODIGO PARA GUARDAR Y MODIFICAR EN DB*****************************
+                                        colabo.IdColaborador = TxtCedula.Text;
                                         colabo.NombreColaborador = TxtNombre.Text;
                                         colabo.PrimerApellidoColaborador = TxtApe1.Text;
                                         colabo.SegundoApellidoColaborador = TxtApe2.Text;
                                         colabo.PasswordColaborador = TxtContraseña.Text;
                                         colabo.UserNameColaborador = TxtUsuario.Text;
+                                        colabo.TipoColaborador = (int)CbTipo.SelectedValue;
                                         //colabo.TipoColaborador= CbTipo.Text;
                                         //colabo.EstadoColaborador = true;
                                         if (CNColaborador.ModificarColaborador(colabo))
