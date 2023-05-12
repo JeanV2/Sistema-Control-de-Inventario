@@ -70,10 +70,13 @@ namespace CapaPresentacion
         //Refrescar DataGridView conlos datos de la base
         private async  void RefreshDatos(List<TbProducto> listaProductos)
         {
+            int cont = 0;
+            int Columns = listaProductos.Count-1;
             DgvListaProductos.Rows.Clear();
-
+            DgvListaProductos.Visible= false;
             foreach (TbProducto tbProducto in listaProductos)
             {
+           
                 int nr = DgvListaProductos.Rows.Add();
                
                 DgvListaProductos.Rows[nr].Cells[0].Value = tbProducto.CFamilia;
@@ -98,7 +101,13 @@ namespace CapaPresentacion
                 }
 
                DgvListaProductos.Rows[nr].Cells[9].Value = tbProducto.InventarioExistente;
+                LblCargarPr.Text = cont.ToString() + "/ " + (Columns).ToString();
+                System.Threading.Thread.Sleep(500);
+                System.Windows.Forms.Application.DoEvents();
+                    cont++; 
             }
+            PanelCargar.Visible = false;
+            DgvListaProductos.Visible = true;
         }
 
         /// <summary>

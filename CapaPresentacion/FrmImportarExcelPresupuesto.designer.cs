@@ -38,10 +38,15 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnGuardar = new Guna.UI2.WinForms.Guna2Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.PanelCargar = new System.Windows.Forms.TableLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.LblCargarPr = new System.Windows.Forms.Label();
+            this.lblcompleted = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.PanelCargar.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -199,6 +204,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.PanelCargar);
             this.panel2.Controls.Add(this.dgvDatos);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 49);
@@ -206,6 +212,68 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1383, 558);
             this.panel2.TabIndex = 9;
+            // 
+            // PanelCargar
+            // 
+            this.PanelCargar.ColumnCount = 3;
+            this.PanelCargar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.80275F));
+            this.PanelCargar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.19725F));
+            this.PanelCargar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 510F));
+            this.PanelCargar.Controls.Add(this.label2, 1, 0);
+            this.PanelCargar.Controls.Add(this.LblCargarPr, 1, 1);
+            this.PanelCargar.Controls.Add(this.lblcompleted, 1, 2);
+            this.PanelCargar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelCargar.Location = new System.Drawing.Point(0, 0);
+            this.PanelCargar.Name = "PanelCargar";
+            this.PanelCargar.RowCount = 3;
+            this.PanelCargar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 194F));
+            this.PanelCargar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 166F));
+            this.PanelCargar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
+            this.PanelCargar.Size = new System.Drawing.Size(1383, 558);
+            this.PanelCargar.TabIndex = 9;
+            this.PanelCargar.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.PanelCargar.SetColumnSpan(this.label2, 2);
+            this.label2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label2.Font = new System.Drawing.Font("Arial", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(228, 96);
+            this.label2.Name = "label2";
+            this.label2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.label2.Size = new System.Drawing.Size(1152, 98);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Cargando Presupuestos";
+            // 
+            // LblCargarPr
+            // 
+            this.LblCargarPr.AutoSize = true;
+            this.LblCargarPr.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.LblCargarPr.Font = new System.Drawing.Font("Arial", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblCargarPr.ForeColor = System.Drawing.Color.White;
+            this.LblCargarPr.Location = new System.Drawing.Point(228, 267);
+            this.LblCargarPr.Name = "LblCargarPr";
+            this.LblCargarPr.Padding = new System.Windows.Forms.Padding(400, 0, 0, 0);
+            this.LblCargarPr.Size = new System.Drawing.Size(641, 93);
+            this.LblCargarPr.TabIndex = 4;
+            this.LblCargarPr.Text = "0/0";
+            // 
+            // lblcompleted
+            // 
+            this.lblcompleted.AutoSize = true;
+            this.PanelCargar.SetColumnSpan(this.lblcompleted, 2);
+            this.lblcompleted.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblcompleted.Font = new System.Drawing.Font("Arial", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblcompleted.ForeColor = System.Drawing.Color.White;
+            this.lblcompleted.Location = new System.Drawing.Point(228, 360);
+            this.lblcompleted.Name = "lblcompleted";
+            this.lblcompleted.Padding = new System.Windows.Forms.Padding(25, 40, 0, 0);
+            this.lblcompleted.Size = new System.Drawing.Size(1152, 133);
+            this.lblcompleted.TabIndex = 5;
+            this.lblcompleted.Text = "Carga  Completada";
+            this.lblcompleted.Visible = false;
             // 
             // FrmImportarExcelPresupuesto
             // 
@@ -227,6 +295,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.PanelCargar.ResumeLayout(false);
+            this.PanelCargar.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -240,5 +310,9 @@
         public Guna.UI2.WinForms.Guna2Button BtnGuardar;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TableLayoutPanel PanelCargar;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label LblCargarPr;
+        private System.Windows.Forms.Label lblcompleted;
     }
 }

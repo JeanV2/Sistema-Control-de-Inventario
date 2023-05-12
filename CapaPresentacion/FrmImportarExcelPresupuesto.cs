@@ -27,6 +27,7 @@ namespace CapaPresentacion
 
         private void BtnImportar_Click(object sender, EventArgs e)
         {
+            dgvDatos.Visible = true;
             dt.Rows.Clear();
             dt.Columns.Clear();
             // Abre el cuadro de diálogo para seleccionar el archivo de Excel
@@ -71,9 +72,16 @@ namespace CapaPresentacion
             }
         }
 
-        private void BtnGuardar_Click(object sender, EventArgs e)
+        private async void BtnGuardar_Click(object sender, EventArgs e)
         {
-
+           int Colums=dt.Columns.Count-1;
+            List<TbPresupuesto>listaPre=negocioPresupuestos.ListaPresupuestos();
+            dgvDatos.Visible = false;
+            PanelCargar.Visible = true;
+            if (listaPre.Count()!=0)
+            {
+                label2.Text = "Actualizando Presupuestos";
+            }
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 string cuenta = string.Empty;
@@ -95,7 +103,12 @@ namespace CapaPresentacion
                     saldo = Convert.ToDouble(dt.Rows[i]["Saldo "].ToString());
                     negocioPresupuestos.EditarPresupuesto(presupuesto);
                 }
+                LblCargarPr.Text = i.ToString() + "/ " + (Colums).ToString();
+                System.Threading.Thread.Sleep(500);
+
+                System.Windows.Forms.Application.DoEvents();
             }
+            lblcompleted.Visible = true;
         }
         public bool validarFormatoExcel(Microsoft.Office.Interop.Excel.Worksheet worksheet)
         {

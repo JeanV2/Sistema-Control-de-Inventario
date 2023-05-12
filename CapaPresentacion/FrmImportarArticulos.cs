@@ -212,7 +212,6 @@ namespace CapaPresentacion
                    
                 
 
-
                 LblCargarPr.Text = i.ToString() + "/ " + (dgvDatos.Rows.Count).ToString();
                 System.Threading.Thread.Sleep(500);
 
@@ -222,6 +221,7 @@ namespace CapaPresentacion
 
             }
             lblcompleted.Visible = true;
+
 
 
 

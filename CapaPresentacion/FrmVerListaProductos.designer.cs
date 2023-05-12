@@ -48,8 +48,13 @@
             this.TxtCodigoProducto = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.TxtCodigoPresupuesto = new Guna.UI2.WinForms.Guna2TextBox();
+            this.PanelCargar = new System.Windows.Forms.TableLayoutPanel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.LblCargarPr = new System.Windows.Forms.Label();
+            this.lblcompleted = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaProductos)).BeginInit();
             this.panel1.SuspendLayout();
+            this.PanelCargar.SuspendLayout();
             this.SuspendLayout();
             // 
             // DgvListaProductos
@@ -68,7 +73,8 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DgvListaProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.DgvListaProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvListaProductos.ColumnHeadersHeight = 68;
+            this.DgvListaProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.DgvListaProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
@@ -111,7 +117,7 @@
             this.DgvListaProductos.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.DgvListaProductos.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DgvListaProductos.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.Black;
-            this.DgvListaProductos.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvListaProductos.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.DgvListaProductos.ThemeStyle.HeaderStyle.Height = 68;
             this.DgvListaProductos.ThemeStyle.ReadOnly = true;
             this.DgvListaProductos.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
@@ -312,12 +318,75 @@
             this.TxtCodigoPresupuesto.Size = new System.Drawing.Size(269, 43);
             this.TxtCodigoPresupuesto.TabIndex = 5;
             // 
+            // PanelCargar
+            // 
+            this.PanelCargar.ColumnCount = 3;
+            this.PanelCargar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.80275F));
+            this.PanelCargar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.19725F));
+            this.PanelCargar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 513F));
+            this.PanelCargar.Controls.Add(this.label3, 1, 0);
+            this.PanelCargar.Controls.Add(this.LblCargarPr, 1, 1);
+            this.PanelCargar.Controls.Add(this.lblcompleted, 1, 2);
+            this.PanelCargar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelCargar.Location = new System.Drawing.Point(0, 123);
+            this.PanelCargar.Name = "PanelCargar";
+            this.PanelCargar.RowCount = 3;
+            this.PanelCargar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 194F));
+            this.PanelCargar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 166F));
+            this.PanelCargar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
+            this.PanelCargar.Size = new System.Drawing.Size(1067, 431);
+            this.PanelCargar.TabIndex = 17;
+            this.PanelCargar.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.PanelCargar.SetColumnSpan(this.label3, 2);
+            this.label3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label3.Font = new System.Drawing.Font("Arial", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(145, 3);
+            this.label3.Name = "label3";
+            this.label3.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.label3.Size = new System.Drawing.Size(919, 191);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Cargando Presupuestos";
+            // 
+            // LblCargarPr
+            // 
+            this.LblCargarPr.AutoSize = true;
+            this.LblCargarPr.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.LblCargarPr.Font = new System.Drawing.Font("Arial", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblCargarPr.ForeColor = System.Drawing.Color.White;
+            this.LblCargarPr.Location = new System.Drawing.Point(145, 194);
+            this.LblCargarPr.Name = "LblCargarPr";
+            this.LblCargarPr.Padding = new System.Windows.Forms.Padding(400, 0, 0, 0);
+            this.LblCargarPr.Size = new System.Drawing.Size(405, 166);
+            this.LblCargarPr.TabIndex = 4;
+            this.LblCargarPr.Text = "0/0";
+            // 
+            // lblcompleted
+            // 
+            this.lblcompleted.AutoSize = true;
+            this.PanelCargar.SetColumnSpan(this.lblcompleted, 2);
+            this.lblcompleted.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblcompleted.Font = new System.Drawing.Font("Arial", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblcompleted.ForeColor = System.Drawing.Color.White;
+            this.lblcompleted.Location = new System.Drawing.Point(145, 360);
+            this.lblcompleted.Name = "lblcompleted";
+            this.lblcompleted.Padding = new System.Windows.Forms.Padding(25, 40, 0, 0);
+            this.lblcompleted.Size = new System.Drawing.Size(919, 71);
+            this.lblcompleted.TabIndex = 5;
+            this.lblcompleted.Text = "Carga  Completada";
+            this.lblcompleted.Visible = false;
+            // 
             // FrmVerListaProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(54)))), ((int)(((byte)(94)))));
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.PanelCargar);
             this.Controls.Add(this.DgvListaProductos);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.Color.White;
@@ -329,6 +398,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaProductos)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.PanelCargar.ResumeLayout(false);
+            this.PanelCargar.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -352,5 +423,9 @@
         private Guna.UI2.WinForms.Guna2TextBox TxtCodigoProducto;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2TextBox TxtCodigoPresupuesto;
+        private System.Windows.Forms.TableLayoutPanel PanelCargar;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label LblCargarPr;
+        private System.Windows.Forms.Label lblcompleted;
     }
 }
