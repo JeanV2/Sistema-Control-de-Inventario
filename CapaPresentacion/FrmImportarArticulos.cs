@@ -18,7 +18,7 @@ namespace CapaPresentacion
 {
     public  partial class FrmImportarArticulos : Form
     {
-   
+  
        
         public FrmImportarArticulos()
         {
@@ -61,7 +61,7 @@ namespace CapaPresentacion
                         dt.Columns.Add((string)(worksheet.Cells[1, i] as Range).Value); 
 
                     }
-                    for (int i = 2; i <= worksheet.UsedRange.Columns.Count; i++)
+                    for (int i = 2; i <= worksheet.UsedRange.Rows.Count; i++)
                     {
                         DataRow dr = dt.NewRow();
                         for (int j = 1; j <= worksheet.UsedRange.Columns.Count; j++)
@@ -212,7 +212,6 @@ namespace CapaPresentacion
                    
                 
 
-
                 LblCargarPr.Text = i.ToString() + "/ " + (dgvDatos.Rows.Count).ToString();
                 System.Threading.Thread.Sleep(500);
 
@@ -222,6 +221,7 @@ namespace CapaPresentacion
 
             }
             lblcompleted.Visible = true;
+
 
 
 

@@ -39,6 +39,7 @@ namespace CapaPresentacion
         /// </summary>
         public void cargarDt(List<TbProducto> Lista)
         {
+   
             foreach (TbProducto Producto in Lista)
             {
                 if (estadofiltro==false)
