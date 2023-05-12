@@ -17,6 +17,7 @@ namespace CapaPresentacion
         public FrmVerListaProductos()
         {
             InitializeComponent();
+          
         }
         //Lista
         List<TbProducto> ListProducto;
@@ -71,9 +72,10 @@ namespace CapaPresentacion
         private async  void RefreshDatos(List<TbProducto> listaProductos)
         {
             int cont = 0;
-            int Columns = listaProductos.Count-1;
+            int Columns = listaProductos.Count-2;
             DgvListaProductos.Rows.Clear();
             DgvListaProductos.Visible= false;
+            PanelCargar.Visible = true;
             foreach (TbProducto tbProducto in listaProductos)
             {
            
@@ -88,7 +90,7 @@ namespace CapaPresentacion
                 DgvListaProductos.Rows[nr].Cells[4].Value = tbProducto.DesResumida;
                 DgvListaProductos.Rows[nr].Cells[5].Value = tbProducto.CFUnidadMedida;
                 DgvListaProductos.Rows[nr].Cells[6].Value = tbProducto.InventarioRequerido;
-                DgvListaProductos.Rows[nr].Cells[7].Value = tbProducto.MUltCosto;
+                DgvListaProductos.Rows[nr].Cells[7].Value = tbProducto.MUltCosto; 
                 //almaceno el costo total para compararlo con el monto de ese presupuesto
                 TotalCosto = (double)(tbProducto.InventarioRequerido * tbProducto.MUltCosto);
                 if (PresupuestoAlcanza())
@@ -102,7 +104,7 @@ namespace CapaPresentacion
 
                DgvListaProductos.Rows[nr].Cells[9].Value = tbProducto.InventarioExistente;
                 LblCargarPr.Text = cont.ToString() + "/ " + (Columns).ToString();
-                System.Threading.Thread.Sleep(500);
+                System.Threading.Thread.Sleep(300);
                 System.Windows.Forms.Application.DoEvents();
                     cont++; 
             }

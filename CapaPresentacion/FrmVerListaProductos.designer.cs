@@ -323,7 +323,7 @@
             this.PanelCargar.ColumnCount = 3;
             this.PanelCargar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.80275F));
             this.PanelCargar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.19725F));
-            this.PanelCargar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 513F));
+            this.PanelCargar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 514F));
             this.PanelCargar.Controls.Add(this.label3, 1, 0);
             this.PanelCargar.Controls.Add(this.LblCargarPr, 1, 1);
             this.PanelCargar.Controls.Add(this.lblcompleted, 1, 2);
@@ -345,12 +345,12 @@
             this.label3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label3.Font = new System.Drawing.Font("Arial", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(145, 3);
+            this.label3.Location = new System.Drawing.Point(145, 96);
             this.label3.Name = "label3";
             this.label3.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.label3.Size = new System.Drawing.Size(919, 191);
+            this.label3.Size = new System.Drawing.Size(919, 98);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Cargando Presupuestos";
+            this.label3.Text = "Cargando Productos";
             // 
             // LblCargarPr
             // 
@@ -361,7 +361,7 @@
             this.LblCargarPr.Location = new System.Drawing.Point(145, 194);
             this.LblCargarPr.Name = "LblCargarPr";
             this.LblCargarPr.Padding = new System.Windows.Forms.Padding(400, 0, 0, 0);
-            this.LblCargarPr.Size = new System.Drawing.Size(405, 166);
+            this.LblCargarPr.Size = new System.Drawing.Size(404, 166);
             this.LblCargarPr.TabIndex = 4;
             this.LblCargarPr.Text = "0/0";
             // 

@@ -74,7 +74,7 @@ namespace CapaPresentacion
 
         private async void BtnGuardar_Click(object sender, EventArgs e)
         {
-           int Colums=dt.Columns.Count-1;
+           int Colums=dt.Rows.Count-1;
             List<TbPresupuesto>listaPre=negocioPresupuestos.ListaPresupuestos();
             dgvDatos.Visible = false;
             PanelCargar.Visible = true;
@@ -104,7 +104,7 @@ namespace CapaPresentacion
                     negocioPresupuestos.EditarPresupuesto(presupuesto);
                 }
                 LblCargarPr.Text = i.ToString() + "/ " + (Colums).ToString();
-                System.Threading.Thread.Sleep(500);
+                System.Threading.Thread.Sleep(200);
 
                 System.Windows.Forms.Application.DoEvents();
             }
