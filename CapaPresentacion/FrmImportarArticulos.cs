@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Office.Interop.Excel;
 using Application = Microsoft.Office.Interop.Excel.Application;
 using DataTable = System.Data.DataTable;
 using CapaDatos;
@@ -17,21 +16,25 @@ using CapaNegocios;
 
 namespace CapaPresentacion
 {
-    public partial class FrmImportarArticulos : Form
+    public  partial class FrmImportarArticulos : Form
     {
-
+   
+       
         public FrmImportarArticulos()
         {
             InitializeComponent();
         }
         NegociosProductos Prod = new NegociosProductos();
+
+        public int Contador;
         public async void CargarExcel()
         {
+
         }
         private void BtnImportar_Click(object sender, EventArgs e)
         {
-
-
+            dgvDatos.Visible = true;
+            
             // Abre el cuadro de diálogo para seleccionar el archivo de Excel
             OpenFileDialog openFileDialog = new OpenFileDialog();
             if (openFileDialog.ShowDialog() == DialogResult.OK)
@@ -58,7 +61,7 @@ namespace CapaPresentacion
                         dt.Columns.Add((string)(worksheet.Cells[1, i] as Range).Value); 
 
                     }
-                    for (int i = 2; i <= worksheet.UsedRange.Rows.Count; i++)
+                    for (int i = 2; i <= worksheet.UsedRange.Columns.Count; i++)
                     {
                         DataRow dr = dt.NewRow();
                         for (int j = 1; j <= worksheet.UsedRange.Columns.Count; j++)
@@ -154,49 +157,84 @@ namespace CapaPresentacion
 
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
-            
+            bool validar = true;
+            int contador=0;
             //Obtenemos un listado de los productos directamente con el entities
             inventarioEntities1 Db = new inventarioEntities1();
             List<TbProducto> ListProductos;
+            List<TbPresupuesto> ListPresupuesto=Db.TbPresupuesto.ToList();;
             //Elaborado una entidad donde almacenar los datos a guardar o actualizar
             TbProducto producto = new TbProducto();
             ListProductos = Db.TbProducto.ToList();
-            for (int i = 0; i < dgvDatos.RowCount; i++)
+            dgvDatos.Visible = false;
+            PanelCargar.Visible = true;
+            for (int i = 0; i <= dgvDatos.Rows.Count; i++)
             {
-                string cod = dgvDatos.Rows[i].Cells[0].ToString();
-                foreach (var item in ListProductos)
-                {
-                    if (item.CodProducto == cod)
-                    {
-                        
-  
-               producto.CFamilia ="1"+dgvDatos.Rows[i].Cells[0].Value.ToString();
-               producto.CSubFamilia = dgvDatos.Rows[i].Cells[1].Value.ToString();
-               producto.NumProducto = dgvDatos.Rows[i].Cells[2].Value.ToString();
-               producto.CodProducto = dgvDatos.Rows[i].Cells[3].Value.ToString();
-               producto.CFUnidadMedida = dgvDatos.Rows[i].Cells[4].Value.ToString();
-               producto.DesResumida = dgvDatos.Rows[i].Cells[5].Value.ToString();
-               producto.InventarioRequerido = int.Parse(dgvDatos.Rows[i].Cells[6].Value.ToString());
-               producto.MUltCosto = Convert.ToDouble(dgvDatos.Rows[i].Cells[7].Value.ToString());
-               producto.CostoTotal = Convert.ToDouble(dgvDatos.Rows[i].Cells[8].Value.ToString());
             
+               
+                    foreach (var item2 in ListPresupuesto)
+                    {
+                        if (("1" + dgvDatos.Rows[i].Cells[0].Value.ToString())==item2.numeroCuenta)
+                        {
+                            validar = true;
+                        }
+                        else
+                        {
+                            validar = false;
+                        }
+                    }
+                    if (validar==true)
+                    {
+                        producto.CFamilia = "1" + dgvDatos.Rows[i].Cells[0].Value.ToString();
+                        producto.CSubFamilia = dgvDatos.Rows[i].Cells[1].Value.ToString();
+                        producto.NumProducto = dgvDatos.Rows[i].Cells[2].Value.ToString();
+                        producto.CodProducto = dgvDatos.Rows[i].Cells[3].Value.ToString();
+                        producto.CFUnidadMedida = dgvDatos.Rows[i].Cells[4].Value.ToString();
+                        producto.DesResumida = dgvDatos.Rows[i].Cells[5].Value.ToString();
+                        producto.InventarioRequerido = int.Parse(dgvDatos.Rows[i].Cells[6].Value.ToString());
+                        producto.MUltCosto = Convert.ToDouble(dgvDatos.Rows[i].Cells[7].Value.ToString());
+                        producto.CostoTotal = Convert.ToDouble(dgvDatos.Rows[i].Cells[8].Value.ToString());
+
 
                         Prod.GuardarProduct(producto);
 
-                    
+                  
+
+
+
 
                     
-
-
                     }
-
-                }
-            }
-
+                    else
+                    {
+                        contador++;
+                    }
+                   
                 
-            
 
-          
+
+                LblCargarPr.Text = i.ToString() + "/ " + (dgvDatos.Rows.Count).ToString();
+                System.Threading.Thread.Sleep(500);
+
+                System.Windows.Forms.Application.DoEvents();
+
+
+
+            }
+            lblcompleted.Visible = true;
+
+
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void LblCargarPr_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
