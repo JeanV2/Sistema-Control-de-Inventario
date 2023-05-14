@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Title of the document</title>
+    <!--STYLES FOR THE SHEET-->
+    <style>
+        /*CLASS "BORDER" FOR ALL THE TABLES*/
+        table.border {
+            border-collapse: collapse;
+        }
+            /*TH INTO TABLES*/
+            table.border th {
+                padding: 5px;
+                border: 1px solid black;
+            }
+            /*TD INTO TABLES*/
+            table.border td {
+                padding: 5px;
+                border: 1px solid black;
+            }
+        /*DATE INFORMATION*/
+        table.date_information td {
+            padding: 5px;
+            border-collapse: collapse;
+            border-radius: 100px !important;
+        }
+    </style>
+</head>
+<body>
+    <table style="width:100%">
+        <tr>
+            <td style="width:20%"></td>
+            <td style="width:60%" align="center" valign="top">
+                <table>
+                    <tr><td align="center"><h4 style="margin:0px">INSTITUTO NACIONAL DE APRENDIZAJE</h4></td></tr>
+                    <tr><td align="center" style="font-size:11px">CFP - Upala</td></tr>
+                    <tr><td align="center" style="font-size:11px">Unidad de recursos materiales</td></tr>
+                    <!--<tr><td align="center" style="font-size:11px">Email: spazio_dentalcr@hotmail.com</td></tr>-->
+                </table>
+            </td>
+
+            <td style="width:20%">
+                <table class="date_information" style="width:100%;">
+                    <tr><td align="center" style="font-size:14px; font-weight:600">Fecha</td></tr>
+                    <!--<tr><td align="center" style="background-color:#D8D8D8"></td></tr>-->
+                    <tr><td align="center" style="font-size:12px">@DateSelected</td></tr>
+                </table>
+            </td>
+        </tr>
+        <tr><td colspan="3" height="15"></td></tr><!--SPACE-->
+        <tr><td colspan="3" height="10" style="text-align:center; font-size:13px; padding-right: 35px">COMPROBANTE DE SOLICITUD DE COMPRA</td></tr><!--SPACE BETWEENT SECTIONS-->
+        <tr><td colspan="3" height="5"></td></tr><!--SPACE-->
+        <!--FIRST TITTLE-->
+        <tr>
+            <td colspan="3">
+                <table class="border" style="width:100%">
+                    <!--HEADER-->
+                    <thead style="font-size: 10px">
+                        <!--NAME FOR COLUMNS-->
+                        <tr style="background-color:#D8D8D8">
+                            <th>TEST</th>
+                            <th>TEST</th>
+                            <th>TEST</th>
+                            <th>TEST</th>
+                            <th>TEST2</th>
+                        </tr>
+                    </thead>
+                    <!--MAIN BODY-->
+                    <tbody style="font-size:10px; text-align:center">
+                        @FILAS
+                        <tr>
+                            <!--<td align="right">Total: @TOTAL</td>-->
+                            <!--<td>@TOTAL</td>
+                            <td style="border: 0px !important"></td>
+                            <td style="border: 0px !important">-->
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+
+    </table>
+</body>
+</html>
