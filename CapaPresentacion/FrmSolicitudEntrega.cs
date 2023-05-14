@@ -3,6 +3,7 @@ using CapaEntidades;
 using CapaNegocios;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using iTextSharp.tool.xml;
 using Microsoft.Office.Interop.Excel;
 using RestSharp.Extensions;
 using System;
