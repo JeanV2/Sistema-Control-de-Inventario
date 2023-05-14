@@ -39,8 +39,8 @@ namespace CapaDatos
         /// <returns></returns>
         public bool ModificarProduct(TbProducto producto)
         {
-            try
-            {
+            //try
+            //{
                 using (var C = new inventarioEntities1())
                 {
                     C.Entry<TbProducto>(producto).State = System.Data.Entity.EntityState.Modified;
@@ -48,11 +48,11 @@ namespace CapaDatos
                 }
                 return true;
 
-            }
-            catch (Exception exe)
-            {
-                return false;
-            }
+            //}
+            //catch (Exception exe)
+            //{
+            //    return false;
+            //}
         }
         /// <summary>
         /// Elimina los productos

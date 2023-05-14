@@ -1,4 +1,5 @@
-﻿using CapaEntidades;
+﻿using CapaDatos;
+using CapaEntidades;
 using CapaNegocios;
 using Microsoft.Office.Interop.Excel;
 using RestSharp.Extensions;
@@ -10,6 +11,7 @@ using System.Data.Entity;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.UI.WebControls;
@@ -39,50 +41,24 @@ namespace CapaPresentacion
         //---------------------
         NegociosProductos Insproductos = new NegociosProductos();
         List<TbProducto> listaProductos;
-       
+
         //lista presupuestos
 
         NegocioPresupuestos inspresupuestos = new NegocioPresupuestos();
         List<TbPresupuesto> listapresupuestos;
         public void RefrescarComboPresupuestos()
         {
-            listapresupuestos = inspresupuestos.ListaPresupuestos();
 
-            CargarComboPresupuestos(listapresupuestos);
-            RefrescarComboProductos();
-        }
-        public  async void RefrescarComboProductos()
-        {
-   
-            listaProductos = await Insproductos.ListProduct();
-            int valorCombo =( CbNombrePresupuesto.SelectedItem as OpcionCombo).valor;
-            IEnumerable<TbProducto> listaaux = new List<TbProducto>();
-            if (valorCombo>0)
-            {
-                listaaux = listaProductos.Where(x => x.CFamilia.Trim().ToUpper().Contains(valorCombo.ToString().Trim().ToUpper())).ToList();
-            }
 
-            if (listaaux.Count() ==0)
-            {
-                MessageBox.Show("Actualmente no tiene productos relacionados a este presupuesto","advertencia",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
-                CbCodigoProducto.Items.Clear();
-                CbCodigoProducto.Enabled = false;
-
-            }
-            else
-            {
-                
-                CargarComboProductos((List<TbProducto>)listaaux);
-            }
-           
+            CargarComboPresupuestos();
 
         }
 
-        private void CargarComboPresupuestos(List<TbPresupuesto> ListPre)
+
+        private void CargarComboPresupuestos()
         {
             listapresupuestos = inspresupuestos.ListaPresupuestos();
-
-            CbNombrePresupuesto.DataSource=listapresupuestos;
+            CbNombrePresupuesto.DataSource = listapresupuestos;
             CbNombrePresupuesto.DisplayMember = "NombrePresupuesto";
             CbNombrePresupuesto.ValueMember = "numerocuenta";
         }
@@ -92,33 +68,29 @@ namespace CapaPresentacion
 
 
 
-        private void CargarComboProductos(List<TbProducto> ListPro)
+        private void CargarComboProductos(string NumeroCuenta)
         {
-            CbCodigoProducto.Items.Clear();
-            CbCodigoProducto.Enabled = true;
-            string valor = "";
-            string texto = "";
-            foreach (TbProducto producto in ListPro)
+            try
             {
 
-                valor =producto.CodProducto;
-                texto = producto.DesResumida.ToString();
-                CbCodigoProducto.Items.Add(new OpcionCombo2() { valor = valor, texto = texto });
+                inventarioEntities1 db = new inventarioEntities1();
+                CbCodigoProducto.DataSource = db.TbProducto.Where(x => x.CFamilia == NumeroCuenta).ToList();
+                CbCodigoProducto.DisplayMember = "DesResumida";
+                CbCodigoProducto.ValueMember = "CodProducto";
 
             }
-
-            CbCodigoProducto.DisplayMember = "texto";
-            CbCodigoProducto.ValueMember = "valor";
-
-            CbCodigoProducto.SelectedIndex = 0;
+            catch (Exception)
+            {
+                MessageBox.Show("Tenemos problema con el servidor, por favor reinicie el programa", "INFORMACION", MessageBoxButtons.OK, MessageBoxIcon.Question);
+            }
 
         }
 
         public void Limpiarcampos()
         {
-
-          
-            txtCantProducto.ResetText();
+            txtCantProducto.Clear();
+            TxtDisponibles.Clear();
+            CbCodigoProducto.SelectedIndex = -1;
         }
 
         private bool ValidarProductoGrid()
@@ -127,7 +99,7 @@ namespace CapaPresentacion
             int row = DgvListaProductos.Rows.Count;
             for (int i = 0; i < row; i++)
             {
-                if (DgvListaProductos.Rows[i].Cells[0].Value.ToString().Trim() == (CbCodigoProducto.SelectedItem as OpcionCombo2).valor)
+                if (DgvListaProductos.Rows[i].Cells[0].Value.ToString().Trim() == CbCodigoProducto.SelectedValue)
                 {
                     estado = false;
                     break;
@@ -136,51 +108,19 @@ namespace CapaPresentacion
             return estado;
         }
 
-        private  bool RestarantProductos(String Codigo, int cantidad)
-        {
 
-            listaProductos = Insproductos.ListProductosSinAsy();
-            //consultamos si el usuario existe
-            bool cod = true;
-            foreach (TbProducto pr in listaProductos)
-            {
-
-                if (Codigo == pr.CodProducto)
-                {
-                    int total = (int)pr.InventarioExistente - cantidad;
-                    pr.InventarioExistente = total;
-                    if (Insproductos.ModificarProduct(pr))
-                    {
-                        cod = true;
-                        break;
-
-                    }
-                    else
-                    {
-                        cod = false;
-                    }
-                }
-                else
-                {
-                    cod = false;
-                }
-
-            }
-            return cod;
-
-
-        }
         private bool ValCantProductos()
         {
 
-           
+
             bool cod = true;
 
 
             if (TxtDisponibles.Text == string.Empty)
             {
                 cod = false;
-            }else
+            }
+            else
             {
                 if (int.Parse(txtCantProducto.Text) <= 0)
                 {
@@ -196,11 +136,35 @@ namespace CapaPresentacion
             }
             return cod;
 
-            
+
 
 
         }
+        private bool validarRef()
+        {
+            bool validar = false;
+            if ((int)CbTipoSilicitud.SelectedValue==0)
+            {
 
+                validar = true;
+            
+            }
+            else
+            {
+                if (TxtReferencia.Text==string.Empty)
+                {
+                    Validaciones.MostarError(TxtReferencia, "Debes ingresar los datos de la referencia del retiro");
+
+                    validar = false;
+                }
+                else
+                {
+                    validar = true;
+                }
+              
+            }
+           return validar;
+        }
         /// <summary>
         /// Metodo para validar campos vacios
         /// </summary>
@@ -262,14 +226,15 @@ namespace CapaPresentacion
                     }
                     else
                     {
-                        Validaciones.MostarError(TxtReferencia, "Debes ingresar los datos de la referencia del retiro");
-                        return false;
+                        //Validaciones.MostarError(TxtReferencia, "Debes ingresar los datos de la referencia del retiro");
+                        return validarRef();
                     }
                 }
                 else
                 {
                     Validaciones.MostarErrorCombo(CbTipoSilicitud, "Debes seleccionar el tipo de solitud");
                     return false;
+                    //soy kelvin y no se usar git
                 }
             }
             else
@@ -301,14 +266,16 @@ namespace CapaPresentacion
             bool ValCantProc = true;
             //obtenemos las filas actuales
             int row = DgvListaProductos.Rows.Count;
-
+            MessageBox.Show(row.ToString());
             //Creamos la entidad
             TbSolicitudInsumo tbinsumo = new TbSolicitudInsumo();
+            string consecutivo = ObtenerCodigoSolicitudInsumo().ToString();
             //llenamos los datos
-            tbinsumo.IdSolicitudInsumo = ObtenerCodigoSolicitudInsumo().ToString();
-            tbinsumo.IdColaboradorRecibe=TxtSolicitadoPor.ToString();
-            //tbinsumo.tipoSolicitud = CbTipoSilicitud.SelectedItem.ToString();
-            if ((int)CbTipoSilicitud.SelectedValue==1)
+            tbinsumo.IdSolicitudInsumo = consecutivo;
+            tbinsumo.IdColaboradorEntrega = FrmLogin.Idetificacion;
+            tbinsumo.IdColaboradorRecibe = TxtSolicitadoPor.Text.ToString();
+            tbinsumo.tipoSolicitud = (int)CbTipoSilicitud.SelectedValue;
+            if (CbTipoSilicitud.SelectedIndex == 1)
             {
                 tbinsumo.ReferenciaCurso = "No Aplica";
             }
@@ -316,21 +283,18 @@ namespace CapaPresentacion
             {
                 tbinsumo.ReferenciaCurso = TxtReferencia.Text;
             }
-       
-                    
+
+            tbinsumo.EstadoSolicitud = true;
+            tbinsumo.fechaSolicitud = DateTime.Now;
             //guardamos la solicitud de insumo
-            if (insumosIns.GuardarInsumos(tbinsumo))
-            {
-                validaConfirmacion = true;
-            }
-            else
-            {
-                validaConfirmacion = false;
+            insumosIns.GuardarInsumos(tbinsumo);
 
-            }
 
+
+            inventarioEntities1 db = new inventarioEntities1();
             //le decimos que recorra los dataview
             TbProductoInsumoS TbProductoInsumo = new TbProductoInsumoS();
+            TbProducto producto = new TbProducto();
             for (int i = 0; i < row; i++)
             {
                 if (row != null)
@@ -341,53 +305,32 @@ namespace CapaPresentacion
 
                     //lenamos datos
 
-                    TbProductoInsumo.IdSolictudInsumo = tbinsumo.IdSolicitudInsumo;
+                    TbProductoInsumo.IdSolictudInsumo = consecutivo;
                     TbProductoInsumo.CantidadP = int.Parse(DgvListaProductos.Rows[i].Cells[2].Value.ToString());
-                    TbProductoInsumo.IdProducto = DgvListaProductos.Rows[i].Cells[i].Value.ToString();
-
+                    TbProductoInsumo.IdProducto = DgvListaProductos.Rows[i].Cells[0].Value.ToString();
+                    InsumosSoli.GuardarInsumos(TbProductoInsumo);
 
                     //-------------------------------------------------------------------------------
                     //vamos guardando cada producto solicitado en la tabla union
                     //validaciones
-
+                    string cod = DgvListaProductos.Rows[i].Cells[0].Value.ToString();
+                    producto = db.TbProducto.Where(x => x.CodProducto == cod).SingleOrDefault();
+                    producto.InventarioExistente = producto.InventarioExistente - int.Parse(DgvListaProductos.Rows[i].Cells[2].Value.ToString());
                     //restamos la cantidad de proc a tbl productos
-                    if (RestarantProductos(DgvListaProductos.Rows[i].Cells[1].Value.ToString(), int.Parse(DgvListaProductos.Rows[i].Cells[2].Value.ToString())) == true)
-                    {
-                        if (InsumosSoli.GuardarInsumos(TbProductoInsumo))
-                        {
-                            validaConfirmacion = true;
-                        }
-                        else
-                        {
-                            validaConfirmacion = false;
-                            //hola
 
-                        }
-                    }
-                    else
-                    {
-                        validaConfirmacion = false;
-                    }
-
+                    db.SaveChanges();
+                
+                  
 
                 }
-
+         
             }
             //-------------------------------------------------------------------------------
+            MessageBox.Show("Registro exitoso", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-
-            if (validaConfirmacion == true)
-            {
-                MessageBox.Show("Registro exitoso", "Guadar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                DgvListaProductos.Rows.Clear();
-                //Validaciones.LimpiarFormularioSolicitudEntrega(tableLayoutPanel2);
-            }
-            else
-            {
-                MessageBox.Show("Error de Registro ", "Guadar", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-
+            Limpiarcampos();
+            CargarComboPresupuestos();
+            DgvListaProductos.Rows.Clear();
 
         }
 
@@ -399,8 +342,8 @@ namespace CapaPresentacion
             TxtCedula.Enabled = false;
             TxtDisponibles.Enabled = false;
             TxtCedula.ReadOnly = true;
-            listapresupuestos = inspresupuestos.ListaPresupuestos();    
-            CargarComboPresupuestos(listapresupuestos);
+            listapresupuestos = inspresupuestos.ListaPresupuestos();
+            CargarComboPresupuestos();
 
             CbTipoSilicitud.DataSource = Enum.GetValues(typeof(Enums.Tipo_retiro));
 
@@ -444,6 +387,8 @@ namespace CapaPresentacion
 
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
+            inventarioEntities1 db = new inventarioEntities1();
+
             if (validarCampos())
             {
                 if (ValCantProductos() == true)
@@ -451,9 +396,10 @@ namespace CapaPresentacion
                     if (ValidarProductoGrid() == true)
                     {
                         int row = DgvListaProductos.Rows.Add();
-                        DgvListaProductos.Rows[row].Cells[0].Value = (CbCodigoProducto.SelectedItem as OpcionCombo2).valor;
-                        DgvListaProductos.Rows[row].Cells[1].Value = (CbCodigoProducto.SelectedItem as OpcionCombo2).texto;
+                        DgvListaProductos.Rows[row].Cells[0].Value = CbCodigoProducto.SelectedValue;
+                        DgvListaProductos.Rows[row].Cells[1].Value = db.TbProducto.Where(x => x.CodProducto == CbCodigoProducto.SelectedValue).FirstOrDefault().DesResumida;
                         DgvListaProductos.Rows[row].Cells[2].Value = txtCantProducto.Text;
+
                         Limpiarcampos();
 
                     }
@@ -489,8 +435,14 @@ namespace CapaPresentacion
 
                 if (result == DialogResult.Yes)
                 {
+
+                    if (DgvListaProductos.Rows[e.RowIndex].Cells[0].Value == CbCodigoProducto.SelectedValue)
+                    {
+                        TxtDisponibles.Text = (int.Parse(TxtDisponibles.Text) + int.Parse(DgvListaProductos.Rows[e.RowIndex].Cells[2].Value.ToString())).ToString();
+                    }
                     DgvListaProductos.Rows.RemoveAt(e.RowIndex);
                 }
+
 
             }
 
@@ -499,15 +451,18 @@ namespace CapaPresentacion
 
         private void DgvListaProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //Verificar si se hizo clic en el botón de eliminación
-            if (e.ColumnIndex == DgvListaProductos.Columns["X"].Index && e.RowIndex >= 0)
-            {
-                // Obtener la fila que se está eliminando
-                DataGridViewRow fila = DgvListaProductos.Rows[e.RowIndex];
+            ////Verificar si se hizo clic en el botón de eliminación
+            //if (e.ColumnIndex == DgvListaProductos.Columns["X"].Index && e.RowIndex >= 0)
+            //{
+            //    // Obtener la fila que se está eliminando
+            //    DataGridViewRow fila = DgvListaProductos.Rows[e.RowIndex];
 
-                // Eliminar la fila del DataGridView
-                DgvListaProductos.Rows.Remove(fila);
-            }
+            //    // Eliminar la fila del DataGridView
+            //    MessageBox.Show(DgvListaProductos.Rows[e.RowIndex].Cells[0].Value.ToString() + " " + CbCodigoProducto.SelectedValue);
+
+            //    DgvListaProductos.Rows.Remove(fila);
+            //}
+
         }
 
 
@@ -527,45 +482,51 @@ namespace CapaPresentacion
         {
             if (CbTipoSilicitud.SelectedIndex == 0)
             {
-                TxtReferencia.Enabled = true;
+                TxtReferencia.Enabled = false;
+                TxtReferencia.Text = "No Aplica";
+
             }
             if (CbTipoSilicitud.SelectedIndex == 1)
             {
-                TxtReferencia.Enabled = false;
+                TxtReferencia.Enabled = true;
+                TxtReferencia.Text = string.Empty;
             }
         }
         private void CbNombrePresupuesto_SelectedIndexChanged(object sender, EventArgs e)
         {
-            RefrescarComboProductos();
+            CargarComboProductos(CbNombrePresupuesto.SelectedValue.ToString());
         }
 
-        private async void CbCodigoProducto_SelectedIndexChanged(object sender, EventArgs e)
+        private void CbCodigoProducto_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //consultamos id del producto y mostramos la cantidad disponibles
-            listaProductos = await Insproductos.ListProduct();
-            string valorCombo = (CbCodigoProducto.SelectedItem as OpcionCombo2).valor;
-            IEnumerable<TbProducto> listaaux = new List<TbProducto>();
-            if (valorCombo != string.Empty)
-            {
-                listaaux = listaProductos.Where(x => x.CodProducto.Trim().ToUpper().Contains(valorCombo.ToString().Trim().ToUpper())).ToList();
-            }
 
-            if (listaaux.Count() == 0)
+            inventarioEntities1 db = new inventarioEntities1();
+            //Validamos que el index de cb no sea -1 para evitar que se caiga al limpiar el formulario
+            if (CbCodigoProducto.SelectedIndex != -1)
             {
-                TxtDisponibles.Text = "0";
-            }
-            else
-            {
-                string canPro = "0";
-
-                foreach (TbProducto producto in (List<TbProducto>)listaaux)
+                //Obtenemos la cantidad del producto seleccionado el cb y lo mostramos el txt pero antes de eso hay que verificar que no este ya en el datagrid
+                int CantidadProducto = (int)db.TbProducto.Where(x => x.CodProducto == CbCodigoProducto.SelectedValue).FirstOrDefault().InventarioExistente;
+                //Recorremos el datagrid y si encontramos el producto restarle a la cantidad disponible antes de mostrarla
+                for (int i = 0; i < DgvListaProductos.Rows.Count; i++)
                 {
 
-                    canPro = producto.NumProducto;
+                    if (CbCodigoProducto.SelectedValue == DgvListaProductos.Rows[i].Cells[0].Value)
+                    {
+                        int dtCantidad = int.Parse(DgvListaProductos.Rows[i].Cells[2].Value.ToString()
+                            );
+                        CantidadProducto = CantidadProducto - dtCantidad;
 
+                    }
                 }
-                TxtDisponibles.Text = canPro;
+
+                TxtDisponibles.Text = CantidadProducto.ToString();
+
             }
+        }
+
+        private void TxtReferencia_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
