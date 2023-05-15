@@ -27,5 +27,10 @@ namespace CapaPresentacion
 
             //this.reportViewer1.RefreshReport();
         }
+
+        private void BtnFiltrar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

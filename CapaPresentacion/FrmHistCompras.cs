@@ -24,10 +24,14 @@ namespace CapaPresentacion
 
         private void FrmHistCompras_Load(object sender, EventArgs e)
         {
+            DtpFecha1.CustomFormat = DateTime.Now.ToString("yyyy-MM-dd");
+            DtpFecha2.CustomFormat = DateTime.Now.ToString("yyyy-MM-dd");
+        }
 
-            //this.reportViewer1.RefreshReport();
-            //this.reportViewer1.RefreshReport();
-            //this.reportViewer1.RefreshReport();
+        private void BtnFiltrar_Click(object sender, EventArgs e)
+        {
+            // TODO: esta línea de código carga datos en la tabla 'dataSet1.DataTable1' Puede moverla o quitarla según sea necesario.
+            this.dataTable1TableAdapter.Fill(this.dataSet1.DataTable1,DtpFecha1.Value.ToString("yyyy-MM-dd"), DtpFecha2.Value.ToString("yyyy-MM-dd"));
         }
     }
 }
