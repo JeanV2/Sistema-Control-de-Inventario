@@ -387,6 +387,9 @@
   </ItemGroup>
   <ItemGroup>
 
+    <None Include="Resources\PDFPlantillaEntrega.html" />
+
+
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.8 %28x86 y x64%29</ProductName>
@@ -399,6 +402,7 @@
     </BootstrapperPackage>
 
     <None Include="Resources\FormatoExcelProductos.png" />
+
 
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

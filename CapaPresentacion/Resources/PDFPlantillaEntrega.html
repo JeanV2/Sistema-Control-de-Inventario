@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Title of the document</title>
+    <!--STYLES FOR THE SHEET-->
+    <style>
+        /*CLASS "BORDER" FOR ALL THE TABLES*/
+        table.border {
+            border-collapse: collapse;
+        }
+            /*TH INTO TABLES*/
+            table.border th {
+                padding: 5px;
+                border: 1px solid black;
+            }
+            /*TD INTO TABLES*/
+            table.border td {
+                padding: 5px;
+                border: 1px solid black;
+            }
+        /*DATE INFORMATION*/
+        table.date_information td {
+            padding: 1px;
+            border-collapse: collapse;
+            border-radius: 100px !important;
+        }
+    </style>
+</head>
+<body>
+    <table style="width:100%">
+        <tr>
+            <td style="width:20%"></td>
+            <td style="width:60%" align="center" valign="top">
+                <table>
+                    <tr><td align="center"><h4 style="margin:0px">INSTITUTO NACIONAL DE APRENDIZAJE</h4></td></tr>
+                    <tr><td align="center" style="font-size:11px">CFP - UPALA</td></tr>
+                    <tr><td align="center" style="font-size:11px">UNIDAD DE RECURSOS MATERIALES</td></tr>
+                </table>
+            </td>
+
+            <td style="width:20%">
+                <table class="date_information" style="width:100%;">
+                    <tr><td align="center" style="font-size:13px; font-weight:600">FR URMA PSG 12</td></tr>
+                    <tr><td align="center" style="font-size:12px; font-weight:600">Edición 01</td></tr>
+                    <!--<tr><td align="center" style="background-color:#D8D8D8"></td></tr>-->
+                    <tr><td align="center" style="font-size:12px">(19/01/2011)</td></tr>
+                </table>
+            </td>
+        </tr>
+        <tr><td colspan="3" height="15"></td></tr><!--SPACE-->
+        <tr><td colspan="3" height="15"></td></tr><!--SPACE-->
+        <tr><td colspan="3" height="15"></td></tr><!--SPACE-->
+        <tr><td colspan="3" height="10" style="text-align:left; font-size:11px; padding-right: 35px"><b>TIPO DE SOLICITUD: </b><span style="color:green; font-weight: 600"> @TipoSolicitud</span></td></tr><!--SPACE BETWEENT SECTIONS-->
+        <tr><td colspan="3" height="15"></td></tr><!--SPACE-->
+        <tr><td colspan="3" height="10" style="text-align:left; font-size:13px; padding-right: 35px"><b>N° referencia:</b> @N_Referencia </td></tr><!--SPACE BETWEENT SECTIONS-->
+        <tr><td colspan="3" height="10" style="text-align:left; font-size:13px; padding-right: 35px"><b>Fecha de solicitud:</b>     @fecha</td></tr><!--SPACE BETWEENT SECTIONS-->
+        <tr><td colspan="3" height="15"></td></tr><!--SPACE-->
+        <tr><td colspan="3" height="10" style="text-align:left; font-size:13px; padding-right: 35px"><b>Responsable de entrega:</b>  @Responsable </td></tr><!--SPACE BETWEENT SECTIONS-->
+        <tr><td colspan="3" height="10" style="text-align:left; font-size:13px; padding-right: 35px"><b>Solicitante:</b>  @Solicitante </td></tr><!--SPACE BETWEENT SECTIONS-->
+        <tr><td colspan="3" height="5"></td></tr><!--SPACE-->
+        <!--FIRST TITTLE-->
+        <tr><td colspan="3" height="15"></td></tr><!--SPACE-->
+        <tr><td colspan="3" height="10" style="text-align:center; font-size:13px; padding-right: 35px"><b>COMPROBANTE DE ENTREGA DE MATERIALES</b></td></tr><!--SPACE BETWEENT SECTIONS-->
+        <tr>
+            <td colspan="3">
+                <table class="border" style="width:100%">
+                    <!--HEADER-->
+                    <thead style="font-size: 10px; text-align: center;">
+                        <!--NAME FOR COLUMNS-->
+                        <tr style="background-color: #96b397">
+                            <th>Código</th>
+                            <th>Producto</th>
+                            <th>Cantidad</th>
+                            <th>Precio/Unidad</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <!--MAIN BODY-->
+                    <tbody style="font-size:10px; text-align:center">
+                        @FILAS
+                        <tr>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </td>
+        </tr>
+        <tr style="width:100%; padding-top: 50px;">
+            <td style="width:50%" align="center" valign="top">
+                <table style="width:100%">
+                    <tr>
+                        <td align="center" style="font-size: 13px">
+                            <span>_______________</span>
+                            <div style="width: 100%; padding-top: 4px; display: inline-block; text-align: center;">Responsable</div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+
+            <td style="width:50%">
+                <table class="" style="width:100%;">
+                    <tr>
+                        <td align="center" style="font-size:13px;">
+                            <span>_______________</span>
+                            <br />
+                            <div style="width: 100%; padding-top: 4px; display: inline-block; text-align: center;">Solicitante</div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+
+
+    </table>
+</body>
+</html>
