@@ -350,77 +350,85 @@ namespace CapaPresentacion
 
         private void BtnConfirmar_Click(object sender, EventArgs e)
         {
-            //valida el proceso de guardar
-            bool validaConfirmacion = true;
-            //valida el proceso de que la cantidad producto no sea mayor que la cantidad producto
-            bool ValCantProc = true;
-            //obtenemos las filas actuales
-            int row = DgvListaProductos.Rows.Count;
-            MessageBox.Show(row.ToString());
-            //Creamos la entidad
-            TbSolicitudInsumo tbinsumo = new TbSolicitudInsumo();
-            string consecutivo = ObtenerCodigoSolicitudInsumo().ToString();
-            //llenamos los datos
-            tbinsumo.IdSolicitudInsumo = consecutivo;
-            tbinsumo.IdColaboradorEntrega = FrmLogin.Idetificacion;
-            tbinsumo.IdColaboradorRecibe = TxtSolicitadoPor.Text.ToString();
-            tbinsumo.tipoSolicitud = (int)CbTipoSilicitud.SelectedValue;
-            if (CbTipoSilicitud.SelectedIndex == 1)
+            if (DgvListaProductos.Rows.Count>0)
             {
-                tbinsumo.ReferenciaCurso = "No Aplica";
+                //valida el proceso de guardar
+                bool validaConfirmacion = true;
+                //valida el proceso de que la cantidad producto no sea mayor que la cantidad producto
+                bool ValCantProc = true;
+                //obtenemos las filas actuales
+                int row = DgvListaProductos.Rows.Count;
+                MessageBox.Show(row.ToString());
+                //Creamos la entidad
+                TbSolicitudInsumo tbinsumo = new TbSolicitudInsumo();
+                string consecutivo = ObtenerCodigoSolicitudInsumo().ToString();
+                //llenamos los datos
+                tbinsumo.IdSolicitudInsumo = consecutivo;
+                tbinsumo.IdColaboradorEntrega = FrmLogin.Idetificacion;
+                tbinsumo.IdColaboradorRecibe = TxtSolicitadoPor.Text.ToString();
+                tbinsumo.tipoSolicitud = (int)CbTipoSilicitud.SelectedValue;
+                if (CbTipoSilicitud.SelectedIndex == 1)
+                {
+                    tbinsumo.ReferenciaCurso = "No Aplica";
+                }
+                else
+                {
+                    tbinsumo.ReferenciaCurso = TxtReferencia.Text;
+                }
+
+                tbinsumo.EstadoSolicitud = true;
+                tbinsumo.fechaSolicitud = DateTime.Now;
+                //guardamos la solicitud de insumo
+                insumosIns.GuardarInsumos(tbinsumo);
+
+
+
+                inventarioEntities1 db = new inventarioEntities1();
+                //le decimos que recorra los dataview
+                TbProductoInsumoS TbProductoInsumo = new TbProductoInsumoS();
+                TbProducto producto = new TbProducto();
+                for (int i = 0; i < row; i++)
+                {
+                    if (row != null)
+                    {
+                        //ingresamos los datos
+                        //------------------------------------------------------------------------------
+                        //tb de producto insumo creamos entidad
+
+                        //lenamos datos
+
+                        TbProductoInsumo.IdSolictudInsumo = consecutivo;
+                        TbProductoInsumo.CantidadP = int.Parse(DgvListaProductos.Rows[i].Cells[2].Value.ToString());
+                        TbProductoInsumo.IdProducto = DgvListaProductos.Rows[i].Cells[0].Value.ToString();
+                        InsumosSoli.GuardarInsumos(TbProductoInsumo);
+
+                        //-------------------------------------------------------------------------------
+                        //vamos guardando cada producto solicitado en la tabla union
+                        //validaciones
+                        string cod = DgvListaProductos.Rows[i].Cells[0].Value.ToString();
+                        producto = db.TbProducto.Where(x => x.CodProducto == cod).SingleOrDefault();
+                        producto.InventarioExistente = producto.InventarioExistente - int.Parse(DgvListaProductos.Rows[i].Cells[2].Value.ToString());
+                        //restamos la cantidad de proc a tbl productos
+
+                        db.SaveChanges();
+
+
+
+                    }
+
+                }
+                //-------------------------------------------------------------------------------
+                MessageBox.Show("Registro exitoso", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                GenerarPDF();
+                Limpiarcampos();
+                CargarComboPresupuestos();
+                DgvListaProductos.Rows.Clear();
             }
             else
             {
-                tbinsumo.ReferenciaCurso = TxtReferencia.Text;
+                MessageBox.Show("Debes seleccionar algun producto para continuar con la solicitud","Alerta",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
-
-            tbinsumo.EstadoSolicitud = true;
-            tbinsumo.fechaSolicitud = DateTime.Now;
-            //guardamos la solicitud de insumo
-            insumosIns.GuardarInsumos(tbinsumo);
-
-
-
-            inventarioEntities1 db = new inventarioEntities1();
-            //le decimos que recorra los dataview
-            TbProductoInsumoS TbProductoInsumo = new TbProductoInsumoS();
-            TbProducto producto = new TbProducto();
-            for (int i = 0; i < row; i++)
-            {
-                if (row != null)
-                {
-                    //ingresamos los datos
-                    //------------------------------------------------------------------------------
-                    //tb de producto insumo creamos entidad
-
-                    //lenamos datos
-
-                    TbProductoInsumo.IdSolictudInsumo = consecutivo;
-                    TbProductoInsumo.CantidadP = int.Parse(DgvListaProductos.Rows[i].Cells[2].Value.ToString());
-                    TbProductoInsumo.IdProducto = DgvListaProductos.Rows[i].Cells[0].Value.ToString();
-                    InsumosSoli.GuardarInsumos(TbProductoInsumo);
-
-                    //-------------------------------------------------------------------------------
-                    //vamos guardando cada producto solicitado en la tabla union
-                    //validaciones
-                    string cod = DgvListaProductos.Rows[i].Cells[0].Value.ToString();
-                    producto = db.TbProducto.Where(x => x.CodProducto == cod).SingleOrDefault();
-                    producto.InventarioExistente = producto.InventarioExistente - int.Parse(DgvListaProductos.Rows[i].Cells[2].Value.ToString());
-                    //restamos la cantidad de proc a tbl productos
-
-                    db.SaveChanges();
-                
-                  
-
-                }
- 
-            }
-            //-------------------------------------------------------------------------------
-            MessageBox.Show("Registro exitoso", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            GenerarPDF();
-            Limpiarcampos();
-            CargarComboPresupuestos();
-            DgvListaProductos.Rows.Clear();
+           
 
         }
 

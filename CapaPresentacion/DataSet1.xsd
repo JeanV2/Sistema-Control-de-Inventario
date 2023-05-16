@@ -37,10 +37,10 @@ WHERE        (TbSolicitudCompra.FechaSolicitudCompra BETWEEN @Fecha1 AND @Fecha2
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SolicitudEntregaReportTableAdapter" GeneratorDataComponentClassName="SolicitudEntregaReportTableAdapter" Name="SolicitudEntregaReport" UserDataComponentName="SolicitudEntregaReportTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="inventarioConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="inventarioConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT C.NombreColaborador, T.IdColaboradorRecibe, P.DesResumida, S.CantidadP, ROUND(P.MUltCosto, 0) AS 'MultCosto', ROUND(P.MUltCosto * S.CantidadP, 0) AS 'Costo Total', T.fechaSolicitud
+                    <CommandText>SELECT C.NombreColaborador, T.IdColaboradorRecibe, P.DesResumida, S.CantidadP, ROUND(P.MUltCosto, 0) AS 'MultCosto', ROUND(P.MUltCosto * S.CantidadP, 0) AS 'CostoTotal', T.fechaSolicitud
 FROM     TbSolicitudInsumo AS T INNER JOIN
                   TbProductoInsumoS AS S ON T.IdSolicitudInsumo = S.IdSolictudInsumo INNER JOIN
                   TbProducto AS P ON S.IdProducto = P.CodProducto INNER JOIN
@@ -59,8 +59,8 @@ WHERE  (T.IdSolicitudInsumo = @Id)</CommandText>
               <Mapping SourceColumn="DesResumida" DataSetColumn="DesResumida" />
               <Mapping SourceColumn="CantidadP" DataSetColumn="CantidadP" />
               <Mapping SourceColumn="MultCosto" DataSetColumn="MultCosto" />
-              <Mapping SourceColumn="Costo Total" DataSetColumn="Costo Total" />
               <Mapping SourceColumn="fechaSolicitud" DataSetColumn="fechaSolicitud" />
+              <Mapping SourceColumn="CostoTotal" DataSetColumn="CostoTotal" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -72,39 +72,39 @@ WHERE  (T.IdSolicitudInsumo = @Id)</CommandText>
   <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DataSet1" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DataTable1" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1">
+        <xs:element name="DataTable1" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="IdSolicitudCompra" msprop:Generator_UserColumnName="IdSolicitudCompra" msprop:Generator_ColumnPropNameInTable="IdSolicitudCompraColumn" msprop:Generator_ColumnPropNameInRow="IdSolicitudCompra" msprop:Generator_ColumnVarNameInTable="columnIdSolicitudCompra">
+              <xs:element name="IdSolicitudCompra" msprop:Generator_ColumnPropNameInTable="IdSolicitudCompraColumn" msprop:Generator_ColumnPropNameInRow="IdSolicitudCompra" msprop:Generator_UserColumnName="IdSolicitudCompra" msprop:Generator_ColumnVarNameInTable="columnIdSolicitudCompra">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="FechaSolicitudCompra" msprop:Generator_UserColumnName="FechaSolicitudCompra" msprop:Generator_ColumnPropNameInTable="FechaSolicitudCompraColumn" msprop:Generator_ColumnPropNameInRow="FechaSolicitudCompra" msprop:Generator_ColumnVarNameInTable="columnFechaSolicitudCompra" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="IdColaboradorCompra" msprop:Generator_UserColumnName="IdColaboradorCompra" msprop:Generator_ColumnPropNameInTable="IdColaboradorCompraColumn" msprop:Generator_ColumnPropNameInRow="IdColaboradorCompra" msprop:Generator_ColumnVarNameInTable="columnIdColaboradorCompra" minOccurs="0">
+              <xs:element name="FechaSolicitudCompra" msprop:Generator_ColumnPropNameInTable="FechaSolicitudCompraColumn" msprop:Generator_ColumnPropNameInRow="FechaSolicitudCompra" msprop:Generator_UserColumnName="FechaSolicitudCompra" msprop:Generator_ColumnVarNameInTable="columnFechaSolicitudCompra" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="IdColaboradorCompra" msprop:Generator_ColumnPropNameInTable="IdColaboradorCompraColumn" msprop:Generator_ColumnPropNameInRow="IdColaboradorCompra" msprop:Generator_UserColumnName="IdColaboradorCompra" msprop:Generator_ColumnVarNameInTable="columnIdColaboradorCompra" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="NombreColaborador" msprop:Generator_UserColumnName="NombreColaborador" msprop:Generator_ColumnPropNameInTable="NombreColaboradorColumn" msprop:Generator_ColumnPropNameInRow="NombreColaborador" msprop:Generator_ColumnVarNameInTable="columnNombreColaborador" minOccurs="0">
+              <xs:element name="NombreColaborador" msprop:Generator_ColumnPropNameInTable="NombreColaboradorColumn" msprop:Generator_ColumnPropNameInRow="NombreColaborador" msprop:Generator_UserColumnName="NombreColaborador" msprop:Generator_ColumnVarNameInTable="columnNombreColaborador" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="PrimerApellidoColaborador" msprop:Generator_UserColumnName="PrimerApellidoColaborador" msprop:Generator_ColumnPropNameInTable="PrimerApellidoColaboradorColumn" msprop:Generator_ColumnPropNameInRow="PrimerApellidoColaborador" msprop:Generator_ColumnVarNameInTable="columnPrimerApellidoColaborador" minOccurs="0">
+              <xs:element name="PrimerApellidoColaborador" msprop:Generator_ColumnPropNameInTable="PrimerApellidoColaboradorColumn" msprop:Generator_ColumnPropNameInRow="PrimerApellidoColaborador" msprop:Generator_UserColumnName="PrimerApellidoColaborador" msprop:Generator_ColumnVarNameInTable="columnPrimerApellidoColaborador" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="SegundoApellidoColaborador" msprop:Generator_UserColumnName="SegundoApellidoColaborador" msprop:Generator_ColumnPropNameInTable="SegundoApellidoColaboradorColumn" msprop:Generator_ColumnPropNameInRow="SegundoApellidoColaborador" msprop:Generator_ColumnVarNameInTable="columnSegundoApellidoColaborador" minOccurs="0">
+              <xs:element name="SegundoApellidoColaborador" msprop:Generator_ColumnPropNameInTable="SegundoApellidoColaboradorColumn" msprop:Generator_ColumnPropNameInRow="SegundoApellidoColaborador" msprop:Generator_UserColumnName="SegundoApellidoColaborador" msprop:Generator_ColumnVarNameInTable="columnSegundoApellidoColaborador" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
@@ -114,34 +114,34 @@ WHERE  (T.IdSolicitudInsumo = @Id)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="SolicitudEntregaReport" msprop:Generator_RowEvHandlerName="SolicitudEntregaReportRowChangeEventHandler" msprop:Generator_RowDeletedName="SolicitudEntregaReportRowDeleted" msprop:Generator_RowDeletingName="SolicitudEntregaReportRowDeleting" msprop:Generator_RowEvArgName="SolicitudEntregaReportRowChangeEvent" msprop:Generator_TablePropName="SolicitudEntregaReport" msprop:Generator_RowChangedName="SolicitudEntregaReportRowChanged" msprop:Generator_RowChangingName="SolicitudEntregaReportRowChanging" msprop:Generator_TableClassName="SolicitudEntregaReportDataTable" msprop:Generator_RowClassName="SolicitudEntregaReportRow" msprop:Generator_TableVarName="tableSolicitudEntregaReport" msprop:Generator_UserTableName="SolicitudEntregaReport">
+        <xs:element name="SolicitudEntregaReport" msprop:Generator_RowClassName="SolicitudEntregaReportRow" msprop:Generator_RowEvHandlerName="SolicitudEntregaReportRowChangeEventHandler" msprop:Generator_RowDeletedName="SolicitudEntregaReportRowDeleted" msprop:Generator_RowDeletingName="SolicitudEntregaReportRowDeleting" msprop:Generator_RowEvArgName="SolicitudEntregaReportRowChangeEvent" msprop:Generator_TablePropName="SolicitudEntregaReport" msprop:Generator_RowChangedName="SolicitudEntregaReportRowChanged" msprop:Generator_UserTableName="SolicitudEntregaReport" msprop:Generator_RowChangingName="SolicitudEntregaReportRowChanging" msprop:Generator_TableClassName="SolicitudEntregaReportDataTable" msprop:Generator_TableVarName="tableSolicitudEntregaReport">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="NombreColaborador" msprop:Generator_ColumnPropNameInRow="NombreColaborador" msprop:Generator_ColumnPropNameInTable="NombreColaboradorColumn" msprop:Generator_ColumnVarNameInTable="columnNombreColaborador" msprop:Generator_UserColumnName="NombreColaborador" minOccurs="0">
+              <xs:element name="NombreColaborador" msprop:Generator_UserColumnName="NombreColaborador" msprop:Generator_ColumnPropNameInTable="NombreColaboradorColumn" msprop:Generator_ColumnPropNameInRow="NombreColaborador" msprop:Generator_ColumnVarNameInTable="columnNombreColaborador" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="IdColaboradorRecibe" msprop:Generator_ColumnPropNameInRow="IdColaboradorRecibe" msprop:Generator_ColumnPropNameInTable="IdColaboradorRecibeColumn" msprop:Generator_ColumnVarNameInTable="columnIdColaboradorRecibe" msprop:Generator_UserColumnName="IdColaboradorRecibe" minOccurs="0">
+              <xs:element name="IdColaboradorRecibe" msprop:Generator_UserColumnName="IdColaboradorRecibe" msprop:Generator_ColumnPropNameInTable="IdColaboradorRecibeColumn" msprop:Generator_ColumnPropNameInRow="IdColaboradorRecibe" msprop:Generator_ColumnVarNameInTable="columnIdColaboradorRecibe" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="DesResumida" msprop:Generator_ColumnPropNameInRow="DesResumida" msprop:Generator_ColumnPropNameInTable="DesResumidaColumn" msprop:Generator_ColumnVarNameInTable="columnDesResumida" msprop:Generator_UserColumnName="DesResumida" minOccurs="0">
+              <xs:element name="DesResumida" msprop:Generator_UserColumnName="DesResumida" msprop:Generator_ColumnPropNameInTable="DesResumidaColumn" msprop:Generator_ColumnPropNameInRow="DesResumida" msprop:Generator_ColumnVarNameInTable="columnDesResumida" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="CantidadP" msprop:Generator_ColumnPropNameInRow="CantidadP" msprop:Generator_ColumnPropNameInTable="CantidadPColumn" msprop:Generator_ColumnVarNameInTable="columnCantidadP" msprop:Generator_UserColumnName="CantidadP" type="xs:int" minOccurs="0" />
-              <xs:element name="MultCosto" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="MultCosto" msprop:Generator_ColumnPropNameInTable="MultCostoColumn" msprop:Generator_ColumnVarNameInTable="columnMultCosto" msprop:Generator_UserColumnName="MultCosto" type="xs:double" minOccurs="0" />
-              <xs:element name="Costo_x0020_Total" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="Costo_Total" msprop:Generator_ColumnPropNameInTable="Costo_TotalColumn" msprop:Generator_ColumnVarNameInTable="columnCosto_Total" msprop:Generator_UserColumnName="Costo Total" type="xs:double" minOccurs="0" />
-              <xs:element name="fechaSolicitud" msprop:Generator_ColumnPropNameInRow="fechaSolicitud" msprop:Generator_ColumnPropNameInTable="fechaSolicitudColumn" msprop:Generator_ColumnVarNameInTable="columnfechaSolicitud" msprop:Generator_UserColumnName="fechaSolicitud" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="CantidadP" msprop:Generator_UserColumnName="CantidadP" msprop:Generator_ColumnPropNameInTable="CantidadPColumn" msprop:Generator_ColumnPropNameInRow="CantidadP" msprop:Generator_ColumnVarNameInTable="columnCantidadP" type="xs:int" minOccurs="0" />
+              <xs:element name="MultCosto" msdata:ReadOnly="true" msprop:Generator_UserColumnName="MultCosto" msprop:Generator_ColumnPropNameInTable="MultCostoColumn" msprop:Generator_ColumnPropNameInRow="MultCosto" msprop:Generator_ColumnVarNameInTable="columnMultCosto" type="xs:double" minOccurs="0" />
+              <xs:element name="fechaSolicitud" msprop:Generator_UserColumnName="fechaSolicitud" msprop:Generator_ColumnPropNameInTable="fechaSolicitudColumn" msprop:Generator_ColumnPropNameInRow="fechaSolicitud" msprop:Generator_ColumnVarNameInTable="columnfechaSolicitud" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="CostoTotal" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="CostoTotal" msprop:Generator_ColumnPropNameInTable="CostoTotalColumn" msprop:Generator_ColumnVarNameInTable="columnCostoTotal" msprop:Generator_UserColumnName="CostoTotal" type="xs:double" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

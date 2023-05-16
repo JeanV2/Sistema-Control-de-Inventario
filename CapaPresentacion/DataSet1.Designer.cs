@@ -657,9 +657,9 @@ namespace CapaPresentacion {
             
             private global::System.Data.DataColumn columnMultCosto;
             
-            private global::System.Data.DataColumn columnCosto_Total;
-            
             private global::System.Data.DataColumn columnfechaSolicitud;
+            
+            private global::System.Data.DataColumn columnCostoTotal;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -736,17 +736,17 @@ namespace CapaPresentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Costo_TotalColumn {
+            public global::System.Data.DataColumn fechaSolicitudColumn {
                 get {
-                    return this.columnCosto_Total;
+                    return this.columnfechaSolicitud;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn fechaSolicitudColumn {
+            public global::System.Data.DataColumn CostoTotalColumn {
                 get {
-                    return this.columnfechaSolicitud;
+                    return this.columnCostoTotal;
                 }
             }
             
@@ -787,7 +787,7 @@ namespace CapaPresentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public SolicitudEntregaReportRow AddSolicitudEntregaReportRow(string NombreColaborador, string IdColaboradorRecibe, string DesResumida, int CantidadP, double MultCosto, double Costo_Total, System.DateTime fechaSolicitud) {
+            public SolicitudEntregaReportRow AddSolicitudEntregaReportRow(string NombreColaborador, string IdColaboradorRecibe, string DesResumida, int CantidadP, double MultCosto, System.DateTime fechaSolicitud, double CostoTotal) {
                 SolicitudEntregaReportRow rowSolicitudEntregaReportRow = ((SolicitudEntregaReportRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         NombreColaborador,
@@ -795,8 +795,8 @@ namespace CapaPresentacion {
                         DesResumida,
                         CantidadP,
                         MultCosto,
-                        Costo_Total,
-                        fechaSolicitud};
+                        fechaSolicitud,
+                        CostoTotal};
                 rowSolicitudEntregaReportRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowSolicitudEntregaReportRow);
                 return rowSolicitudEntregaReportRow;
@@ -824,8 +824,8 @@ namespace CapaPresentacion {
                 this.columnDesResumida = base.Columns["DesResumida"];
                 this.columnCantidadP = base.Columns["CantidadP"];
                 this.columnMultCosto = base.Columns["MultCosto"];
-                this.columnCosto_Total = base.Columns["Costo Total"];
                 this.columnfechaSolicitud = base.Columns["fechaSolicitud"];
+                this.columnCostoTotal = base.Columns["CostoTotal"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -841,15 +841,15 @@ namespace CapaPresentacion {
                 base.Columns.Add(this.columnCantidadP);
                 this.columnMultCosto = new global::System.Data.DataColumn("MultCosto", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMultCosto);
-                this.columnCosto_Total = new global::System.Data.DataColumn("Costo Total", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCosto_Total);
                 this.columnfechaSolicitud = new global::System.Data.DataColumn("fechaSolicitud", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfechaSolicitud);
+                this.columnCostoTotal = new global::System.Data.DataColumn("CostoTotal", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCostoTotal);
                 this.columnNombreColaborador.MaxLength = 50;
                 this.columnIdColaboradorRecibe.MaxLength = 50;
                 this.columnDesResumida.MaxLength = 2147483647;
                 this.columnMultCosto.ReadOnly = true;
-                this.columnCosto_Total.ReadOnly = true;
+                this.columnCostoTotal.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1246,23 +1246,6 @@ namespace CapaPresentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public double Costo_Total {
-                get {
-                    try {
-                        return ((double)(this[this.tableSolicitudEntregaReport.Costo_TotalColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Costo Total\' de la tabla \'SolicitudEntregaReport\' es DBNu" +
-                                "ll.", e);
-                    }
-                }
-                set {
-                    this[this.tableSolicitudEntregaReport.Costo_TotalColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public System.DateTime fechaSolicitud {
                 get {
                     try {
@@ -1275,6 +1258,23 @@ namespace CapaPresentacion {
                 }
                 set {
                     this[this.tableSolicitudEntregaReport.fechaSolicitudColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public double CostoTotal {
+                get {
+                    try {
+                        return ((double)(this[this.tableSolicitudEntregaReport.CostoTotalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CostoTotal\' de la tabla \'SolicitudEntregaReport\' es DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tableSolicitudEntregaReport.CostoTotalColumn] = value;
                 }
             }
             
@@ -1340,18 +1340,6 @@ namespace CapaPresentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsCosto_TotalNull() {
-                return this.IsNull(this.tableSolicitudEntregaReport.Costo_TotalColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetCosto_TotalNull() {
-                this[this.tableSolicitudEntregaReport.Costo_TotalColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsfechaSolicitudNull() {
                 return this.IsNull(this.tableSolicitudEntregaReport.fechaSolicitudColumn);
             }
@@ -1360,6 +1348,18 @@ namespace CapaPresentacion {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetfechaSolicitudNull() {
                 this[this.tableSolicitudEntregaReport.fechaSolicitudColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCostoTotalNull() {
+                return this.IsNull(this.tableSolicitudEntregaReport.CostoTotalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCostoTotalNull() {
+                this[this.tableSolicitudEntregaReport.CostoTotalColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1763,8 +1763,8 @@ WHERE        (TbSolicitudCompra.FechaSolicitudCompra BETWEEN @Fecha1 AND @Fecha2
             tableMapping.ColumnMappings.Add("DesResumida", "DesResumida");
             tableMapping.ColumnMappings.Add("CantidadP", "CantidadP");
             tableMapping.ColumnMappings.Add("MultCosto", "MultCosto");
-            tableMapping.ColumnMappings.Add("Costo Total", "Costo Total");
             tableMapping.ColumnMappings.Add("fechaSolicitud", "fechaSolicitud");
+            tableMapping.ColumnMappings.Add("CostoTotal", "CostoTotal");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1781,7 +1781,7 @@ WHERE        (TbSolicitudCompra.FechaSolicitudCompra BETWEEN @Fecha1 AND @Fecha2
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT C.NombreColaborador, T.IdColaboradorRecibe, P.DesResumida, S.CantidadP, ROUND(P.MUltCosto, 0) AS 'MultCosto', ROUND(P.MUltCosto * S.CantidadP, 0) AS 'Costo Total', T.fechaSolicitud
+            this._commandCollection[0].CommandText = @"SELECT C.NombreColaborador, T.IdColaboradorRecibe, P.DesResumida, S.CantidadP, ROUND(P.MUltCosto, 0) AS 'MultCosto', ROUND(P.MUltCosto * S.CantidadP, 0) AS 'CostoTotal', T.fechaSolicitud
 FROM     TbSolicitudInsumo AS T INNER JOIN
                   TbProductoInsumoS AS S ON T.IdSolicitudInsumo = S.IdSolictudInsumo INNER JOIN
                   TbProducto AS P ON S.IdProducto = P.CodProducto INNER JOIN

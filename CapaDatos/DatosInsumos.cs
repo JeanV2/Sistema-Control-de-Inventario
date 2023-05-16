@@ -38,7 +38,7 @@ namespace CapaDatos
                 {
                     //bool est = estado == (int)Enums.estado.activo;
                     //Lenguaje LinQ. Para realizar query a la base de datos.
-                    return (from c in context.TbSolicitudInsumo
+                    return (from c in context.TbSolicitudInsumo.Include("TbColaborador")
                                 //where c.Estado == est
                             select c).ToList();
                 }

@@ -21,7 +21,10 @@ namespace CapaPresentacion
         {
             this.Close();
         }
+        public void CargarDt()
+        {
 
+        }
         private void FrmHistCompras_Load(object sender, EventArgs e)
         {
             DtpFecha1.CustomFormat = DateTime.Now.ToString("yyyy-MM-dd");
