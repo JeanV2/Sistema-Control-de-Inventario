@@ -96,7 +96,7 @@
             this.BtnGuardar.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
             this.BtnGuardar.HoverState.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnGuardar.Location = new System.Drawing.Point(1105, 151);
-            this.BtnGuardar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
             this.BtnGuardar.Size = new System.Drawing.Size(264, 41);
@@ -124,7 +124,7 @@
             this.BtnModificar.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
             this.BtnModificar.HoverState.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnModificar.Location = new System.Drawing.Point(1105, 200);
-            this.BtnModificar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnModificar.Margin = new System.Windows.Forms.Padding(4);
             this.BtnModificar.Name = "BtnModificar";
             this.BtnModificar.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
             this.BtnModificar.Size = new System.Drawing.Size(264, 41);
@@ -153,7 +153,7 @@
             this.BtnEliminar.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
             this.BtnEliminar.HoverState.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnEliminar.Location = new System.Drawing.Point(1105, 249);
-            this.BtnEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.BtnEliminar.Name = "BtnEliminar";
             this.BtnEliminar.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
             this.BtnEliminar.Size = new System.Drawing.Size(264, 41);
@@ -183,7 +183,7 @@
             this.BtnVerLista.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
             this.BtnVerLista.HoverState.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnVerLista.Location = new System.Drawing.Point(935, 312);
-            this.BtnVerLista.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnVerLista.Margin = new System.Windows.Forms.Padding(4);
             this.BtnVerLista.Name = "BtnVerLista";
             this.BtnVerLista.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
             this.BtnVerLista.Size = new System.Drawing.Size(232, 41);
@@ -233,7 +233,7 @@
             this.tableLayoutPanel1.Controls.Add(this.BtnGuardar, 6, 3);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(7, 6);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 8;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
@@ -691,7 +691,7 @@
             this.BtnFiltrar.Image = global::CapaPresentacion.Properties.Resources.filter_52px;
             this.BtnFiltrar.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.BtnFiltrar.Location = new System.Drawing.Point(669, 312);
-            this.BtnFiltrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnFiltrar.Margin = new System.Windows.Forms.Padding(4);
             this.BtnFiltrar.Name = "BtnFiltrar";
             this.BtnFiltrar.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
             this.BtnFiltrar.Size = new System.Drawing.Size(107, 41);
@@ -856,7 +856,7 @@
             this.PanelDataGrid.Controls.Add(this.DgvListaProductos);
             this.PanelDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelDataGrid.Location = new System.Drawing.Point(7, 363);
-            this.PanelDataGrid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PanelDataGrid.Margin = new System.Windows.Forms.Padding(4);
             this.PanelDataGrid.Name = "PanelDataGrid";
             this.PanelDataGrid.Size = new System.Drawing.Size(1373, 335);
             this.PanelDataGrid.TabIndex = 2;
@@ -872,7 +872,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmAñadirProductos";
             this.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.Text = "FrmAñadirProductos";
