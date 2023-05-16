@@ -104,7 +104,7 @@ namespace CapaPresentacion
                     negocioPresupuestos.EditarPresupuesto(presupuesto);
                 }
                 LblCargarPr.Text = i.ToString() + "/ " + (Colums).ToString();
-                System.Threading.Thread.Sleep(200);
+            
 
                 System.Windows.Forms.Application.DoEvents();
             }

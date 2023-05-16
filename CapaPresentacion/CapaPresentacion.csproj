@@ -15,6 +15,21 @@
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -131,10 +146,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataSet1.cs">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FormatoExcelProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormatoExcelProductos.Designer.cs">
+      <DependentUpon>FormatoExcelProductos.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmAñadirProductos.cs">
       <SubType>Form</SubType>
@@ -234,7 +258,16 @@
     <Compile Include="ReporteCompra.Designer.cs">
       <DependentUpon>ReporteCompra.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReporteEntrega.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReporteEntrega.Designer.cs">
+      <DependentUpon>ReporteEntrega.cs</DependentUpon>
+    </Compile>
     <Compile Include="Validaciones.cs" />
+    <EmbeddedResource Include="FormatoExcelProductos.resx">
+      <DependentUpon>FormatoExcelProductos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmAñadirProductos.resx">
       <DependentUpon>FrmAñadirProductos.cs</DependentUpon>
     </EmbeddedResource>
@@ -293,6 +326,10 @@
     <EmbeddedResource Include="ReporteCompra.resx">
       <DependentUpon>ReporteCompra.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReporteEntrega.resx">
+      <DependentUpon>ReporteEntrega.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportSolicitudEntrega.rdlc" />
     <None Include="DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
@@ -349,7 +386,24 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+
     <None Include="Resources\PDFPlantillaEntrega.html" />
+
+
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+
+    <None Include="Resources\FormatoExcelProductos.png" />
+
+
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
