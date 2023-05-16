@@ -151,6 +151,32 @@ namespace CapaPresentacion.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
+        ///&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+        ///&lt;head&gt;
+        ///    &lt;title&gt;Title of the document&lt;/title&gt;
+        ///    &lt;!--STYLES FOR THE SHEET--&gt;
+        ///    &lt;style&gt;
+        ///        /*CLASS &quot;BORDER&quot; FOR ALL THE TABLES*/
+        ///        table.border {
+        ///            border-collapse: collapse;
+        ///        }
+        ///            /*TH INTO TABLES*/
+        ///            table.border th {
+        ///                padding: 5px;
+        ///                border: 1px solid black;
+        ///            }
+        ///            /*TD INTO TABLES*/
+        ///            table.border td {
+        ///                pa [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string PDFPlantillaEntrega {
+            get {
+                return ResourceManager.GetString("PDFPlantillaEntrega", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap unlock_52px {
