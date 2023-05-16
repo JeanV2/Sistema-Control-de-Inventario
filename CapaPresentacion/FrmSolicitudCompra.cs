@@ -283,7 +283,7 @@ namespace CapaPresentacion
                 //completamos todos los datos de la solicitud
                 solicitudCompra.IdSolicitudCompra = TxtSolicitud.Text;
                 solicitudCompra.IdColaboradorCompra = ObtenerIdColaborador();
-                solicitudCompra.FechaSolicitudCompra = Convert.ToDateTime(DtpFechaSolicitud.Value.ToShortDateString());
+                solicitudCompra.FechaSolicitudCompra = Convert.ToDateTime(DtpFechaSolicitud.Value.ToString("yyyy-MM-dd"));
                 solicitudCompra.EstadoSolicitud = true;
                 //guardamos la solicitud en el sistema
                 NSolicitudC.GuardarSolicitud(solicitudCompra);

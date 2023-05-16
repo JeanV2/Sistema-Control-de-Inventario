@@ -30,9 +30,9 @@
         {
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
-            this.guna2DateTimePicker1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.Fecha1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
-            this.guna2DateTimePicker2 = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.Fecha2 = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.BtnFiltrar = new Guna.UI2.WinForms.Guna2Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1.SuspendLayout();
@@ -42,16 +42,16 @@
             // 
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(54)))), ((int)(((byte)(94)))));
             this.flowLayoutPanel1.Controls.Add(this.label2);
-            this.flowLayoutPanel1.Controls.Add(this.guna2DateTimePicker1);
+            this.flowLayoutPanel1.Controls.Add(this.Fecha1);
             this.flowLayoutPanel1.Controls.Add(this.label1);
-            this.flowLayoutPanel1.Controls.Add(this.guna2DateTimePicker2);
+            this.flowLayoutPanel1.Controls.Add(this.Fecha2);
             this.flowLayoutPanel1.Controls.Add(this.BtnFiltrar);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(67, 0, 0, 0);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1383, 55);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1371, 55);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // label2
@@ -66,22 +66,22 @@
             this.label2.Text = "Buscar del ";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // guna2DateTimePicker1
+            // Fecha1
             // 
-            this.guna2DateTimePicker1.BorderRadius = 10;
-            this.guna2DateTimePicker1.Checked = true;
-            this.guna2DateTimePicker1.FillColor = System.Drawing.Color.White;
-            this.guna2DateTimePicker1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2DateTimePicker1.ForeColor = System.Drawing.Color.Black;
-            this.guna2DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.guna2DateTimePicker1.Location = new System.Drawing.Point(201, 4);
-            this.guna2DateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 4, 40, 4);
-            this.guna2DateTimePicker1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.guna2DateTimePicker1.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.guna2DateTimePicker1.Name = "guna2DateTimePicker1";
-            this.guna2DateTimePicker1.Size = new System.Drawing.Size(195, 44);
-            this.guna2DateTimePicker1.TabIndex = 1;
-            this.guna2DateTimePicker1.Value = new System.DateTime(2023, 5, 2, 19, 0, 27, 0);
+            this.Fecha1.BorderRadius = 10;
+            this.Fecha1.Checked = true;
+            this.Fecha1.FillColor = System.Drawing.Color.White;
+            this.Fecha1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Fecha1.ForeColor = System.Drawing.Color.Black;
+            this.Fecha1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.Fecha1.Location = new System.Drawing.Point(201, 4);
+            this.Fecha1.Margin = new System.Windows.Forms.Padding(4, 4, 40, 4);
+            this.Fecha1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.Fecha1.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.Fecha1.Name = "Fecha1";
+            this.Fecha1.Size = new System.Drawing.Size(195, 44);
+            this.Fecha1.TabIndex = 1;
+            this.Fecha1.Value = new System.DateTime(2023, 5, 2, 19, 0, 27, 0);
             // 
             // label1
             // 
@@ -95,22 +95,22 @@
             this.label1.Text = "hasta el";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // guna2DateTimePicker2
+            // Fecha2
             // 
-            this.guna2DateTimePicker2.BorderRadius = 10;
-            this.guna2DateTimePicker2.Checked = true;
-            this.guna2DateTimePicker2.FillColor = System.Drawing.Color.White;
-            this.guna2DateTimePicker2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2DateTimePicker2.ForeColor = System.Drawing.Color.Black;
-            this.guna2DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.guna2DateTimePicker2.Location = new System.Drawing.Point(565, 4);
-            this.guna2DateTimePicker2.Margin = new System.Windows.Forms.Padding(4, 4, 40, 4);
-            this.guna2DateTimePicker2.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.guna2DateTimePicker2.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.guna2DateTimePicker2.Name = "guna2DateTimePicker2";
-            this.guna2DateTimePicker2.Size = new System.Drawing.Size(195, 44);
-            this.guna2DateTimePicker2.TabIndex = 16;
-            this.guna2DateTimePicker2.Value = new System.DateTime(2023, 5, 2, 19, 0, 27, 0);
+            this.Fecha2.BorderRadius = 10;
+            this.Fecha2.Checked = true;
+            this.Fecha2.FillColor = System.Drawing.Color.White;
+            this.Fecha2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Fecha2.ForeColor = System.Drawing.Color.Black;
+            this.Fecha2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.Fecha2.Location = new System.Drawing.Point(565, 4);
+            this.Fecha2.Margin = new System.Windows.Forms.Padding(4, 4, 40, 4);
+            this.Fecha2.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.Fecha2.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.Fecha2.Name = "Fecha2";
+            this.Fecha2.Size = new System.Drawing.Size(195, 44);
+            this.Fecha2.TabIndex = 16;
+            this.Fecha2.Value = new System.DateTime(2023, 5, 2, 19, 0, 27, 0);
             // 
             // BtnFiltrar
             // 
@@ -141,6 +141,7 @@
             this.BtnFiltrar.Text = "Filtrar ";
             this.BtnFiltrar.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.BtnFiltrar.UseTransparentBackground = true;
+            this.BtnFiltrar.Click += new System.EventHandler(this.BtnFiltrar_Click);
             // 
             // panel1
             // 
@@ -148,14 +149,14 @@
             this.panel1.Location = new System.Drawing.Point(0, 55);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1383, 629);
+            this.panel1.Size = new System.Drawing.Size(1371, 629);
             this.panel1.TabIndex = 2;
             // 
             // FrmHistInsumos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1383, 684);
+            this.ClientSize = new System.Drawing.Size(1371, 684);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.ForeColor = System.Drawing.Color.White;
@@ -174,9 +175,9 @@
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label label2;
-        private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker1;
+        private Guna.UI2.WinForms.Guna2DateTimePicker Fecha1;
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker2;
+        private Guna.UI2.WinForms.Guna2DateTimePicker Fecha2;
         private Guna.UI2.WinForms.Guna2Button BtnFiltrar;
         private System.Windows.Forms.Panel panel1;
     }

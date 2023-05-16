@@ -275,8 +275,8 @@
             this.CbUnidadMedida.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CbUnidadMedida.ForeColor = System.Drawing.Color.Black;
             this.CbUnidadMedida.ItemHeight = 30;
-            this.CbUnidadMedida.Location = new System.Drawing.Point(198, 201);
-            this.CbUnidadMedida.Margin = new System.Windows.Forms.Padding(2, 5, 2, 2);
+            this.CbUnidadMedida.Location = new System.Drawing.Point(199, 201);
+            this.CbUnidadMedida.Margin = new System.Windows.Forms.Padding(3, 5, 3, 2);
             this.CbUnidadMedida.Name = "CbUnidadMedida";
             this.CbUnidadMedida.Size = new System.Drawing.Size(383, 36);
             this.CbUnidadMedida.TabIndex = 17;
@@ -309,13 +309,13 @@
             this.TxtNombreProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtNombreProducto.ForeColor = System.Drawing.Color.Black;
             this.TxtNombreProducto.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TxtNombreProducto.Location = new System.Drawing.Point(198, 149);
-            this.TxtNombreProducto.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtNombreProducto.Location = new System.Drawing.Point(199, 149);
+            this.TxtNombreProducto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtNombreProducto.Name = "TxtNombreProducto";
             this.TxtNombreProducto.PasswordChar = '\0';
             this.TxtNombreProducto.PlaceholderText = "";
             this.TxtNombreProducto.SelectedText = "";
-            this.TxtNombreProducto.Size = new System.Drawing.Size(901, 45);
+            this.TxtNombreProducto.Size = new System.Drawing.Size(899, 45);
             this.TxtNombreProducto.TabIndex = 7;
             // 
             // label7
@@ -345,14 +345,14 @@
             this.TxtCodigoProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtCodigoProducto.ForeColor = System.Drawing.Color.Black;
             this.TxtCodigoProducto.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TxtCodigoProducto.Location = new System.Drawing.Point(198, 100);
-            this.TxtCodigoProducto.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtCodigoProducto.Location = new System.Drawing.Point(199, 100);
+            this.TxtCodigoProducto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtCodigoProducto.Name = "TxtCodigoProducto";
             this.TxtCodigoProducto.PasswordChar = '\0';
             this.TxtCodigoProducto.PlaceholderText = "";
             this.TxtCodigoProducto.ReadOnly = true;
             this.TxtCodigoProducto.SelectedText = "";
-            this.TxtCodigoProducto.Size = new System.Drawing.Size(192, 45);
+            this.TxtCodigoProducto.Size = new System.Drawing.Size(190, 45);
             this.TxtCodigoProducto.TabIndex = 7;
             this.TxtCodigoProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCodigoProducto_KeyPress);
             // 
@@ -395,8 +395,8 @@
             this.TxtSubFam_Producto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtSubFam_Producto.ForeColor = System.Drawing.Color.Black;
             this.TxtSubFam_Producto.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TxtSubFam_Producto.Location = new System.Drawing.Point(933, 51);
-            this.TxtSubFam_Producto.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtSubFam_Producto.Location = new System.Drawing.Point(934, 51);
+            this.TxtSubFam_Producto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtSubFam_Producto.Name = "TxtSubFam_Producto";
             this.TxtSubFam_Producto.PasswordChar = '\0';
             this.TxtSubFam_Producto.PlaceholderText = "";
@@ -420,13 +420,13 @@
             this.TxtSubFamilia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtSubFamilia.ForeColor = System.Drawing.Color.Black;
             this.TxtSubFamilia.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TxtSubFamilia.Location = new System.Drawing.Point(590, 51);
-            this.TxtSubFamilia.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtSubFamilia.Location = new System.Drawing.Point(591, 51);
+            this.TxtSubFamilia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtSubFamilia.Name = "TxtSubFamilia";
             this.TxtSubFamilia.PasswordChar = '\0';
             this.TxtSubFamilia.PlaceholderText = "";
             this.TxtSubFamilia.SelectedText = "";
-            this.TxtSubFamilia.Size = new System.Drawing.Size(188, 45);
+            this.TxtSubFamilia.Size = new System.Drawing.Size(186, 45);
             this.TxtSubFamilia.TabIndex = 7;
             this.TxtSubFamilia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtSubFamilia_KeyPress);
             // 
@@ -457,13 +457,13 @@
             this.TxtCodigoPresupuesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtCodigoPresupuesto.ForeColor = System.Drawing.Color.Black;
             this.TxtCodigoPresupuesto.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TxtCodigoPresupuesto.Location = new System.Drawing.Point(198, 51);
-            this.TxtCodigoPresupuesto.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtCodigoPresupuesto.Location = new System.Drawing.Point(199, 51);
+            this.TxtCodigoPresupuesto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtCodigoPresupuesto.Name = "TxtCodigoPresupuesto";
             this.TxtCodigoPresupuesto.PasswordChar = '\0';
             this.TxtCodigoPresupuesto.PlaceholderText = "";
             this.TxtCodigoPresupuesto.SelectedText = "";
-            this.TxtCodigoPresupuesto.Size = new System.Drawing.Size(192, 45);
+            this.TxtCodigoPresupuesto.Size = new System.Drawing.Size(190, 45);
             this.TxtCodigoPresupuesto.TabIndex = 7;
             this.TxtCodigoPresupuesto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCodigoPresupuesto_KeyPress);
             // 
@@ -521,13 +521,13 @@
             this.TxtInventRequerido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtInventRequerido.ForeColor = System.Drawing.Color.Black;
             this.TxtInventRequerido.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TxtInventRequerido.Location = new System.Drawing.Point(782, 198);
-            this.TxtInventRequerido.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtInventRequerido.Location = new System.Drawing.Point(783, 198);
+            this.TxtInventRequerido.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtInventRequerido.Name = "TxtInventRequerido";
             this.TxtInventRequerido.PasswordChar = '\0';
             this.TxtInventRequerido.PlaceholderText = "";
             this.TxtInventRequerido.SelectedText = "";
-            this.TxtInventRequerido.Size = new System.Drawing.Size(147, 45);
+            this.TxtInventRequerido.Size = new System.Drawing.Size(145, 45);
             this.TxtInventRequerido.TabIndex = 7;
             this.TxtInventRequerido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtInventRequerido_KeyPress);
             // 
@@ -558,13 +558,13 @@
             this.TxtPrecioProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtPrecioProducto.ForeColor = System.Drawing.Color.Black;
             this.TxtPrecioProducto.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TxtPrecioProducto.Location = new System.Drawing.Point(198, 247);
-            this.TxtPrecioProducto.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtPrecioProducto.Location = new System.Drawing.Point(199, 247);
+            this.TxtPrecioProducto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtPrecioProducto.Name = "TxtPrecioProducto";
             this.TxtPrecioProducto.PasswordChar = '\0';
             this.TxtPrecioProducto.PlaceholderText = "";
             this.TxtPrecioProducto.SelectedText = "";
-            this.TxtPrecioProducto.Size = new System.Drawing.Size(192, 45);
+            this.TxtPrecioProducto.Size = new System.Drawing.Size(190, 45);
             this.TxtPrecioProducto.TabIndex = 7;
             this.TxtPrecioProducto.TextChanged += new System.EventHandler(this.TxtPrecioProducto_TextChanged);
             this.TxtPrecioProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtPrecioProducto_KeyPress);
@@ -597,14 +597,14 @@
             this.TxtCostoTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtCostoTotal.ForeColor = System.Drawing.Color.Black;
             this.TxtCostoTotal.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TxtCostoTotal.Location = new System.Drawing.Point(590, 247);
-            this.TxtCostoTotal.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtCostoTotal.Location = new System.Drawing.Point(591, 247);
+            this.TxtCostoTotal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtCostoTotal.Name = "TxtCostoTotal";
             this.TxtCostoTotal.PasswordChar = '\0';
             this.TxtCostoTotal.PlaceholderText = "";
             this.TxtCostoTotal.ReadOnly = true;
             this.TxtCostoTotal.SelectedText = "";
-            this.TxtCostoTotal.Size = new System.Drawing.Size(188, 45);
+            this.TxtCostoTotal.Size = new System.Drawing.Size(186, 45);
             this.TxtCostoTotal.TabIndex = 7;
             this.TxtCostoTotal.TextChanged += new System.EventHandler(this.TxtCostoTotal_TextChanged);
             // 
@@ -635,13 +635,13 @@
             this.TxtExistencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtExistencia.ForeColor = System.Drawing.Color.Black;
             this.TxtExistencia.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TxtExistencia.Location = new System.Drawing.Point(933, 247);
-            this.TxtExistencia.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtExistencia.Location = new System.Drawing.Point(934, 247);
+            this.TxtExistencia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtExistencia.Name = "TxtExistencia";
             this.TxtExistencia.PasswordChar = '\0';
             this.TxtExistencia.PlaceholderText = "";
             this.TxtExistencia.SelectedText = "";
-            this.TxtExistencia.Size = new System.Drawing.Size(166, 45);
+            this.TxtExistencia.Size = new System.Drawing.Size(164, 45);
             this.TxtExistencia.TabIndex = 5;
             this.TxtExistencia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtExistencia_KeyPress);
             // 
@@ -718,7 +718,8 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DgvListaProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.DgvListaProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvListaProductos.ColumnHeadersHeight = 68;
+            this.DgvListaProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.DgvListaProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
@@ -761,7 +762,7 @@
             this.DgvListaProductos.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.DgvListaProductos.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DgvListaProductos.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.Black;
-            this.DgvListaProductos.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvListaProductos.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.DgvListaProductos.ThemeStyle.HeaderStyle.Height = 68;
             this.DgvListaProductos.ThemeStyle.ReadOnly = true;
             this.DgvListaProductos.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(194)))));
@@ -780,7 +781,7 @@
             this.Column1.MinimumWidth = 8;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
-            this.Column1.Width = 201;
+            this.Column1.Width = 183;
             // 
             // Column2
             // 
@@ -789,7 +790,7 @@
             this.Column2.MinimumWidth = 8;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
-            this.Column2.Width = 189;
+            this.Column2.Width = 172;
             // 
             // Column3
             // 
