@@ -33,6 +33,7 @@ namespace CapaPresentacion
         }
         private void BtnImportar_Click(object sender, EventArgs e)
         {
+            PanelCargar.Visible=false;
             dgvDatos.Visible = true;
             
             // Abre el cuadro de diálogo para seleccionar el archivo de Excel
@@ -80,7 +81,9 @@ namespace CapaPresentacion
                 }
                 else
                 {
-                    MessageBox.Show("Formato incorrecto");
+                    MessageBox.Show("Formato incorrecto","Alerta",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                    FormatoExcelProductos frm= new FormatoExcelProductos();
+                    frm.ShowDialog();
                 }
 
             }
@@ -157,8 +160,9 @@ namespace CapaPresentacion
 
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
+            label2.Text = "Guardando Productos";
             inventarioEntities1 Db = new inventarioEntities1();
-            if (Db.TbProducto.Count()>1)
+            if (Db.TbProducto.Count()==0)
             {
                 if (dgvDatos.Rows.Count > 0)
                 {
@@ -236,6 +240,7 @@ namespace CapaPresentacion
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
+            label2.Text = "Actualizando Productos";
             inventarioEntities1 Db = new inventarioEntities1();
             //Lista que almacena todo los productos almacenados en la base de datos
             List<TbProducto> ListProductos = Db.TbProducto.ToList();
