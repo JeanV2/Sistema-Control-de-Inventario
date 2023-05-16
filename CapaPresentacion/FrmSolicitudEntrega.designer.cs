@@ -70,7 +70,7 @@
             this.panel2.Controls.Add(this.BtnConfirmar);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 568);
-            this.panel2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.panel2.Margin = new System.Windows.Forms.Padding(5);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(4, 4, 11, 4);
             this.panel2.Size = new System.Drawing.Size(1218, 50);
@@ -369,7 +369,7 @@
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(4, 50);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.label7.Margin = new System.Windows.Forms.Padding(4);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(213, 38);
             this.label7.TabIndex = 17;
@@ -430,7 +430,7 @@
             this.TxtCedula.ForeColor = System.Drawing.Color.Black;
             this.TxtCedula.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.TxtCedula.Location = new System.Drawing.Point(225, 4);
-            this.TxtCedula.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TxtCedula.Margin = new System.Windows.Forms.Padding(4);
             this.TxtCedula.Name = "TxtCedula";
             this.TxtCedula.PasswordChar = '\0';
             this.TxtCedula.PlaceholderText = "";
@@ -486,7 +486,7 @@
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(4, 188);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.label5.Margin = new System.Windows.Forms.Padding(4);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(213, 38);
             this.label5.TabIndex = 11;
@@ -508,7 +508,7 @@
             this.TxtDisponibles.ForeColor = System.Drawing.Color.Black;
             this.TxtDisponibles.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.TxtDisponibles.Location = new System.Drawing.Point(225, 188);
-            this.TxtDisponibles.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TxtDisponibles.Margin = new System.Windows.Forms.Padding(4);
             this.TxtDisponibles.Name = "TxtDisponibles";
             this.TxtDisponibles.PasswordChar = '\0';
             this.TxtDisponibles.PlaceholderText = "";
@@ -545,7 +545,7 @@
             this.txtCantProducto.ForeColor = System.Drawing.Color.Black;
             this.txtCantProducto.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCantProducto.Location = new System.Drawing.Point(623, 188);
-            this.txtCantProducto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCantProducto.Margin = new System.Windows.Forms.Padding(4);
             this.txtCantProducto.Name = "txtCantProducto";
             this.txtCantProducto.PasswordChar = '\0';
             this.txtCantProducto.PlaceholderText = "";
@@ -560,7 +560,7 @@
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(4, 142);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.label3.Margin = new System.Windows.Forms.Padding(4);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(213, 38);
             this.label3.TabIndex = 5;
@@ -574,7 +574,7 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(7, 6);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1218, 618);
             this.panel1.TabIndex = 2;
@@ -584,7 +584,7 @@
             this.panel3.Controls.Add(this.DgvListaProductos);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 276);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(11, 10, 11, 10);
             this.panel3.Size = new System.Drawing.Size(1218, 292);
@@ -599,7 +599,7 @@
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmSolicitudEntrega";
             this.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.Text = "FrmSolicitudInsumos";

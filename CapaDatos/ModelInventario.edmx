@@ -80,6 +80,7 @@
           <Property Name="FechaSolicitudCompra" Type="date" />
           <Property Name="IdColaboradorCompra" Type="varchar" MaxLength="50" />
           <Property Name="EstadoSolicitud" Type="bit" />
+          <Property Name="MontoSolicitudCompra" Type="float" />
         </EntityType>
         <EntityType Name="TbSolicitudInsumo">
           <Key>
@@ -344,6 +345,7 @@
           <Property Name="EstadoSolicitud" Type="Boolean" />
           <NavigationProperty Name="TbColaborador" Relationship="inventarioModel.FK_TbSolicitudCompra_TbColaborador" FromRole="TbSolicitudCompra" ToRole="TbColaborador" />
           <NavigationProperty Name="TbCompraSolicitudP" Relationship="inventarioModel.FK_TbCompraSolicitudP_TbSolicitudCompra" FromRole="TbSolicitudCompra" ToRole="TbCompraSolicitudP" />
+          <Property Name="MontoSolicitudCompra" Type="Double" />
         </EntityType>
         <EntityType Name="TbSolicitudInsumo">
           <Key>
@@ -525,6 +527,7 @@
           <EntitySetMapping Name="TbSolicitudCompra">
             <EntityTypeMapping TypeName="inventarioModel.TbSolicitudCompra">
               <MappingFragment StoreEntitySet="TbSolicitudCompra">
+                <ScalarProperty Name="MontoSolicitudCompra" ColumnName="MontoSolicitudCompra" />
                 <ScalarProperty Name="EstadoSolicitud" ColumnName="EstadoSolicitud" />
                 <ScalarProperty Name="IdColaboradorCompra" ColumnName="IdColaboradorCompra" />
                 <ScalarProperty Name="FechaSolicitudCompra" ColumnName="FechaSolicitudCompra" />
