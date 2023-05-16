@@ -12,6 +12,7 @@ namespace CapaPresentacion
 {
     public partial class FrmHistInsumos : Form
     {
+        public static String CodigoPasar;
         public FrmHistInsumos()
         {
             InitializeComponent();
