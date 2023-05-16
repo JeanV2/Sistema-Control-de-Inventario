@@ -77,7 +77,7 @@
             <PropertyRef Name="IdSolicitudCompra" />
           </Key>
           <Property Name="IdSolicitudCompra" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="FechaSolicitudCompra" Type="datetime" />
+          <Property Name="FechaSolicitudCompra" Type="date" />
           <Property Name="IdColaboradorCompra" Type="varchar" MaxLength="50" />
           <Property Name="EstadoSolicitud" Type="bit" />
         </EntityType>
@@ -339,7 +339,7 @@
             <PropertyRef Name="IdSolicitudCompra" />
           </Key>
           <Property Name="IdSolicitudCompra" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="FechaSolicitudCompra" Type="DateTime" Precision="3" />
+          <Property Name="FechaSolicitudCompra" Type="DateTime" Precision="0" />
           <Property Name="IdColaboradorCompra" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="EstadoSolicitud" Type="Boolean" />
           <NavigationProperty Name="TbColaborador" Relationship="inventarioModel.FK_TbSolicitudCompra_TbColaborador" FromRole="TbSolicitudCompra" ToRole="TbColaborador" />

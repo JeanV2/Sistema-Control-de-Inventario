@@ -91,87 +91,87 @@ namespace CapaPresentacion
             }
 
         }
-        public void GenerarPDF()
-        {
+        //public void GenerarPDF()
+        //{
 
-            SaveFileDialog savefile = new SaveFileDialog();
-            savefile.FileName = string.Format("{0}.pdf", DateTime.Now.ToString("ddMMyyyyHHmmss"));
-            //*************************
-            string PaginaHTML_Texto = Properties.Resources.SolicitudEntregaPDF.ToString();
+        //    SaveFileDialog savefile = new SaveFileDialog();
+        //    savefile.FileName = string.Format("{0}.pdf", DateTime.Now.ToString("ddMMyyyyHHmmss"));
+        //    //*************************
+        //    string PaginaHTML_Texto = Properties.Resources.SolicitudEntregaPDF.ToString();
 
-            //PaginaHTML_Texto = PaginaHTML_Texto.Replace("@HistoryDate", dtpGeneralHistoryDate.Text);
-            //PaginaHTML_Texto = PaginaHTML_Texto.Replace("@TEXT", cbFilterGeneralHistory.Text);
+        //    //PaginaHTML_Texto = PaginaHTML_Texto.Replace("@HistoryDate", dtpGeneralHistoryDate.Text);
+        //    //PaginaHTML_Texto = PaginaHTML_Texto.Replace("@TEXT", cbFilterGeneralHistory.Text);
 
-            //FILES TO INSERT INTO THE PDF FILE
-            string filas = string.Empty;
-            //COUNTER FOR COUNTING ALL THE APPOINTMENTS IN DB
-            int counter = 0;
+        //    //FILES TO INSERT INTO THE PDF FILE
+        //    string filas = string.Empty;
+        //    //COUNTER FOR COUNTING ALL THE APPOINTMENTS IN DB
+        //    int counter = 0;
 
-            //READ THE ELEMENTS INTO THE TABLE 
-            foreach (DataGridViewRow row in DgvListaProductos.Rows)
-            {
-                filas += "<tr>";
-                filas += "<td>" + row.Cells[0].Value.ToString() + "</td>";
-                filas += "<td>" + row.Cells[1].Value.ToString() + "</td>";
-                filas += "<td>" + row.Cells[2].Value.ToString() + "</td>";
-                filas += "</tr>";
-                //SET THE COUNTER
-                //counter = counter += 1;
-            }
-            //REPLACE FILES INTO THE HTML DOCUMENT
-            PaginaHTML_Texto = PaginaHTML_Texto.Replace("@FILAS", filas);
-            //SET THE APPOINTMENTS TOTAL INTO THE HTML DOCUMENT
-            //PaginaHTML_Texto = PaginaHTML_Texto.Replace("@TOTAL", counter.ToString());
+        //    //READ THE ELEMENTS INTO THE TABLE 
+        //    foreach (DataGridViewRow row in DgvListaProductos.Rows)
+        //    {
+        //        filas += "<tr>";
+        //        filas += "<td>" + row.Cells[0].Value.ToString() + "</td>";
+        //        filas += "<td>" + row.Cells[1].Value.ToString() + "</td>";
+        //        filas += "<td>" + row.Cells[2].Value.ToString() + "</td>";
+        //        filas += "</tr>";
+        //        //SET THE COUNTER
+        //        //counter = counter += 1;
+        //    }
+        //    //REPLACE FILES INTO THE HTML DOCUMENT
+        //    PaginaHTML_Texto = PaginaHTML_Texto.Replace("@FILAS", filas);
+        //    //SET THE APPOINTMENTS TOTAL INTO THE HTML DOCUMENT
+        //    //PaginaHTML_Texto = PaginaHTML_Texto.Replace("@TOTAL", counter.ToString());
 
-            //************************
+        //    //************************
 
-            if (savefile.ShowDialog() == DialogResult.OK)
-            {
-                using (FileStream stream = new FileStream(savefile.FileName, FileMode.Create))
-                {
-                    //CREATE A NEW DOCUMENT AS PDF
-                    Document pdfDoc = new Document(PageSize.A4, 25, 25, 25, 25);
+        //    if (savefile.ShowDialog() == DialogResult.OK)
+        //    {
+        //        using (FileStream stream = new FileStream(savefile.FileName, FileMode.Create))
+        //        {
+        //            //CREATE A NEW DOCUMENT AS PDF
+        //            Document pdfDoc = new Document(PageSize.A4, 25, 25, 25, 25);
 
-                    PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
-                    pdfDoc.Open();
-                    pdfDoc.Add(new Phrase(""));
+        //            PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
+        //            pdfDoc.Open();
+        //            pdfDoc.Add(new Phrase(""));
 
-                    //ADD AN IMAGE TO THE DOC WITH STYLES
-                    iTextSharp.text.Image img = iTextSharp.text.Image.GetInstance(Properties.Resources.ina, System.Drawing.Imaging.ImageFormat.Png);
-                    img.ScaleToFit(120, 120);//SETS IMG SIZE
-                    img.Alignment = iTextSharp.text.Image.UNDERLYING;
+        //            //ADD AN IMAGE TO THE DOC WITH STYLES
+        //            iTextSharp.text.Image img = iTextSharp.text.Image.GetInstance(Properties.Resources.ina, System.Drawing.Imaging.ImageFormat.Png);
+        //            img.ScaleToFit(120, 120);//SETS IMG SIZE
+        //            img.Alignment = iTextSharp.text.Image.UNDERLYING;
 
 
-                    img.SetAbsolutePosition(pdfDoc.LeftMargin, pdfDoc.Top - 60);
-                    pdfDoc.Add(img);
+        //            img.SetAbsolutePosition(pdfDoc.LeftMargin, pdfDoc.Top - 60);
+        //            pdfDoc.Add(img);
 
-                    //IT INSERTS HTML CONTENT TO THE PDF FILE
-                    using (StringReader sr = new StringReader(PaginaHTML_Texto))
-                    {
-                        XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
-                    }
+        //            //IT INSERTS HTML CONTENT TO THE PDF FILE
+        //            using (StringReader sr = new StringReader(PaginaHTML_Texto))
+        //            {
+        //                XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+        //            }
 
-                    pdfDoc.Close();//CLOSES THE PDF DOCUMENT
-                    stream.Close();//CLOSES THE FILE IN MEMORY
-                    MessageBox.Show("Guardado éxitosamente", "CONFIRMACIÓN", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //            pdfDoc.Close();//CLOSES THE PDF DOCUMENT
+        //            stream.Close();//CLOSES THE FILE IN MEMORY
+        //            MessageBox.Show("Guardado éxitosamente", "CONFIRMACIÓN", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    //OPEN THE PDF AFTER BEING SAVED
-                    string File_Direcction = savefile.FileName;
+        //            //OPEN THE PDF AFTER BEING SAVED
+        //            string File_Direcction = savefile.FileName;
 
-                    //OPEN THE FILE
-                    string command = File_Direcction;
+        //            //OPEN THE FILE
+        //            string command = File_Direcction;
 
-                    var process = new System.Diagnostics.Process
-                    {
-                        StartInfo =
+        //            var process = new System.Diagnostics.Process
+        //            {
+        //                StartInfo =
 
-                             new System.Diagnostics.ProcessStartInfo(command)
-                    };
-                    process.Start();
-                }
+        //                     new System.Diagnostics.ProcessStartInfo(command)
+        //            };
+        //            process.Start();
+        //        }
 
-            }
-        }
+        //    }
+        //}
 
         public void Limpiarcampos()
         {

@@ -25,8 +25,7 @@ namespace CapaPresentacion
         private void FrmHistInsumos_Load(object sender, EventArgs e)
         {
 
-            //this.reportViewer1.RefreshReport();
-            this.reportViewer1.RefreshReport();
+      
         }
 
         private void BtnFiltrar_Click(object sender, EventArgs e)

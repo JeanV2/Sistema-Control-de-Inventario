@@ -6,14 +6,6 @@
     <edmx:Diagrams>
 
       <Diagram DiagramId="192d756b421043cda0d30417c479cd14" Name="Diagram1" ZoomLevel="53">
-        <EntityTypeShape EntityType="inventarioModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="6.875" />
-        <EntityTypeShape EntityType="inventarioModel.TbColaborador" Width="1.5" PointX="0.75" PointY="8.375" />
-        <EntityTypeShape EntityType="inventarioModel.TbCompraSolicitudP" Width="1.5" PointX="5.25" PointY="3.625" />
-        <EntityTypeShape EntityType="inventarioModel.TbPresupuesto" Width="1.5" PointX="0.75" PointY="3.875" />
-        <EntityTypeShape EntityType="inventarioModel.TbProducto" Width="1.5" PointX="3" PointY="3" />
-        <EntityTypeShape EntityType="inventarioModel.TbProductoInsumoS" Width="1.5" PointX="5.25" PointY="0.75" />
-        <EntityTypeShape EntityType="inventarioModel.TbSolicitudCompra" Width="1.5" PointX="3" PointY="12.75" />
-        <EntityTypeShape EntityType="inventarioModel.TbSolicitudInsumo" Width="1.5" PointX="3" PointY="8.375" />
 
       <Diagram DiagramId="192d756b421043cda0d30417c479cd14" Name="Diagram1" ZoomLevel="82">
 
@@ -41,6 +33,21 @@
         <AssociationConnector Association="inventarioModel.FK_TbProductoInsumoS_TbProducto1" />
         <AssociationConnector Association="inventarioModel.FK_TbProductoInsumoS_TbSolicitudInsumo1" />
       </Diagram>
+        <EntityTypeShape EntityType="inventarioModel.sysdiagrams" Width="1.5" PointX="3.9123584832588021" PointY="9.58693905621159" />
+        <EntityTypeShape EntityType="inventarioModel.TbColaborador" Width="1.5" PointX="6.2540940056806864" PointY="16.814738713584251" />
+        <EntityTypeShape EntityType="inventarioModel.TbCompraSolicitudP" Width="1.5" PointX="2.7160904904436745" PointY="19.311923974804543" />
+        <EntityTypeShape EntityType="inventarioModel.TbPresupuesto" Width="1.5" PointX="10.204750488607562" PointY="20.636672640515805" />
+        <EntityTypeShape EntityType="inventarioModel.TbProducto" Width="1.5" PointX="5.0957037830239642" PointY="15.377139322169656" />
+        <EntityTypeShape EntityType="inventarioModel.TbProductoInsumoS" Width="1.5" PointX="2.8783147385708592" PointY="29.722978233230755" />
+        <EntityTypeShape EntityType="inventarioModel.TbSolicitudCompra" Width="1.5" PointX="2.8264600219328235" PointY="13.100081688305401" />
+        <EntityTypeShape EntityType="inventarioModel.TbSolicitudInsumo" Width="1.5" PointX="10.93050205098954" PointY="14.979825086416595" />
+        <AssociationConnector Association="inventarioModel.FK_TbSolicitudCompra_TbColaborador" />
+        <AssociationConnector Association="inventarioModel.FK_TbSolicitudInsumo_TbColaborador" />
+        <AssociationConnector Association="inventarioModel.FK_TbCompraSolicitudP_TbProducto" />
+        <AssociationConnector Association="inventarioModel.FK_TbCompraSolicitudP_TbSolicitudCompra" />
+        <AssociationConnector Association="inventarioModel.FK_TbProducto_TbPresupuesto" />
+        <AssociationConnector Association="inventarioModel.FK_TbProductoInsumoS_TbProducto1" />
+        <AssociationConnector Association="inventarioModel.FK_TbProductoInsumoS_TbSolicitudInsumo1" />
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>
