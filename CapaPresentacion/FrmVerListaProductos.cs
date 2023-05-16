@@ -71,44 +71,53 @@ namespace CapaPresentacion
         //Refrescar DataGridView conlos datos de la base
         private async  void RefreshDatos(List<TbProducto> listaProductos)
         {
-            int cont = 0;
-            int Columns = listaProductos.Count-2;
-            DgvListaProductos.Rows.Clear();
-            DgvListaProductos.Visible= false;
-            PanelCargar.Visible = true;
-            foreach (TbProducto tbProducto in listaProductos)
+            try
             {
-           
-                int nr = DgvListaProductos.Rows.Add();
-               
-                DgvListaProductos.Rows[nr].Cells[0].Value = tbProducto.CFamilia;
-                //almaceno el presupuesto
-                Presupuesto = tbProducto.CFamilia;
-                DgvListaProductos.Rows[nr].Cells[1].Value = tbProducto.CSubFamilia;
-                DgvListaProductos.Rows[nr].Cells[2].Value = tbProducto.NumProducto;
-                DgvListaProductos.Rows[nr].Cells[3].Value = tbProducto.CodProducto;
-                DgvListaProductos.Rows[nr].Cells[4].Value = tbProducto.DesResumida;
-                DgvListaProductos.Rows[nr].Cells[5].Value = tbProducto.CFUnidadMedida;
-                DgvListaProductos.Rows[nr].Cells[6].Value = tbProducto.InventarioRequerido;
-                DgvListaProductos.Rows[nr].Cells[7].Value = tbProducto.MUltCosto; 
-                //almaceno el costo total para compararlo con el monto de ese presupuesto
-                TotalCosto = (double)(tbProducto.InventarioRequerido * tbProducto.MUltCosto);
-                if (PresupuestoAlcanza())
+                int cont = 0;
+                int Columns = listaProductos.Count - 2;
+                DgvListaProductos.Rows.Clear();
+                DgvListaProductos.Visible = false;
+                PanelCargar.Visible = true;
+                foreach (TbProducto tbProducto in listaProductos)
                 {
-                    DgvListaProductos.Rows[nr].Cells[8].Value = TotalCosto;
-                }
-                else
-                {
-                    DgvListaProductos.Rows[nr].Cells[8].Value = "No hay presupuesto";
-                }
 
-               DgvListaProductos.Rows[nr].Cells[9].Value = tbProducto.InventarioExistente;
-                LblCargarPr.Text = cont.ToString() + "/ " + (Columns).ToString();
-                System.Windows.Forms.Application.DoEvents();
-                    cont++; 
+                    int nr = DgvListaProductos.Rows.Add();
+
+                    DgvListaProductos.Rows[nr].Cells[0].Value = tbProducto.CFamilia;
+                    //almaceno el presupuesto
+                    Presupuesto = tbProducto.CFamilia;
+                    DgvListaProductos.Rows[nr].Cells[1].Value = tbProducto.CSubFamilia;
+                    DgvListaProductos.Rows[nr].Cells[2].Value = tbProducto.NumProducto;
+                    DgvListaProductos.Rows[nr].Cells[3].Value = tbProducto.CodProducto;
+                    DgvListaProductos.Rows[nr].Cells[4].Value = tbProducto.DesResumida;
+                    DgvListaProductos.Rows[nr].Cells[5].Value = tbProducto.CFUnidadMedida;
+                    DgvListaProductos.Rows[nr].Cells[6].Value = tbProducto.InventarioRequerido;
+                    DgvListaProductos.Rows[nr].Cells[7].Value = tbProducto.MUltCosto;
+                    //almaceno el costo total para compararlo con el monto de ese presupuesto
+                    TotalCosto = (double)(tbProducto.InventarioRequerido * tbProducto.MUltCosto);
+                    if (PresupuestoAlcanza())
+                    {
+                        DgvListaProductos.Rows[nr].Cells[8].Value = TotalCosto;
+                    }
+                    else
+                    {
+                        DgvListaProductos.Rows[nr].Cells[8].Value = "No hay presupuesto";
+                    }
+
+                    DgvListaProductos.Rows[nr].Cells[9].Value = tbProducto.InventarioExistente;
+                    LblCargarPr.Text = cont.ToString() + "/ " + (Columns).ToString();
+                    System.Windows.Forms.Application.DoEvents();
+                    cont++;
+                }
+                PanelCargar.Visible = false;
+                DgvListaProductos.Visible = true;
+
             }
-            PanelCargar.Visible = false;
-            DgvListaProductos.Visible = true;
+            catch(Exception ex)
+            {
+                MessageBox.Show("Lo sentimos no puedes salir de la venta de carga productos","Alerta",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+           
         }
 
         /// <summary>
