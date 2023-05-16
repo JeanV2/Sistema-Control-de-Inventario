@@ -104,7 +104,6 @@ namespace CapaPresentacion
 
                DgvListaProductos.Rows[nr].Cells[9].Value = tbProducto.InventarioExistente;
                 LblCargarPr.Text = cont.ToString() + "/ " + (Columns).ToString();
-                System.Threading.Thread.Sleep(300);
                 System.Windows.Forms.Application.DoEvents();
                     cont++; 
             }

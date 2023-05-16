@@ -33,13 +33,14 @@ namespace CapaPresentacion
         }
         private void BtnImportar_Click(object sender, EventArgs e)
         {
-            PanelCargar.Visible=false;
-            dgvDatos.Visible = true;
+       
             
             // Abre el cuadro de diálogo para seleccionar el archivo de Excel
             OpenFileDialog openFileDialog = new OpenFileDialog();
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
+                PanelCargar.Visible = true;
+                dgvDatos.Visible = false;
                 // Crea una instancia de Excel y abre el archivo
                 Application excel = new Application();
                 Workbook workbook = excel.Workbooks.Open(openFileDialog.FileName);
@@ -62,6 +63,7 @@ namespace CapaPresentacion
                         dt.Columns.Add((string)(worksheet.Cells[1, i] as Range).Value); 
 
                     }
+
                     for (int i = 2; i <= worksheet.UsedRange.Rows.Count; i++)
                     {
                         DataRow dr = dt.NewRow();
@@ -70,6 +72,10 @@ namespace CapaPresentacion
                             dr[j - 1] = (worksheet.Cells[i, j] as Range).Value;
                         }
                         dt.Rows.Add(dr);
+                        LblCargarPr.Text = i.ToString() + "/ " + (worksheet.UsedRange.Rows.Count).ToString();
+                        System.Threading.Thread.Sleep(100);
+
+                        System.Windows.Forms.Application.DoEvents();
                     }
 
                     // Cierra el archivo y la instancia de Excel
@@ -77,6 +83,7 @@ namespace CapaPresentacion
                     excel.Quit();
 
                     // Asigna los datos al DataGridView
+                    dgvDatos.Visible = true;
                     dgvDatos.DataSource = dt;
                 }
                 else
@@ -204,7 +211,7 @@ namespace CapaPresentacion
                         }
 
                         LblCargarPr.Text = i.ToString() + "/ " + (dgvDatos.Rows.Count - 1).ToString();
-                        System.Threading.Thread.Sleep(500);
+                        System.Threading.Thread.Sleep(100);
 
                         System.Windows.Forms.Application.DoEvents();
 
@@ -316,7 +323,7 @@ namespace CapaPresentacion
 
                     }
                     LblCargarPr.Text = i.ToString() + "/ " + (dgvDatos.Rows.Count - 1).ToString();
-                    System.Threading.Thread.Sleep(200);
+                    System.Threading.Thread.Sleep(100);
 
                     System.Windows.Forms.Application.DoEvents();
                 }
