@@ -86,12 +86,12 @@ namespace CapaPresentacion
             this.Close();
         }
 
-        private async void FrmListaProductosSolicituCompra_Load(object sender, EventArgs e)
+        private void FrmListaProductosSolicituCompra_Load(object sender, EventArgs e)
         {
             //Definimos una lista para almacenar los productos
 
             //rellenamos la lista con los productos
-            products =  await Productos.ListProduct();
+            products =   Productos.ListProductosSinAsy();
             //cargamos el datagridview con los productos
             cargarDt(products);
         }
