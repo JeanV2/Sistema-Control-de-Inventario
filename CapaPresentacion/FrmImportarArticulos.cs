@@ -157,58 +157,70 @@ namespace CapaPresentacion
 
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
-            if (dgvDatos.Rows.Count > 0)
+            inventarioEntities1 Db = new inventarioEntities1();
+            if (Db.TbProducto.Count()>1)
             {
-                //Obtenemos un listado de los productos directamente con el entities
-                inventarioEntities1 Db = new inventarioEntities1();
-                List<TbProducto> ListProductos;
-                List<TbPresupuesto> ListPresupuesto = Db.TbPresupuesto.ToList(); ;
-                //Elaborado una entidad donde almacenar los datos a guardar o actualizar
-                TbProducto producto = new TbProducto();
-                ListProductos = Db.TbProducto.ToList();
-                dgvDatos.Visible = false;
-                PanelCargar.Visible = true;
-
-                for (int i = 0; i <= dgvDatos.Rows.Count - 1; i++)
+                if (dgvDatos.Rows.Count > 0)
                 {
+                    //Obtenemos un listado de los productos directamente con el entities
 
+                    List<TbProducto> ListProductos;
+                    List<TbPresupuesto> ListPresupuesto = Db.TbPresupuesto.ToList(); ;
+                    //Elaborado una entidad donde almacenar los datos a guardar o actualizar
+                    TbProducto producto = new TbProducto();
+                    ListProductos = Db.TbProducto.ToList();
+                    dgvDatos.Visible = false;
+                    PanelCargar.Visible = true;
 
-                    foreach (var item2 in ListPresupuesto)
+                    for (int i = 0; i <= dgvDatos.Rows.Count - 1; i++)
                     {
-                        if (dgvDatos.Rows[i].Cells[0].Value.ToString() != "")
+
+
+                        foreach (var item2 in ListPresupuesto)
                         {
-                            if (("1" + dgvDatos.Rows[i].Cells[0].Value.ToString()) == item2.numeroCuenta)
+                            if (dgvDatos.Rows[i].Cells[0].Value.ToString() != "")
                             {
-                                producto.CFamilia = "1" + dgvDatos.Rows[i].Cells[0].Value.ToString();
-                                producto.CSubFamilia = dgvDatos.Rows[i].Cells[1].Value.ToString();
-                                producto.NumProducto = dgvDatos.Rows[i].Cells[2].Value.ToString();
-                                producto.CodProducto = dgvDatos.Rows[i].Cells[3].Value.ToString();
-                                producto.CFUnidadMedida = dgvDatos.Rows[i].Cells[4].Value.ToString();
-                                producto.DesResumida = dgvDatos.Rows[i].Cells[5].Value.ToString();
-                                producto.InventarioRequerido = dgvDatos.Rows[i].Cells[6].Value.ToString() == "" ? 0 : int.Parse(dgvDatos.Rows[i].Cells[6].Value.ToString());
-                                producto.MUltCosto = dgvDatos.Rows[i].Cells[7].Value.ToString() == "" ? 0 : Convert.ToDouble(dgvDatos.Rows[i].Cells[7].Value.ToString());
-                                producto.CostoTotal = dgvDatos.Rows[i].Cells[8].Value.ToString() == "" ? 0 : Convert.ToDouble(dgvDatos.Rows[i].Cells[8].Value.ToString());
-                                producto.InventarioExistente = dgvDatos.Rows[i].Cells[9].Value.ToString() == "" ? 0 : int.Parse(dgvDatos.Rows[i].Cells[9].Value.ToString());
-                                Prod.GuardarProduct(producto);
+                                if (("1" + dgvDatos.Rows[i].Cells[0].Value.ToString()) == item2.numeroCuenta)
+                                {
+                                    producto.CFamilia = "1" + dgvDatos.Rows[i].Cells[0].Value.ToString();
+                                    producto.CSubFamilia = dgvDatos.Rows[i].Cells[1].Value.ToString();
+                                    producto.NumProducto = dgvDatos.Rows[i].Cells[2].Value.ToString();
+                                    producto.CodProducto = dgvDatos.Rows[i].Cells[3].Value.ToString();
+                                    producto.CFUnidadMedida = dgvDatos.Rows[i].Cells[4].Value.ToString();
+                                    producto.DesResumida = dgvDatos.Rows[i].Cells[5].Value.ToString();
+                                    producto.InventarioRequerido = dgvDatos.Rows[i].Cells[6].Value.ToString() == "" ? 0 : int.Parse(dgvDatos.Rows[i].Cells[6].Value.ToString());
+                                    producto.MUltCosto = dgvDatos.Rows[i].Cells[7].Value.ToString() == "" ? 0 : Convert.ToDouble(dgvDatos.Rows[i].Cells[7].Value.ToString());
+                                    producto.CostoTotal = dgvDatos.Rows[i].Cells[8].Value.ToString() == "" ? 0 : Convert.ToDouble(dgvDatos.Rows[i].Cells[8].Value.ToString());
+                                    producto.InventarioExistente = dgvDatos.Rows[i].Cells[9].Value.ToString() == "" ? 0 : int.Parse(dgvDatos.Rows[i].Cells[9].Value.ToString());
+                                    Prod.GuardarProduct(producto);
+                                }
+
                             }
 
                         }
 
+                        LblCargarPr.Text = i.ToString() + "/ " + (dgvDatos.Rows.Count - 1).ToString();
+                        System.Threading.Thread.Sleep(500);
+
+                        System.Windows.Forms.Application.DoEvents();
+
                     }
-
-                    LblCargarPr.Text = i.ToString() + "/ " + (dgvDatos.Rows.Count - 1).ToString();
-                    System.Threading.Thread.Sleep(500);
-
-                    System.Windows.Forms.Application.DoEvents();
+                    lblcompleted.Visible = true;
 
                 }
-                lblcompleted.Visible = true;
-
+                else
+                {
+                    MessageBox.Show("Importar los producto", "INFORMACION", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             else
             {
-                MessageBox.Show("Importar los producto", "INFORMACION", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Si quiere actualizar los productos debe seleccionar el boton de actualizar", "INFORMACION", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
             }
+
+
+
 
         }
 
@@ -224,6 +236,93 @@ namespace CapaPresentacion
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
+            inventarioEntities1 Db = new inventarioEntities1();
+            //Lista que almacena todo los productos almacenados en la base de datos
+            List<TbProducto> ListProductos = Db.TbProducto.ToList();
+            //Lista que contiene todo los prosupuestos almacenados en la base de datos
+            List<TbPresupuesto> ListPresupuesto = Db.TbPresupuesto.ToList();
+            //Valida que el data grid tenga productos cargados
+            if (dgvDatos.Rows.Count > 0)
+            {
+                //Oculta el data grid
+                dgvDatos.Visible = false;
+                //Muestra el panel de la animacion de carga
+                PanelCargar.Visible = true;
+                //Recorremos todas las filas del data grid
+                for (int i = 0; i <= dgvDatos.Rows.Count - 1; i++)
+                {
+                    //Obtenemos el codigo del producto
+                    string codProd = dgvDatos.Rows[i].Cells[3].Value.ToString();
+                    //Obtenemos el codigo del presupuesto relacionado al producto
+                    string codFamilia = $"1{dgvDatos.Rows[i].Cells[0].Value}";
+                    //Obtenemos el nuevo precio asignado al producto
+                    float nuevoCosto = float.Parse(dgvDatos.Rows[i].Cells[7].Value.ToString());
+                    //Obtenemos la nueva unidad medida asignada
+                    String nuevoUnidadMedida = dgvDatos.Rows[i].Cells[4].Value.ToString();
+                    //Obtenemos el nuevo inventario requerido
+                    int nuevoInventarioRequerido = int.Parse(dgvDatos.Rows[i].Cells[6].Value.ToString());
+                    //Obtenemos la nueva descripcion del producto
+                    String nuevaDescripcion = dgvDatos.Rows[i].Cells[5].Value.ToString();
+                    //Recorre la lista de productos registrado en la base de datos
+                    foreach (var presupuesto in ListPresupuesto)
+                    {
+                        //Validamos que el producto tenga un codigo de prespuesto asignado
+                        if (presupuesto.numeroCuenta == codFamilia)
+                        {
+                            //Recorremos la lista de productos registrada en la base de datos
+                            foreach (var itemProducto in ListProductos)
+                            {
+                                /**si el codigo de producto que extraemos del data grid concide con el codigo de un producto registrado
+                                 * en la base datos actulizamos los datos correspondientes
+                                **/
+
+                                if (itemProducto.CodProducto == codProd)
+                                {
+                                    //Crea el objeto de tipo producto que contedra los datos del producto por actulizar
+                                    TbProducto producto = new TbProducto();
+                                    producto = ListProductos.Where(c => c.CodProducto == codProd).FirstOrDefault();
+                                    producto.MUltCosto = nuevoCosto;
+                                    producto.CFUnidadMedida = nuevoUnidadMedida;
+                                    producto.DesResumida = nuevaDescripcion;
+                                    producto.InventarioRequerido = nuevoInventarioRequerido;
+                                    Db.SaveChanges();
+
+                                }
+                                else
+                                {
+                                    //En caso de que el producto no se encuentre registro en la base de datos se agraga como nuevo producto
+                                    TbProducto producto = new TbProducto();
+                                    producto.CFamilia = "1" + dgvDatos.Rows[i].Cells[0].Value.ToString();
+                                    producto.CSubFamilia = dgvDatos.Rows[i].Cells[1].Value.ToString();
+                                    producto.NumProducto = dgvDatos.Rows[i].Cells[2].Value.ToString();
+                                    producto.CodProducto = dgvDatos.Rows[i].Cells[3].Value.ToString();
+                                    producto.CFUnidadMedida = dgvDatos.Rows[i].Cells[4].Value.ToString();
+                                    producto.DesResumida = dgvDatos.Rows[i].Cells[5].Value.ToString();
+                                    producto.InventarioRequerido = dgvDatos.Rows[i].Cells[6].Value.ToString() == "" ? 0 : int.Parse(dgvDatos.Rows[i].Cells[6].Value.ToString());
+                                    producto.MUltCosto = dgvDatos.Rows[i].Cells[7].Value.ToString() == "" ? 0 : Convert.ToDouble(dgvDatos.Rows[i].Cells[7].Value.ToString());
+                                    producto.CostoTotal = dgvDatos.Rows[i].Cells[8].Value.ToString() == "" ? 0 : Convert.ToDouble(dgvDatos.Rows[i].Cells[8].Value.ToString());
+                                    producto.InventarioExistente = dgvDatos.Rows[i].Cells[9].Value.ToString() == "" ? 0 : int.Parse(dgvDatos.Rows[i].Cells[9].Value.ToString());
+                                    Prod.GuardarProduct(producto);
+                                }
+
+                            }
+
+                        }
+
+                    }
+                    LblCargarPr.Text = i.ToString() + "/ " + (dgvDatos.Rows.Count - 1).ToString();
+                    System.Threading.Thread.Sleep(200);
+
+                    System.Windows.Forms.Application.DoEvents();
+                }
+                lblcompleted.Text = "Actualizacion exitosa";
+                lblcompleted.Visible = true;
+
+            }
+            else
+            {
+                MessageBox.Show("Importar los producto", "INFORMACION", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
         }
     }
