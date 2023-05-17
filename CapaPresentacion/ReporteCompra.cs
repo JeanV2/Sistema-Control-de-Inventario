@@ -12,9 +12,18 @@ namespace CapaPresentacion
 {
     public partial class ReporteCompra : Form
     {
+        
         public ReporteCompra()
         {
             InitializeComponent();
+        }
+
+        private void ReporteCompra_Load(object sender, EventArgs e)
+        {
+            // TODO: esta línea de código carga datos en la tabla 'dataSet1.SolicitudCompraReport' Puede moverla o quitarla según sea necesario.
+            this.solicitudCompraReportTableAdapter.Fill(this.dataSet1.SolicitudCompraReport,FrmHistCompras.codpasar);
+
+            this.reportViewer1.RefreshReport();
         }
     }
 }

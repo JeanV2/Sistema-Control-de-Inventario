@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CapaEntidades;
+using CapaNegocios;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,29 +14,60 @@ namespace CapaPresentacion
 {
     public partial class FrmHistCompras : Form
     {
+        public static String codpasar;
+        NegocioSolCompra  NCompra= new NegocioSolCompra();
+        List<TbSolicitudCompra> SolicitudesCompra;
         public FrmHistCompras()
         {
             InitializeComponent();
         }
-
+        public void CargarDt(List<TbSolicitudCompra>list)
+        {
+            foreach (TbSolicitudCompra Lis in list)
+            {
+                int row = DgvListaProductos.Rows.Add();
+                DgvListaProductos.Rows[row].Cells[0].Value = Lis.IdSolicitudCompra;
+                DgvListaProductos.Rows[row].Cells[1].Value = Lis.TbColaborador.NombreColaborador;
+                DgvListaProductos.Rows[row].Cells[2].Value = Lis.MontoSolicitudCompra;
+                DgvListaProductos.Rows[row].Cells[3].Value = Lis.FechaSolicitudCompra;
+            }
+        }
         private void FrmHistCompras_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Close();
         }
-        public void CargarDt()
-        {
-
-        }
+       
         private void FrmHistCompras_Load(object sender, EventArgs e)
         {
-            DtpFecha1.CustomFormat = DateTime.Now.ToString("yyyy-MM-dd");
-            DtpFecha2.CustomFormat = DateTime.Now.ToString("yyyy-MM-dd");
+            SolicitudesCompra = NCompra.ListaSolicitudes();
+            CargarDt(SolicitudesCompra);
         }
 
         private void BtnFiltrar_Click(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'dataSet1.DataTable1' Puede moverla o quitarla según sea necesario.
-            this.dataTable1TableAdapter.Fill(this.dataSet1.DataTable1,DtpFecha1.Value.ToString("yyyy-MM-dd"), DtpFecha2.Value.ToString("yyyy-MM-dd"));
+            List<TbSolicitudCompra> listaAux = SolicitudesCompra.Where(x => x.FechaSolicitudCompra >= DtpFecha1.Value && x.FechaSolicitudCompra <= DtpFecha2.Value).ToList(); ;
+            if (listaAux.Count > 0)
+            {
+                DgvListaProductos.Rows.Clear();
+                CargarDt(listaAux);
+            }
+            else
+            {
+                DgvListaProductos.Rows.Clear();
+                CargarDt(SolicitudesCompra);
+                MessageBox.Show("No se encontraron solicitudes entre el rango de fechas ingresado", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void DgvListaProductos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                string id = DgvListaProductos.Rows[e.RowIndex].Cells[0].Value.ToString();
+                codpasar= id;
+                ReporteCompra Frm = new ReporteCompra();
+                Frm.ShowDialog();
+            }
         }
     }
 }

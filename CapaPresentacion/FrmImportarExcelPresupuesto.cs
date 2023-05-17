@@ -60,7 +60,10 @@ namespace CapaPresentacion
                 }
                 else
                 {
-                    MessageBox.Show("Error en el formato");
+                    
+                    MessageBox.Show("Error en el formato","alerta",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
+                    FormatoExcelPresuuestos frm = new FormatoExcelPresuuestos();
+                    frm.ShowDialog();
                 }
                 
                 // Cierra el archivo y la instancia de Excel

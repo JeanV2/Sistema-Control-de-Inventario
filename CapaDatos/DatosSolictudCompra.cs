@@ -68,7 +68,7 @@ namespace CapaDatos
             {
                 using (var contex = new inventarioEntities1())
                 {
-                    return (from c in contex.TbSolicitudCompra  select c).ToList();
+                    return (from c in contex.TbSolicitudCompra.Include("TbColaborador") select c).ToList();
                 }
                 
             }

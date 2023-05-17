@@ -38,10 +38,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Fecha2 = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.BtnFiltrar = new Guna.UI2.WinForms.Guna2Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.TxtCodigoPresupuesto = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.txtNombre = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnFiltrarPornombre = new Guna.UI2.WinForms.Guna2Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.DgvListaSolicitudInsumos = new Guna.UI2.WinForms.Guna2DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,7 +63,7 @@
             this.flowLayoutPanel1.Controls.Add(this.Fecha2);
             this.flowLayoutPanel1.Controls.Add(this.BtnFiltrar);
             this.flowLayoutPanel1.Controls.Add(this.label3);
-            this.flowLayoutPanel1.Controls.Add(this.TxtCodigoPresupuesto);
+            this.flowLayoutPanel1.Controls.Add(this.txtNombre);
             this.flowLayoutPanel1.Controls.Add(this.btnFiltrarPornombre);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -162,38 +162,6 @@
             this.BtnFiltrar.UseTransparentBackground = true;
             this.BtnFiltrar.Click += new System.EventHandler(this.BtnFiltrar_Click);
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.DgvListaSolicitudInsumos);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 122);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1371, 562);
-            this.panel1.TabIndex = 2;
-            // 
-            // TxtCodigoPresupuesto
-            // 
-            this.TxtCodigoPresupuesto.BorderRadius = 10;
-            this.TxtCodigoPresupuesto.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TxtCodigoPresupuesto.DefaultText = "";
-            this.TxtCodigoPresupuesto.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.TxtCodigoPresupuesto.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.TxtCodigoPresupuesto.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.TxtCodigoPresupuesto.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.TxtCodigoPresupuesto.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TxtCodigoPresupuesto.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtCodigoPresupuesto.ForeColor = System.Drawing.Color.Black;
-            this.TxtCodigoPresupuesto.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TxtCodigoPresupuesto.Location = new System.Drawing.Point(170, 74);
-            this.TxtCodigoPresupuesto.Margin = new System.Windows.Forms.Padding(3, 18, 0, 0);
-            this.TxtCodigoPresupuesto.Name = "TxtCodigoPresupuesto";
-            this.TxtCodigoPresupuesto.PasswordChar = '\0';
-            this.TxtCodigoPresupuesto.PlaceholderText = "";
-            this.TxtCodigoPresupuesto.SelectedText = "";
-            this.TxtCodigoPresupuesto.Size = new System.Drawing.Size(269, 43);
-            this.TxtCodigoPresupuesto.TabIndex = 18;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -205,6 +173,28 @@
             this.label3.TabIndex = 19;
             this.label3.Text = "Nombre";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.BorderRadius = 10;
+            this.txtNombre.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNombre.DefaultText = "";
+            this.txtNombre.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtNombre.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtNombre.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNombre.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNombre.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNombre.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombre.ForeColor = System.Drawing.Color.Black;
+            this.txtNombre.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNombre.Location = new System.Drawing.Point(170, 74);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(3, 18, 0, 0);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.PasswordChar = '\0';
+            this.txtNombre.PlaceholderText = "";
+            this.txtNombre.SelectedText = "";
+            this.txtNombre.Size = new System.Drawing.Size(269, 43);
+            this.txtNombre.TabIndex = 18;
             // 
             // btnFiltrarPornombre
             // 
@@ -237,6 +227,16 @@
             this.btnFiltrarPornombre.UseTransparentBackground = true;
             this.btnFiltrarPornombre.Click += new System.EventHandler(this.btnFiltrarPornombre_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.DgvListaSolicitudInsumos);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 122);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1371, 562);
+            this.panel1.TabIndex = 2;
+            // 
             // DgvListaSolicitudInsumos
             // 
             this.DgvListaSolicitudInsumos.AllowUserToAddRows = false;
@@ -247,7 +247,7 @@
             this.DgvListaSolicitudInsumos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(54)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(219)))), ((int)(((byte)(57)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -263,9 +263,9 @@
             this.Column5,
             this.Column6});
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(194)))));
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(247)))), ((int)(((byte)(215)))));
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(231)))), ((int)(((byte)(123)))));
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -291,15 +291,15 @@
             this.DgvListaSolicitudInsumos.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(194)))));
             this.DgvListaSolicitudInsumos.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(219)))), ((int)(((byte)(57)))));
             this.DgvListaSolicitudInsumos.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.DgvListaSolicitudInsumos.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DgvListaSolicitudInsumos.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DgvListaSolicitudInsumos.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.Black;
             this.DgvListaSolicitudInsumos.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.DgvListaSolicitudInsumos.ThemeStyle.HeaderStyle.Height = 52;
             this.DgvListaSolicitudInsumos.ThemeStyle.ReadOnly = true;
-            this.DgvListaSolicitudInsumos.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(194)))));
+            this.DgvListaSolicitudInsumos.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(247)))), ((int)(((byte)(215)))));
             this.DgvListaSolicitudInsumos.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.DgvListaSolicitudInsumos.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DgvListaSolicitudInsumos.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.White;
+            this.DgvListaSolicitudInsumos.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.DgvListaSolicitudInsumos.ThemeStyle.RowsStyle.Height = 25;
             this.DgvListaSolicitudInsumos.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(231)))), ((int)(((byte)(123)))));
             this.DgvListaSolicitudInsumos.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
@@ -381,7 +381,7 @@
         private Guna.UI2.WinForms.Guna2Button BtnFiltrar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
-        private Guna.UI2.WinForms.Guna2TextBox TxtCodigoPresupuesto;
+        private Guna.UI2.WinForms.Guna2TextBox txtNombre;
         private Guna.UI2.WinForms.Guna2Button btnFiltrarPornombre;
         private Guna.UI2.WinForms.Guna2DataGridView DgvListaSolicitudInsumos;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;

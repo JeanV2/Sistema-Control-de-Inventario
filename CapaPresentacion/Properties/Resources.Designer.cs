@@ -103,6 +103,16 @@ namespace CapaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FormatoExcelPresupuesto {
+            get {
+                object obj = ResourceManager.GetObject("FormatoExcelPresupuesto", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap FormatoExcelProductos {
             get {
                 object obj = ResourceManager.GetObject("FormatoExcelProductos", resourceCulture);

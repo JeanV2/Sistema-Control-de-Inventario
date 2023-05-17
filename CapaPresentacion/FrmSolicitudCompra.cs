@@ -1,6 +1,9 @@
 ﻿using CapaDatos;
 using CapaEntidades;
 using CapaNegocios;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
+using iTextSharp.tool.xml;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,6 +11,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -270,6 +274,91 @@ namespace CapaPresentacion
             Colab = Db.TbColaborador.Where(x => x.NombreColaborador == txtAutoriza.Text).SingleOrDefault();
             return Colab.IdColaborador;
         }
+        public void GenerarPDF()
+        {
+
+            SaveFileDialog savefile = new SaveFileDialog();
+            savefile.FileName = string.Format("{0}.pdf", DateTime.Now.ToString("ddMMyyyyHHmmss"));
+            //*************************
+            string PaginaHTML_Texto = Properties.Resources.SolicitudDeCompraPDF.ToString();
+
+
+            PaginaHTML_Texto = PaginaHTML_Texto.Replace("@fecha", DateTime.Now.ToShortDateString());
+            PaginaHTML_Texto = PaginaHTML_Texto.Replace("@Solicitante", txtAutoriza.Text);
+            PaginaHTML_Texto = PaginaHTML_Texto.Replace("@TotalCompra", TxtTotalCompra.Text);
+            //FILES TO INSERT INTO THE PDF FILE
+            string filas = string.Empty;
+            //COUNTER FOR COUNTING ALL THE APPOINTMENTS IN DB
+            int counter = 0;
+
+            //READ THE ELEMENTS INTO THE TABLE 
+            foreach (DataGridViewRow row in DgvListaCompra.Rows)
+            {
+                filas += "<tr>";
+                filas += "<td>" + row.Cells[1].Value.ToString() + "</td>";
+                filas += "<td>" + row.Cells[2].Value.ToString() + "</td>";
+                filas += "<td>" + row.Cells[3].Value.ToString() + "</td>";
+                filas += "<td>" + row.Cells[4].Value.ToString() + "</td>";
+                filas += "<td>" + row.Cells[5].Value.ToString() + "</td>";
+                filas += "</tr>";
+                //SET THE COUNTER
+                //counter = counter += 1;
+            }
+            //REPLACE FILES INTO THE HTML DOCUMENT
+            PaginaHTML_Texto = PaginaHTML_Texto.Replace("@FILAS", filas);
+            //SET THE APPOINTMENTS TOTAL INTO THE HTML DOCUMENT
+            //PaginaHTML_Texto = PaginaHTML_Texto.Replace("@TOTAL", counter.ToString());
+
+            //************************
+
+            if (savefile.ShowDialog() == DialogResult.OK)
+            {
+                using (FileStream stream = new FileStream(savefile.FileName, FileMode.Create))
+                {
+                    //CREATE A NEW DOCUMENT AS PDF
+                    Document pdfDoc = new Document(PageSize.A4, 25, 25, 25, 25);
+
+                    PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
+                    pdfDoc.Open();
+                    pdfDoc.Add(new Phrase(""));
+
+                    //ADD AN IMAGE TO THE DOC WITH STYLES
+                    iTextSharp.text.Image img = iTextSharp.text.Image.GetInstance(Properties.Resources.ina, System.Drawing.Imaging.ImageFormat.Png);
+                    img.ScaleToFit(120, 120);//SETS IMG SIZE
+                    img.Alignment = iTextSharp.text.Image.UNDERLYING;
+
+
+                    img.SetAbsolutePosition(pdfDoc.LeftMargin, pdfDoc.Top - 60);
+                    pdfDoc.Add(img);
+
+                    //IT INSERTS HTML CONTENT TO THE PDF FILE
+                    using (StringReader sr = new StringReader(PaginaHTML_Texto))
+                    {
+                        XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                    }
+
+                    pdfDoc.Close();//CLOSES THE PDF DOCUMENT
+                    stream.Close();//CLOSES THE FILE IN MEMORY
+                    MessageBox.Show("Guardado éxitosamente", "CONFIRMACIÓN", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    //OPEN THE PDF AFTER BEING SAVED
+                    string File_Direcction = savefile.FileName;
+
+                    //OPEN THE FILE
+                    string command = File_Direcction;
+
+                    var process = new System.Diagnostics.Process
+                    {
+                        StartInfo =
+
+                             new System.Diagnostics.ProcessStartInfo(command)
+                    };
+                    process.Start();
+                }
+
+            }
+        }
+
         private void BtnConfirmar_Click(object sender, EventArgs e)
         {
 
@@ -285,7 +374,7 @@ namespace CapaPresentacion
                 solicitudCompra.IdColaboradorCompra = ObtenerIdColaborador();
                 solicitudCompra.FechaSolicitudCompra = Convert.ToDateTime(DtpFechaSolicitud.Value.ToString("yyyy-MM-dd"));
                 solicitudCompra.EstadoSolicitud = true;
-                solicitudCompra.MontoSolicitudCompra = int.Parse(TxtTotalCompra.Text);
+                solicitudCompra.MontoSolicitudCompra =  Convert.ToDouble(TxtTotalCompra.Text.Replace("₡",""));
                 //guardamos la solicitud en el sistema
                 NSolicitudC.GuardarSolicitud(solicitudCompra);
                 //
@@ -312,6 +401,7 @@ namespace CapaPresentacion
                 if (DgvListaCompra.Rows.Count == 0)
                 {
                     MessageBox.Show("Solicitud creada con exito", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    GenerarPDF();
                 }
 
             }
@@ -376,7 +466,7 @@ namespace CapaPresentacion
                         //mostramos el costo
                         TxtCostoTotal.Text = costo.ToString();
                         string PrespuestoSin = TxtMontuoDisponible.Text;
-                        double result = Convert.ToDouble(PrespuestoSin.Substring(1));
+                        double result = Convert.ToDouble(PrespuestoSin);
                         if (costo > result)
                         {
                             guna2Button1.Enabled = false;
@@ -488,7 +578,7 @@ namespace CapaPresentacion
             foreach (TbPresupuesto Pre in listPre)
             {
                
-                    TxtMontuoDisponible.Text =((double)Pre.MontoPresupuesto-TotalBajarPresupuesto).ToString();
+                    TxtMontuoDisponible.Text =((double) Pre.MontoPresupuesto-TotalBajarPresupuesto).ToString();
             }
         }
 

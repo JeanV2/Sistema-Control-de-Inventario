@@ -117,47 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="icons8_cancel_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8_cancel_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="filter_52px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\filter_52px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="unlock_52px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\unlock_52px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="SolicitudDeCompraPDF" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SolicitudDeCompraPDF.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="ina" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ina.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8_cancel_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8_cancel_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="INA_Logo_Facebook" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\INA_Logo_Facebook.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="FormatoExcelProductos" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FormatoExcelProductos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="PDFPlantillaEntrega" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PDFPlantillaEntrega.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
-  <data name="add_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\add_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="INA_logo_blanco1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\INA_logo_blanco1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="customer_52px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\customer_52px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="filter_52px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\filter_52px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="FormatoExcelPresupuesto" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FormatoExcelPresupuesto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
 </root>

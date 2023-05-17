@@ -31,7 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmHistCompras));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.DtpFecha1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
@@ -39,21 +42,19 @@
             this.DtpFecha2 = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.BtnFiltrar = new Guna.UI2.WinForms.Guna2Button();
             this.DgvListaProductos = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.idSolicitudCompraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaSolicitudCompraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idColaboradorCompraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreColaboradorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.primerApellidoColaboradorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.segundoApellidoColaboradorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet1 = new CapaPresentacion.DataSet1();
-            this.dataTable1TableAdapter = new CapaPresentacion.DataSet1TableAdapters.DataTable1TableAdapter();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataTable1BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new CapaPresentacion.DataSet1();
+            this.dataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataTable1TableAdapter = new CapaPresentacion.DataSet1TableAdapters.DataTable1TableAdapter();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaProductos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -66,7 +67,7 @@
             this.flowLayoutPanel1.Controls.Add(this.BtnFiltrar);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(67, 0, 0, 0);
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1371, 49);
@@ -168,7 +169,6 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(244)))), ((int)(((byte)(196)))));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             this.DgvListaProductos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.DgvListaProductos.AutoGenerateColumns = false;
             this.DgvListaProductos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(54)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(219)))), ((int)(((byte)(57)))));
@@ -181,21 +181,18 @@
             this.DgvListaProductos.ColumnHeadersHeight = 52;
             this.DgvListaProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.DgvListaProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idSolicitudCompraDataGridViewTextBoxColumn,
-            this.fechaSolicitudCompraDataGridViewTextBoxColumn,
-            this.idColaboradorCompraDataGridViewTextBoxColumn,
-            this.nombreColaboradorDataGridViewTextBoxColumn,
-            this.primerApellidoColaboradorDataGridViewTextBoxColumn,
-            this.segundoApellidoColaboradorDataGridViewTextBoxColumn});
-            this.DgvListaProductos.DataSource = this.dataTable1BindingSource1;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(194)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(231)))), ((int)(((byte)(123)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DgvListaProductos.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4});
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(194)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(231)))), ((int)(((byte)(123)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DgvListaProductos.DefaultCellStyle = dataGridViewCellStyle5;
             this.DgvListaProductos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgvListaProductos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(194)))));
             this.DgvListaProductos.Location = new System.Drawing.Point(0, 49);
@@ -229,73 +226,60 @@
             this.DgvListaProductos.ThemeStyle.RowsStyle.Height = 25;
             this.DgvListaProductos.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(231)))), ((int)(((byte)(123)))));
             this.DgvListaProductos.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.DgvListaProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListaProductos_CellClick);
             // 
-            // idSolicitudCompraDataGridViewTextBoxColumn
+            // Column1
             // 
-            this.idSolicitudCompraDataGridViewTextBoxColumn.DataPropertyName = "IdSolicitudCompra";
-            this.idSolicitudCompraDataGridViewTextBoxColumn.HeaderText = "Solicitud #";
-            this.idSolicitudCompraDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.idSolicitudCompraDataGridViewTextBoxColumn.Name = "idSolicitudCompraDataGridViewTextBoxColumn";
-            this.idSolicitudCompraDataGridViewTextBoxColumn.ReadOnly = true;
+            this.Column1.HeaderText = "id Solicitud";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
-            // fechaSolicitudCompraDataGridViewTextBoxColumn
+            // Column2
             // 
-            this.fechaSolicitudCompraDataGridViewTextBoxColumn.DataPropertyName = "FechaSolicitudCompra";
-            this.fechaSolicitudCompraDataGridViewTextBoxColumn.HeaderText = "Fecha Solicitud";
-            this.fechaSolicitudCompraDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.fechaSolicitudCompraDataGridViewTextBoxColumn.Name = "fechaSolicitudCompraDataGridViewTextBoxColumn";
-            this.fechaSolicitudCompraDataGridViewTextBoxColumn.ReadOnly = true;
+            this.Column2.HeaderText = "Autorizado Por";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
-            // idColaboradorCompraDataGridViewTextBoxColumn
+            // Column3
             // 
-            this.idColaboradorCompraDataGridViewTextBoxColumn.DataPropertyName = "IdColaboradorCompra";
-            this.idColaboradorCompraDataGridViewTextBoxColumn.HeaderText = "Colaborador";
-            this.idColaboradorCompraDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.idColaboradorCompraDataGridViewTextBoxColumn.Name = "idColaboradorCompraDataGridViewTextBoxColumn";
-            this.idColaboradorCompraDataGridViewTextBoxColumn.ReadOnly = true;
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column3.HeaderText = "monto compra";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
-            // nombreColaboradorDataGridViewTextBoxColumn
+            // Column4
             // 
-            this.nombreColaboradorDataGridViewTextBoxColumn.DataPropertyName = "NombreColaborador";
-            this.nombreColaboradorDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nombreColaboradorDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.nombreColaboradorDataGridViewTextBoxColumn.Name = "nombreColaboradorDataGridViewTextBoxColumn";
-            this.nombreColaboradorDataGridViewTextBoxColumn.ReadOnly = true;
+            dataGridViewCellStyle4.Format = "d";
+            dataGridViewCellStyle4.NullValue = null;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Column4.HeaderText = "fecha realizado";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
-            // primerApellidoColaboradorDataGridViewTextBoxColumn
+            // dataTable1BindingSource1
             // 
-            this.primerApellidoColaboradorDataGridViewTextBoxColumn.DataPropertyName = "PrimerApellidoColaborador";
-            this.primerApellidoColaboradorDataGridViewTextBoxColumn.HeaderText = "Primer Apellido";
-            this.primerApellidoColaboradorDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.primerApellidoColaboradorDataGridViewTextBoxColumn.Name = "primerApellidoColaboradorDataGridViewTextBoxColumn";
-            this.primerApellidoColaboradorDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // segundoApellidoColaboradorDataGridViewTextBoxColumn
-            // 
-            this.segundoApellidoColaboradorDataGridViewTextBoxColumn.DataPropertyName = "SegundoApellidoColaborador";
-            this.segundoApellidoColaboradorDataGridViewTextBoxColumn.HeaderText = "Segundo Apellido";
-            this.segundoApellidoColaboradorDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.segundoApellidoColaboradorDataGridViewTextBoxColumn.Name = "segundoApellidoColaboradorDataGridViewTextBoxColumn";
-            this.segundoApellidoColaboradorDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dataTable1BindingSource
-            // 
-            this.dataTable1BindingSource.DataMember = "DataTable1";
-            this.dataTable1BindingSource.DataSource = this.dataSet1;
+            this.dataTable1BindingSource1.DataMember = "DataTable1";
+            this.dataTable1BindingSource1.DataSource = this.dataSet1;
             // 
             // dataSet1
             // 
             this.dataSet1.DataSetName = "DataSet1";
             this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // dataTable1BindingSource
+            // 
+            this.dataTable1BindingSource.DataMember = "DataTable1";
+            this.dataTable1BindingSource.DataSource = this.dataSet1;
+            // 
             // dataTable1TableAdapter
             // 
             this.dataTable1TableAdapter.ClearBeforeFill = true;
-            // 
-            // dataTable1BindingSource1
-            // 
-            this.dataTable1BindingSource1.DataMember = "DataTable1";
-            this.dataTable1BindingSource1.DataSource = this.dataSet1;
             // 
             // FrmHistCompras
             // 
@@ -305,17 +289,19 @@
             this.Controls.Add(this.DgvListaProductos);
             this.Controls.Add(this.flowLayoutPanel1);
             this.ForeColor = System.Drawing.Color.White;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.HelpButton = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmHistCompras";
-            this.Text = "FrmHistCompras";
+            this.Text = "Historial de Solicitudes de compra";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmHistCompras_FormClosed);
             this.Load += new System.EventHandler(this.FrmHistCompras_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaProductos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -332,12 +318,10 @@
         private DataSet1 dataSet1;
         private System.Windows.Forms.BindingSource dataTable1BindingSource;
         private DataSet1TableAdapters.DataTable1TableAdapter dataTable1TableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idSolicitudCompraDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaSolicitudCompraDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idColaboradorCompraDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreColaboradorDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn primerApellidoColaboradorDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn segundoApellidoColaboradorDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource dataTable1BindingSource1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
     }
 }
