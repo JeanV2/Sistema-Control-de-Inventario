@@ -339,7 +339,7 @@ namespace CapaPresentacion
 
                     pdfDoc.Close();//CLOSES THE PDF DOCUMENT
                     stream.Close();//CLOSES THE FILE IN MEMORY
-                    MessageBox.Show("Guardado éxitosamente", "CONFIRMACIÓN", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
 
                     //OPEN THE PDF AFTER BEING SAVED
                     string File_Direcction = savefile.FileName;
@@ -365,6 +365,7 @@ namespace CapaPresentacion
             if (DgvListaCompra.RowCount != 0)
             {
                 //declaramos todas las entitades a utilizar
+                int cont = 0;
                 TbSolicitudCompra solicitudCompra = new TbSolicitudCompra();
                 TbCompraSolicitudP UnionCompra = new TbCompraSolicitudP();
                 NegocioSolCompra NSolicitudC = new NegocioSolCompra();
@@ -391,19 +392,19 @@ namespace CapaPresentacion
                     //Restamos el total Al presupuesto;
                     RestarPresupuesto(i);
                     MasMenosInventario(DgvListaCompra.Rows[i].Cells[1].Value.ToString(), int.Parse((DgvListaCompra.Rows[i].Cells[3].Value.ToString())));
-                  
+                    cont++;
                 }
-                
-                CargarComboPresupuesto();
-                DgvListaCompra.Rows.Clear();
-                Validaciones.LimpiarFormulario(tableLayoutPanel1);
-                TxtTotalCompra.Text = "";
-                if (DgvListaCompra.Rows.Count == 0)
+        
+        
+                if (cont>=DgvListaCompra.Rows.Count)
                 {
                     MessageBox.Show("Solicitud creada con exito", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     GenerarPDF();
                 }
-
+                CargarComboPresupuesto();
+                DgvListaCompra.Rows.Clear();
+                Validaciones.LimpiarFormulario(tableLayoutPanel1);
+                TxtTotalCompra.Text = "";
             }
             else
             {
