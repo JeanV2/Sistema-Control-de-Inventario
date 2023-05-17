@@ -284,8 +284,9 @@ namespace CapaPresentacion
 
 
             PaginaHTML_Texto = PaginaHTML_Texto.Replace("@fecha", DateTime.Now.ToShortDateString());
-            PaginaHTML_Texto = PaginaHTML_Texto.Replace("@Solicitante", txtAutoriza.Text);
-            PaginaHTML_Texto = PaginaHTML_Texto.Replace("@TotalCompra", TxtTotalCompra.Text);
+            PaginaHTML_Texto = PaginaHTML_Texto.Replace("@solicitante", txtAutoriza.Text);
+            PaginaHTML_Texto = PaginaHTML_Texto.Replace("@N_solicitud",TxtSolicitud.Text);
+            PaginaHTML_Texto = PaginaHTML_Texto.Replace("@MontoTotal", TxtTotalCompra.Text);
             //FILES TO INSERT INTO THE PDF FILE
             string filas = string.Empty;
             //COUNTER FOR COUNTING ALL THE APPOINTMENTS IN DB

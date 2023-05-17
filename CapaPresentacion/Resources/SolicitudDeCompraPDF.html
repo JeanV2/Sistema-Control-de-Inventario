@@ -48,6 +48,7 @@
                     <tr>
                         <td align="center" style="font-size:11px">UNIDAD DE RECURSOS MATERIALES</td>
                     </tr>
+                    <!--<tr><td align="center" style="font-size:11px">Email: spazio_dentalcr@hotmail.com</td></tr>-->
                 </table>
             </td>
 
@@ -70,16 +71,23 @@
             <td colspan="3" height="15"></td>
         </tr><!--SPACE-->
         <tr>
-            <td colspan="3" height="15"></td>
-        </tr><!--SPACE-->
+            <td colspan="3" height="10" style="text-align:center; font-size:13px; padding-right: 35px"><b>COMPROBANTE DE
+                    SOLICITUD DE COMPRA</b></td>
+        </tr><!--SPACE BETWEENT SECTIONS-->
         <tr>
             <td colspan="3" height="15"></td>
         </tr><!--SPACE-->
-
+        <tr>
+            <td colspan="3" height="10" style="text-align:left; font-size:11px; padding-right: 35px"><b>N° SOLICITUD:
+                </b><span style="color:green; font-weight: 600"> @N_solicitud</span></td>
+        </tr><!--SPACE BETWEENT SECTIONS-->
         <tr>
             <td colspan="3" height="15"></td>
         </tr><!--SPACE-->
-
+        <tr>
+            <td colspan="3" height="10" style="text-align:left; font-size:13px; padding-right: 35px"><b>Encargado de
+                    solicitud:</b> @solicitante </td>
+        </tr><!--SPACE BETWEENT SECTIONS-->
         <tr>
             <td colspan="3" height="10" style="text-align:left; font-size:13px; padding-right: 35px"><b>Fecha de
                     solicitud:</b> @fecha</td>
@@ -88,20 +96,13 @@
             <td colspan="3" height="15"></td>
         </tr><!--SPACE-->
         <tr>
-            <td colspan="3" height="10" style="text-align:left; font-size:13px; padding-right: 35px"><b>Solicitante:</b>
-                @Solicitante </td>
+            <td colspan="3" height="10" style="text-align:left; font-size:13px; padding-right: 35px"><b>Monto total de
+                    compra:</b> @MontoTotal </td>
         </tr><!--SPACE BETWEENT SECTIONS-->
         <tr>
             <td colspan="3" height="5"></td>
         </tr><!--SPACE-->
         <!--FIRST TITTLE-->
-        <tr>
-            <td colspan="3" height="15"></td>
-        </tr><!--SPACE-->
-        <tr>
-            <td colspan="3" height="10" style="text-align:center; font-size:13px; padding-right: 35px"><b>COMPROBANTE DE
-                    COMPRA DE MATERIALES</b></td>
-        </tr><!--SPACE BETWEENT SECTIONS-->
         <tr>
             <td colspan="3">
                 <table class="border" style="width:100%">
@@ -111,33 +112,21 @@
                         <tr style="background-color: #96b397">
                             <th>Código</th>
                             <th>Producto</th>
-                            <th>Cantidad</th>
-                            <th>Costo por unidad</th>
-                            <th>Costo total</th>
+                            <th>Unidades</th>
+                            <th>Precio/Unidad</th>
+                            <th>Total</th>
                         </tr>
                     </thead>
                     <!--MAIN BODY-->
                     <tbody style="font-size:10px; text-align:center">
                         @FILAS
                         <tr>
+
                         </tr>
                     </tbody>
-                    <tfoot style="font-size:10px; text-align:center">
-                        <tr>
-                            <th style="border:none"></th>
-                            <th style="border:none"></th>
-                            <th style="border:none"></th>
-                            <th style="background-color: #96b397">total Compra</th>
-                            <th style="background-color: #96b397">@TotalCompra</th>
-
-                        </tr>
-
-                    </tfoot>
                 </table>
-
             </td>
         </tr>
-
 
     </table>
 </body>
