@@ -441,20 +441,30 @@ namespace CapaPresentacion
         private  async void BtnFiltrar_Click(object sender, EventArgs e)
         {
             //buscar
-            IEnumerable<TbProducto> listaAux = new List<TbProducto>();
+             List<TbProducto> listaAux;
 
             if (TxtBuscarPorPresupuesto.Text != string.Empty)
             {
 
-                listaAux = ListProducto.Where(x => x.CFamilia.ToString().Contains(TxtBuscarPorPresupuesto.Text)).ToList();
-                TxtBuscarPorPresupuesto.ResetText();
+                listaAux = ListProducto.Where(x => x.CFamilia==TxtBuscarPorPresupuesto.Text).ToList();
+                TxtBuscarCodigoProd.Clear();
+            }
+            else if (TxtBuscarCodigoProd.Text!=string.Empty)
+            {
+                listaAux = ListProducto.Where(x => x.CodProducto==TxtBuscarCodigoProd.Text).ToList();
+                TxtBuscarCodigoProd.Clear();
+            }else if (TxtBuscarPorPresupuesto.Text!= string.Empty && TxtBuscarCodigoProd.Text!= string.Empty)
+            {
+                listaAux = ListProducto.Where(x => x.CodProducto == TxtBuscarCodigoProd.Text && x.CFamilia==TxtBuscarPorPresupuesto.Text).ToList();
+                TxtBuscarCodigoProd.Clear();
+                TxtBuscarCodigoProd.Clear();
             }
             else
             {
                 ListProducto = await NegProduct.ListProduct();
                 listaAux = ListProducto;
             }
-            RefreshDatos((List<TbProducto>)listaAux);
+            RefreshDatos(listaAux);
 
         }
         //Refrescar DataGridView

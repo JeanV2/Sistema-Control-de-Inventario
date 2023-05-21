@@ -53,10 +53,11 @@
             this.BtnLogin.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(99)))), ((int)(((byte)(174)))));
             this.BtnLogin.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
             this.BtnLogin.HoverState.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnLogin.Location = new System.Drawing.Point(71, 385);
+            this.BtnLogin.Location = new System.Drawing.Point(95, 474);
+            this.BtnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnLogin.Name = "BtnLogin";
             this.BtnLogin.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
-            this.BtnLogin.Size = new System.Drawing.Size(217, 53);
+            this.BtnLogin.Size = new System.Drawing.Size(289, 65);
             this.BtnLogin.TabIndex = 3;
             this.BtnLogin.Text = "Log in";
             this.BtnLogin.UseTransparentBackground = true;
@@ -68,9 +69,10 @@
             this.lblError.ForeColor = System.Drawing.Color.White;
             this.lblError.Image = global::CapaPresentacion.Properties.Resources.icons8_cancel_32;
             this.lblError.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblError.Location = new System.Drawing.Point(30, 272);
+            this.lblError.Location = new System.Drawing.Point(40, 335);
+            this.lblError.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(294, 51);
+            this.lblError.Size = new System.Drawing.Size(392, 63);
             this.lblError.TabIndex = 4;
             this.lblError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblError.Visible = false;
@@ -92,13 +94,13 @@
             this.TxtUsuario.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.TxtUsuario.IconLeft = global::CapaPresentacion.Properties.Resources.customer_52px;
             this.TxtUsuario.IconLeftSize = new System.Drawing.Size(35, 35);
-            this.TxtUsuario.Location = new System.Drawing.Point(30, 153);
-            this.TxtUsuario.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.TxtUsuario.Location = new System.Drawing.Point(40, 188);
+            this.TxtUsuario.Margin = new System.Windows.Forms.Padding(7, 5, 7, 5);
             this.TxtUsuario.Name = "TxtUsuario";
             this.TxtUsuario.PasswordChar = '\0';
             this.TxtUsuario.PlaceholderText = "User Name";
             this.TxtUsuario.SelectedText = "";
-            this.TxtUsuario.Size = new System.Drawing.Size(294, 44);
+            this.TxtUsuario.Size = new System.Drawing.Size(392, 54);
             this.TxtUsuario.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.TxtUsuario.TabIndex = 1;
             this.TxtUsuario.TextOffset = new System.Drawing.Point(22, 7);
@@ -120,13 +122,13 @@
             this.TxtContraseña.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.TxtContraseña.IconLeft = global::CapaPresentacion.Properties.Resources.unlock_52px;
             this.TxtContraseña.IconLeftSize = new System.Drawing.Size(35, 35);
-            this.TxtContraseña.Location = new System.Drawing.Point(30, 224);
-            this.TxtContraseña.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.TxtContraseña.Location = new System.Drawing.Point(40, 276);
+            this.TxtContraseña.Margin = new System.Windows.Forms.Padding(7, 5, 7, 5);
             this.TxtContraseña.Name = "TxtContraseña";
             this.TxtContraseña.PasswordChar = '●';
             this.TxtContraseña.PlaceholderText = "Password";
             this.TxtContraseña.SelectedText = "";
-            this.TxtContraseña.Size = new System.Drawing.Size(294, 44);
+            this.TxtContraseña.Size = new System.Drawing.Size(392, 54);
             this.TxtContraseña.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.TxtContraseña.TabIndex = 2;
             this.TxtContraseña.TextOffset = new System.Drawing.Point(22, 7);
@@ -136,9 +138,10 @@
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.INA_logo_blanco1;
-            this.pictureBox1.Location = new System.Drawing.Point(10, 10);
+            this.pictureBox1.Location = new System.Drawing.Point(13, 12);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(334, 87);
+            this.pictureBox1.Size = new System.Drawing.Size(446, 107);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -146,24 +149,26 @@
             // FrmLogin
             // 
             this.AcceptButton = this.BtnLogin;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(54)))), ((int)(((byte)(94)))));
-            this.ClientSize = new System.Drawing.Size(354, 451);
+            this.ClientSize = new System.Drawing.Size(472, 545);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.BtnLogin);
             this.Controls.Add(this.TxtUsuario);
             this.Controls.Add(this.TxtContraseña);
             this.Controls.Add(this.pictureBox1);
             this.HelpButton = true;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(400, 490);
-            this.MinimumSize = new System.Drawing.Size(370, 480);
+            this.MaximumSize = new System.Drawing.Size(527, 592);
+            this.MinimumSize = new System.Drawing.Size(487, 580);
             this.Name = "FrmLogin";
             this.Opacity = 0.9D;
-            this.Padding = new System.Windows.Forms.Padding(10);
+            this.Padding = new System.Windows.Forms.Padding(13, 12, 13, 12);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema de Control de Inventario";
+            this.Load += new System.EventHandler(this.FrmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 

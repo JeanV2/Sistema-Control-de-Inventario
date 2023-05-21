@@ -2,9 +2,11 @@
 using CapaNegocios;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace CapaPresentacion
 {
@@ -48,6 +50,72 @@ namespace CapaPresentacion
 
                 }
             }
+        }
+        public static String ObtenerConexion()
+        {
+            String CadenaRetorno = "";
+            try
+            {
+
+                String Ruta = "C:\\Instalador S.C.I\\configBD";
+
+
+                XmlDocument dock = new XmlDocument();
+                dock.Load(Ruta);
+
+                foreach (XmlElement element in dock.DocumentElement)
+                {
+                    if (element.Name.Equals("connectionStrings"))
+                    {
+                        foreach (XmlNode Node in element.ChildNodes)
+                        {
+                            if (Node.Attributes[0].Value == "inventarioEntities1")
+                            {
+
+                                CadenaRetorno = Node.Attributes[1].Value;
+                            }
+                        }
+                    }
+                }
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Lo sentimos el archivo de configuracion no existe", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return CadenaRetorno;
+
+        }
+        public static void RefreshAppConfig()
+        {
+            try
+            {
+                string Cadena = ObtenerConexion();
+                // Obtener la configuración actual
+                Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+
+                // Obtener la sección de conexión
+                ConnectionStringsSection connectionStringsSection = config.ConnectionStrings;
+
+                // Modificar la cadena de conexión
+                connectionStringsSection.ConnectionStrings["inventarioEntities1"].ConnectionString = Cadena;
+
+                // Guardar los cambios
+                config.Save(ConfigurationSaveMode.Modified);
+
+                // Actualizar la configuración en tiempo de ejecución
+                ConfigurationManager.RefreshSection("connectionStrings");
+
+                //Application.Restart();
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Ocurrio un error al intentar conectarse", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
         }
         private void obtenerdatoscontraseña()
         {
@@ -157,6 +225,11 @@ namespace CapaPresentacion
             }
 
 
+        }
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+            RefreshAppConfig();
         }
     }
 }

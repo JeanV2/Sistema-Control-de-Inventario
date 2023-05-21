@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-<<<<<<< Updated upstream
+
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.solicitudCompraReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -66,7 +66,7 @@
             // solicitudCompraReportTableAdapter
             // 
             this.solicitudCompraReportTableAdapter.ClearBeforeFill = true;
-=======
+
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.SuspendLayout();
             // 
@@ -78,13 +78,13 @@
             this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.Size = new System.Drawing.Size(1117, 704);
             this.reportViewer1.TabIndex = 0;
->>>>>>> Stashed changes
+
             // 
             // ReporteCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-<<<<<<< Updated upstream
+
             this.ClientSize = new System.Drawing.Size(1180, 613);
             this.Controls.Add(this.reportViewer1);
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -93,13 +93,13 @@
             this.Load += new System.EventHandler(this.ReporteCompra_Load);
             ((System.ComponentModel.ISupportInitialize)(this.solicitudCompraReportBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
-=======
+
             this.ClientSize = new System.Drawing.Size(1117, 704);
             this.Controls.Add(this.reportViewer1);
             this.Name = "ReporteCompra";
             this.Text = "ReporteCompra";
             this.Load += new System.EventHandler(this.ReporteCompra_Load);
->>>>>>> Stashed changes
+
             this.ResumeLayout(false);
 
         }
@@ -107,11 +107,10 @@
         #endregion
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
-<<<<<<< Updated upstream
+
         private System.Windows.Forms.BindingSource solicitudCompraReportBindingSource;
         private DataSet1 dataSet1;
         private DataSet1TableAdapters.SolicitudCompraReportTableAdapter solicitudCompraReportTableAdapter;
-=======
->>>>>>> Stashed changes
+
     }
 }

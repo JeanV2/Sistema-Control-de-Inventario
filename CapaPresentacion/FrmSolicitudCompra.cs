@@ -392,8 +392,7 @@ namespace CapaPresentacion
                     //Le restamos a inventario requerido y le sumamos a inventario existente
                     //Restamos el total Al presupuesto;
                     RestarPresupuesto(i);
-                    MasMenosInventario(DgvListaCompra.Rows[i].Cells[1].Value.ToString(), int.Parse((DgvListaCompra.Rows[i].Cells[3].Value.ToString())));
-                    cont++;
+                 
                 }
         
         
@@ -429,20 +428,20 @@ namespace CapaPresentacion
         }
         public void MasMenosInventario(String CodProducto, int Cantidad)
         {
-            inventarioEntities1 Db = new inventarioEntities1();
-            TbProducto producto = new TbProducto();
-            producto = Db.TbProducto.Where(x => x.CodProducto == CodProducto).SingleOrDefault();
-            if (producto.InventarioRequerido == 0)
-            {
-                producto.InventarioRequerido = producto.InventarioRequerido;
-            }
-            else
-            {
-                producto.InventarioRequerido = producto.InventarioRequerido - Cantidad;
-            }
-            producto.InventarioExistente = producto.InventarioExistente + Cantidad;
-            producto.CostoTotal = producto.MUltCosto * producto.InventarioExistente;
-            Db.SaveChanges();
+            //inventarioEntities1 Db = new inventarioEntities1();
+            //TbProducto producto = new TbProducto();
+            //producto = Db.TbProducto.Where(x => x.CodProducto == CodProducto).SingleOrDefault();
+            //if (producto.InventarioRequerido == 0)
+            //{
+            //    producto.InventarioRequerido = producto.InventarioRequerido;
+            //}
+            //else
+            //{
+            //    producto.InventarioRequerido = producto.InventarioRequerido - Cantidad;
+            //}
+            //producto.InventarioExistente = producto.InventarioExistente + Cantidad;
+            //producto.CostoTotal = producto.MUltCosto * producto.InventarioExistente;
+            //Db.SaveChanges();
 
         }
         private void TxtCantidad_TextChanged(object sender, EventArgs e)
@@ -557,6 +556,7 @@ namespace CapaPresentacion
                 TxtNombreProducto.Text = Prod.DesResumida;
                 TxtPrecioProd.Text = Prod.MUltCosto.ToString();
                 TxtInvenRequerido.Text=Prod.InventarioRequerido.ToString();
+                TxtInvExistente.Text=Prod.InventarioExistente.ToString();
             }
             ListProd.Clear();
         }

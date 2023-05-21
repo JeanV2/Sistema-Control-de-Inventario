@@ -66,18 +66,18 @@
             this.flowLayoutPanel1.Controls.Add(this.DtpFecha2);
             this.flowLayoutPanel1.Controls.Add(this.BtnFiltrar);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-<<<<<<< Updated upstream
+
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(67, 0, 0, 0);
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1371, 49);
-=======
+
             this.flowLayoutPanel1.Location = new System.Drawing.Point(5, 5);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(50, 0, 0, 0);
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1018, 40);
->>>>>>> Stashed changes
+
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // label2
@@ -202,23 +202,23 @@
             this.DgvListaProductos.DefaultCellStyle = dataGridViewCellStyle5;
             this.DgvListaProductos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgvListaProductos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(194)))));
-<<<<<<< Updated upstream
+
             this.DgvListaProductos.Location = new System.Drawing.Point(0, 49);
             this.DgvListaProductos.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
-=======
+
             this.DgvListaProductos.Location = new System.Drawing.Point(5, 45);
             this.DgvListaProductos.Margin = new System.Windows.Forms.Padding(10);
->>>>>>> Stashed changes
+
             this.DgvListaProductos.Name = "DgvListaProductos";
             this.DgvListaProductos.ReadOnly = true;
             this.DgvListaProductos.RowHeadersVisible = false;
             this.DgvListaProductos.RowHeadersWidth = 62;
             this.DgvListaProductos.RowTemplate.Height = 25;
-<<<<<<< Updated upstream
+
             this.DgvListaProductos.Size = new System.Drawing.Size(1371, 635);
-=======
+
             this.DgvListaProductos.Size = new System.Drawing.Size(1018, 506);
->>>>>>> Stashed changes
+
             this.DgvListaProductos.TabIndex = 6;
             this.DgvListaProductos.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Lime;
             this.DgvListaProductos.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(244)))), ((int)(((byte)(196)))));
@@ -301,12 +301,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-<<<<<<< Updated upstream
+
             this.ClientSize = new System.Drawing.Size(1371, 684);
-=======
+
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(54)))), ((int)(((byte)(94)))));
             this.ClientSize = new System.Drawing.Size(1028, 556);
->>>>>>> Stashed changes
+
             this.Controls.Add(this.DgvListaProductos);
             this.Controls.Add(this.flowLayoutPanel1);
             this.ForeColor = System.Drawing.Color.White;
@@ -314,12 +314,12 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmHistCompras";
-<<<<<<< Updated upstream
+
             this.Text = "Historial de Solicitudes de compra";
-=======
+
             this.Padding = new System.Windows.Forms.Padding(5);
             this.Text = "FrmHistCompras";
->>>>>>> Stashed changes
+
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmHistCompras_FormClosed);
             this.Load += new System.EventHandler(this.FrmHistCompras_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
