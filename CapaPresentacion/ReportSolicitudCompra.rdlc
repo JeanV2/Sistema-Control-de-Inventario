@@ -432,7 +432,7 @@
         <DataSetName>DataSet1</DataSetName>
         <Top>0.17639cm</Top>
         <Height>1.8cm</Height>
-        <Width>16.73941cm</Width>
+        <Width>16.7394cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -457,7 +457,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Comprobante De Compra</Value>
+                  <Value>Comprobante De Ingreso</Value>
                   <Style>
                     <FontSize>14pt</FontSize>
                   </Style>
@@ -467,9 +467,9 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
-          <Top>3.96381cm</Top>
+          <Top>3.8227cm</Top>
           <Left>5.25808cm</Left>
-          <Height>0.60819cm</Height>
+          <Height>0.7493cm</Height>
           <Width>6.08586cm</Width>
           <Style>
             <Border>
