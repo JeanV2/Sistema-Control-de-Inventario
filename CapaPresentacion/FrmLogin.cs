@@ -51,7 +51,43 @@ namespace CapaPresentacion
                 }
             }
         }
-        public static String ObtenerConexion()
+        public String ObtenerConexionReporte()
+        {
+            String CadenaRetorno = "";
+            try
+            {
+
+                String Ruta = "C:\\Instalador S.C.I\\configBD";
+
+
+                XmlDocument dock = new XmlDocument();
+                dock.Load(Ruta);
+
+                foreach (XmlElement element in dock.DocumentElement)
+                {
+                    if (element.Name.Equals("connectionStrings"))
+                    {
+                        foreach (XmlNode Node in element.ChildNodes)
+                        {
+                            if (Node.Attributes[0].Value == "ReporteConexion")
+                            {
+
+                                CadenaRetorno = Node.Attributes[1].Value;
+                            }
+                        }
+                    }
+                }
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Lo sentimos el archivo de configuracion no existe", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return CadenaRetorno;
+
+        }
+        public String ObtenerConexion()
         {
             String CadenaRetorno = "";
             try
@@ -87,7 +123,7 @@ namespace CapaPresentacion
             return CadenaRetorno;
 
         }
-        public static void RefreshAppConfig()
+        public  void RefreshAppConfig()
         {
             try
             {

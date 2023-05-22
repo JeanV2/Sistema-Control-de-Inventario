@@ -16,9 +16,10 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
-
+        FrmLogin frm = (FrmLogin)Application.OpenForms["FrmLogin"];
         private void ReporteEntrega_Load(object sender, EventArgs e)
         {
+            this.solicitudEntregaReportTableAdapter.Connection.ConnectionString = frm.ObtenerConexionReporte();
             // TODO: esta línea de código carga datos en la tabla 'dataSet1.SolicitudEntregaReport' Puede moverla o quitarla según sea necesario.
             this.solicitudEntregaReportTableAdapter.Fill(this.dataSet1.SolicitudEntregaReport,FrmHistInsumos.CodigoPasar);
 

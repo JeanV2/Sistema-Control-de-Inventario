@@ -17,10 +17,10 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
-
+        FrmLogin frm = (FrmLogin)Application.OpenForms["FrmLogin"];
         private void ReporteCompra_Load(object sender, EventArgs e)
         {
-
+            this.solicitudCompraReportTableAdapter.Connection.ConnectionString = frm.ObtenerConexionReporte();
             // TODO: esta línea de código carga datos en la tabla 'dataSet1.SolicitudCompraReport' Puede moverla o quitarla según sea necesario.
             this.solicitudCompraReportTableAdapter.Fill(this.dataSet1.SolicitudCompraReport,FrmHistCompras.codpasar);
 

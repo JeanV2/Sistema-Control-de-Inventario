@@ -28,7 +28,10 @@
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>http://localhost/Sistema Contro de Inventario/</UpdateUrl>
     <TargetCulture>es-CR</TargetCulture>
-    <ApplicationRevision>2</ApplicationRevision>
+    <ProductName>Sistema Control inventario</ProductName>
+    <PublisherName>grupo Programadores 2023</PublisherName>
+    <SuiteName>Sistema Control inventario</SuiteName>
+    <ApplicationRevision>3</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>

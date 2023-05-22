@@ -28,26 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.solicitudCompraReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet1 = new CapaPresentacion.DataSet1();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.dataSet1 = new CapaPresentacion.DataSet1();
+            this.solicitudCompraReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.solicitudCompraReportTableAdapter = new CapaPresentacion.DataSet1TableAdapters.SolicitudCompraReportTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.solicitudCompraReportBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.solicitudCompraReportBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // solicitudCompraReportBindingSource
-            // 
-            this.solicitudCompraReportBindingSource.DataMember = "SolicitudCompraReport";
-            this.solicitudCompraReportBindingSource.DataSource = this.dataSet1;
-            // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer1
             // 
@@ -59,47 +48,36 @@
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(1180, 613);
+            this.reportViewer1.Size = new System.Drawing.Size(1117, 704);
             this.reportViewer1.TabIndex = 0;
             this.reportViewer1.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.PageWidth;
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // solicitudCompraReportBindingSource
+            // 
+            this.solicitudCompraReportBindingSource.DataMember = "SolicitudCompraReport";
+            this.solicitudCompraReportBindingSource.DataSource = this.dataSet1;
             // 
             // solicitudCompraReportTableAdapter
             // 
             this.solicitudCompraReportTableAdapter.ClearBeforeFill = true;
-
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.SuspendLayout();
-            // 
-            // reportViewer1
-            // 
-            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(1117, 704);
-            this.reportViewer1.TabIndex = 0;
-
             // 
             // ReporteCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-
-            this.ClientSize = new System.Drawing.Size(1180, 613);
+            this.ClientSize = new System.Drawing.Size(1117, 704);
             this.Controls.Add(this.reportViewer1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ReporteCompra";
-            this.Text = "Reporte Solicitud de compra";
-            this.Load += new System.EventHandler(this.ReporteCompra_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.solicitudCompraReportBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
-
-            this.ClientSize = new System.Drawing.Size(1117, 704);
-            this.Controls.Add(this.reportViewer1);
-            this.Name = "ReporteCompra";
             this.Text = "ReporteCompra";
             this.Load += new System.EventHandler(this.ReporteCompra_Load);
-
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.solicitudCompraReportBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -107,10 +85,8 @@
         #endregion
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
-
         private System.Windows.Forms.BindingSource solicitudCompraReportBindingSource;
         private DataSet1 dataSet1;
         private DataSet1TableAdapters.SolicitudCompraReportTableAdapter solicitudCompraReportTableAdapter;
-
     }
 }
