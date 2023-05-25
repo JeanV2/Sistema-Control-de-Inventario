@@ -48,7 +48,8 @@ namespace CapaPresentacion
 
         private void FrmMenuPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+         
+         
 
             // Aca Generar las lineas de codigo para el respaldo de la base de datos
 
@@ -146,6 +147,20 @@ namespace CapaPresentacion
                 AbrirFormularioHijo(new FrmImportarExcelPresupuesto());
                 MenuPresupuestos.SelectedIndex = 0;
             }
+        }
+
+        private void FrmMenuPrincipal_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FrmLogin frm = new FrmLogin();
+            frm.Show();
+
+            this.Close();
+        }
+
+        private void FrmMenuPrincipal_Load(object sender, EventArgs e)
+        {
+            lblUser.Text ="User: " +FrmLogin.NombreCompletoV
+                .ToString();
         }
     }
 }

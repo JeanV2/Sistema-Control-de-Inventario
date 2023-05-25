@@ -24,6 +24,7 @@ namespace CapaPresentacion
         bool pass;
         bool user;
         //globales
+        public static string NombreCompletoV;
         public static string Idetificacion;
         public static string NombreCompleto;
         //-------------------------------------------------------------------------------------------------------------
@@ -166,6 +167,7 @@ namespace CapaPresentacion
 
                     pass = true;
                     //le decimos a la variables globales que sea igual a los datos de usuario
+                    NombreCompletoV = TBLusuario.NombreColaborador + " " + TBLusuario.PrimerApellidoColaborador + " " + TBLusuario.SegundoApellidoColaborador;
                     Idetificacion = TBLusuario.IdColaborador;
                     NombreCompleto = TBLusuario.NombreColaborador;
                     break;

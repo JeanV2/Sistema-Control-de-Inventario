@@ -253,7 +253,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(199, 41);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Montuo Disponible";
+            this.label2.Text = "Monto Disponible";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label11
@@ -724,7 +724,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(331, 43);
             this.label9.TabIndex = 4;
-            this.label9.Text = "Montuo Total de Compra";
+            this.label9.Text = "Monto Total de Compra";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2

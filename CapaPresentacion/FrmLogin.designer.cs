@@ -54,7 +54,7 @@
             this.BtnLogin.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(226)))));
             this.BtnLogin.HoverState.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnLogin.Location = new System.Drawing.Point(95, 474);
-            this.BtnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnLogin.Margin = new System.Windows.Forms.Padding(4);
             this.BtnLogin.Name = "BtnLogin";
             this.BtnLogin.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(208)))), ((int)(((byte)(225)))));
             this.BtnLogin.Size = new System.Drawing.Size(289, 65);
@@ -82,7 +82,7 @@
             this.TxtUsuario.Animated = true;
             this.TxtUsuario.BorderColor = System.Drawing.Color.White;
             this.TxtUsuario.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TxtUsuario.DefaultText = "Jona";
+            this.TxtUsuario.DefaultText = "";
             this.TxtUsuario.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.TxtUsuario.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.TxtUsuario.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -110,7 +110,7 @@
             this.TxtContraseña.Animated = true;
             this.TxtContraseña.BorderColor = System.Drawing.Color.White;
             this.TxtContraseña.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TxtContraseña.DefaultText = "2020";
+            this.TxtContraseña.DefaultText = "";
             this.TxtContraseña.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.TxtContraseña.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.TxtContraseña.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -139,7 +139,7 @@
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.INA_logo_blanco1;
             this.pictureBox1.Location = new System.Drawing.Point(13, 12);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(446, 107);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -159,7 +159,7 @@
             this.Controls.Add(this.TxtContraseña);
             this.Controls.Add(this.pictureBox1);
             this.HelpButton = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(527, 592);
             this.MinimumSize = new System.Drawing.Size(487, 580);

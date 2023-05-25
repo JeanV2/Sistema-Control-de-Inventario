@@ -31,7 +31,7 @@
     <ProductName>Sistema Control inventario</ProductName>
     <PublisherName>grupo Programadores 2023</PublisherName>
     <SuiteName>Sistema Control inventario</SuiteName>
-    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationRevision>6</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
